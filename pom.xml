@@ -2,19 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- See description of deployment process at http://central.sonatype.org/pages/ossrh-guide.html -->
+    <parent>
+        <groupId>org.gwtbootstrap5</groupId>
+        <artifactId>gwtbootstrap5-parent</artifactId>
+        <version>0.1.11</version>
+    </parent>
 
-    <groupId>org.gwtbootstrap5</groupId>
-    <artifactId>gwtbootstrap5-parent</artifactId>
-    <packaging>pom</packaging>
-    <version>0.1.12</version>
-    <name>GwtBootstrap5 Parent</name>
+    <artifactId>gwtbootstrap5</artifactId>
+    <name>GwtBootstrap5</name>
     <description>GWT wrapper for the Bootstrap front-end framework</description>
-    <url>https://gwtbootstrap5.org</url>
-
-    <prerequisites>
-        <maven>3.9.11</maven>
-    </prerequisites>
+    <url>http://gwtbootstrap5.org</url>
+    <packaging>gwt-lib</packaging>
 
     <scm>
         <connection>scm:git:git@github.com:gwtbootstrap5/gwtbootstrap5.git</connection>
@@ -23,250 +21,52 @@
         <tag>HEAD</tag>
     </scm>
 
-    <licenses>
-        <license>
-            <name>Apache License Version 2</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <id>themarioga</id>
-            <name>Mario Gonzalez</name>
-            <email>mario.gonzalez@i2e.es</email>
-            <url>http://i2e.es/</url>
-            <roles>
-                <role>architect</role>
-                <role>developer</role>
-            </roles>
-            <timezone>UTC+1</timezone>
-        </developer>
-        <developer>
-            <id>svenjacobs</id>
-            <name>Sven Jacobs</name>
-            <email>mail@svenjacobs.com</email>
-            <url>http://svenjacobs.com/</url>
-            <roles>
-                <role>architect</role>
-                <role>developer</role>
-            </roles>
-            <timezone>UTC+1</timezone>
-        </developer>
-        <developer>
-            <id>jgodi</id>
-            <name>Joshua Godi</name>
-            <email>joshuagodi@gmail.com</email>
-            <url>http://joshuagodi.com/</url>
-            <roles>
-                <role>architect</role>
-                <role>developer</role>
-            </roles>
-            <timezone>UTC+6</timezone>
-        </developer>
-        <developer>
-            <id>sjardine</id>
-            <name>Steven Jardine</name>
-            <email>steven.jardine@gmail.com</email>
-            <roles>
-                <role>developer</role>
-            </roles>
-            <timezone>UTC-7</timezone>
-        </developer>
-    </developers>
-
-    <modules>
-        <module>gwtbootstrap5</module>
-        <module>../gwtbootstrap5-extras</module>
-    </modules>
-
     <properties>
-        <java.version>17</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-        <gwt.version>2.13.0</gwt.version>
-        <guava.version>33.5.0-jre</guava.version>
-        <elemental2.version>1.3.2</elemental2.version>
-
-        <gwt-maven-plugin.version>1.2.0</gwt-maven-plugin.version>
-        <maven-checkstyle-plugin.version>3.6.0</maven-checkstyle-plugin.version>
-        <maven-compiler-plugin.version>3.14.1</maven-compiler-plugin.version>
-        <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
-        <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
-        <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
-        <maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
-        <maven-release-plugin.version>3.2.0</maven-release-plugin.version>
-        <nexus-staging-maven-plugin.version>1.7.0</nexus-staging-maven-plugin.version>
-        <license-maven-plugin.version>2.7.1</license-maven-plugin.version>
+        <junit.version>4.13.2</junit.version>
+        <skipTests>true</skipTests>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.gwtproject</groupId>
-                <artifactId>gwt-user</artifactId>
-                <version>${gwt.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava-gwt</artifactId>
-                <version>${guava.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.elemental2</groupId>
-                <artifactId>elemental2-dom</artifactId>
-                <version>${elemental2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.elemental2</groupId>
-                <artifactId>elemental2-promise</artifactId>
-                <version>${elemental2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.elemental2</groupId>
-                <artifactId>elemental2-core</artifactId>
-                <version>${elemental2.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.gwtproject</groupId>
+            <artifactId>gwt-user</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>net.ltgt.gwt.maven</groupId>
-                    <artifactId>gwt-maven-plugin</artifactId>
-                    <version>${gwt-maven-plugin.version}</version>
-                    <extensions>true</extensions>
-                    <inherited>true</inherited>
-                    <configuration>
-                        <webappDirectory>${webapp.directory}</webappDirectory>
-                        <logLevel>INFO</logLevel>
-                        <sourceLevel>${java.version}</sourceLevel>
-                        <launcherDir>${webapp.directory}</launcherDir>
-                        <warDir>${webapp.directory}</warDir>
-                        <devmodeWorkDir>${webapp.directory}</devmodeWorkDir>
-                        <skipModule>true</skipModule>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.owasp</groupId>
-                    <artifactId>dependency-check-maven</artifactId>
-                    <version>12.1.5</version>
-                    <configuration>
-                        <failBuildOnCVSS>8</failBuildOnCVSS>
-                        <suppressionFiles>
-                            <suppressionFile>${basedir}/src/main/resources/cve-false-possitives.xml</suppressionFile>
-                        </suppressionFiles>
-                        <retireJsAnalyzerEnabled>false</retireJsAnalyzerEnabled>
-                        <nvdDatafeedUrl>${env.NVD_API_URL}</nvdDatafeedUrl>
-                        <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
-                        <ossindexAnalyzerEnabled>${env.OSS_INDEX_ENABLED}</ossindexAnalyzerEnabled>
-                        <ossIndexUsername>${env.OSSINDEX_USERNAME}</ossIndexUsername>
-                        <ossIndexPassword>${env.OSSINDEX_PASSWORD}</ossIndexPassword>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>${maven-source-plugin.version}</version>
-                    <executions>
-                        <execution>
-                            <id>attach-sources</id>
-                            <goals>
-                                <goal>jar-no-fork</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${maven-surefire-plugin.version}</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-
         <plugins>
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>net.ltgt.gwt.maven</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <configuration>
+                    <moduleName>org.gwtbootstrap5.gwtbootstrap5</moduleName>
+                    <moduleShortName>gwtbootstrap5</moduleShortName>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
-                <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>license-maven-plugin</artifactId>
-                <version>${license-maven-plugin.version}</version>
-                <configuration>
-                    <licenseName>apache_v2</licenseName>
-                    <inceptionYear>2026</inceptionYear>
-                    <organizationName>GwtBootstrap5</organizationName>
-                    <projectName>GwtBootstrap5</projectName>
-                    <processStartTag> ==========================LICENSE_START=============================== </processStartTag>
-                    <sectionDelimiter> ====================================================================== </sectionDelimiter>
-                    <processEndTag> ==========================LICENSE_END================================= </processEndTag>
-                    <includes>
-                        <include>**/*.java</include>
-                        <include>**/*.xml</include>
-                    </includes>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>license</id>
-                        <phase>process-sources</phase>
-                        <goals>
-                            <goal>update-file-header</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${maven-checkstyle-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <configuration>
-                            <configLocation>checkstyle.xml</configLocation>
-                            <violationSeverity>warning</violationSeverity>
-                        </configuration>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>${nexus-staging-maven-plugin.version}</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
+                <artifactId>maven-source-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
+                <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <arguments>-Prelease</arguments>
-                    <preparationGoals>package</preparationGoals>
+                    <skipTests>${skipTests}</skipTests>
                 </configuration>
             </plugin>
         </plugins>
@@ -274,131 +74,11 @@
 
     <profiles>
         <profile>
-            <id>deploy</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>${maven-javadoc-plugin.version}</version>
-                        <configuration>
-                            <locale>en</locale>
-                            <linksource>true</linksource>
-                            <validateLinks>true</validateLinks>
-                            <noqualifier>all</noqualifier>
-                            <links>
-                                <link>http://www.gwtproject.org/javadoc/latest</link>
-                            </links>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>release</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>${maven-javadoc-plugin.version}</version>
-                        <configuration>
-                            <locale>en</locale>
-                            <linksource>true</linksource>
-                            <validateLinks>true</validateLinks>
-                            <noqualifier>all</noqualifier>
-                            <links>
-                                <link>http://www.gwtproject.org/javadoc/latest</link>
-                            </links>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>attach-javadocs</id>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>${maven-gpg-plugin.version}</version>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
+            <id>test</id>
+            <properties>
+                <skipTests>false</skipTests>
+            </properties>
         </profile>
     </profiles>
-
-    <repositories>
-        <repository>
-            <id>sonatype-nexus</id>
-            <name>Sonatype Nexus</name>
-            <url>https://repository.sonatype.org/content/groups/public/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <!-- Required for CI to fetch the latest snapshot releases of gwtbootstrap5 -->
-        <repository>
-            <id>sonatype-nexus-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>sonatype-nexus-plugins</id>
-            <url>https://repository.sonatype.org/content/groups/public/</url>
-            <name>Sonatype Nexus Plugins</name>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
 
 </project>
