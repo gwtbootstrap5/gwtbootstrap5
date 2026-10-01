@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suppressions PUBLIC
+    "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+    "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+<!--
+    Files that still contain JSNI or JavaScriptObject overlay types.
+    Remove a file from this list once it is migrated to JsInterop; when the list is empty,
+    the JSNI to JsInterop migration is complete.
+-->
+<suppressions>
+    <suppress id="jsni" files="org[\\/]gwtbootstrap5[\\/]client[\\/]ui[\\/]Toast\.java$"/>
+</suppressions>

@@ -6,7 +6,26 @@
 -->
 <module name="Checker">
   <property name="severity" value="warning"/>
+
+  <!-- Per-module checkstyle-suppressions.xml; the path is passed in by the parent POM. -->
+  <module name="SuppressionFilter">
+    <property name="file" value="${checkstyle.suppressions.file}" default="checkstyle-suppressions.xml"/>
+    <property name="optional" value="true"/>
+  </module>
+
   <module name="FileTabCharacter">
     <property name="eachLine" value="true"/>
+  </module>
+
+  <!-- JSNI to JsInterop migration: no new JSNI or JavaScriptObject overlay types. -->
+  <module name="RegexpSingleline">
+    <property name="id" value="jsni"/>
+    <property name="format" value="/\*-\{"/>
+    <property name="message" value="JSNI is not allowed; use a native @JsType instead."/>
+  </module>
+  <module name="RegexpSingleline">
+    <property name="id" value="jsni"/>
+    <property name="format" value="extends\s+JavaScriptObject\b"/>
+    <property name="message" value="JavaScriptObject overlay types are not allowed; use a native @JsType instead."/>
   </module>
 </module>
