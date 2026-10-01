@@ -24,67 +24,43 @@ import com.google.gwt.core.client.Callback;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.ScriptInjector;
-import jsinterop.annotations.JsMethod;
 import org.gwtbootstrap5.client.ui.util.StyleInjector;
 
 /**
- * Provides script injection for jQuery and boostrap if they aren't already loaded.
+ * Provides script injection for Popper and Bootstrap if they aren't already loaded.
  * 
  * @author Sven Jacobs
  * @author Steven Jardine
  */
 public class GwtBootstrap5URLEntryPoint implements EntryPoint {
 
-    /**
-     * Check to see if Bootstrap is loaded already.
-     * 
-     * @return true is Bootstrap loaded, false otherwise.
-     */
-    @JsMethod
-    private static native boolean isBootstrapLoaded();
-
-    /**
-     * Check to see if jQuery is loaded already
-     *
-     * @return true is jQuery is loaded, false otherwise
-     */
-    @JsMethod
-    private static native boolean isjQueryLoaded();
-
     /** {@inheritDoc} */
     @Override
     public void onModuleLoad() {
-        ScriptInjector.fromString(GwtBootstrap5ClientBundle.INSTANCE.gwtBootstrap5().getText())
-                .setWindow(ScriptInjector.TOP_WINDOW)
-                .inject();
-
-        ScriptInjector.fromUrl("https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js").setWindow(ScriptInjector.TOP_WINDOW)
-                .inject();
-
-        if (!isjQueryLoaded()) {
-            ScriptInjector.fromUrl("https://code.jquery.com/jquery-3.7.1.min.js")
-                    .setWindow(ScriptInjector.TOP_WINDOW)
-                    .setCallback(new Callback<>() {
-                        @Override
-                        public void onFailure(Exception reason) {
-                            GWT.log(reason.getMessage());
-                        }
-
-                        @Override
-                        public void onSuccess(Void result) {
-                            ScriptInjector.fromUrl("https://code.jquery.com/jquery-migrate-3.6.0.min.js").setWindow(ScriptInjector.TOP_WINDOW).inject();
-
-                            if (!isBootstrapLoaded()) {
-                                ScriptInjector.fromUrl("https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js").setWindow(ScriptInjector.TOP_WINDOW)
-                                        .inject();
-                            }
-                        }
-                    })
-                    .inject();
-
-            StyleInjector.injectCSS("https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css");
-            StyleInjector.injectCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css");
+        if (GwtBootstrap5EntryPoint.isBootstrapLoaded()) {
+            return;
         }
+
+        StyleInjector.injectCSS("https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css");
+        StyleInjector.injectCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css");
+
+        // bootstrap.min.js reads the Popper global when it loads, so Popper must come first
+        ScriptInjector.fromUrl("https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js")
+                .setWindow(ScriptInjector.TOP_WINDOW)
+                .setCallback(new Callback<>() {
+                    @Override
+                    public void onFailure(Exception reason) {
+                        GWT.log(reason.getMessage());
+                    }
+
+                    @Override
+                    public void onSuccess(Void result) {
+                        ScriptInjector.fromUrl("https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js")
+                                .setWindow(ScriptInjector.TOP_WINDOW)
+                                .inject();
+                    }
+                })
+                .inject();
     }
     
 }

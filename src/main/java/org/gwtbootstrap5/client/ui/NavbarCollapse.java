@@ -32,7 +32,10 @@ import org.gwtbootstrap5.client.shared.event.ShowEvent;
 import org.gwtbootstrap5.client.shared.event.ShowHandler;
 import org.gwtbootstrap5.client.shared.event.ShownEvent;
 import org.gwtbootstrap5.client.shared.event.ShownHandler;
-import org.gwtbootstrap5.client.shared.js.JQuery;
+import org.gwtbootstrap5.client.shared.js.BootstrapCollapse;
+import org.gwtbootstrap5.client.shared.js.DomEventListeners;
+
+import jsinterop.base.JsPropertyMap;
 import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap5.client.ui.constants.CollapseParam;
 import org.gwtbootstrap5.client.ui.constants.Styles;
@@ -46,6 +49,8 @@ import org.gwtbootstrap5.client.ui.gwt.FlowPanel;
  * @see NavbarCollapseButton
  */
 public class NavbarCollapse extends FlowPanel {
+
+    private final DomEventListeners listeners = new DomEventListeners();
 
     // Default hidden
     private final boolean toggle = false;
@@ -169,25 +174,28 @@ public class NavbarCollapse extends FlowPanel {
     }
 
     private void bindJavaScriptEvents(final com.google.gwt.dom.client.Element e) {
-        JQuery collapse = JQuery.jQuery(e);
-
-        collapse.on("show.bs.collapse", this::onShow);
-
-        collapse.on("shown.bs.collapse", this::onShown);
-
-        collapse.on("hide.bs.collapse", this::onHide);
-
-        collapse.on("hidden.bs.collapse", this::onHidden);
+        listeners.add(e, "show.bs.collapse", this::onShow);
+        listeners.add(e, "shown.bs.collapse", this::onShown);
+        listeners.add(e, "hide.bs.collapse", this::onHide);
+        listeners.add(e, "hidden.bs.collapse", this::onHidden);
     }
 
     private void unbindJavaScriptEvents(final com.google.gwt.dom.client.Element e) {
-        JQuery.jQuery(e).off("show.bs.collapse");
-        JQuery.jQuery(e).off("shown.bs.collapse");
-        JQuery.jQuery(e).off("hide.bs.collapse");
-        JQuery.jQuery(e).off("hidden.bs.collapse");
+        listeners.removeAll();
     }
 
     private void fireMethod(final Element e, final String command) {
-        JQuery.jQuery(e).collapse(command);
+        final BootstrapCollapse collapse = BootstrapCollapse.getOrCreateInstance(e, JsPropertyMap.of("toggle", false));
+        switch (command) {
+            case CollapseParam.SHOW:
+                collapse.show();
+                break;
+            case CollapseParam.HIDE:
+                collapse.hide();
+                break;
+            default:
+                collapse.toggle();
+                break;
+        }
     }
 }

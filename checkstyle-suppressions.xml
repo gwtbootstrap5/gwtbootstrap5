@@ -8,5 +8,4 @@
     the JSNI to JsInterop migration is complete.
 -->
 <suppressions>
-    <suppress id="jsni" files="org[\\/]gwtbootstrap5[\\/]client[\\/]ui[\\/]Toast\.java$"/>
 </suppressions>

@@ -32,7 +32,10 @@ import org.gwtbootstrap5.client.shared.event.ShowEvent;
 import org.gwtbootstrap5.client.shared.event.ShowHandler;
 import org.gwtbootstrap5.client.shared.event.ShownEvent;
 import org.gwtbootstrap5.client.shared.event.ShownHandler;
-import org.gwtbootstrap5.client.shared.js.JQuery;
+import org.gwtbootstrap5.client.shared.js.BootstrapCollapse;
+import org.gwtbootstrap5.client.shared.js.DomEventListeners;
+
+import jsinterop.base.JsPropertyMap;
 import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap5.client.ui.constants.CollapseParam;
 import org.gwtbootstrap5.client.ui.constants.Styles;
@@ -42,6 +45,8 @@ import org.gwtbootstrap5.client.ui.html.Div;
  * @author Grant Slender
  */
 public class Collapse extends Div {
+
+    private final DomEventListeners listeners = new DomEventListeners();
 
     // Default shown
     private boolean toggle = true;
@@ -182,25 +187,28 @@ public class Collapse extends Div {
     }
 
     private void bindJavaScriptEvents(final com.google.gwt.dom.client.Element e) {
-        JQuery collapse = JQuery.jQuery(e);
-
-        collapse.on("show.bs.collapse", this::onShow);
-
-        collapse.on("shown.bs.collapse", this::onShown);
-
-        collapse.on("hide.bs.collapse", this::onHide);
-
-        collapse.on("hidden.bs.collapse", this::onHidden);
+        listeners.add(e, "show.bs.collapse", this::onShow);
+        listeners.add(e, "shown.bs.collapse", this::onShown);
+        listeners.add(e, "hide.bs.collapse", this::onHide);
+        listeners.add(e, "hidden.bs.collapse", this::onHidden);
     }
 
     private void unbindJavaScriptEvents(final Element e) {
-        JQuery.jQuery(e).off("show.bs.collapse");
-        JQuery.jQuery(e).off("shown.bs.collapse");
-        JQuery.jQuery(e).off("hide.bs.collapse");
-        JQuery.jQuery(e).off("hidden.bs.collapse");
+        listeners.removeAll();
     }
 
     private void fireMethod(final Element e, String method) {
-        JQuery.jQuery(e).collapse(method);
+        final BootstrapCollapse collapse = BootstrapCollapse.getOrCreateInstance(e, JsPropertyMap.of("toggle", false));
+        switch (method) {
+            case CollapseParam.SHOW:
+                collapse.show();
+                break;
+            case CollapseParam.HIDE:
+                collapse.hide();
+                break;
+            default:
+                collapse.toggle();
+                break;
+        }
     }
 }

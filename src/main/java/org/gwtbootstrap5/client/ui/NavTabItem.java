@@ -28,7 +28,8 @@ import org.gwtbootstrap5.client.shared.event.TabShowEvent;
 import org.gwtbootstrap5.client.shared.event.TabShowHandler;
 import org.gwtbootstrap5.client.shared.event.TabShownEvent;
 import org.gwtbootstrap5.client.shared.event.TabShownHandler;
-import org.gwtbootstrap5.client.shared.js.JQuery;
+import org.gwtbootstrap5.client.shared.js.BootstrapTab;
+import org.gwtbootstrap5.client.shared.js.DomEventListeners;
 import org.gwtbootstrap5.client.ui.base.HasDataTarget;
 import org.gwtbootstrap5.client.ui.base.helper.RoleHelper;
 import org.gwtbootstrap5.client.ui.constants.*;
@@ -56,6 +57,8 @@ import java.util.List;
  * @see org.gwtbootstrap5.client.ui.NavTabs
  */
 public class NavTabItem extends AnchorListItem implements HasDataTarget {
+
+    private final DomEventListeners listeners = new DomEventListeners();
 
     /**
      * Creates the default widget with no text
@@ -269,21 +272,17 @@ public class NavTabItem extends AnchorListItem implements HasDataTarget {
     }
 
     private void showTab(Element e) {
-        JQuery.jQuery(e).tab("show");
+        BootstrapTab.getOrCreateInstance(e).show();
     }
 
     // @formatter:off
     private void bindJavaScriptEvents(final Element e) {
-        JQuery tab = JQuery.jQuery(e);
-
-        tab.on("show.bs.tab", this::onShow);
-
-        tab.on("shown.bs.tab", this::onShown);
+        listeners.add(e, "show.bs.tab", this::onShow);
+        listeners.add(e, "shown.bs.tab", this::onShown);
     }
 
     private void unbindJavaScriptEvents(final Element e) {
-        JQuery.jQuery(e).off("show.bs.tab");
-        JQuery.jQuery(e).off("shown.bs.tab");
+        listeners.removeAll();
     }
 
 }

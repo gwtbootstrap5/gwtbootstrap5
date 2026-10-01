@@ -20,14 +20,14 @@ package org.gwtbootstrap5.client.ui;
  * ==========================LICENSE_END=================================
  */
 
-import org.gwtbootstrap5.client.shared.js.JQuery;
+import org.gwtbootstrap5.client.shared.js.BootstrapScrollSpy;
 import org.gwtbootstrap5.client.ui.base.HasId;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.UIObject;
 
-import jsinterop.annotations.JsMethod;
+import jsinterop.base.JsPropertyMap;
 
 /**
  * A ScrollSpy handles scrolling events (typically on {@code <body>}) and
@@ -139,10 +139,11 @@ public class ScrollSpy {
         refresh(spyOn);
     }
 
-    @JsMethod
-    private static native void init(final Element e, final String target);
+    private static void init(final Element e, final String target) {
+        BootstrapScrollSpy.getOrCreateInstance(e, JsPropertyMap.of("target", target));
+    }
 
     private void refresh(final Element e) {
-        JQuery.jQuery(e).scrollspy("refresh");
+        BootstrapScrollSpy.getOrCreateInstance(e, null).refresh();
     }
 }

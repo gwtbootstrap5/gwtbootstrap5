@@ -20,9 +20,7 @@ package org.gwtbootstrap5.client.ui.base.mixin;
  * ==========================LICENSE_END=================================
  */
 
-import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.UIObject;
-import org.gwtbootstrap5.client.shared.js.JQuery;
 
 /**
  * @author Grant Slender
@@ -38,16 +36,7 @@ public class HTMLMixin<T extends UIObject> extends TextMixin<T> {
     }
 
     public void setHTML(final String html) {
-        try {
-            uiObject.getElement().setInnerHTML(html);
-        } catch (Exception e) {
-            // try using jQuery.html() for handling IE, etc.
-            setInnerHTML(uiObject.getElement(), html);
-        }
-    }
-
-    private void setInnerHTML(Element e, String html) {
-        JQuery.jQuery(e).html(html);
+        uiObject.getElement().setInnerHTML(html);
     }
 
 }

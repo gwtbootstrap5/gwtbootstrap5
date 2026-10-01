@@ -28,7 +28,8 @@ import org.gwtbootstrap5.client.shared.event.ModalShowEvent;
 import org.gwtbootstrap5.client.shared.event.ModalShowHandler;
 import org.gwtbootstrap5.client.shared.event.ModalShownEvent;
 import org.gwtbootstrap5.client.shared.event.ModalShownHandler;
-import org.gwtbootstrap5.client.shared.js.JQuery;
+import org.gwtbootstrap5.client.shared.js.BootstrapModal;
+import org.gwtbootstrap5.client.shared.js.DomEventListeners;
 import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap5.client.ui.base.modal.ModalContent;
 import org.gwtbootstrap5.client.ui.base.modal.ModalDialog;
@@ -43,6 +44,10 @@ import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
+
+import elemental2.dom.DomGlobal;
+import elemental2.dom.NodeList;
+import jsinterop.base.Js;
 
 /**
  * Modal dialog.
@@ -94,6 +99,8 @@ public class Modal extends Div implements IsClosable {
     private static final String TOGGLE = "toggle";
     private static final String HIDE = "hide";
     private static final String SHOW = "show";
+
+    private final DomEventListeners listeners = new DomEventListeners();
 
     private final ModalContent content = new ModalContent();
     private final ModalDialog dialog = new ModalDialog();
@@ -311,32 +318,43 @@ public class Modal extends Div implements IsClosable {
     }
 
     private void bindJavaScriptEvents(final Element e) {
-        JQuery modal = JQuery.jQuery(e);
-
-        modal.on("show.bs.modal", this::onShow);
-
-        modal.on("shown.bs.modal", this::onShown);
-
-        modal.on("hide.bs.modal", this::onHide);
-
-        modal.on("hidden.bs.modal", this::onHidden);
+        listeners.add(e, "show.bs.modal", this::onShow);
+        listeners.add(e, "shown.bs.modal", this::onShown);
+        listeners.add(e, "hide.bs.modal", this::onHide);
+        listeners.add(e, "hidden.bs.modal", this::onHidden);
     }
 
     private void modal(final Element e, final String arg) {
-        JQuery.jQuery(e).modal(arg);
+        final BootstrapModal modal = BootstrapModal.getOrCreateInstance(e, null);
+        switch (arg) {
+            case SHOW:
+                modal.show();
+                break;
+            case HIDE:
+                modal.hide();
+                break;
+            default:
+                modal.toggle();
+                break;
+        }
     }
 
     // Will iterate over all the modals, if they are visible it will hide them
     private void hideOtherModals() {
-        JQuery.jQuery(".modal.in").modal("hide");
+        final NodeList<elemental2.dom.Element> shown = DomGlobal.document.querySelectorAll(".modal.show");
+        for (int i = 0; i < shown.length; i++) {
+            final Element other = Js.uncheckedCast(shown.getAt(i));
+            if (other != getElement()) {
+                final BootstrapModal modal = BootstrapModal.getInstance(other);
+                if (modal != null) {
+                    modal.hide();
+                }
+            }
+        }
     }
 
     // Unbinds all the handlers
     private void unbindAllHandlers(final Element e) {
-        JQuery je = JQuery.jQuery(e);
-        je.off("show.bs.modal");
-        je.off("shown.bs.modal");
-        je.off("hide.bs.modal");
-        je.off("hidden.bs.modal");
+        listeners.removeAll();
     }
 }

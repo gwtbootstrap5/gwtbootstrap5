@@ -24,7 +24,8 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.Event;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 import org.gwtbootstrap5.client.shared.event.*;
-import org.gwtbootstrap5.client.shared.js.JQuery;
+import org.gwtbootstrap5.client.shared.js.BootstrapToast;
+import org.gwtbootstrap5.client.shared.js.DomEventListeners;
 import org.gwtbootstrap5.client.ui.base.helper.RoleHelper;
 import org.gwtbootstrap5.client.ui.constants.Attributes;
 import org.gwtbootstrap5.client.ui.constants.Styles;
@@ -34,6 +35,8 @@ import org.gwtbootstrap5.client.ui.html.Small;
 import org.gwtbootstrap5.client.ui.html.Strong;
 
 public class Toast extends Div {
+
+    private final DomEventListeners listeners = new DomEventListeners();
 
     public static final int DEFAULT_DELAY_MS = 5000;
 
@@ -196,38 +199,32 @@ public class Toast extends Div {
         fireEvent(new HiddenEvent(evt));
     }
 
-    private native void init(Element e) /*-{
-        $wnd.jQuery(e).toast();
-    }-*/;
+    private void init(Element e) {
+        BootstrapToast.getOrCreateInstance(e, null);
+    }
 
-    private native void show(Element e) /*-{
-        $wnd.jQuery(e).toast("show");
-    }-*/;
+    private void show(Element e) {
+        BootstrapToast.getOrCreateInstance(e, null).show();
+    }
 
-    private native void hide(Element e) /*-{
-        $wnd.jQuery(e).toast("hide");
-    }-*/;
+    private void hide(Element e) {
+        BootstrapToast.getOrCreateInstance(e, null).hide();
+    }
 
-    private native boolean isShown(Element e) /*-{
-        return $wnd.jQuery(e).toast("isShown");
-    }-*/;
+    private boolean isShown(Element e) {
+        return BootstrapToast.getOrCreateInstance(e, null).isShown();
+    }
 
     private void bindJavaScriptEvents(final Element e) {
-        JQuery j = JQuery.jQuery(e);
-
-        j.on("show.bs.toast", this::onShow);
-        j.on("shown.bs.toast", this::onShown);
-        j.on("hide.bs.toast", this::onHide);
-        j.on("hidden.bs.toast", this::onHidden);
+        listeners.add(e, "show.bs.toast", this::onShow);
+        listeners.add(e, "shown.bs.toast", this::onShown);
+        listeners.add(e, "hide.bs.toast", this::onHide);
+        listeners.add(e, "hidden.bs.toast", this::onHidden);
     }
 
     // Unbinds all the handlers
     private void unbindAllHandlers(final Element e) {
-        JQuery j = JQuery.jQuery(e);
-        j.off("show.bs.toast");
-        j.off("shown.bs.toast");
-        j.off("hide.bs.toast");
-        j.off("hidden.bs.toast");
+        listeners.removeAll();
     }
 
     private void generateToastContent(String title, String subtitle, String msg) {

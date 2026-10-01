@@ -20,7 +20,7 @@ package org.gwtbootstrap5.client.ui;
  * ==========================LICENSE_END=================================
  */
 
-import org.gwtbootstrap5.client.shared.js.JQuery;
+import org.gwtbootstrap5.client.shared.js.BootstrapTooltip;
 import org.gwtbootstrap5.client.ui.base.AbstractTooltip;
 
 import com.google.gwt.dom.client.Element;
@@ -94,7 +94,7 @@ public class Tooltip extends AbstractTooltip {
      * @param arg the arg
      */
     private void call(final Element e, final String arg) {
-        JQuery.jQuery(e).tooltip(arg);
+        invoke(BootstrapTooltip.getOrCreateInstance(e, null), arg);
     }
 
     /** {@inheritDoc} */
@@ -118,7 +118,7 @@ public class Tooltip extends AbstractTooltip {
      * Create the tooltip.
      */
     private void tooltip(Element e) {
-        JQuery.jQuery(e).tooltip();
+        BootstrapTooltip.getOrCreateInstance(e, null);
     }
 
 }

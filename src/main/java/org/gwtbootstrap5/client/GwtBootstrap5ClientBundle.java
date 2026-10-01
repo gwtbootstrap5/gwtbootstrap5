@@ -31,15 +31,6 @@ public interface GwtBootstrap5ClientBundle extends ClientBundle {
 
     GwtBootstrap5ClientBundle INSTANCE = GWT.create(GwtBootstrap5ClientBundle.class);
 
-    @Source("resource/js/gwtbootstrap5.js")
-    TextResource gwtBootstrap5();
-
-    @Source("resource/js/jquery-3.7.1.min.cache.js")
-    TextResource jQuery();
-
-    @Source("resource/js/jquery-migrate-3.5.0.min.cache.js")
-    TextResource jQueryMigrate();
-
     @Source("resource/js/bootstrap-5.3.8.min.cache.js")
     TextResource bootstrap();
 }

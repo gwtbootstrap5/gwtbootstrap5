@@ -20,7 +20,7 @@ package org.gwtbootstrap5.client.ui;
  * ==========================LICENSE_END=================================
  */
 
-import org.gwtbootstrap5.client.shared.js.JQuery;
+import org.gwtbootstrap5.client.shared.js.BootstrapPopover;
 import org.gwtbootstrap5.client.ui.base.AbstractTooltip;
 
 import com.google.gwt.dom.client.Element;
@@ -112,7 +112,7 @@ public class Popover extends AbstractTooltip {
      * @param arg the arg
      */
     private void call(final Element e, final String arg) {
-        JQuery.jQuery(e).popover(arg);
+        invoke(BootstrapPopover.getOrCreateInstance(e, null), arg);
     }
 
     /** {@inheritDoc} */
@@ -144,7 +144,7 @@ public class Popover extends AbstractTooltip {
      */
     private void popover(Element e, String content) {
         e.setAttribute("data-bs-content", content);
-        JQuery.jQuery(e).popover();
+        BootstrapPopover.getOrCreateInstance(e, null);
     }
 
     /**

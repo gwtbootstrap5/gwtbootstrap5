@@ -23,10 +23,10 @@ package org.gwtbootstrap5.client;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.ScriptInjector;
 
-import jsinterop.annotations.JsMethod;
+import jsinterop.base.Js;
 
 /**
- * Provides script injection for jQuery and boostrap if they aren't already loaded.
+ * Provides script injection for Bootstrap if it isn't already loaded.
  * 
  * @author Sven Jacobs
  * @author Steven Jardine
@@ -38,34 +38,13 @@ public class GwtBootstrap5EntryPoint implements EntryPoint {
      * 
      * @return true is Bootstrap loaded, false otherwise.
      */
-    @JsMethod
-    private static native boolean isBootstrapLoaded();
-
-    /**
-     * Check to see if jQuery is loaded already
-     *
-     * @return true is jQuery is loaded, false otherwise
-     */
-    @JsMethod
-    private static native boolean isjQueryLoaded();
+    static boolean isBootstrapLoaded() {
+        return !"undefined".equals(Js.typeof(Js.global().get("bootstrap")));
+    }
 
     /** {@inheritDoc} */
     @Override
     public void onModuleLoad() {
-        ScriptInjector.fromString(GwtBootstrap5ClientBundle.INSTANCE.gwtBootstrap5().getText())
-                .setWindow(ScriptInjector.TOP_WINDOW)
-                .inject();
-
-        if (!isjQueryLoaded()) {
-            ScriptInjector.fromString(GwtBootstrap5ClientBundle.INSTANCE.jQuery().getText())
-                    .setWindow(ScriptInjector.TOP_WINDOW)
-                    .inject();
-
-            ScriptInjector.fromString(GwtBootstrap5ClientBundle.INSTANCE.jQueryMigrate().getText())
-                    .setWindow(ScriptInjector.TOP_WINDOW)
-                    .inject();
-        }
-
         if (!isBootstrapLoaded()) {
             ScriptInjector.fromString(GwtBootstrap5ClientBundle.INSTANCE.bootstrap().getText())
                 .setWindow(ScriptInjector.TOP_WINDOW)

@@ -24,7 +24,8 @@ import org.gwtbootstrap5.client.shared.event.AlertCloseEvent;
 import org.gwtbootstrap5.client.shared.event.AlertCloseHandler;
 import org.gwtbootstrap5.client.shared.event.AlertClosedEvent;
 import org.gwtbootstrap5.client.shared.event.AlertClosedHandler;
-import org.gwtbootstrap5.client.shared.js.JQuery;
+import org.gwtbootstrap5.client.shared.js.BootstrapAlert;
+import org.gwtbootstrap5.client.shared.js.DomEventListeners;
 import org.gwtbootstrap5.client.ui.base.HasResponsiveness;
 import org.gwtbootstrap5.client.ui.base.HasType;
 import org.gwtbootstrap5.client.ui.base.button.CloseButton;
@@ -53,6 +54,8 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
  */
 public class Alert extends Div implements HasWidgets, HasText, HasType<AlertType>, HasResponsiveness {
     private static final String CLOSE = "close";
+
+    private final DomEventListeners listeners = new DomEventListeners();
 
     private final Text text = new Text();
     private final CloseButton closeButton = new CloseButton();
@@ -243,19 +246,17 @@ public class Alert extends Div implements HasWidgets, HasText, HasType<AlertType
 
     // @formatter:off
     private void alert(final Element e, final String arg) {
-        JQuery.jQuery(e).alert(arg);
+        if (CLOSE.equals(arg)) {
+            BootstrapAlert.getOrCreateInstance(e).close();
+        }
     }
 
     private void bindJavaScriptEvents(final Element e) {
-        JQuery alert = JQuery.jQuery(e);
-
-        alert.on("close.bs.alert", this::onClose);
-
-        alert.on("closed.bs.alert", this::onClosed);
+        listeners.add(e, "close.bs.alert", this::onClose);
+        listeners.add(e, "closed.bs.alert", this::onClosed);
     }
 
     private void unbindJavaScriptEvents(final Element e) {
-        JQuery.jQuery(e).off("close.bs.alert");
-        JQuery.jQuery(e).off("closed.bs.alert");
+        listeners.removeAll();
     }
 }

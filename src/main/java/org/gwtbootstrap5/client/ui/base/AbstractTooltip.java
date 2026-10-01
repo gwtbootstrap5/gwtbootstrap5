@@ -32,7 +32,8 @@ import org.gwtbootstrap5.client.shared.event.ShowEvent;
 import org.gwtbootstrap5.client.shared.event.ShowHandler;
 import org.gwtbootstrap5.client.shared.event.ShownEvent;
 import org.gwtbootstrap5.client.shared.event.ShownHandler;
-import org.gwtbootstrap5.client.shared.js.JQuery;
+import org.gwtbootstrap5.client.shared.js.BootstrapTooltip;
+import org.gwtbootstrap5.client.shared.js.DomEventListeners;
 import org.gwtbootstrap5.client.ui.constants.Placement;
 import org.gwtbootstrap5.client.ui.constants.Trigger;
 
@@ -54,6 +55,8 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
  * @author Steven Jardine
  */
 public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWidget, HasId, HasHover {
+
+    private final DomEventListeners listeners = new DomEventListeners();
     
     private static final String TOGGLE = "toggle";
     private static final String SHOW = "show";
@@ -212,12 +215,32 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
 
     // @formatter:off
     protected void bindJavaScriptEvents(final Element e) {
-        JQuery tooltip = JQuery.jQuery(e);
-        tooltip.on("show." + dataTarget, this::onShow);
-        tooltip.on("shown." + dataTarget, this::onShown);
-        tooltip.on("hide." + dataTarget, this::onHide);
-        tooltip.on("hidden." + dataTarget, this::onHidden);
-        tooltip.on("inserted." + dataTarget, this::onInserted);
+        listeners.removeAll();
+        listeners.add(e, "show." + dataTarget, this::onShow);
+        listeners.add(e, "shown." + dataTarget, this::onShown);
+        listeners.add(e, "hide." + dataTarget, this::onHide);
+        listeners.add(e, "hidden." + dataTarget, this::onHidden);
+        listeners.add(e, "inserted." + dataTarget, this::onInserted);
+    }
+
+    /**
+     * Runs a tooltip/popover command, mirroring Bootstrap's former jQuery plugin interface.
+     *
+     * @param instance the Bootstrap tooltip or popover instance
+     * @param command one of show, hide, toggle, enable, disable, toggleEnabled, update, dispose
+     */
+    protected static void invoke(final BootstrapTooltip instance, final String command) {
+        switch (command) {
+            case "show": instance.show(); break;
+            case "hide": instance.hide(); break;
+            case "toggle": instance.toggle(); break;
+            case "enable": instance.enable(); break;
+            case "disable": instance.disable(); break;
+            case "toggleEnabled": instance.toggleEnabled(); break;
+            case "update": instance.update(); break;
+            case "dispose": instance.dispose(); break;
+            default: throw new IllegalArgumentException("Unknown tooltip command: " + command);
+        }
     }
     
     protected abstract void call(final String arg);
@@ -255,6 +278,7 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
      */
     public void destroy() {
         call(DESTROY);
+        listeners.removeAll();
         setInitialized(false);
     }
 

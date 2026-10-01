@@ -24,7 +24,8 @@ import org.gwtbootstrap5.client.shared.event.CarouselSlidEvent;
 import org.gwtbootstrap5.client.shared.event.CarouselSlidHandler;
 import org.gwtbootstrap5.client.shared.event.CarouselSlideEvent;
 import org.gwtbootstrap5.client.shared.event.CarouselSlideHandler;
-import org.gwtbootstrap5.client.shared.js.JQuery;
+import org.gwtbootstrap5.client.shared.js.BootstrapCarousel;
+import org.gwtbootstrap5.client.shared.js.DomEventListeners;
 import org.gwtbootstrap5.client.ui.constants.Attributes;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
@@ -32,7 +33,7 @@ import org.gwtbootstrap5.client.ui.html.Div;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.Event;
 
-import jsinterop.annotations.JsMethod;
+import jsinterop.base.JsPropertyMap;
 
 /**
  * @author Joshua Godi
@@ -44,6 +45,8 @@ public class Carousel extends Div {
     public static final String PAUSE = "pause";
     public static final String PREV = "prev";
     public static final String NEXT = "next";
+
+    private final DomEventListeners listeners = new DomEventListeners();
 
     // Bootstrap default values: http://getbootstrap.com/javascript/#carousel
     private int interval = 5000;
@@ -170,27 +173,40 @@ public class Carousel extends Div {
     }
 
     private void bindJavaScriptEvents(final com.google.gwt.dom.client.Element e) {
-        JQuery carousel = JQuery.jQuery(e);
-
-        carousel.on("slide.bs.carousel", this::onSlide);
-
-        carousel.on("slid.bs.carousel", this::onSlid);
+        listeners.add(e, "slide.bs.carousel", this::onSlide);
+        listeners.add(e, "slid.bs.carousel", this::onSlid);
     }
 
     private void unbindJavaScriptEvents(final com.google.gwt.dom.client.Element e) {
-        JQuery.jQuery(e).off("slide.bs.carousel");
-        JQuery.jQuery(e).off("slid.bs.carousel");
+        listeners.removeAll();
     }
 
-    @JsMethod
-    private static native void carousel(final com.google.gwt.dom.client.Element e, final int interval, final String pause,
-                                        final boolean wrap);
+    private static void carousel(final com.google.gwt.dom.client.Element e, final int interval, final String pause,
+                                 final boolean wrap) {
+        BootstrapCarousel.getOrCreateInstance(e, JsPropertyMap.of("interval", interval, "pause", pause, "wrap", wrap));
+    }
 
     private void fireMethod(final com.google.gwt.dom.client.Element e, String method) {
-        JQuery.jQuery(e).carousel(method);
+        final BootstrapCarousel carousel = BootstrapCarousel.getOrCreateInstance(e, null);
+        switch (method) {
+            case CYCLE:
+                carousel.cycle();
+                break;
+            case PAUSE:
+                carousel.pause();
+                break;
+            case PREV:
+                carousel.prev();
+                break;
+            case NEXT:
+                carousel.next();
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown carousel method: " + method);
+        }
     }
 
     private void fireMethod(final com.google.gwt.dom.client.Element e, int slideNumber) {
-        JQuery.jQuery(e).carousel(slideNumber);
+        BootstrapCarousel.getOrCreateInstance(e, null).to(slideNumber);
     }
 }
