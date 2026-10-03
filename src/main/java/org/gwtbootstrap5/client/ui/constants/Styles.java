@@ -100,7 +100,7 @@ public final class Styles {
     public static final String FORM_CONTROL = "form-control";
     public static final String FORM_CONTROL_PLAINTEXT = "form-control-plaintext";
     public static final String FORM_CONTROL_FILE = "form-control-file";
-    public static final String FORM_CONTROL_RANGE = "form-control-range";
+    public static final String FORM_RANGE = "form-range";
 
     public static final String FORM_CHECK = "form-check";
     public static final String FORM_CHECK_LABEL = "form-check-label";

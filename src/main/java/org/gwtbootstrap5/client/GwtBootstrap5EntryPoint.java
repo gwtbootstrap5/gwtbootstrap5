@@ -26,7 +26,7 @@ import com.google.gwt.core.client.ScriptInjector;
 import jsinterop.base.Js;
 
 /**
- * Provides script injection for Bootstrap if it isn't already loaded.
+ * Provides script injection for Popper and Bootstrap if they aren't already loaded.
  * 
  * @author Sven Jacobs
  * @author Steven Jardine
@@ -42,9 +42,26 @@ public class GwtBootstrap5EntryPoint implements EntryPoint {
         return !"undefined".equals(Js.typeof(Js.global().get("bootstrap")));
     }
 
+    /**
+     * Check to see if the Popper global is loaded already. Bootstrap's dropdowns, popovers and
+     * tooltips need it, and so does Tempus Dominus. {@code bootstrap.bundle.js} embeds Popper
+     * without exposing this global.
+     *
+     * @return true if Popper is loaded, false otherwise.
+     */
+    static boolean isPopperLoaded() {
+        return !"undefined".equals(Js.typeof(Js.global().get("Popper")));
+    }
+
     /** {@inheritDoc} */
     @Override
     public void onModuleLoad() {
+        // bootstrap.min.js reads the Popper global when it loads, so Popper must come first
+        if (!isPopperLoaded()) {
+            ScriptInjector.fromString(GwtBootstrap5ClientBundle.INSTANCE.popper().getText())
+                .setWindow(ScriptInjector.TOP_WINDOW)
+                .inject();
+        }
         if (!isBootstrapLoaded()) {
             ScriptInjector.fromString(GwtBootstrap5ClientBundle.INSTANCE.bootstrap().getText())
                 .setWindow(ScriptInjector.TOP_WINDOW)

@@ -28,7 +28,9 @@ public class InputRange extends Input {
     public InputRange() {
         super();
         setType(InputType.RANGE);
-        addStyleName(Styles.FORM_CONTROL_RANGE);
+        // Bootstrap 5 styles range inputs with form-range alone; form-control would add a text-field border
+        removeStyleName(Styles.FORM_CONTROL);
+        addStyleName(Styles.FORM_RANGE);
     }
 
 }

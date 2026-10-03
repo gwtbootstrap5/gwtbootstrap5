@@ -37,14 +37,27 @@ public class GwtBootstrap5URLEntryPoint implements EntryPoint {
     /** {@inheritDoc} */
     @Override
     public void onModuleLoad() {
-        if (GwtBootstrap5EntryPoint.isBootstrapLoaded()) {
+        final boolean bootstrapLoaded = GwtBootstrap5EntryPoint.isBootstrapLoaded();
+        if (!bootstrapLoaded) {
+            StyleInjector.injectCSS("https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css");
+            StyleInjector.injectCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css");
+        }
+
+        final Runnable loadBootstrap = () -> {
+            if (!bootstrapLoaded) {
+                ScriptInjector.fromUrl("https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js")
+                        .setWindow(ScriptInjector.TOP_WINDOW)
+                        .inject();
+            }
+        };
+
+        if (GwtBootstrap5EntryPoint.isPopperLoaded()) {
+            loadBootstrap.run();
             return;
         }
 
-        StyleInjector.injectCSS("https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css");
-        StyleInjector.injectCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css");
-
-        // bootstrap.min.js reads the Popper global when it loads, so Popper must come first
+        // bootstrap.min.js reads the Popper global when it loads, so Popper must come first.
+        // Popper is also loaded when Bootstrap already is, because Tempus Dominus needs the global.
         ScriptInjector.fromUrl("https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js")
                 .setWindow(ScriptInjector.TOP_WINDOW)
                 .setCallback(new Callback<>() {
@@ -55,9 +68,7 @@ public class GwtBootstrap5URLEntryPoint implements EntryPoint {
 
                     @Override
                     public void onSuccess(Void result) {
-                        ScriptInjector.fromUrl("https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js")
-                                .setWindow(ScriptInjector.TOP_WINDOW)
-                                .inject();
+                        loadBootstrap.run();
                     }
                 })
                 .inject();

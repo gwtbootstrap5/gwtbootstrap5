@@ -31,6 +31,9 @@ public interface GwtBootstrap5ClientBundle extends ClientBundle {
 
     GwtBootstrap5ClientBundle INSTANCE = GWT.create(GwtBootstrap5ClientBundle.class);
 
+    @Source("resource/js/popper-2.11.8.min.cache.js")
+    TextResource popper();
+
     @Source("resource/js/bootstrap-5.3.8.min.cache.js")
     TextResource bootstrap();
 }
