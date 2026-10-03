@@ -74,18 +74,10 @@ public class BootstrapClassesTest {
     ));
 
     /**
-     * Bootstrap 3/4 classes still in use, removed phase by phase by the Bootstrap 3/4 cleanup.
-     * Each entry must still be missing from the CSS, so fixing one fails the test until it's
-     * removed from this list. The list must end empty.
+     * Classes known to be missing from the CSS. Each entry must still be missing, so fixing one fails
+     * the test until it's removed from this list. Empty since the Bootstrap 3/4 cleanup.
      */
-    private static final Set<String> KNOWN_MISSING = new TreeSet<>(Arrays.asList(
-            "ButtonType.DEFAULT",
-            "FormType.INLINE",
-            "LabelType.DEFAULT", "LabelType.PRIMARY", "LabelType.SUCCESS", "LabelType.INFO",
-            "LabelType.WARNING", "LabelType.DANGER",
-            "NavbarType.DEFAULT",
-            "Styles.BTN_GROUP_TOGGLE", "Styles.CAPTION"
-    ));
+    private static final Set<String> KNOWN_MISSING = new TreeSet<>();
 
     private static final Pattern CSS_CLASS = Pattern.compile("\\.(-?[_a-zA-Z][\\w-]*)");
 

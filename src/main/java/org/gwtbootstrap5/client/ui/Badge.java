@@ -50,7 +50,7 @@ public class Badge extends ComplexWidget implements HasWidgets, HasText, HasType
         super();
 
         setElement(Document.get().createSpanElement());
-        addStyleName(Styles.LABEL);
+        addStyleName(Styles.BADGE);
         addStyleName(Styles.ROUNDED_PILL);
     }
 

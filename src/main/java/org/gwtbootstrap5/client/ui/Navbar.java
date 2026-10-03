@@ -43,19 +43,31 @@ public class Navbar extends ComplexWidget implements HasType<NavbarType> {
 
         setElement(Document.get().createElement(ElementTags.NAV));
         setStyleName(Styles.NAVBAR);
-        setType(NavbarType.DEFAULT);
         setExpand(NavbarExpand.LG);
         getElement().setAttribute(Attributes.ROLE, NAVIGATION);
     }
 
+    /**
+     * Sets the color scheme of the navbar and its dropdowns with Bootstrap 5.3's
+     * {@code data-bs-theme} attribute. {@code null} inherits the page's theme.
+     *
+     * @param type the navbar theme
+     */
     @Override
     public void setType(final NavbarType type) {
-        StyleHelper.addUniqueEnumStyleName(this, NavbarType.class, type);
+        if (type == null) {
+            getElement().removeAttribute(Attributes.DATA_BS_THEME);
+        } else {
+            getElement().setAttribute(Attributes.DATA_BS_THEME, type.getTheme());
+        }
     }
 
+    /**
+     * @return the navbar theme, or {@code null} when it inherits the page's theme
+     */
     @Override
     public NavbarType getType() {
-        return NavbarType.fromStyleName(getStyleName());
+        return NavbarType.fromTheme(getElement().getAttribute(Attributes.DATA_BS_THEME));
     }
 
     public void setExpand(NavbarExpand expand) {

@@ -20,29 +20,38 @@ package org.gwtbootstrap5.client.ui.constants;
  * ==========================LICENSE_END=================================
  */
 
-import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
-import com.google.gwt.dom.client.Style;
 
 /**
  * @author Sven Jacobs
  */
-public enum NavbarType implements Type, Style.HasCssName {
-    DEFAULT("navbar-light"),
-    INVERSE("navbar-dark");
+public enum NavbarType implements Type {
+    LIGHT("light"),
+    DARK("dark");
 
-    private final String cssClass;
+    private final String theme;
 
-    NavbarType(final String cssClass) {
-        this.cssClass = cssClass;
+    NavbarType(final String theme) {
+        this.theme = theme;
     }
 
-    @Override
-    public String getCssName() {
-        return cssClass;
+    /**
+     * @return the value of the navbar's {@code data-bs-theme} attribute
+     */
+    public String getTheme() {
+        return theme;
     }
 
-    public static NavbarType fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, NavbarType.class, DEFAULT);
+    /**
+     * @param theme a {@code data-bs-theme} value
+     * @return the matching type, or {@code null}
+     */
+    public static NavbarType fromTheme(final String theme) {
+        for (NavbarType type : values()) {
+            if (type.theme.equals(theme)) {
+                return type;
+            }
+        }
+        return null;
     }
 }

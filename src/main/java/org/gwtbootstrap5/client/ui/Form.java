@@ -20,10 +20,7 @@ package org.gwtbootstrap5.client.ui;
  * ==========================LICENSE_END=================================
  */
 
-import org.gwtbootstrap5.client.ui.base.HasType;
 import org.gwtbootstrap5.client.ui.base.form.AbstractForm;
-import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
-import org.gwtbootstrap5.client.ui.constants.FormType;
 
 /**
  * A form.
@@ -34,25 +31,9 @@ import org.gwtbootstrap5.client.ui.constants.FormType;
  * @see FormControlStatic
  * @see Legend
  */
-public class Form extends AbstractForm implements HasType<FormType> {
+public class Form extends AbstractForm {
 
     public Form() {
-        this(FormType.DEFAULT);
-    }
-
-    public Form(final FormType type) {
         super();
-
-        setType(type);
-    }
-
-    @Override
-    public void setType(final FormType type) {
-        StyleHelper.addUniqueEnumStyleName(this, FormType.class, type);
-    }
-
-    @Override
-    public FormType getType() {
-        return FormType.fromStyleName(getStyleName());
     }
 }

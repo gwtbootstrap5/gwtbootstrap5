@@ -21,16 +21,14 @@ package org.gwtbootstrap5.client.ui.gwt;
  */
 
 import org.gwtbootstrap5.client.ui.base.HasResponsiveness;
-import org.gwtbootstrap5.client.ui.base.HasType;
 import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap5.client.ui.constants.DeviceSize;
-import org.gwtbootstrap5.client.ui.constants.FormType;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.NamedFrame;
 
 public class FormPanel extends com.google.gwt.user.client.ui.FormPanel
-        implements HasType<FormType>, HasResponsiveness {
+        implements HasResponsiveness {
 
     public FormPanel() {
         super();
@@ -50,16 +48,6 @@ public class FormPanel extends com.google.gwt.user.client.ui.FormPanel
 
     public FormPanel(String target) {
         super(target);
-    }
-
-    @Override
-    public void setType(final FormType type) {
-        StyleHelper.addUniqueEnumStyleName(this, FormType.class, type);
-    }
-
-    @Override
-    public FormType getType() {
-        return FormType.fromStyleName(getStyleName());
     }
 
     @Override

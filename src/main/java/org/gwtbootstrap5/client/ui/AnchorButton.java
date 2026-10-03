@@ -90,7 +90,7 @@ public class AnchorButton extends AbstractToggleButton implements HasHref, HasTa
     }
 
     public AnchorButton() {
-        this(ButtonType.DEFAULT);
+        this(ButtonType.LIGHT);
     }
 
     /**

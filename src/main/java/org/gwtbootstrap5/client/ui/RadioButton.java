@@ -192,7 +192,7 @@ public class RadioButton extends Radio implements HasActive,
         super(DOM.createLabel(), element);
 
         setStyleName(Styles.BTN);
-        setType(ButtonType.DEFAULT);
+        setType(ButtonType.LIGHT);
 
         getElement().appendChild(inputElem);
         getElement().appendChild(Document.get().createTextNode(" "));

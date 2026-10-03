@@ -81,7 +81,7 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
      * Creates button with DEFAULT type.
      */
     protected AbstractButton() {
-        this(ButtonType.DEFAULT);
+        this(ButtonType.LIGHT);
     }
 
     protected AbstractButton(final ButtonType type) {
@@ -236,13 +236,6 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
         }
     }
 
-    public void setDataLoadingText(final String loadingText) {
-        if (loadingText != null) {
-            getElement().setAttribute(Attributes.DATA_LOADING_TEXT, loadingText);
-        } else {
-            getElement().removeAttribute(Attributes.DATA_LOADING_TEXT);
-        }
-    }
 
     public void click() {
         final NativeEvent event = Document.get().createClickEvent(0, 0, 0, 0, 0, false, false, false, false);

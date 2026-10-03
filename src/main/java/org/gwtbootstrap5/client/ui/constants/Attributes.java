@@ -28,7 +28,7 @@ public class Attributes {
     public static final String DATA_BACKDROP = "data-bs-backdrop";
     public static final String DATA_DISMISS = "data-bs-dismiss";
     public static final String DATA_KEYBOARD = "data-bs-keyboard";
-    public static final String DATA_LOADING_TEXT = "data-bs-loading-text";
+    public static final String DATA_BS_THEME = "data-bs-theme";
     public static final String DATA_SPY = "data-bs-spy";
     public static final String DATA_TARGET = "data-bs-target";
     public static final String DATA_TOGGLE = "data-bs-toggle";

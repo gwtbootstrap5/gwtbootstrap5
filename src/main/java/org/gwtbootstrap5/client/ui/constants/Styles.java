@@ -42,10 +42,8 @@ public final class Styles {
     public static final String BTN = "btn";
     public static final String BTN_GROUP = "btn-group";
     public static final String BTN_GROUP_VERTICAL = "btn-group-vertical";
-    public static final String BTN_GROUP_TOGGLE = "btn-group-toggle";
     public static final String BTN_TOOLBAR = "btn-toolbar";
 
-    public static final String CAPTION = "caption";
 
     public static final String CAROUSEL = "carousel";
     public static final String CAROUSEL_CAPTION = "carousel-caption";
@@ -122,7 +120,7 @@ public final class Styles {
     public static final String INPUT_GROUP = "input-group";
     public static final String INPUT_GROUP_TEXT = "input-group-text";
 
-    public static final String LABEL = "badge";
+    public static final String BADGE = "badge";
 
     public static final String LEAD = "lead";
 

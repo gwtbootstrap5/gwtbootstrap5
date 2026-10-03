@@ -31,7 +31,7 @@ public class ButtonCell extends com.google.gwt.cell.client.ButtonCell implements
 
     private IconType icon;
 
-    private ButtonType type = ButtonType.DEFAULT;
+    private ButtonType type = ButtonType.LIGHT;
 
     private ButtonSize size = ButtonSize.DEFAULT;
 

@@ -21,7 +21,6 @@ package org.gwtbootstrap5.client.ui;
  */
 
 import org.gwtbootstrap5.client.ui.base.AbstractButtonGroup;
-import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
  * Button group containing multiple buttons.
@@ -57,12 +56,5 @@ public class ButtonGroup extends AbstractButtonGroup {
         super();
     }
 
-    public void setToggle(final boolean toggle) {
-        if (toggle) {
-            addStyleName(Styles.BTN_GROUP_TOGGLE);
-        } else {
-            removeStyleName(Styles.BTN_GROUP_TOGGLE);
-        }
-    }
 
 }

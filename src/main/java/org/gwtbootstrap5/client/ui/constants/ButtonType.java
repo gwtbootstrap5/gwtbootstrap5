@@ -28,7 +28,6 @@ import com.google.gwt.dom.client.Style;
  * @author Sven Jacobs
  */
 public enum ButtonType implements Type, Style.HasCssName {
-    DEFAULT("btn-default"),
 
     LINK("btn-link"),
 
@@ -62,6 +61,6 @@ public enum ButtonType implements Type, Style.HasCssName {
     }
 
     public static ButtonType fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, ButtonType.class, DEFAULT);
+        return EnumHelper.fromStyleName(styleName, ButtonType.class, LIGHT);
     }
 }

@@ -43,7 +43,7 @@ public abstract class AbstractToggleButton extends AbstractIconButton implements
     private final Text separator = new Text(" ");
 
     protected AbstractToggleButton() {
-        this(ButtonType.DEFAULT);
+        this(ButtonType.LIGHT);
     }
 
     protected AbstractToggleButton(final ButtonType type) {
