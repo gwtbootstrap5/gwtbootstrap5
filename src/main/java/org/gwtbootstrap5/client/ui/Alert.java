@@ -183,10 +183,10 @@ public class Alert extends Div implements HasWidgets, HasText, HasType<AlertType
     public void setFade(final boolean fade) {
         if (fade) {
             addStyleName(Styles.FADE);
-            addStyleName(Styles.IN);
+            addStyleName(Styles.SHOW);
         } else {
             removeStyleName(Styles.FADE);
-            removeStyleName(Styles.IN);
+            removeStyleName(Styles.SHOW);
         }
     }
 

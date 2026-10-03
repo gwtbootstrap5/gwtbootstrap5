@@ -27,7 +27,6 @@ import com.google.gwt.core.shared.GWT;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.InputElement;
-import com.google.gwt.dom.client.LabelElement;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.i18n.client.HasDirection.Direction;
 import com.google.gwt.i18n.shared.DirectionEstimator;
@@ -195,13 +194,13 @@ public class Radio extends CheckBox {
     @UiConstructor
     public Radio(String name) {
         super(DOM.createDiv(), Document.get().createRadioInputElement(name));
-        setStyleName(Styles.RADIO);
+        setStyleName(Styles.FORM_CHECK);
 
-        LabelElement label = Document.get().createLabelElement();
-        label.appendChild(inputElem);
-        label.appendChild(labelElem);
+        inputElem.setClassName(Styles.FORM_CHECK_INPUT);
+        labelElem.setClassName(Styles.FORM_CHECK_LABEL);
 
-        getElement().appendChild(label);
+        getElement().appendChild(inputElem);
+        getElement().appendChild(labelElem);
     }
 
     protected Radio(Element elem, InputElement inputElement) {

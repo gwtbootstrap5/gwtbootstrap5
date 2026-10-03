@@ -71,7 +71,7 @@ public class NavbarCollapse extends FlowPanel {
 
         // Configure the collapse
         if (toggle) {
-            addStyleName(Styles.IN);
+            addStyleName(Styles.SHOW);
         }
     }
 
@@ -90,9 +90,9 @@ public class NavbarCollapse extends FlowPanel {
      */
     public void setIn(final boolean in) {
         if (in) {
-            addStyleName(Styles.IN);
+            addStyleName(Styles.SHOW);
         } else {
-            removeStyleName(Styles.IN);
+            removeStyleName(Styles.SHOW);
         }
     }
 
@@ -118,7 +118,7 @@ public class NavbarCollapse extends FlowPanel {
     }
 
     public boolean isShown() {
-        return StyleHelper.containsStyle(getStyleName(), Styles.IN);
+        return StyleHelper.containsStyle(getStyleName(), Styles.SHOW);
     }
 
     public boolean isHidden() {

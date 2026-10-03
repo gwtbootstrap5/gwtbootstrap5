@@ -196,6 +196,10 @@ public class CheckBox extends ButtonBase implements HasName, HasValue<Boolean>, 
         inputElem = inputElement;
         labelElem = Document.get().createLabelElement();
 
+        // Bootstrap 5 places the label next to the input, so link them for clicks on the label
+        inputElem.setId(DOM.createUniqueId());
+        labelElem.setHtmlFor(inputElem.getId());
+
         directionalTextHelper = new DirectionalTextHelper(labelElem, true);
 
         // Accessibility: setting tab index to be 0 by default, ensuring element
@@ -489,6 +493,7 @@ public class CheckBox extends ButtonBase implements HasName, HasValue<Boolean>, 
     protected void onEnsureDebugId(String baseID) {
         super.onEnsureDebugId(baseID);
         ensureDebugId(inputElem, baseID, "input");
+        labelElem.setHtmlFor(inputElem.getId());
     }
 
     /**

@@ -25,11 +25,12 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
 public enum RowContentJustifyAlign implements Style.HasCssName {
     DEFAULT(""),
-    START("align-items-start"),
-    CENTER("align-items-center"),
-    END("align-items-end"),
-    AROUND("align-items-around"),
-    BETWEEN("align-items-between");
+    START("justify-content-start"),
+    CENTER("justify-content-center"),
+    END("justify-content-end"),
+    AROUND("justify-content-around"),
+    BETWEEN("justify-content-between"),
+    EVENLY("justify-content-evenly");
 
     private final String cssClassName;
 

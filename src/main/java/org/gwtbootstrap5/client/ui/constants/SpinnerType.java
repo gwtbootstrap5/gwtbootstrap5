@@ -27,8 +27,8 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
  * @author Sven Jacobs
  */
 public enum SpinnerType implements Type, Style.HasCssName {
-    BORDER("label-default"),
-    GROW("label-primary");
+    BORDER("spinner-border"),
+    GROW("spinner-grow");
 
     private final String cssClass;
 

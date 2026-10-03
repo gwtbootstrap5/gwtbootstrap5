@@ -50,7 +50,6 @@ public class CarouselControl extends ComplexWidget implements HasHref, HasText {
         // Anchor
         this.anchorElem = Document.get().createAnchorElement();
         setElement(anchorElem);
-        setStyleName(Styles.CAROUSEL_CONTROL);
         anchorElem.setAttribute(Attributes.ROLE, BUTTON);
 
         // Icon

@@ -194,9 +194,9 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
 
     public void setInverse(final boolean inverse) {
         if (inverse) {
-            StyleHelper.addEnumStyleName(this, TableType.INVERSE);
+            StyleHelper.addEnumStyleName(this, TableType.DARK);
         } else {
-            StyleHelper.removeEnumStyleName(this, TableType.INVERSE);
+            StyleHelper.removeEnumStyleName(this, TableType.DARK);
         }
     }
 

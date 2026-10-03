@@ -20,43 +20,20 @@ package org.gwtbootstrap5.client.ui;
  * ==========================LICENSE_END=================================
  */
 
-import org.gwtbootstrap5.client.ui.base.HasActive;
-import org.gwtbootstrap5.client.ui.base.HasType;
-import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
-import org.gwtbootstrap5.client.ui.base.mixin.ActiveMixin;
-import org.gwtbootstrap5.client.ui.constants.ProgressType;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
 
 /**
+ * Container of {@link ProgressBar}s. Stripes and animation are set on each bar with
+ * {@link ProgressBar#setStriped(boolean)} and {@link ProgressBar#setAnimated(boolean)}.
+ *
  * @author Joshua Godi
  */
-public class Progress extends Div implements HasType<ProgressType>, HasActive {
-    private final ActiveMixin<Progress> activeMixin = new ActiveMixin<>(this);
+public class Progress extends Div {
 
     public Progress() {
         super();
 
         setStyleName(Styles.PROGRESS);
-    }
-
-    @Override
-    public void setActive(final boolean active) {
-        activeMixin.setActive(active);
-    }
-
-    @Override
-    public boolean isActive() {
-        return activeMixin.isActive();
-    }
-
-    @Override
-    public void setType(final ProgressType type) {
-        StyleHelper.addUniqueEnumStyleName(this, ProgressType.class, type);
-    }
-
-    @Override
-    public ProgressType getType() {
-        return ProgressType.fromStyleName(getStyleName());
     }
 }

@@ -24,8 +24,7 @@ package org.gwtbootstrap5.client.ui.constants;
  * @author Sven Jacobs
  */
 public enum Spy {
-    SCROLL("scroll"),
-    AFFIX("affix");
+    SCROLL("scroll");
 
     private final String spy;
 

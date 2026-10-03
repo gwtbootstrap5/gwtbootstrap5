@@ -48,8 +48,7 @@ public enum ButtonType implements Type, Style.HasCssName {
     WARNING_OUTLINE("btn-outline-warning"),
     INFO_OUTLINE("btn-outline-info"),
     LIGHT_OUTLINE("btn-outline-light"),
-    DARK_OUTLINE("btn-outline-dark"),
-    LINK_OUTLINE("btn-outline-link");
+    DARK_OUTLINE("btn-outline-dark");
 
     private final String cssClass;
 

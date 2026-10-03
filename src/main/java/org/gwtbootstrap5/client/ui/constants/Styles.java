@@ -55,7 +55,6 @@ public final class Styles {
     public static final String CAROUSEL_ITEM = "carousel-item";
     public static final String CAROUSEL_INNER = "carousel-inner";
 
-    public static final String CAROUSEL_CONTROL = "carousel-control";
     public static final String CAROUSEL_CONTROL_PREV = "carousel-control-prev";
     public static final String CAROUSEL_CONTROL_NEXT = "carousel-control-next";
     public static final String CAROUSEL_CONTROL_PREV_ICON = "carousel-control-prev-icon";
@@ -105,10 +104,10 @@ public final class Styles {
     public static final String FORM_CHECK_LABEL = "form-check-label";
     public static final String FORM_CHECK_INPUT = "form-check-input";
     public static final String FORM_CHECK_REVERSE = "form-check-reverse";
+    public static final String FORM_CHECK_INLINE = "form-check-inline";
 
     public static final String FORM_SELECT = "form-select";
 
-    public static final String HIDE = "hide";
 
     public static final String ICON_BORDER = "fa-border";
     public static final String ICON_STACK = "fa-stack";
@@ -119,7 +118,6 @@ public final class Styles {
     public static final String ICON_STACK_TOP = "fa-stack-1x";
     public static final String ICON_INVERSE = "fa-inverse";
 
-    public static final String IN = "in";
 
     public static final String INPUT_GROUP = "input-group";
     public static final String INPUT_GROUP_TEXT = "input-group-text";
@@ -145,8 +143,8 @@ public final class Styles {
     public static final String MODAL_TITLE = "modal-title";
 
     public static final String MODAL_DIALOG = "modal-dialog";
-    public static final String MODAL_DIALOG_SCROLLABLE = "modal-dialog";
-    public static final String MODAL_DIALOG_CENTERED = "modal-centered";
+    public static final String MODAL_DIALOG_SCROLLABLE = "modal-dialog-scrollable";
+    public static final String MODAL_DIALOG_CENTERED = "modal-dialog-centered";
 
     public static final String NAV = "nav";
     public static final String NAV_ITEM = "nav-item";
@@ -182,7 +180,6 @@ public final class Styles {
     public static final String PROGRESS_BAR_STRIPPED = "progress-bar-striped";
     public static final String PROGRESS_BAR_ANIMATED = "progress-bar-animated";
 
-    public static final String RADIO = "radio";
 
     public static final String ROUNDED_PILL = "rounded-pill";
 
@@ -211,7 +208,6 @@ public final class Styles {
     public static final String TOAST_HEADER = "toast-header";
     public static final String TOAST_BODY = "toast-body";
 
-    public static final String WIDTH = "width";
 
     private Styles() {
     }

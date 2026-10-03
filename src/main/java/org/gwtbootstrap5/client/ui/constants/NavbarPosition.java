@@ -30,9 +30,10 @@ import com.google.gwt.dom.client.Style;
  */
 public enum NavbarPosition implements Type, Style.HasCssName {
     DEFAULT(""),
-    FIXED_TOP("navbar-fixed-top"),
-    FIXED_BOTTOM("navbar-fixed-bottom"),
-    STATIC_TOP("navbar-static-top");
+    FIXED_TOP("fixed-top"),
+    FIXED_BOTTOM("fixed-bottom"),
+    STICKY_TOP("sticky-top"),
+    STICKY_BOTTOM("sticky-bottom");
 
     private final String cssClass;
 

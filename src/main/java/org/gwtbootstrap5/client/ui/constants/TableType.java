@@ -35,7 +35,6 @@ public enum TableType implements Type, Style.HasCssName {
     BORDERLESS("table-borderless"),
     HOVER("table-hover"),
     CONDENSED("table-sm"),
-    INVERSE("table-inverse"),
     DARK("table-dark");
 
     private final String cssClass;

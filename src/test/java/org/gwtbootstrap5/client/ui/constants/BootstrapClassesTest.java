@@ -79,20 +79,12 @@ public class BootstrapClassesTest {
      * removed from this list. The list must end empty.
      */
     private static final Set<String> KNOWN_MISSING = new TreeSet<>(Arrays.asList(
-            "ButtonType.DEFAULT", "ButtonType.LINK_OUTLINE",
-            "ColumnOffset.XS_0", "ColumnOffset.XS_12",
+            "ButtonType.DEFAULT",
             "FormType.INLINE",
             "LabelType.DEFAULT", "LabelType.PRIMARY", "LabelType.SUCCESS", "LabelType.INFO",
             "LabelType.WARNING", "LabelType.DANGER",
-            "NavbarPosition.FIXED_TOP", "NavbarPosition.FIXED_BOTTOM", "NavbarPosition.STATIC_TOP",
             "NavbarType.DEFAULT",
-            "ProgressType.STRIPED",
-            "RowContentJustifyAlign.AROUND", "RowContentJustifyAlign.BETWEEN",
-            "SpinnerType.BORDER", "SpinnerType.GROW",
-            "Styles.BTN_GROUP_TOGGLE", "Styles.CAPTION", "Styles.CAROUSEL_CONTROL", "Styles.HIDE",
-            "Styles.IN", "Styles.MODAL_DIALOG_CENTERED", "Styles.RADIO", "Styles.WIDTH",
-            "THeadType.DEFAULT", "THeadType.INVERSE",
-            "TableType.INVERSE"
+            "Styles.BTN_GROUP_TOGGLE", "Styles.CAPTION"
     ));
 
     private static final Pattern CSS_CLASS = Pattern.compile("\\.(-?[_a-zA-Z][\\w-]*)");

@@ -170,9 +170,9 @@ public class DataGrid<T> extends com.google.gwt.user.cellview.client.DataGrid<T>
 
     public void setInverse(final boolean inverse) {
         if (inverse) {
-            addToDataGrid(TableType.INVERSE);
+            addToDataGrid(TableType.DARK);
         } else {
-            removeFromDataGrid(TableType.INVERSE);
+            removeFromDataGrid(TableType.DARK);
         }
     }
 

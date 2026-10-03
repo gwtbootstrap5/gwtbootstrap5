@@ -25,7 +25,6 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 public enum Toggle {
     BUTTON("button"),
-    BUTTONS("buttons"),
     COLLAPSE("collapse"),
     DROPDOWN("dropdown"),
     TAB("tab"),
