@@ -35,9 +35,9 @@ public class EnumHelperTest {
 
     @Test
     public void testFromStyleName() {
-        assertThat(fromStyleName("123 float-left abc", FloatCSS.class, null), is(FloatCSS.LEFT_XS));
-        assertThat(fromStyleName("123 float-right abc", FloatCSS.class, null), is(FloatCSS.RIGHT_XS));
-        assertThat(fromStyleName("float-left float-right abc", FloatCSS.class, null), is(FloatCSS.LEFT_XS));
+        assertThat(fromStyleName("123 float-start abc", FloatCSS.class, null), is(FloatCSS.LEFT_XS));
+        assertThat(fromStyleName("123 float-end abc", FloatCSS.class, null), is(FloatCSS.RIGHT_XS));
+        assertThat(fromStyleName("float-start float-end abc", FloatCSS.class, null), is(FloatCSS.LEFT_XS));
         assertThat(fromStyleName("123 abc", FloatCSS.class, null), is(nullValue()));
         assertThat(fromStyleName("123 abc", FloatCSS.class, FloatCSS.LEFT_XS), is(FloatCSS.LEFT_XS));
         assertThat(fromStyleName("123 abc", null, null), is(nullValue()));
