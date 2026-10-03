@@ -21,8 +21,7 @@ package org.gwtbootstrap5.client.ui;
  */
 
 import org.gwtbootstrap5.client.ui.constants.ColumnOffset;
-import org.gwtbootstrap5.client.ui.constants.ColumnPull;
-import org.gwtbootstrap5.client.ui.constants.ColumnPush;
+import org.gwtbootstrap5.client.ui.constants.ColumnOrder;
 import org.gwtbootstrap5.client.ui.constants.ColumnSize;
 import org.gwtbootstrap5.client.ui.html.Div;
 
@@ -116,36 +115,20 @@ public class Column extends Div {
         addEnumStringValues(sizes, ColumnSize.class, false);
     }
 
-    public void setPull(final ColumnPull... pulls) {
-        addEnumVarargsValues(pulls, ColumnPull.class, true);
+    public void setOrder(final ColumnOrder... orders) {
+        addEnumVarargsValues(orders, ColumnOrder.class, true);
     }
 
-    public void setPull(final String pulls) {
-        addEnumStringValues(pulls, ColumnPull.class, true);
+    public void setOrder(final String orders) {
+        addEnumStringValues(orders, ColumnOrder.class, true);
     }
 
-    public void addPull(final ColumnPull... pulls) {
-        addEnumVarargsValues(pulls, ColumnPull.class, false);
+    public void addOrder(final ColumnOrder... orders) {
+        addEnumVarargsValues(orders, ColumnOrder.class, false);
     }
 
-    public void addPull(final String pulls) {
-        addEnumStringValues(pulls, ColumnPull.class, false);
-    }
-
-    public void setPush(final ColumnPush... pushes) {
-        addEnumVarargsValues(pushes, ColumnPush.class, true);
-    }
-
-    public void setPush(final String pushes) {
-        addEnumStringValues(pushes, ColumnPush.class, true);
-    }
-
-    public void addPush(final ColumnPush... pushes) {
-        addEnumVarargsValues(pushes, ColumnPush.class, false);
-    }
-
-    public void addPush(final String pushes) {
-        addEnumStringValues(pushes, ColumnPush.class, false);
+    public void addOrder(final String orders) {
+        addEnumStringValues(orders, ColumnOrder.class, false);
     }
 
     public void setOffset(final ColumnOffset... offsets) {

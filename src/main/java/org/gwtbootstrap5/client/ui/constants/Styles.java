@@ -41,6 +41,7 @@ public final class Styles {
 
     public static final String BTN = "btn";
     public static final String BTN_GROUP = "btn-group";
+    public static final String BTN_CHECK = "btn-check";
     public static final String BTN_GROUP_VERTICAL = "btn-group-vertical";
     public static final String BTN_TOOLBAR = "btn-toolbar";
 

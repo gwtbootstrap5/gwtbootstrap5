@@ -37,6 +37,9 @@ import com.google.gwt.i18n.shared.DirectionEstimator;
 import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.DOM;
 import com.google.gwt.user.client.Event;
+
+import elemental2.dom.HTMLInputElement;
+import jsinterop.base.Js;
 import org.gwtbootstrap5.client.ui.util.IconUtil;
 
 /**
@@ -168,14 +171,30 @@ public class CheckBoxButton extends CheckBox implements HasActive,
         getElement().appendChild(Document.get().createTextNode(" "));
         getElement().appendChild(labelElem);
         getElement().appendChild(Document.get().createTextNode(" "));
+
+        CheckButtons.init(inputElem, labelElem);
+        // change fires once, after the input changed; a click on the label fires twice
+        Js.<HTMLInputElement>uncheckedCast(inputElem).addEventListener("change", evt -> {
+            CheckButtons.syncActive(inputElem);
+            ValueChangeEvent.fire(CheckBoxButton.this, getValue());
+        });
+    }
+
+    @Override
+    public void setValue(final Boolean value, final boolean fireEvents) {
+        super.setValue(value, fireEvents);
+        CheckButtons.syncActive(inputElem);
+    }
+
+    @Override
+    protected void onEnsureDebugId(final String baseID) {
+        super.onEnsureDebugId(baseID);
+        CheckButtons.unlinkText(labelElem);
     }
 
     @Override
     protected void ensureDomEventHandlers() {
-        // Use a ClickHandler since Bootstrap's jQuery does not trigger native
-        // change events:
-        // http://learn.jquery.com/events/triggering-event-handlers/
-        addClickHandler(event -> ValueChangeEvent.fire(CheckBoxButton.this, getValue()));
+        // ValueChangeEvent is fired by the input's change listener
     }
 
     @Override
@@ -212,7 +231,6 @@ public class CheckBoxButton extends CheckBox implements HasActive,
     @Override
     public void setActive(boolean active) {
         setValue(active);
-        activeMixin.setActive(active);
     }
 
     @Override

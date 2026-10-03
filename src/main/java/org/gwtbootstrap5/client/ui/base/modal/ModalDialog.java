@@ -34,7 +34,12 @@ public class ModalDialog extends FlowPanel {
         setStyleName(Styles.MODAL_DIALOG);
     }
 
-    void setScrollable(boolean isScrollable) {
+    /**
+     * Makes the modal body scroll instead of the page when the content is too long.
+     *
+     * @param isScrollable {@code true} adds {@code modal-dialog-scrollable}
+     */
+    public void setScrollable(boolean isScrollable) {
         if (isScrollable) {
             addStyleName(Styles.MODAL_DIALOG_SCROLLABLE);
         } else {
@@ -42,7 +47,12 @@ public class ModalDialog extends FlowPanel {
         }
     }
 
-    void setCentered(boolean isCentered) {
+    /**
+     * Centers the modal vertically in the viewport.
+     *
+     * @param isCentered {@code true} adds {@code modal-dialog-centered}
+     */
+    public void setCentered(boolean isCentered) {
         if (isCentered) {
             addStyleName(Styles.MODAL_DIALOG_CENTERED);
         } else {

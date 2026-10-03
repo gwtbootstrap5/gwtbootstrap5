@@ -126,6 +126,24 @@ public class Modal extends Div implements IsClosable {
         dialog.setWidth(width);
     }
 
+    /**
+     * Centers the modal vertically in the viewport.
+     *
+     * @param centered {@code true} to center the modal
+     */
+    public void setCentered(final boolean centered) {
+        dialog.setCentered(centered);
+    }
+
+    /**
+     * Makes the modal body scroll instead of the page when the content is too long.
+     *
+     * @param scrollable {@code true} to scroll the modal body
+     */
+    public void setScrollable(final boolean scrollable) {
+        dialog.setScrollable(scrollable);
+    }
+
     public void setSize(ModalSize size) {
         StyleHelper.addUniqueEnumStyleName(dialog, ModalSize.class, size);
     }
