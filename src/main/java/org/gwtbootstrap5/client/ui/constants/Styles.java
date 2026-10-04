@@ -98,6 +98,7 @@ public final class Styles {
     public static final String FORM_CONTROL = "form-control";
     public static final String FORM_CONTROL_PLAINTEXT = "form-control-plaintext";
     public static final String FORM_RANGE = "form-range";
+    public static final String FORM_CONTROL_COLOR = "form-control-color";
 
     public static final String FORM_CHECK = "form-check";
     public static final String FORM_CHECK_LABEL = "form-check-label";
