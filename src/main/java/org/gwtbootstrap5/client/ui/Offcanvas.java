@@ -54,7 +54,7 @@ import com.google.gwt.user.client.ui.Widget;
  * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <b:Button dataToggle="OFFCANVAS" dataTarget="#menu">Menu</b:Button>
- *     <b:Offcanvas id="menu" placement="END">
+ *     <b:Offcanvas b:id="menu" placement="END">
  *         <b:OffcanvasHeader title="Menu"/>
  *         <b:OffcanvasBody>...</b:OffcanvasBody>
  *     </b:Offcanvas>

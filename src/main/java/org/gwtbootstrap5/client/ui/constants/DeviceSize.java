@@ -31,5 +31,6 @@ public enum DeviceSize implements Size {
     SM, /* Tablets >=576px */
     MD, /* Desktops >=768px */
     LG, /* Desktops >=992px */
-    XL /* Desktops >=1200px */
+    XL, /* Desktops >=1200px */
+    XXL /* Large desktops >=1400px */
 }

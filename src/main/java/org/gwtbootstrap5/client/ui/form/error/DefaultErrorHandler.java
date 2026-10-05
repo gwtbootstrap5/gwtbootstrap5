@@ -77,6 +77,7 @@ public class DefaultErrorHandler implements ErrorHandler {
     /** {@inheritDoc} */
     @Override
     public void clearErrors() {
+        inputWidget.removeStyleName(ValidationState.ERROR.getCssName());
         if (validationStateParent == null) { return; }
         validationStateParent.setValidationState(ValidationState.NONE);
         if (validationStateHelpBlock != null) { validationStateHelpBlock.clearError(); }
@@ -127,17 +128,25 @@ public class DefaultErrorHandler implements ErrorHandler {
     @Override
     public void showErrors(List<EditorError> errors) {
         init();
-        // clearErrors();
-        String errorMsg = "";
+        final boolean invalid = !errors.isEmpty();
+        // Bootstrap 5 styles the control itself, not its form group
+        inputWidget.setStyleName(ValidationState.ERROR.getCssName(), invalid);
         if (validationStateParent != null) {
-            validationStateParent.setValidationState(errors.size() <= 0 ? ValidationState.NONE : ValidationState.ERROR);
-            for (int index = 0; index < errors.size(); index++) {
-                errorMsg = errors.get(0).getMessage();
-                if (index + 1 < errors.size()) { errorMsg += "; "; }
-            }
+            validationStateParent.setValidationState(invalid ? ValidationState.ERROR : ValidationState.NONE);
         }
         if (validationStateHelpBlock != null) {
-            validationStateHelpBlock.setError(errorMsg);
+            if (invalid) {
+                final StringBuilder message = new StringBuilder();
+                for (final EditorError error : errors) {
+                    if (message.length() > 0) {
+                        message.append("; ");
+                    }
+                    message.append(error.getMessage());
+                }
+                validationStateHelpBlock.setError(message.toString());
+            } else {
+                validationStateHelpBlock.clearError();
+            }
         }
     }
 

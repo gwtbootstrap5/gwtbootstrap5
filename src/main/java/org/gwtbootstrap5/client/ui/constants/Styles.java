@@ -100,6 +100,7 @@ public final class Styles {
     public static final String FONT_AWESOME_BASE = "fa";
 
     public static final String FORM_TEXT = "form-text";
+    public static final String INVALID_FEEDBACK = "invalid-feedback";
     public static final String FORM_LABEL = "form-label";
 
     public static final String FORM_CONTROL = "form-control";
@@ -225,6 +226,8 @@ public final class Styles {
     public static final String TOAST = "toast";
     public static final String TOAST_CONTAINER = "toast-container";
     public static final String TOAST_HEADER = "toast-header";
+    public static final String TEXT_BODY_SECONDARY = "text-body-secondary";
+
     public static final String TOAST_BODY = "toast-body";
 
     // Bootstrap 5.3 helpers

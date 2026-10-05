@@ -24,7 +24,6 @@ import org.gwtbootstrap5.client.ui.base.HasResponsiveness;
 import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap5.client.ui.constants.DeviceSize;
 import org.gwtbootstrap5.client.ui.constants.Styles;
-import org.gwtbootstrap5.client.ui.constants.TableResponsiveness;
 import org.gwtbootstrap5.client.ui.constants.TableType;
 
 import com.google.gwt.core.client.GWT;
@@ -148,9 +147,6 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
         StyleHelper.setHiddenOn(this, deviceSize);
     }
 
-    public void setResponsive(TableResponsiveness tableResponsiveness) {
-        StyleHelper.addEnumStyleName(this, tableResponsiveness);
-    }
 
     public void setStriped(final boolean striped) {
         if (striped) {

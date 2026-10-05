@@ -40,7 +40,7 @@ public class GwtBootstrap5URLEntryPoint implements EntryPoint {
         final boolean bootstrapLoaded = GwtBootstrap5EntryPoint.isBootstrapLoaded();
         if (!bootstrapLoaded) {
             StyleInjector.injectCSS("https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css");
-            StyleInjector.injectCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css");
+            StyleInjector.injectCSS("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
         }
 
         final Runnable loadBootstrap = () -> {

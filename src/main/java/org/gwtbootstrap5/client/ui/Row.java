@@ -20,6 +20,7 @@ package org.gwtbootstrap5.client.ui;
  * ==========================LICENSE_END=================================
  */
 
+import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap5.client.ui.constants.RowContentJustifyAlign;
 import org.gwtbootstrap5.client.ui.constants.RowContentVerticalAlign;
 import org.gwtbootstrap5.client.ui.constants.Styles;
@@ -41,7 +42,7 @@ public class Row extends Div {
     }
 
     public void setContentVerticalAlign(RowContentVerticalAlign rowContentVerticalAlign) {
-        setStyleName(rowContentVerticalAlign.getCssName());
+        StyleHelper.addUniqueEnumStyleName(this, RowContentVerticalAlign.class, rowContentVerticalAlign);
     }
 
     public RowContentVerticalAlign getContentVerticalAlign() {
@@ -49,7 +50,7 @@ public class Row extends Div {
     }
 
     public void setContentJustifyAlign(RowContentJustifyAlign rowContentJustifyAlign) {
-        setStyleName(rowContentJustifyAlign.getCssName());
+        StyleHelper.addUniqueEnumStyleName(this, RowContentJustifyAlign.class, rowContentJustifyAlign);
     }
 
     public RowContentJustifyAlign getContentJustifyAlign() {

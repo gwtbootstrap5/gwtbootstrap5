@@ -27,12 +27,13 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.gwt.FlowPanel;
 
 /**
- * Input group parent element of {@link InputGroupAppend}.
+ * Input group: put {@link InputGroupText}, buttons and form controls directly in it, before or after
+ * the input.
  *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @author Tercio Gaudencio Filho (terciofilho [at] gmail.com)
- * @see InputGroupAppend
+ * @see InputGroupText
  */
 public class InputGroup extends FlowPanel implements HasSize<InputGroupSize> {
 

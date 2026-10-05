@@ -24,6 +24,7 @@ import org.gwtbootstrap5.client.ui.base.*;
 import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap5.client.ui.base.mixin.IconTextMixin;
 import org.gwtbootstrap5.client.ui.constants.*;
+import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Small;
 import org.gwtbootstrap5.client.ui.html.Text;
 
@@ -121,6 +122,8 @@ public class Heading extends ComplexWidget implements HasWidgets, HasText, HasEm
     public void setSubText(final String subText) {
         // Force a space between the heading and the subText
         this.subText.setText(" " + subText);
+        // Bootstrap 5 doesn't fade small text in headings by itself
+        this.subText.addStyleName(Styles.TEXT_BODY_SECONDARY);
         add(this.subText);
     }
 

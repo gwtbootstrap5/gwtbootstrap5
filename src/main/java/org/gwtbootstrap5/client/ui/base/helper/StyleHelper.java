@@ -151,7 +151,7 @@ public final class StyleHelper {
         final String[] deviceString = deviceSize.name().split("_");
 
         for (final String device : deviceString) {
-            // Case back to basic enum (PRINT, XS, SM, MD, LG, XL)
+            // Case back to basic enum (PRINT, XS, SM, MD, LG, XL, XXL)
             final DeviceSize size = DeviceSize.valueOf(device);
             switch (size) {
                 case PRINT:
@@ -172,6 +172,9 @@ public final class StyleHelper {
                 case XL:
                     addEnumStyleName(uiObject, ResponsivenessNone.XL);
                     break;
+                case XXL:
+                    addEnumStyleName(uiObject, ResponsivenessNone.XXL);
+                    break;
                 default:
                     break;
             }
@@ -191,7 +194,7 @@ public final class StyleHelper {
         final String[] deviceString = deviceSize.name().split("_");
 
         for (final String device : deviceString) {
-            // Case back to basic enum (PRINT, XS, SM, MD, LG, XL)
+            // Case back to basic enum (PRINT, XS, SM, MD, LG, XL, XXL)
             final DeviceSize size = DeviceSize.valueOf(device);
             switch (size) {
                 case PRINT:
@@ -211,6 +214,9 @@ public final class StyleHelper {
                     break;
                 case XL:
                     addEnumStyleName(uiObject, ResponsivenessBlock.XL);
+                    break;
+                case XXL:
+                    addEnumStyleName(uiObject, ResponsivenessBlock.XXL);
                     break;
                 default:
                     break;

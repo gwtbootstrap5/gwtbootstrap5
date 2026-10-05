@@ -27,6 +27,7 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.DomEvent;
@@ -42,6 +43,8 @@ import org.gwtbootstrap5.client.ui.util.IconUtil;
 public class HelpBlock extends AbstractTextWidget {
 
     private boolean error = false;
+    // The help text to show again once the error is cleared
+    private String helpText = "";
 
     private Element iconElement = null;
 
@@ -67,9 +70,18 @@ public class HelpBlock extends AbstractTextWidget {
     /**
      * Clear the error state of this help block.
      */
+    /**
+     * Clears the error message and shows the help text again.
+     */
     public void clearError() {
+        if (!error) {
+            return;
+        }
         error = false;
-        setText("");
+        removeStyleName(Styles.INVALID_FEEDBACK);
+        addStyleName(Styles.FORM_TEXT);
+        getElement().getStyle().clearDisplay();
+        setText(helpText);
     }
 
     /**
@@ -105,8 +117,19 @@ public class HelpBlock extends AbstractTextWidget {
      * @param message
      *            the error message.
      */
+    /**
+     * Shows an error message in place of the help text, styled as Bootstrap's
+     * {@code invalid-feedback}.
+     */
     public void setError(String message) {
+        if (!error) {
+            helpText = getText();
+        }
         error = true;
+        removeStyleName(Styles.FORM_TEXT);
+        // invalid-feedback is hidden unless it follows an .is-invalid control; show it wherever it is
+        addStyleName(Styles.INVALID_FEEDBACK);
+        getElement().getStyle().setDisplay(Display.BLOCK);
         setText(message);
     }
 
