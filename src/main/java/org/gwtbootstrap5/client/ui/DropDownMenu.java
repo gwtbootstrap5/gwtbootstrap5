@@ -20,12 +20,16 @@ package org.gwtbootstrap5.client.ui;
  * ==========================LICENSE_END=================================
  */
 
+import org.gwtbootstrap5.client.ui.base.AbstractAnchorListItem;
 import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap5.client.ui.constants.Attributes;
 import org.gwtbootstrap5.client.ui.constants.DropDownMenuAlignment;
 import org.gwtbootstrap5.client.ui.constants.FloatCSS;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.UnorderedList;
+
+import com.google.gwt.dom.client.Element;
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Container for drop down menu items.
@@ -52,6 +56,30 @@ public class DropDownMenu extends UnorderedList {
      *                  {@code null} for Bootstrap's default (start)
      * @throws IllegalArgumentException for a breakpoint alignment; use {@link #setBreakpointAlignment}
      */
+    /**
+     * Adds an item. The link of an {@link AnchorListItem} becomes a {@code dropdown-item}.
+     */
+    @Override
+    public void add(final Widget child) {
+        super.add(asMenuItem(child));
+    }
+
+    @Override
+    public void insert(final Widget child, final int beforeIndex) {
+        super.insert(asMenuItem(child), beforeIndex);
+    }
+
+    private static Widget asMenuItem(final Widget child) {
+        if (child instanceof AbstractAnchorListItem) {
+            final Element link = child.getElement().getFirstChildElement();
+            if (link != null && link.hasClassName(Styles.NAV_LINK)) {
+                link.removeClassName(Styles.NAV_LINK);
+                link.addClassName(Styles.DROPDOWN_ITEM);
+            }
+        }
+        return child;
+    }
+
     public void setAlignment(final DropDownMenuAlignment alignment) {
         if (alignment != null && alignment.isResponsive()) {
             throw new IllegalArgumentException(alignment + " is a breakpoint alignment, use setBreakpointAlignment");

@@ -26,6 +26,8 @@ import org.gwtbootstrap5.client.ui.base.AbstractTooltip;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 
+import jsinterop.base.JsPropertyMap;
+
 /**
  * Basic implementation for the Bootstrap tooltip
  * <p>
@@ -113,6 +115,14 @@ public class Tooltip extends AbstractTooltip {
     /**
      * Create the tooltip.
      */
+    @Override
+    protected void updateContent() {
+        final BootstrapTooltip instance = BootstrapTooltip.getInstance(getWidget().getElement());
+        if (instance != null) {
+            instance.setContent(JsPropertyMap.of(".tooltip-inner", getTitle()));
+        }
+    }
+
     private void tooltip(Element e) {
         BootstrapTooltip.getOrCreateInstance(e, null);
     }

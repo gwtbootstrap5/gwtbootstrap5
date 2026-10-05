@@ -21,14 +21,14 @@ package org.gwtbootstrap5.client.ui;
  */
 
 import org.gwtbootstrap5.client.ui.constants.Styles;
-import org.gwtbootstrap5.client.ui.html.OrderedList;
+import org.gwtbootstrap5.client.ui.html.Div;
 
 import com.google.gwt.user.client.ui.Widget;
 
 /**
  * @author Joshua Godi
  */
-public class CarouselIndicators extends OrderedList {
+public class CarouselIndicators extends Div {
 
     public CarouselIndicators() {
         super();

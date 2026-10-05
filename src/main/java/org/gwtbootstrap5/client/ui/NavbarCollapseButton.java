@@ -37,8 +37,11 @@ public class NavbarCollapseButton extends Button {
     public NavbarCollapseButton() {
         super();
 
-        addStyleName(Styles.NAVBAR_COLLAPSE);
+        // Bootstrap 5's toggler is a plain button.navbar-toggler, without btn classes
+        setStyleName(Styles.NAVBAR_TOGGLER);
         setDataToggle(Toggle.COLLAPSE);
+        setAriaExpanded("false");
+        setAriaLabel("Toggle navigation");
 
         Span navbarIcon = new Span();
         navbarIcon.setStyleName(Styles.NAVBAR_TOGGLER_ICON);

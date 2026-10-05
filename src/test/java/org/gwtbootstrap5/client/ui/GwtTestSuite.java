@@ -33,6 +33,7 @@ public class GwtTestSuite extends TestCase {
         final GWTTestSuite suite = new GWTTestSuite("gwtbootstrap5 suite");
         suite.addTestSuite(CheckBoxButtonGwt.class);
         suite.addTestSuite(RadioButtonGwt.class);
+        suite.addTestSuite(ComponentMarkupGwt.class);
         suite.addTestSuite(ValidatorsGwt.class);
         return suite;
     }

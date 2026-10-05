@@ -20,12 +20,15 @@ package org.gwtbootstrap5.client.ui;
  * ==========================LICENSE_END=================================
  */
 
+import org.gwtbootstrap5.client.ui.base.AbstractListItem;
 import org.gwtbootstrap5.client.ui.base.HasJustified;
 import org.gwtbootstrap5.client.ui.base.HasRole;
 import org.gwtbootstrap5.client.ui.base.helper.RoleHelper;
 import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.UnorderedList;
+
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Nav container and base class for navigations.
@@ -93,5 +96,26 @@ public class Nav extends UnorderedList implements HasJustified, HasRole {
     @Override
     public String getRole() {
         return RoleHelper.getRole(getElement());
+    }
+
+    /**
+     * Adds a link. List items get the {@code nav-item} class, which {@code fill} and
+     * {@code justified} stretch.
+     */
+    @Override
+    public void add(final Widget child) {
+        super.add(asNavItem(child));
+    }
+
+    @Override
+    public void insert(final Widget child, final int beforeIndex) {
+        super.insert(asNavItem(child), beforeIndex);
+    }
+
+    static Widget asNavItem(final Widget child) {
+        if (child instanceof AbstractListItem) {
+            child.addStyleName(Styles.NAV_ITEM);
+        }
+        return child;
     }
 }

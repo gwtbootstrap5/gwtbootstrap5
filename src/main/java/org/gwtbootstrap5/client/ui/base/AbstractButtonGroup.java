@@ -49,9 +49,11 @@ public abstract class AbstractButtonGroup extends FlowPanel implements HasName, 
         setStyleName(Styles.BTN_GROUP);
     }
 
+    /**
+     * @param styleName the group's base class, used instead of {@code btn-group}
+     */
     protected AbstractButtonGroup(final String styleName) {
-        setStyleName(Styles.BTN_GROUP);
-        addStyleName(styleName);
+        setStyleName(styleName);
     }
 
     /**

@@ -52,6 +52,7 @@ public class Carousel extends Div {
     private int interval = 5000;
     private String pause = HOVER;
     private boolean wrap = true;
+    private boolean autoplay = true;
 
     public Carousel() {
         super();
@@ -72,7 +73,7 @@ public class Carousel extends Div {
         bindJavaScriptEvents(getElement());
 
         // Configure the carousel
-        carousel(getElement(), interval, pause, wrap);
+        carousel(getElement(), interval, pause, wrap, autoplay);
     }
 
     @Override
@@ -93,6 +94,23 @@ public class Carousel extends Div {
 
     public void setWrap(final boolean wrap) {
         this.wrap = wrap;
+    }
+
+    /**
+     * Whether the carousel starts cycling when it is shown (the default). Without autoplay it
+     * moves only through its controls, or from Java.
+     */
+    public void setAutoplay(final boolean autoplay) {
+        this.autoplay = autoplay;
+        if (autoplay) {
+            getElement().setAttribute(Attributes.DATA_RIDE, CAROUSEL);
+        } else {
+            getElement().removeAttribute(Attributes.DATA_RIDE);
+        }
+    }
+
+    public boolean isAutoplay() {
+        return autoplay;
     }
 
     public void setFade(final boolean fade) {
@@ -182,8 +200,10 @@ public class Carousel extends Div {
     }
 
     private static void carousel(final com.google.gwt.dom.client.Element e, final int interval, final String pause,
-                                 final boolean wrap) {
-        BootstrapCarousel.getOrCreateInstance(e, JsPropertyMap.of("interval", interval, "pause", pause, "wrap", wrap));
+                                 final boolean wrap, final boolean autoplay) {
+        final JsPropertyMap<Object> config = JsPropertyMap.of("interval", interval, "pause", pause, "wrap", wrap);
+        config.set("ride", autoplay ? CAROUSEL : false);
+        BootstrapCarousel.getOrCreateInstance(e, config);
     }
 
     private void fireMethod(final com.google.gwt.dom.client.Element e, String method) {

@@ -31,11 +31,13 @@ public class DropDownItem extends AbstractAnchorListItem implements com.google.g
     public DropDownItem() {
         super();
 
-        setStyleName(Styles.DROPDOWN_ITEM);
+        // Bootstrap 5 styles the link, not the list item
+        anchor.removeStyleName(Styles.NAV_LINK);
+        anchor.addStyleName(Styles.DROPDOWN_ITEM);
     }
 
     public DropDownItem(final String text) {
-        super();
+        this();
 
         setText(text);
     }

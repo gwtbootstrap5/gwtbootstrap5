@@ -72,6 +72,14 @@ public class BootstrapTooltip {
     /** Updates the tooltip's position. */
     public native void update();
 
+    /**
+     * Replaces the content of the tooltip's template, shown at once if the tooltip is open.
+     *
+     * @param content map from a selector of the template to its new text or HTML, e.g.
+     *            {@code {".tooltip-inner": "text"}}
+     */
+    public native void setContent(Object content);
+
     /** Destroys the instance and removes its stored data. */
     public native void dispose();
 

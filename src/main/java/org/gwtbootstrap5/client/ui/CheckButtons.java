@@ -76,6 +76,9 @@ final class CheckButtons {
 
     static void unlinkText(final LabelElement text) {
         text.removeAttribute("for");
+        // A label nested in the root label: Chrome doesn't activate the root when the inner one is
+        // clicked, so clicks go through it to the root
+        text.getStyle().setProperty("pointerEvents", "none");
     }
 
     /**

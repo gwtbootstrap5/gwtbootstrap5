@@ -26,6 +26,8 @@ import org.gwtbootstrap5.client.ui.base.AbstractTooltip;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 
+import jsinterop.base.JsPropertyMap;
+
 /**
  * Basic implementation for the Bootstrap Popover
  * <p>
@@ -44,7 +46,7 @@ import com.google.gwt.user.client.ui.Widget;
  */
 public class Popover extends AbstractTooltip {
 
-    private static final String TEMPLATE = "<div class=\"popover\" role=\"tooltip\"><div class=\"popover-arrow\"></div><h3 class=\"popover-title\"></h3><div class=\"popover-content\"></div></div>";
+    private static final String TEMPLATE = "<div class=\"popover\" role=\"tooltip\"><div class=\"popover-arrow\"></div><h3 class=\"popover-header\"></h3><div class=\"popover-body\"></div></div>";
 
     private String content = null;
 
@@ -138,6 +140,14 @@ public class Popover extends AbstractTooltip {
     /**
      * Create the popover.
      */
+    @Override
+    protected void updateContent() {
+        final BootstrapPopover instance = BootstrapPopover.getInstance(getWidget().getElement());
+        if (instance != null) {
+            instance.setContent(JsPropertyMap.of(".popover-header", getTitle(), ".popover-body", getContent()));
+        }
+    }
+
     private void popover(Element e, String content) {
         e.setAttribute("data-bs-content", content);
         BootstrapPopover.getOrCreateInstance(e, null);
@@ -150,6 +160,8 @@ public class Popover extends AbstractTooltip {
         this.content = content;
         if (initialized) {
             widget.getElement().setAttribute("data-bs-content", content);
+            // Bootstrap reads the content once, when the instance is created
+            updateContent();
         }
     }
 

@@ -23,6 +23,7 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.OrderedList;
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
@@ -49,6 +50,7 @@ public class Breadcrumbs extends OrderedList {
         if (!isOrWasAttached() && getChildren().size() > 0) {
             final Widget lastWidget = getChildren().get(getChildren().size() - 1);
             lastWidget.addStyleName(Styles.ACTIVE);
+            lastWidget.getElement().setAttribute("aria-current", "page");
         }
 
         super.onAttach();
@@ -60,7 +62,11 @@ public class Breadcrumbs extends OrderedList {
     @Override
     public void add(final Widget w) {
         w.addStyleName(Styles.BREADCRUMB_ITEM);
-        w.addStyleName(Styles.ACTIVE);
+        // An AnchorListItem's link is a nav-link, which is a padded block that squeezes the item
+        final Element link = w.getElement().getFirstChildElement();
+        if (link != null && link.hasClassName(Styles.NAV_LINK)) {
+            link.removeClassName(Styles.NAV_LINK);
+        }
         super.add(w);
     }
 

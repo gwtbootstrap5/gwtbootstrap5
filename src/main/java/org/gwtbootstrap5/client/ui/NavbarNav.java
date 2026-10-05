@@ -26,6 +26,8 @@ import org.gwtbootstrap5.client.ui.constants.Attributes;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.UnorderedList;
 
+import com.google.gwt.user.client.ui.Widget;
+
 /**
  * Container for {@link AnchorListItem} or {@link ListDropDown} within {@link Navbar}.
  *
@@ -61,4 +63,13 @@ public class NavbarNav extends UnorderedList implements HasRole {
         return getElement().getAttribute(Attributes.ARIA_LABEL);
     }
 
+    @Override
+    public void add(final Widget child) {
+        super.add(Nav.asNavItem(child));
+    }
+
+    @Override
+    public void insert(final Widget child, final int beforeIndex) {
+        super.insert(Nav.asNavItem(child), beforeIndex);
+    }
 }

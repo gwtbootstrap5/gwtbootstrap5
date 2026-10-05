@@ -245,6 +245,13 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     
     protected abstract void call(final String arg);
 
+    /**
+     * Passes the current title (and content) to the Bootstrap instance, which redraws an open
+     * tooltip. Called after the title changes on an initialized tooltip; does nothing by default.
+     */
+    protected void updateContent() {
+    }
+
     /** {@inheritDoc} */
     @Override
     public void clear() {
@@ -712,10 +719,9 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     public void setTitle(final String title) {
         this.title = title;
         if (initialized) {
-            getWidget().getElement().setAttribute("title", this.title);
-            if (showing) {
-                show();
-            }
+            getWidget().getElement().setAttribute("data-bs-title", this.title);
+            // Bootstrap reads the title once, when the instance is created
+            updateContent();
         }
     }
 
@@ -796,7 +802,14 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
         }
 
         // When we attach it, configure the tooltip
-        widget.addAttachHandler(event-> init());
+        widget.addAttachHandler(event -> {
+            if (event.isAttached()) {
+                init();
+            } else if (initialized) {
+                // The tip lives in the container (body by default): remove it with the widget
+                destroy();
+            }
+        });
     }
 
     /**

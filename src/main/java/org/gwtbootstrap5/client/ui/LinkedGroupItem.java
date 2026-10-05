@@ -59,7 +59,7 @@ public class LinkedGroupItem extends ComplexWidget implements HasClickHandlers, 
 
         setElement(Document.get().createAnchorElement());
         setStyleName(Styles.LIST_GROUP_ITEM);
-        setStyleName(Styles.LIST_GROUP_ITEM_ACTION);
+        addStyleName(Styles.LIST_GROUP_ITEM_ACTION);
         setHref(href);
         add(span);
     }

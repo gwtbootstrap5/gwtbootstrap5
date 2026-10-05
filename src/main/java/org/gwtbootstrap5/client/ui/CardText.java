@@ -20,16 +20,20 @@ package org.gwtbootstrap5.client.ui;
  * ==========================LICENSE_END=================================
  */
 
-import com.google.gwt.uibinder.client.UiConstructor;
 import org.gwtbootstrap5.client.ui.constants.Styles;
+import org.gwtbootstrap5.client.ui.html.Paragraph;
 
-public class CardText extends TextBox {
+/**
+ * The text of a card: a {@code <p class="card-text">}.
+ */
+public class CardText extends Paragraph {
 
-    @UiConstructor
     public CardText() {
-        super();
-
         addStyleName(Styles.CARD_TEXT);
     }
 
+    public CardText(final String html) {
+        super(html);
+        addStyleName(Styles.CARD_TEXT);
+    }
 }

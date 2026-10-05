@@ -43,7 +43,9 @@ public class CarouselIndicator extends ComplexWidget implements HasDataTarget, H
     public CarouselIndicator() {
         super();
 
-        setElement(Document.get().createLIElement());
+        // Bootstrap 5 indicators are buttons in a div, not list items
+        setElement(Document.get().createPushButtonElement());
+        getElement().setAttribute(Attributes.TYPE, "button");
     }
 
     public void setDataSlideTo(final String dataSlideTo) {

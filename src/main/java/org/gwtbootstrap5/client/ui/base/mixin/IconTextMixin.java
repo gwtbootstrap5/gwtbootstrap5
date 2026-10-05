@@ -63,6 +63,8 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
 
     public IconTextMixin(final T widget) {
         this.widget = widget;
+        // Without a color the badge is white text on a transparent background, invisible on light buttons
+        badge.setType(BadgeType.SECONDARY);
     }
 
     public void addTextWidgetToParent() {

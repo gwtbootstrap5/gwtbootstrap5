@@ -80,7 +80,8 @@ public class ListDropDown extends AbstractListItem implements HasDropDown {
                 throw new IllegalArgumentException("Only buttons of type AnchorButton can be added to ListDropDown");
             }
 
-            child.setStyleName(Styles.DROPDOWN_TOGGLE);
+            child.setStyleName(Styles.NAV_LINK);
+            child.addStyleName(Styles.DROPDOWN_TOGGLE);
         }
 
         add(child, (Element) getElement());

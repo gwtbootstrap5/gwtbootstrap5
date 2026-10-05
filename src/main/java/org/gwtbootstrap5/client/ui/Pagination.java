@@ -28,7 +28,9 @@ import org.gwtbootstrap5.client.ui.constants.PaginationSize;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.UnorderedList;
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.cellview.client.SimplePager;
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Support for Bootstrap pagination (<a href="http://getbootstrap.com/components/#pagination">...</a>)
@@ -56,6 +58,32 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
     @Override
     public PaginationSize getPaginationSize() {
         return PaginationSize.fromStyleName(getStyleName());
+    }
+
+    /**
+     * Adds a page. An {@link AnchorListItem} is styled as a {@code page-item} with a
+     * {@code page-link}; a {@link PaginationItem} already is one.
+     */
+    @Override
+    public void add(final Widget child) {
+        super.add(asPageItem(child));
+    }
+
+    @Override
+    public void insert(final Widget child, final int beforeIndex) {
+        super.insert(asPageItem(child), beforeIndex);
+    }
+
+    private static Widget asPageItem(final Widget child) {
+        if (child instanceof AnchorListItem) {
+            child.addStyleName(Styles.PAGINATION_ITEM);
+            final Element link = child.getElement().getFirstChildElement();
+            if (link != null && link.hasClassName(Styles.NAV_LINK)) {
+                link.removeClassName(Styles.NAV_LINK);
+                link.addClassName(Styles.PAGINATION_LINK);
+            }
+        }
+        return child;
     }
 
     public AnchorListItem addPreviousLink() {
