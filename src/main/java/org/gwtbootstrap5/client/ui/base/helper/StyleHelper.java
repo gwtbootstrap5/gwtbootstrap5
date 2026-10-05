@@ -21,6 +21,7 @@ package org.gwtbootstrap5.client.ui.base.helper;
  */
 
 import org.gwtbootstrap5.client.ui.constants.DeviceSize;
+import org.gwtbootstrap5.client.ui.constants.PlaceholderAnimation;
 
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.ui.UIObject;
@@ -218,5 +219,15 @@ public final class StyleHelper {
     }
 
     private StyleHelper() {
+    }
+
+    /**
+     * Animates the {@link org.gwtbootstrap5.client.ui.Placeholder}s inside a container.
+     *
+     * @param uiObject  the container
+     * @param animation the animation, or {@code null} for none
+     */
+    public static void setPlaceholderAnimation(final UIObject uiObject, final PlaceholderAnimation animation) {
+        addUniqueEnumStyleName(uiObject, PlaceholderAnimation.class, animation);
     }
 }

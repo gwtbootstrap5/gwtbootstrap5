@@ -49,6 +49,7 @@ public class Attributes {
 
     public static final String FOR = "for";
 
+    public static final String PLACEHOLDER = "placeholder";
     public static final String ROLE = "role";
 
     public static final String TABINDEX = "tabindex";

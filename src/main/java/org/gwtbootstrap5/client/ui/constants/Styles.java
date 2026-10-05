@@ -110,6 +110,8 @@ public final class Styles {
     public static final String FORM_CHECK = "form-check";
     public static final String FORM_CHECK_LABEL = "form-check-label";
     public static final String FORM_CHECK_INPUT = "form-check-input";
+    public static final String FORM_FLOATING = "form-floating";
+    public static final String FORM_SWITCH = "form-switch";
     public static final String FORM_CHECK_REVERSE = "form-check-reverse";
     public static final String FORM_CHECK_INLINE = "form-check-inline";
 
@@ -198,6 +200,8 @@ public final class Styles {
     public static final String ROUNDED_PILL = "rounded-pill";
 
     public static final String ROW = "row";
+
+    public static final String PLACEHOLDER = "placeholder";
 
     public static final String SHOW = "show";
     public static final String SHOWING = "showing";
