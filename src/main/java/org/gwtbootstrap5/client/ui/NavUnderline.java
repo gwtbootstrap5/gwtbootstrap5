@@ -23,15 +23,17 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
- * @author Sven Jacobs
+ * Nav whose active link is underlined ({@code nav-underline}, new in Bootstrap 5.3).
+ *
  * @see AnchorListItem
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navs-tabs/#underline">Bootstrap 5 documentation</a>
  */
-public class NavPills extends Nav {
+public class NavUnderline extends Nav {
 
-    public NavPills() {
+    public NavUnderline() {
         super();
 
-        addStyleName(Styles.NAV_PILLS);
+        addStyleName(Styles.NAV_UNDERLINE);
     }
 
 }

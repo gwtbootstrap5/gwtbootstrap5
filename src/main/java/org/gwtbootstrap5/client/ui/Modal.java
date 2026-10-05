@@ -35,6 +35,7 @@ import org.gwtbootstrap5.client.ui.base.modal.ModalContent;
 import org.gwtbootstrap5.client.ui.base.modal.ModalDialog;
 import org.gwtbootstrap5.client.ui.constants.Attributes;
 import org.gwtbootstrap5.client.ui.constants.ModalBackdrop;
+import org.gwtbootstrap5.client.ui.constants.ModalFullscreen;
 import org.gwtbootstrap5.client.ui.constants.ModalSize;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
@@ -146,6 +147,20 @@ public class Modal extends Div implements IsClosable {
 
     public void setSize(ModalSize size) {
         StyleHelper.addUniqueEnumStyleName(dialog, ModalSize.class, size);
+    }
+
+    /**
+     * Makes the modal cover the viewport, always or below a breakpoint. Independent of
+     * {@link #setSize}, which applies above that breakpoint.
+     *
+     * @param fullscreen when to cover the viewport, or {@code null} never
+     */
+    public void setFullscreen(final ModalFullscreen fullscreen) {
+        StyleHelper.addUniqueEnumStyleName(dialog, ModalFullscreen.class, fullscreen);
+    }
+
+    public ModalFullscreen getFullscreen() {
+        return ModalFullscreen.fromStyleName(dialog.getStyleName());
     }
 
     @Override

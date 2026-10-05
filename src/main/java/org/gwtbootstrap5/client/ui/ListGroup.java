@@ -20,6 +20,8 @@ package org.gwtbootstrap5.client.ui;
  * ==========================LICENSE_END=================================
  */
 
+import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
+import org.gwtbootstrap5.client.ui.constants.ListGroupHorizontal;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.UnorderedList;
 
@@ -52,6 +54,35 @@ public class ListGroup extends UnorderedList {
         } else {
             getElement().removeClassName(Styles.LIST_GROUP_NUMBERED);
         }
+    }
+
+    /**
+     * Removes the outer borders and rounded corners, to render the list edge to edge with its
+     * parent, e.g. inside a {@link Card} ({@code list-group-flush}).
+     */
+    public void setFlush(final boolean flush) {
+        if (flush) {
+            addStyleName(Styles.LIST_GROUP_FLUSH);
+        } else {
+            removeStyleName(Styles.LIST_GROUP_FLUSH);
+        }
+    }
+
+    public boolean isFlush() {
+        return StyleHelper.containsStyle(getStyleName(), Styles.LIST_GROUP_FLUSH);
+    }
+
+    /**
+     * Lays the items out horizontally, always or from a breakpoint up.
+     *
+     * @param horizontal the breakpoint, or {@code null} for a vertical list
+     */
+    public void setHorizontal(final ListGroupHorizontal horizontal) {
+        StyleHelper.addUniqueEnumStyleName(this, ListGroupHorizontal.class, horizontal);
+    }
+
+    public ListGroupHorizontal getHorizontal() {
+        return ListGroupHorizontal.fromStyleName(getStyleName());
     }
 
 }

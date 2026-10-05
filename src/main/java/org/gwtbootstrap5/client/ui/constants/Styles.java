@@ -160,6 +160,7 @@ public final class Styles {
     public static final String NAV_FILL = "nav-fill";
     public static final String NAV_PILLS = "nav-pills";
     public static final String NAV_TABS = "nav-tabs";
+    public static final String NAV_UNDERLINE = "nav-underline";
 
     public static final String NAVBAR = "navbar";
     public static final String NAVBAR_BRAND = "navbar-brand";
@@ -170,6 +171,7 @@ public final class Styles {
     public static final String NAVBAR_TOGGLER_ICON = "navbar-toggler-icon";
 
     public static final String CARD = "card";
+    public static final String CARD_GROUP = "card-group";
     public static final String CARD_HEADING = "card-header";
     public static final String CARD_TITLE = "card-title";
     public static final String CARD_SUBTITLE = "card-subtitle";

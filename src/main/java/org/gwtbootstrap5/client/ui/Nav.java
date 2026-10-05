@@ -61,12 +61,28 @@ public class Nav extends UnorderedList implements HasJustified, HasRole {
         if (vertical) {
             addStyleName(Styles.FLEX_COLUMN);
         } else {
-            removeStyleName(Styles.NAV_JUSTIFIED);
+            removeStyleName(Styles.FLEX_COLUMN);
         }
     }
 
     public boolean isVertical() {
         return StyleHelper.containsStyle(getStyleName(), Styles.FLEX_COLUMN);
+    }
+
+    /**
+     * Makes the items fill the nav's width, each as wide as its content ({@code nav-fill}). Use
+     * {@link #setJustified} for items of equal width.
+     */
+    public void setFill(final boolean fill) {
+        if (fill) {
+            addStyleName(Styles.NAV_FILL);
+        } else {
+            removeStyleName(Styles.NAV_FILL);
+        }
+    }
+
+    public boolean isFill() {
+        return StyleHelper.containsStyle(getStyleName(), Styles.NAV_FILL);
     }
 
     @Override

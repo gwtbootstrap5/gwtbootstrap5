@@ -21,17 +21,20 @@ package org.gwtbootstrap5.client.ui;
  */
 
 import org.gwtbootstrap5.client.ui.constants.Styles;
+import org.gwtbootstrap5.client.ui.html.Div;
 
 /**
- * @author Sven Jacobs
- * @see AnchorListItem
+ * Joins {@link Card}s into a single row of equal width and height ({@code card-group}); they stack
+ * below the {@code sm} breakpoint.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/card/#card-groups">Bootstrap 5 documentation</a>
  */
-public class NavPills extends Nav {
+public class CardGroup extends Div {
 
-    public NavPills() {
+    public CardGroup() {
         super();
 
-        addStyleName(Styles.NAV_PILLS);
+        setStyleName(Styles.CARD_GROUP);
     }
 
 }
