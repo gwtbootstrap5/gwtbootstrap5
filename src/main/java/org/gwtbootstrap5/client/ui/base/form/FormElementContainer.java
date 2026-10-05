@@ -46,7 +46,10 @@ public abstract class FormElementContainer extends ComplexPanel implements HasRe
     /** {@inheritDoc} */
     @Override
     public void add(final Widget w) {
-        if (w instanceof ListBox || w instanceof FileUpload) {
+        // Bootstrap 5 styles a select with form-select and a file input with form-control
+        if (w instanceof ListBox) {
+            w.addStyleName(Styles.FORM_SELECT);
+        } else if (w instanceof FileUpload) {
             w.addStyleName(Styles.FORM_CONTROL);
         }
         add(w, (Element) getElement());

@@ -39,7 +39,7 @@ public class ListBox extends com.google.gwt.user.client.ui.ListBox implements Ha
      */
     public ListBox() {
         super();
-        setStyleName(Styles.FORM_CONTROL);
+        setStyleName(Styles.FORM_SELECT);
     }
 
     /**
