@@ -33,9 +33,7 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 /**
  * Badge for highlighting new or unread items.
- * <p/>
- * <h3>UiBinder example</h3>
- * <p/>
+ * <h2>UiBinder example</h2>
  * <pre>
  * {@code
  *     <b:Badge>42</b:Badge>

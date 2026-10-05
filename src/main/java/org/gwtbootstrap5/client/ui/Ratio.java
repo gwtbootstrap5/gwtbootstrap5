@@ -28,8 +28,7 @@ import org.gwtbootstrap5.client.ui.html.Div;
 /**
  * Keeps its child, usually an {@code iframe} or {@code video}, at an aspect ratio ({@code ratio});
  * 16:9 by default.
- * <p/>
- * <h3>UiBinder example</h3>
+ * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <b:Ratio type="R4X3">
  *         <g:Frame url="https://www.example.com/embed"/>

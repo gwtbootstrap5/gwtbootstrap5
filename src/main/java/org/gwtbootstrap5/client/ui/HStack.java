@@ -25,8 +25,7 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
  * Horizontal stack ({@code hstack}): children in a row, vertically centered. Space them with {@link #setGap(int)}.
- * <p/>
- * <h3>UiBinder example</h3>
+ * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <b:HStack gap="3">...</b:HStack>
  * }</pre>

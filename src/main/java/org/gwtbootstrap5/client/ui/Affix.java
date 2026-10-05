@@ -26,10 +26,10 @@ import com.google.gwt.user.client.ui.UIObject;
 /**
  * An Affix is an element/container that stays "pinned" to the top of the viewport
  * once the page has been scrolled up to it.
- * <p/>
+ * <p>
  * Any element/container can become an Affix. Usually used for sidebar
  * navigation.
- * <p/>
+ * <p>
  * <strong>Note:</strong> Bootstrap 5 removed the affix plugin. This class uses CSS
  * sticky positioning instead (Bootstrap's {@code sticky-top} class), and the offset is the
  * distance in pixels from the top of the viewport at which the element sticks. Sticky

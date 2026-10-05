@@ -31,9 +31,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Header element within {@link DropDownMenu}
- * <p/>
- * <h3>UiBinder example</h3>
- * <p/>
+ * <h2>UiBinder example</h2>
  * <pre>
  * {@code
  *     <b:DropDownMenu>

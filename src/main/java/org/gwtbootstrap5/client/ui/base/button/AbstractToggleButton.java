@@ -54,7 +54,6 @@ public abstract class AbstractToggleButton extends AbstractIconButton implements
     /**
      * Specifies that this button acts as a toggle, for instance for a parent {@link org.gwtbootstrap5.client.ui.DropDown}
      * or {@link org.gwtbootstrap5.client.ui.ButtonGroup}
-     * <p/>
      *
      * @param toggle Kind of toggle
      */

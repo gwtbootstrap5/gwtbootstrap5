@@ -59,13 +59,11 @@ import com.google.gwt.user.client.ui.UIObject;
  * A standard checkbox widget.
  * This class also serves as a base class for {@link Radio}.
  * 
- * <p>
- * <h3>Built-in Bidi Text Support</h3>
+ * <h2>Built-in Bidi Text Support</h2>
  * This widget is capable of automatically adjusting its direction according to
  * its content. This feature is controlled by {@link #setDirectionEstimator} or
  * passing a DirectionEstimator parameter to the constructor, and is off by
  * default.
- * </p>
  */
 public class CheckBox extends ButtonBase implements HasName, HasValue<Boolean>, HasWordWrap, HasDirectionalSafeHtml,
         HasDirectionEstimator, IsEditor<LeafValueEditor<Boolean>>, HasFormValue, HasChangeHandlers {

@@ -21,7 +21,7 @@ package org.gwtbootstrap5.client.ui.form.validator;
  */
 
 /**
- * These are convenience methods to automatically add the {@link AllowBlankValidator}.
+ * These are convenience methods to automatically add the {@link BlankValidator}.
  *
  * @param <T> the generic type
  * @author Steven Jardine

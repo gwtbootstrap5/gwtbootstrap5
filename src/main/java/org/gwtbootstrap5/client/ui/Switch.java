@@ -26,8 +26,7 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 /**
  * Toggle switch: a {@link CheckBox} drawn as a switch ({@code form-switch}) and announced as one
  * ({@code role="switch"}).
- * <p/>
- * <h3>UiBinder example</h3>
+ * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <b:Switch text="Notifications" value="true"/>
  * }</pre>

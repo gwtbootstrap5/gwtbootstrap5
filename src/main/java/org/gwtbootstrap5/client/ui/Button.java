@@ -30,9 +30,7 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
  * Button based on {@code <button>} element with different types and sizes.
- * <p/>
- * <h3>UiBinder example</h3>
- * <p/>
+ * <h2>UiBinder example</h2>
  * <pre>
  * {@code
  *     <b:Button type="PRIMARY">Save</b:Button>

@@ -25,9 +25,7 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
  * Vertical button group
- * <p/>
- * <h3>UiBinder example</h3>
- * <p/>
+ * <h2>UiBinder example</h2>
  * <pre>
  * {@code
  * <b:VerticalButtonGroup>

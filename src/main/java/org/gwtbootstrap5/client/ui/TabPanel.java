@@ -30,11 +30,9 @@ import org.gwtbootstrap5.client.ui.html.Div;
 
 /**
  * Container widget for the tab pane
- * <p/>
+ * <p>
  * <a href="http://getbootstrap.com/javascript/#tabs">Bootstrap Documentation</a>
- * <p/>
- * <h3>UiBinder example</h3>
- * <p/>
+ * <h2>UiBinder example</h2>
  * <pre>
  * {@code
  * <b:TabContent>

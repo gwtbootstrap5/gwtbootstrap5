@@ -45,7 +45,7 @@ import org.gwtbootstrap5.client.ui.util.IconUtil;
 /**
  * Button representing a checkbox used within a {@link ButtonGroup} that has
  * toggle set to {@code Toogle.BUTTONS}.
- * <p/>
+ * <p>
  * If you are looking for a classic checkbox see {@link CheckBox}.
  *
  * @author Sven Jacobs

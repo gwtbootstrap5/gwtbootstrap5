@@ -40,7 +40,7 @@ public class Code extends AbstractTextWidget {
 
     /**
      * Sets HTML contents.
-     * <p/>
+     * <p>
      * If HTML contains "\n" it will be replaced by a {@code <br>} element
      * and "\s" will be replaced by a whitespace.
      *

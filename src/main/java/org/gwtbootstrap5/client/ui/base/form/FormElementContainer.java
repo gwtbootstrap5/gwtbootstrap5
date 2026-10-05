@@ -34,7 +34,7 @@ import com.google.gwt.user.client.ui.Widget;
 /**
  * Base class for {@link org.gwtbootstrap5.client.ui.Form} related
  * widgets that may contain form input elements.
- * <p/>
+ * <p>
  * Input elements styleName is adjusted during
  * {@link #add(com.google.gwt.user.client.ui.Widget)}.
  *

@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.gwtbootstrap5</groupId>
+        <groupId>io.github.gwtbootstrap5</groupId>
         <artifactId>gwtbootstrap5-parent</artifactId>
         <version>0.2.0</version>
     </parent>
@@ -11,13 +11,13 @@
     <artifactId>gwtbootstrap5</artifactId>
     <name>GwtBootstrap5</name>
     <description>GWT wrapper for the Bootstrap front-end framework</description>
-    <url>http://gwtbootstrap5.org</url>
+    <url>https://github.com/gwtbootstrap5/gwtbootstrap5</url>
     <packaging>gwt-lib</packaging>
 
     <scm>
         <connection>scm:git:git@github.com:gwtbootstrap5/gwtbootstrap5.git</connection>
         <developerConnection>scm:git:git@github.com:gwtbootstrap5/gwtbootstrap5.git</developerConnection>
-        <url>git@github.com:gwtbootstrap5/gwtbootstrap5.git</url>
+        <url>https://github.com/gwtbootstrap5/gwtbootstrap5</url>
         <tag>HEAD</tag>
     </scm>
 

@@ -34,12 +34,9 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 /**
  * Represents a Heading tag, has an optional subtext.
- * <p/>
- * <h3>Bootstrap's Documentation</h3>
+ * <h2>Bootstrap's Documentation</h2>
  * <a href="http://getbootstrap.com/css/#type">Typography</a>
- * <p/>
- * <h3>Usage in UiBinder</h3>
- * <p/>
+ * <h2>Usage in UiBinder</h2>
  * <pre>
  * {@code
  * <b:Heading size="H1">
@@ -62,9 +59,7 @@ import com.google.gwt.user.client.ui.HasWidgets;
  * </b:Heading>
  * }
  * </pre>
- * <p/>
- * <h3>Usage in Java</h3>
- * <p/>
+ * <h2>Usage in Java</h2>
  * <pre>
  * Heading h1 = new Heading(1, "Heading Text");
  * h1.setSubText("Subtext Text"); // optional
@@ -117,7 +112,7 @@ public class Heading extends ComplexWidget implements HasWidgets, HasText, HasEm
 
     /**
      * Sets the subtext for the heading (wrapped in a Small tag).
-     * <p/>
+     * <p>
      * When using the setter for this, the subtext will be added after the text
      *
      * @param subText the subtext of the heading

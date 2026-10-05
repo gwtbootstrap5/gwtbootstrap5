@@ -34,8 +34,7 @@ import com.google.gwt.event.shared.HandlerRegistration;
 
 /**
  * Dropdown parent container.
- * <p/>
- * <h3>UiBinder example</h3>
+ * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <b:DropDown>
  *         <b:Anchor toggle="DROPDOWN">Click to toggle dropdown</b:Anchor>

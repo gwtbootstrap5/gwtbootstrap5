@@ -96,9 +96,8 @@ public abstract class AbstractForm extends FormElementContainer implements FormP
          * Gets the result text of the form submission.
          *
          * @return the result html, or <code>null</code> if there was an error
-         *         reading it
-         * @tip The result html can be <code>null</code> as a result of submitting a
-         *      form to a different domain.
+         *         reading it. It can also be <code>null</code> as a result of
+         *         submitting a form to a different domain.
          */
         public String getResults() {
             return resultHtml;

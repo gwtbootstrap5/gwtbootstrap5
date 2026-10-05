@@ -52,9 +52,7 @@ import jsinterop.base.Js;
 
 /**
  * Modal dialog.
- * <p/>
- * <h3>UiBinder example</h3>
- * <p/>
+ * <h2>UiBinder example</h2>
  * <pre>
  * {@code
  *     <b:Modal title="Important information" b:id="modal1">
@@ -69,9 +67,8 @@ import jsinterop.base.Js;
  *     <b:Button target="#modal1" toggle="MODAL">Show modal</b:Button>
  * }
  * </pre>
- * <p/>
+ * <p>
  * It's also possible to specify a custom modal header:
- * <p/>
  * <pre>
  * {@code
  *     <b:Modal>

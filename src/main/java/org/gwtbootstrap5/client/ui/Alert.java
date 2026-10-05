@@ -44,7 +44,7 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
 
 /**
  * Alert block.
- * <p/>
+ * <p>
  * Use {@link #setDismissable(boolean)} to add a close ("x") button.
  *
  * @author Sven Jacobs

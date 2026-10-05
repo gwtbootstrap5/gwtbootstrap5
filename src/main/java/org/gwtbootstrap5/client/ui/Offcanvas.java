@@ -51,8 +51,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Sidebar panel that slides in from an edge of the viewport.
- * <p/>
- * <h3>UiBinder example</h3>
+ * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <b:Button dataToggle="OFFCANVAS" dataTarget="#menu">Menu</b:Button>
  *     <b:Offcanvas id="menu" placement="END">

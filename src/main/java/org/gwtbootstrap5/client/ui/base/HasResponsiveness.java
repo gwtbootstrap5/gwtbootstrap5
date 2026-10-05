@@ -24,9 +24,9 @@ import org.gwtbootstrap5.client.ui.constants.DeviceSize;
 
 /**
  * Interface to set the visibility and hidden properties of elements
- * <p/>
+ * <p>
  * Example:
- * <p/>
+ * <p>
  * hiddenOn="SM MD"
  * hiddenOn="SM,MD"
  * visibleOn="SM LG"

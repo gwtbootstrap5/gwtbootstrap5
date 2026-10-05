@@ -29,8 +29,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Accordion: {@link AccordionItem}s whose bodies collapse, by default only one open at a time.
- * <p/>
- * <h3>UiBinder example</h3>
+ * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <b:Accordion>
  *         <b:AccordionItem open="true">

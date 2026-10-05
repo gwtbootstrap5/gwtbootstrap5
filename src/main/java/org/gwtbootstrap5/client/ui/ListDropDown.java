@@ -39,9 +39,7 @@ import com.google.gwt.user.client.ui.Widget;
 /**
  * Drop down item within a list, e.g. {@link NavTabs}, {@link NavPills} or
  * {@link Navbar}.
- * <p/>
- * <h3>UiBinder example</h3>
- * <p/>
+ * <h2>UiBinder example</h2>
  * <pre>
  * {@code
  *     <b:NavTabs>

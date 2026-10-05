@@ -25,8 +25,7 @@ import org.gwtbootstrap5.client.ui.gwt.FlowPanel;
 
 /**
  * Combines multiple button groups.
- * <p/>
- * <h3>UiBinder example</h3>
+ * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <b:ButtonToolBar>
  *         <b:ButtonGroup>

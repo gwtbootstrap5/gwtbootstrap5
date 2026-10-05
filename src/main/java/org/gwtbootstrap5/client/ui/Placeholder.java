@@ -32,8 +32,7 @@ import com.google.gwt.dom.client.Document;
 /**
  * Loading placeholder ({@code span.placeholder}): a grey bar that stands for content still loading.
  * Animate a group of them with {@link StyleHelper#setPlaceholderAnimation} on their container.
- * <p/>
- * <h3>UiBinder example</h3>
+ * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <g:HTMLPanel ui:field="card">
  *         <b:Placeholder columnSize="XS_6"/>

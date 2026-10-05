@@ -27,11 +27,9 @@ import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Container widget for the tab content
- * <p/>
+ * <p>
  * <a href="http://getbootstrap.com/javascript/#tabs">Bootstrap Documentation</a>
- * <p/>
- * <h3>UiBinder example</h3>
- * <p/>
+ * <h2>UiBinder example</h2>
  * <pre>
  * {@code
  * <b:TabContent>

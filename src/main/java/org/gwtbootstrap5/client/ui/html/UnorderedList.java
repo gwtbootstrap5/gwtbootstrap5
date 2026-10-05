@@ -29,12 +29,9 @@ import com.google.gwt.dom.client.Document;
 
 /**
  * Widget representing an Unordered List
- * <p/>
+ * <p>
  * ** Children must be of type ListItem
- * <p/>
- * <p/>
- * <h3>UiBinder example</h3>
- * <p/>
+ * <h2>UiBinder example</h2>
  * <pre>
  * {@code
  * <b:UnorderedList>

@@ -32,9 +32,9 @@ import jsinterop.base.JsPropertyMap;
 /**
  * A ScrollSpy handles scrolling events (typically on {@code <body>}) and
  * updates "active" states of a {@link Nav} accordingly.
- * <h3>Note</h3> The target element <strong>must</strong> be a parent element of a
+ * <h2>Note</h2> The target element <strong>must</strong> be a parent element of a
  * {@code <ul class="nav">} or {@link Nav}.
- * <p/>
+ * <p>
  * Also the ScrollSpy must be initialized when the target element has been added
  * to the DOM, for example in onAttach.
  * <pre>{@code
@@ -43,7 +43,7 @@ import jsinterop.base.JsPropertyMap;
  *     super.onAttach();
  *     ScrollSpy.scrollSpy(this);
  * }}</pre>
- * <p/>
+ * <p>
  * See Bootstrap's <a
  * href="http://getbootstrap.com/javascript/#scrollspy">documentation</a>.
  *

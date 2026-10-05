@@ -217,7 +217,7 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
 
     /**
      * Sets dismiss type of button.
-     * <p/>
+     * <p>
      * If button is inside a
      * {@link org.gwtbootstrap5.client.ui.Modal} and dismiss type is
      * {@code MODAL} the button will act as the dismiss (close) button for this

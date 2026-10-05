@@ -33,11 +33,10 @@ import com.google.gwt.user.client.ui.Widget;
 /**
  * Label that sits inside a form control and floats above its value ({@code form-floating}). It
  * takes one control: a {@link TextBox}, {@link TextArea}, {@link Input} or {@link ListBox}.
- * <p/>
+ * <p>
  * When attached it puts the label after the control, links it with {@code for}, and gives a text
  * control the {@code placeholder} Bootstrap needs to tell an empty control from a filled one.
- * <p/>
- * <h3>UiBinder example</h3>
+ * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <b:FloatingLabel text="Email address">
  *         <b:TextBox/>

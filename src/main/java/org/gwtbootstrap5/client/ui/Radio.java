@@ -42,13 +42,11 @@ import com.google.gwt.user.client.DOM;
  * ValueChangeEvents from being sent when the radio button is cleared as a side
  * effect of another in the group being clicked.
  * 
- * <p>
- * <h3>Built-in Bidi Text Support</h3>
+ * <h2>Built-in Bidi Text Support</h2>
  * This widget is capable of automatically adjusting its direction according to
  * its content. This feature is controlled by {@link #setDirectionEstimator} or
  * passing a DirectionEstimator parameter to the constructor, and is off by
  * default.
- * </p>
  *
  * @author Sven Jacobs
  */

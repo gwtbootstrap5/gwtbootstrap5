@@ -46,7 +46,7 @@ import org.gwtbootstrap5.client.ui.util.IconUtil;
 /**
  * Button representing a radio button used within a {@link ButtonGroup} that has
  * toggle set to {@code Toogle.BUTTONS}.
- * <p/>
+ * <p>
  * If you are looking for a classic radio button see {@link RadioButton}.
  *
  * @author Sven Jacobs

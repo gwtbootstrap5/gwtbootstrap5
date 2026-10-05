@@ -24,8 +24,7 @@ import org.gwtbootstrap5.client.ui.base.AbstractButtonGroup;
 
 /**
  * Button group containing multiple buttons.
- * <p/>
- * <h3>UiBinder example</h3>
+ * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <b:ButtonGroup>
  *         <b:Button>Button 1</b:Button>
@@ -33,7 +32,7 @@ import org.gwtbootstrap5.client.ui.base.AbstractButtonGroup;
  *         <b:Button>Button 3</b:Button>
  *     </b:ButtonGroup>
  * }</pre>
- * <p/>
+ * <p>
  * Is also a container for dropdown buttons:
  * <pre>{@code
  *     <b:ButtonGroup>

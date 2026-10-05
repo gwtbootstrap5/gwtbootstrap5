@@ -29,7 +29,7 @@ import org.gwtbootstrap5.client.ui.html.UnorderedList;
 
 /**
  * Container for drop down menu items.
- * <p/>
+ * <p>
  * <strong>Must</strong> be encapsulated in a {@link ButtonGroup} to build button dropdowns.
  *
  * @author Sven Jacobs

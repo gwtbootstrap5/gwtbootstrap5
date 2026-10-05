@@ -28,12 +28,9 @@ import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Basic implementation for the Bootstrap Popover
- * <p/>
+ * <p>
  * <a href="http://getbootstrap.com/javascript/#popovers">Bootstrap Documentation</a>
- * <p/>
- * <p/>
- * <h3>UiBinder example</h3>
- * <p/>
+ * <h2>UiBinder example</h2>
  * 
  * <pre>
  * {@code
@@ -42,7 +39,6 @@ import com.google.gwt.user.client.ui.Widget;
  * </b:Popover>
  * }
  * </pre>
- * <p/>
  *
  * @author Steven Jardine
  */

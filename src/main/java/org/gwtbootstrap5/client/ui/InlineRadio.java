@@ -80,7 +80,7 @@ public class InlineRadio extends Radio {
      * @param directionEstimator
      *            A DirectionEstimator object used for automatic direction
      *            adjustment. For convenience,
-     *            {@link #DEFAULT_DIRECTION_ESTIMATOR} can be used.
+     *            {@code DEFAULT_DIRECTION_ESTIMATOR} can be used.
      */
     public InlineRadio(String name, SafeHtml label, DirectionEstimator directionEstimator) {
         this(name);
@@ -132,7 +132,7 @@ public class InlineRadio extends Radio {
      * @param directionEstimator
      *            A DirectionEstimator object used for automatic direction
      *            adjustment. For convenience,
-     *            {@link #DEFAULT_DIRECTION_ESTIMATOR} can be used.
+     *            {@code DEFAULT_DIRECTION_ESTIMATOR} can be used.
      */
     public InlineRadio(String name, String label, DirectionEstimator directionEstimator) {
         this(name);

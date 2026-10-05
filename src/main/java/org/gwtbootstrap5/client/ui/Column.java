@@ -43,7 +43,7 @@ public class Column extends Div {
 
     /**
      * Creates a column with one size, and with one or more additional widgets added.
-     * <p/>
+     * <p>
      * Additional sizes can be added with {@link #addSize(ColumnSize...)}.
      * Additional widgets can be added with {@link #add(Widget)}.
      *
@@ -62,7 +62,7 @@ public class Column extends Div {
 
     /**
      * Creates column with one or more additional sizes.
-     * <p/>
+     * <p>
      * Additional sizes can be added with {@link #addSize(ColumnSize...)}
      *
      * @param firstSize  Size of column
@@ -78,7 +78,7 @@ public class Column extends Div {
     /**
      * Convenience constructor for UiBinder to create a Column with one or more
      * sizes.
-     * <p/>
+     * <p>
      * Size needs to be a space-separated String of {@link ColumnSize} enum
      * names, e.g. "SM_3 LG_3"
      *

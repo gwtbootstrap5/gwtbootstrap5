@@ -25,8 +25,7 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
  * Vertical stack ({@code vstack}): children in a column. Space them with {@link #setGap(int)}.
- * <p/>
- * <h3>UiBinder example</h3>
+ * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <b:VStack gap="3">...</b:VStack>
  * }</pre>

@@ -38,11 +38,9 @@ import java.util.List;
 
 /**
  * List item for the nav tabs, needs special toggle and JS to make it work properly
- * <p/>
+ * <p>
  * <a href="http://getbootstrap.com/javascript/#tabs">Bootstrap Documentation</a>
- * <p/>
- * <h3>UiBinder example</h3>
- * <p/>
+ * <h2>UiBinder example</h2>
  * <pre>
  * {@code
  * <b:NavTabs>
