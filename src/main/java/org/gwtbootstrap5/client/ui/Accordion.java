@@ -20,10 +20,35 @@ package org.gwtbootstrap5.client.ui;
  * ==========================LICENSE_END=================================
  */
 
+import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
 
+import com.google.gwt.user.client.DOM;
+import com.google.gwt.user.client.ui.Widget;
+
+/**
+ * Accordion: {@link AccordionItem}s whose bodies collapse, by default only one open at a time.
+ * <p/>
+ * <h3>UiBinder example</h3>
+ * <pre>{@code
+ *     <b:Accordion>
+ *         <b:AccordionItem open="true">
+ *             <b:AccordionHeader text="First"/>
+ *             <b:AccordionBody>...</b:AccordionBody>
+ *         </b:AccordionItem>
+ *         <b:AccordionItem>
+ *             <b:AccordionHeader text="Second"/>
+ *             <b:AccordionBody>...</b:AccordionBody>
+ *         </b:AccordionItem>
+ *     </b:Accordion>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/accordion/">Bootstrap 5 documentation</a>
+ */
 public class Accordion extends Div {
+
+    private boolean alwaysOpen = false;
 
     public Accordion() {
         super();
@@ -31,4 +56,46 @@ public class Accordion extends Div {
         setStyleName(Styles.ACCORDION);
     }
 
+    /**
+     * Removes the outer borders and rounded corners, to render the accordion edge to edge with its
+     * parent ({@code accordion-flush}).
+     */
+    public void setFlush(final boolean flush) {
+        if (flush) {
+            addStyleName(Styles.ACCORDION_FLUSH);
+        } else {
+            removeStyleName(Styles.ACCORDION_FLUSH);
+        }
+    }
+
+    public boolean isFlush() {
+        return StyleHelper.containsStyle(getStyleName(), Styles.ACCORDION_FLUSH);
+    }
+
+    /**
+     * When {@code true}, opening an item leaves the others open. By default opening one closes the
+     * others: each body gets {@code data-bs-parent} pointing to the accordion.
+     */
+    public void setAlwaysOpen(final boolean alwaysOpen) {
+        this.alwaysOpen = alwaysOpen;
+        for (final Widget child : getChildren()) {
+            if (child instanceof AccordionItem && child.isAttached()) {
+                ((AccordionItem) child).link();
+            }
+        }
+    }
+
+    public boolean isAlwaysOpen() {
+        return alwaysOpen;
+    }
+
+    /**
+     * @return the accordion's id, generated if it has none
+     */
+    String ensureId() {
+        if (getId() == null || getId().isEmpty()) {
+            setId(DOM.createUniqueId());
+        }
+        return getId();
+    }
 }

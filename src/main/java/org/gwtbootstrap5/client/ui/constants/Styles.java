@@ -28,6 +28,12 @@ public final class Styles {
     public static final String ACTIVE = "active";
 
     public static final String ACCORDION = "accordion";
+    public static final String ACCORDION_BODY = "accordion-body";
+    public static final String ACCORDION_BUTTON = "accordion-button";
+    public static final String ACCORDION_COLLAPSE = "accordion-collapse";
+    public static final String ACCORDION_FLUSH = "accordion-flush";
+    public static final String ACCORDION_HEADER = "accordion-header";
+    public static final String ACCORDION_ITEM = "accordion-item";
 
     public static final String ALERT = "alert";
     public static final String ALERT_LINK = "alert-link";
@@ -65,6 +71,7 @@ public final class Styles {
     public static final String CLOSE_WHITE = "btn-close-white";
 
     public static final String COLLAPSE = "collapse";
+    public static final String COLLAPSED = "collapsed";
     public static final String COLLAPSE_HORIZONTAL = "collapse-horizontal";
     public static final String COLLAPSING = "collapsing";
 
