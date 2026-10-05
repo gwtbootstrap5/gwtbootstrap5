@@ -20,21 +20,27 @@ package org.gwtbootstrap5.client.ui.constants;
  * ==========================LICENSE_END=================================
  */
 
+import com.google.gwt.dom.client.Style;
+
 /**
- * @author Sven Jacobs
+ * Edge of the viewport an {@code Offcanvas} slides in from.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/offcanvas/">Bootstrap 5 documentation</a>
  */
-public enum ButtonDismiss {
-    MODAL("modal"),
-    ALERT("alert"),
-    OFFCANVAS("offcanvas");
+public enum OffcanvasPlacement implements Style.HasCssName {
+    START("offcanvas-start"),
+    END("offcanvas-end"),
+    TOP("offcanvas-top"),
+    BOTTOM("offcanvas-bottom");
 
-    private final String dismiss;
+    private final String cssClass;
 
-    ButtonDismiss(final String dismiss) {
-        this.dismiss = dismiss;
+    OffcanvasPlacement(final String cssClass) {
+        this.cssClass = cssClass;
     }
 
-    public String getDismiss() {
-        return dismiss;
+    @Override
+    public String getCssName() {
+        return cssClass;
     }
 }

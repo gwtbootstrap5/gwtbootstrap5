@@ -36,6 +36,7 @@ public class Attributes {
     public static final String DATA_PARENT = "data-bs-parent";
     public static final String DATA_SLIDE_TO = "data-bs-slide-to";
     public static final String DATA_RIDE = "data-bs-ride";
+    public static final String DATA_SCROLL = "data-bs-scroll";
     public static final String DATA_SLIDE = "data-bs-slide";
 
     public static final String ARIA_ATOMIC = "aria-atomic";

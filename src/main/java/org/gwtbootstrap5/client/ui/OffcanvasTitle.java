@@ -1,4 +1,4 @@
-package org.gwtbootstrap5.client.ui.constants;
+package org.gwtbootstrap5.client.ui;
 
 /*-
  * ==========================LICENSE_START===============================
@@ -20,21 +20,21 @@ package org.gwtbootstrap5.client.ui.constants;
  * ==========================LICENSE_END=================================
  */
 
+import org.gwtbootstrap5.client.ui.constants.HeadingSize;
+import org.gwtbootstrap5.client.ui.constants.Styles;
+
 /**
- * @author Sven Jacobs
+ * Title of an {@link OffcanvasHeader}: an {@code h5.offcanvas-title}.
  */
-public enum ButtonDismiss {
-    MODAL("modal"),
-    ALERT("alert"),
-    OFFCANVAS("offcanvas");
+public class OffcanvasTitle extends Heading {
 
-    private final String dismiss;
-
-    ButtonDismiss(final String dismiss) {
-        this.dismiss = dismiss;
+    public OffcanvasTitle() {
+        super(HeadingSize.H5);
+        setStyleName(Styles.OFFCANVAS_TITLE);
     }
 
-    public String getDismiss() {
-        return dismiss;
+    public OffcanvasTitle(final String text) {
+        this();
+        setText(text);
     }
 }

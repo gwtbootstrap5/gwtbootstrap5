@@ -1,4 +1,4 @@
-package org.gwtbootstrap5.client.ui.constants;
+package org.gwtbootstrap5.client.ui;
 
 /*-
  * ==========================LICENSE_START===============================
@@ -20,21 +20,19 @@ package org.gwtbootstrap5.client.ui.constants;
  * ==========================LICENSE_END=================================
  */
 
+import org.gwtbootstrap5.client.ui.constants.Styles;
+import org.gwtbootstrap5.client.ui.html.Div;
+
 /**
- * @author Sven Jacobs
+ * Scrolling content of an {@link Offcanvas} ({@code offcanvas-body}).
+ *
+ * @see Offcanvas
  */
-public enum ButtonDismiss {
-    MODAL("modal"),
-    ALERT("alert"),
-    OFFCANVAS("offcanvas");
+public class OffcanvasBody extends Div {
 
-    private final String dismiss;
+    public OffcanvasBody() {
+        super();
 
-    ButtonDismiss(final String dismiss) {
-        this.dismiss = dismiss;
-    }
-
-    public String getDismiss() {
-        return dismiss;
+        setStyleName(Styles.OFFCANVAS_BODY);
     }
 }

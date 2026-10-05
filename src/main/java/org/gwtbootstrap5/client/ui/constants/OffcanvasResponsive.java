@@ -20,21 +20,28 @@ package org.gwtbootstrap5.client.ui.constants;
  * ==========================LICENSE_END=================================
  */
 
+import com.google.gwt.dom.client.Style;
+
 /**
- * @author Sven Jacobs
+ * Breakpoint below which a responsive {@code Offcanvas} hides its content in a panel; from the breakpoint up the content shows in the page.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/offcanvas/">Bootstrap 5 documentation</a>
  */
-public enum ButtonDismiss {
-    MODAL("modal"),
-    ALERT("alert"),
-    OFFCANVAS("offcanvas");
+public enum OffcanvasResponsive implements Style.HasCssName {
+    SM("offcanvas-sm"),
+    MD("offcanvas-md"),
+    LG("offcanvas-lg"),
+    XL("offcanvas-xl"),
+    XXL("offcanvas-xxl");
 
-    private final String dismiss;
+    private final String cssClass;
 
-    ButtonDismiss(final String dismiss) {
-        this.dismiss = dismiss;
+    OffcanvasResponsive(final String cssClass) {
+        this.cssClass = cssClass;
     }
 
-    public String getDismiss() {
-        return dismiss;
+    @Override
+    public String getCssName() {
+        return cssClass;
     }
 }

@@ -21,20 +21,23 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 /**
- * @author Sven Jacobs
+ * Backdrop of an {@code Offcanvas}, written as {@code data-bs-backdrop}.
  */
-public enum ButtonDismiss {
-    MODAL("modal"),
-    ALERT("alert"),
-    OFFCANVAS("offcanvas");
+public enum OffcanvasBackdrop {
+    /** A backdrop that closes the panel when clicked (Bootstrap's default). */
+    TRUE("true"),
+    /** No backdrop. */
+    FALSE("false"),
+    /** A backdrop that doesn't close the panel when clicked; the click fires {@code hidePrevented}. */
+    STATIC("static");
 
-    private final String dismiss;
+    private final String backdrop;
 
-    ButtonDismiss(final String dismiss) {
-        this.dismiss = dismiss;
+    OffcanvasBackdrop(final String backdrop) {
+        this.backdrop = backdrop;
     }
 
-    public String getDismiss() {
-        return dismiss;
+    public String getBackdrop() {
+        return backdrop;
     }
 }

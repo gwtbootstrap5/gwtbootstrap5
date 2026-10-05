@@ -29,6 +29,7 @@ public enum Toggle {
     DROPDOWN("dropdown"),
     TAB("tab"),
     MODAL("modal"),
+    OFFCANVAS("offcanvas"),
     PILL("pill");
 
     private final String toggle;

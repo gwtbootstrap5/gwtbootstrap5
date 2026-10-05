@@ -1,4 +1,4 @@
-package org.gwtbootstrap5.client.ui.constants;
+package org.gwtbootstrap5.client.shared.event;
 
 /*-
  * ==========================LICENSE_START===============================
@@ -20,21 +20,11 @@ package org.gwtbootstrap5.client.ui.constants;
  * ==========================LICENSE_END=================================
  */
 
+import com.google.gwt.event.shared.EventHandler;
+
 /**
- * @author Sven Jacobs
+ * Handler for {@link HidePreventedEvent}.
  */
-public enum ButtonDismiss {
-    MODAL("modal"),
-    ALERT("alert"),
-    OFFCANVAS("offcanvas");
-
-    private final String dismiss;
-
-    ButtonDismiss(final String dismiss) {
-        this.dismiss = dismiss;
-    }
-
-    public String getDismiss() {
-        return dismiss;
-    }
+public interface HidePreventedHandler extends EventHandler {
+    void onHidePrevented(HidePreventedEvent event);
 }

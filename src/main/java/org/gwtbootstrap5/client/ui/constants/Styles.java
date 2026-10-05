@@ -162,6 +162,11 @@ public final class Styles {
     public static final String NAV_TABS = "nav-tabs";
     public static final String NAV_UNDERLINE = "nav-underline";
 
+    public static final String OFFCANVAS = "offcanvas";
+    public static final String OFFCANVAS_BODY = "offcanvas-body";
+    public static final String OFFCANVAS_HEADER = "offcanvas-header";
+    public static final String OFFCANVAS_TITLE = "offcanvas-title";
+
     public static final String NAVBAR = "navbar";
     public static final String NAVBAR_BRAND = "navbar-brand";
     public static final String NAVBAR_COLLAPSE = "navbar-collapse";
@@ -195,6 +200,7 @@ public final class Styles {
     public static final String ROW = "row";
 
     public static final String SHOW = "show";
+    public static final String SHOWING = "showing";
 
     public static final String SLIDE = "slide";
 
