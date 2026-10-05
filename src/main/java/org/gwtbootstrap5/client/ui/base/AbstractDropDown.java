@@ -20,18 +20,101 @@ package org.gwtbootstrap5.client.ui.base;
  * ==========================LICENSE_END=================================
  */
 
+import org.gwtbootstrap5.client.shared.event.HiddenHandler;
+import org.gwtbootstrap5.client.shared.event.HideHandler;
+import org.gwtbootstrap5.client.shared.event.ShowHandler;
+import org.gwtbootstrap5.client.shared.event.ShownHandler;
+import org.gwtbootstrap5.client.ui.base.mixin.DropDownMixin;
+import org.gwtbootstrap5.client.ui.constants.DropDownAutoClose;
+import org.gwtbootstrap5.client.ui.constants.DropDownDirection;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 import com.google.gwt.dom.client.Element;
+import com.google.gwt.event.shared.HandlerRegistration;
 
 /**
  * @author Sven Jacobs
  * @author Joshua Godi
  */
-public class AbstractDropDown extends ComplexWidget {
+public class AbstractDropDown extends ComplexWidget implements HasDropDown {
+
+    private final DropDownMixin<AbstractDropDown> dropDownMixin = new DropDownMixin<>(this, DropDownDirection.DOWN);
 
     public AbstractDropDown(final Element element) {
         setElement(element);
         setStyleName(Styles.DROPDOWN);
+    }
+
+    @Override
+    protected void onLoad() {
+        super.onLoad();
+        dropDownMixin.onLoad();
+    }
+
+    @Override
+    protected void onUnload() {
+        super.onUnload();
+        dropDownMixin.onUnload();
+    }
+
+    @Override
+    public void show() {
+        dropDownMixin.show();
+    }
+
+    @Override
+    public void hide() {
+        dropDownMixin.hide();
+    }
+
+    @Override
+    public void toggle() {
+        dropDownMixin.toggle();
+    }
+
+    /**
+     * Sets the direction the menu opens in; {@code null} restores the default.
+     */
+    @Override
+    public void setDirection(final DropDownDirection direction) {
+        dropDownMixin.setDirection(direction);
+    }
+
+    @Override
+    public DropDownDirection getDirection() {
+        return dropDownMixin.getDirection();
+    }
+
+    /**
+     * Sets when the open menu closes; {@code null} restores Bootstrap's default ({@link DropDownAutoClose#TRUE}).
+     */
+    @Override
+    public void setAutoClose(final DropDownAutoClose autoClose) {
+        dropDownMixin.setAutoClose(autoClose);
+    }
+
+    @Override
+    public DropDownAutoClose getAutoClose() {
+        return dropDownMixin.getAutoClose();
+    }
+
+    @Override
+    public HandlerRegistration addShowHandler(final ShowHandler handler) {
+        return dropDownMixin.addShowHandler(handler);
+    }
+
+    @Override
+    public HandlerRegistration addShownHandler(final ShownHandler handler) {
+        return dropDownMixin.addShownHandler(handler);
+    }
+
+    @Override
+    public HandlerRegistration addHideHandler(final HideHandler handler) {
+        return dropDownMixin.addHideHandler(handler);
+    }
+
+    @Override
+    public HandlerRegistration addHiddenHandler(final HiddenHandler handler) {
+        return dropDownMixin.addHiddenHandler(handler);
     }
 }

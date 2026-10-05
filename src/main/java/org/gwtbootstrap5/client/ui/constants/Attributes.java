@@ -25,6 +25,7 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 public class Attributes {
 
+    public static final String DATA_AUTO_CLOSE = "data-bs-auto-close";
     public static final String DATA_BACKDROP = "data-bs-backdrop";
     public static final String DATA_DISMISS = "data-bs-dismiss";
     public static final String DATA_KEYBOARD = "data-bs-keyboard";
