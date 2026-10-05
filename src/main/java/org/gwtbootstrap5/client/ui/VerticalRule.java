@@ -1,4 +1,4 @@
-package org.gwtbootstrap5.client.ui.constants;
+package org.gwtbootstrap5.client.ui;
 
 /*-
  * ==========================LICENSE_START===============================
@@ -20,32 +20,19 @@ package org.gwtbootstrap5.client.ui.constants;
  * ==========================LICENSE_END=================================
  */
 
-import com.google.gwt.dom.client.Style;
-import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
+import org.gwtbootstrap5.client.ui.constants.Styles;
+import org.gwtbootstrap5.client.ui.html.Div;
 
-public enum BadgeType implements Style.HasCssName, Type {
-    DEFAULT(""),
-    PRIMARY("text-bg-primary"),
-    SECONDARY("text-bg-secondary"),
-    SUCCESS("text-bg-success"),
-    DANGER("text-bg-danger"),
-    WARNING("text-bg-warning"),
-    INFO("text-bg-info"),
-    LIGHT("text-bg-light"),
-    DARK("text-bg-dark");
+/**
+ * Vertical divider ({@code div.vr}), e.g. between the items of an {@link HStack}.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/helpers/vertical-rule/">Bootstrap 5 documentation</a>
+ */
+public class VerticalRule extends Div {
 
-    private final String cssClassName;
+    public VerticalRule() {
+        super();
 
-    BadgeType(String cssClassName) {
-        this.cssClassName = cssClassName;
-    }
-
-    @Override
-    public String getCssName() {
-        return cssClassName;
-    }
-
-    public static BadgeType fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, BadgeType.class, DEFAULT);
+        setStyleName(Styles.VR);
     }
 }

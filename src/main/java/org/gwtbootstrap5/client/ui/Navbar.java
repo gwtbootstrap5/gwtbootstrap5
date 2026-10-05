@@ -35,7 +35,7 @@ import com.google.gwt.dom.client.Document;
  * @see NavbarForm
  * @see NavbarText
  */
-public class Navbar extends ComplexWidget implements HasType<NavbarType> {
+public class Navbar extends ComplexWidget implements HasType<ColorMode> {
     private static final String NAVIGATION = "navigation";
 
     public Navbar() {
@@ -48,13 +48,13 @@ public class Navbar extends ComplexWidget implements HasType<NavbarType> {
     }
 
     /**
-     * Sets the color scheme of the navbar and its dropdowns with Bootstrap 5.3's
-     * {@code data-bs-theme} attribute. {@code null} inherits the page's theme.
+     * Sets the color mode of the navbar and its dropdowns with Bootstrap 5.3's
+     * {@code data-bs-theme} attribute. {@code null} inherits the page's mode.
      *
-     * @param type the navbar theme
+     * @param type the navbar's color mode
      */
     @Override
-    public void setType(final NavbarType type) {
+    public void setType(final ColorMode type) {
         if (type == null) {
             getElement().removeAttribute(Attributes.DATA_BS_THEME);
         } else {
@@ -63,11 +63,11 @@ public class Navbar extends ComplexWidget implements HasType<NavbarType> {
     }
 
     /**
-     * @return the navbar theme, or {@code null} when it inherits the page's theme
+     * @return the navbar's color mode, or {@code null} when it inherits the page's
      */
     @Override
-    public NavbarType getType() {
-        return NavbarType.fromTheme(getElement().getAttribute(Attributes.DATA_BS_THEME));
+    public ColorMode getType() {
+        return ColorMode.fromTheme(getElement().getAttribute(Attributes.DATA_BS_THEME));
     }
 
     public void setExpand(NavbarExpand expand) {

@@ -21,31 +21,32 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 import com.google.gwt.dom.client.Style;
-import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
-public enum BadgeType implements Style.HasCssName, Type {
-    DEFAULT(""),
-    PRIMARY("text-bg-primary"),
-    SECONDARY("text-bg-secondary"),
-    SUCCESS("text-bg-success"),
-    DANGER("text-bg-danger"),
-    WARNING("text-bg-warning"),
-    INFO("text-bg-info"),
-    LIGHT("text-bg-light"),
-    DARK("text-bg-dark");
+/**
+ * Opacity of a link's text ({@code link-opacity-*}). The {@code _HOVER} values apply on hover; add one of each with {@code StyleHelper.addEnumStyleName}, e.g. {@code OPACITY_50} and {@code OPACITY_100_HOVER}.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/utilities/link/#link-opacity">Bootstrap 5 documentation</a>
+ */
+public enum LinkOpacity implements Style.HasCssName {
+    OPACITY_10("link-opacity-10"),
+    OPACITY_25("link-opacity-25"),
+    OPACITY_50("link-opacity-50"),
+    OPACITY_75("link-opacity-75"),
+    OPACITY_100("link-opacity-100"),
+    OPACITY_10_HOVER("link-opacity-10-hover"),
+    OPACITY_25_HOVER("link-opacity-25-hover"),
+    OPACITY_50_HOVER("link-opacity-50-hover"),
+    OPACITY_75_HOVER("link-opacity-75-hover"),
+    OPACITY_100_HOVER("link-opacity-100-hover");
 
-    private final String cssClassName;
+    private final String cssClass;
 
-    BadgeType(String cssClassName) {
-        this.cssClassName = cssClassName;
+    LinkOpacity(final String cssClass) {
+        this.cssClass = cssClass;
     }
 
     @Override
     public String getCssName() {
-        return cssClassName;
-    }
-
-    public static BadgeType fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, BadgeType.class, DEFAULT);
+        return cssClass;
     }
 }

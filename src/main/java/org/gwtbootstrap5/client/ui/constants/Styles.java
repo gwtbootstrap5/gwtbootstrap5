@@ -227,6 +227,15 @@ public final class Styles {
     public static final String TOAST_HEADER = "toast-header";
     public static final String TOAST_BODY = "toast-body";
 
+    // Bootstrap 5.3 helpers
+    public static final String FOCUS_RING = "focus-ring";
+    public static final String HSTACK = "hstack";
+    public static final String ICON_LINK = "icon-link";
+    public static final String ICON_LINK_HOVER = "icon-link-hover";
+    public static final String RATIO = "ratio";
+    public static final String STRETCHED_LINK = "stretched-link";
+    public static final String VR = "vr";
+    public static final String VSTACK = "vstack";
 
     private Styles() {
     }

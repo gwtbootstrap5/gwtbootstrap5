@@ -21,10 +21,13 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 import com.google.gwt.dom.client.Style;
-import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
-public enum BadgeType implements Style.HasCssName, Type {
-    DEFAULT(""),
+/**
+ * Background color with a text color that contrasts with it ({@code text-bg-*}).
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/helpers/color-background/">Bootstrap 5 documentation</a>
+ */
+public enum TextBackground implements Style.HasCssName {
     PRIMARY("text-bg-primary"),
     SECONDARY("text-bg-secondary"),
     SUCCESS("text-bg-success"),
@@ -34,18 +37,14 @@ public enum BadgeType implements Style.HasCssName, Type {
     LIGHT("text-bg-light"),
     DARK("text-bg-dark");
 
-    private final String cssClassName;
+    private final String cssClass;
 
-    BadgeType(String cssClassName) {
-        this.cssClassName = cssClassName;
+    TextBackground(final String cssClass) {
+        this.cssClass = cssClass;
     }
 
     @Override
     public String getCssName() {
-        return cssClassName;
-    }
-
-    public static BadgeType fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, BadgeType.class, DEFAULT);
+        return cssClass;
     }
 }

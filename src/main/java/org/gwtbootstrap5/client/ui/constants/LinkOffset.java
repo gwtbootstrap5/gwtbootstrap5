@@ -21,31 +21,28 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 import com.google.gwt.dom.client.Style;
-import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
-public enum BadgeType implements Style.HasCssName, Type {
-    DEFAULT(""),
-    PRIMARY("text-bg-primary"),
-    SECONDARY("text-bg-secondary"),
-    SUCCESS("text-bg-success"),
-    DANGER("text-bg-danger"),
-    WARNING("text-bg-warning"),
-    INFO("text-bg-info"),
-    LIGHT("text-bg-light"),
-    DARK("text-bg-dark");
+/**
+ * Distance between a link's text and its underline ({@code link-offset-*}). The {@code _HOVER} values apply on hover.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/utilities/link/#link-underlines">Bootstrap 5 documentation</a>
+ */
+public enum LinkOffset implements Style.HasCssName {
+    OFFSET_1("link-offset-1"),
+    OFFSET_2("link-offset-2"),
+    OFFSET_3("link-offset-3"),
+    OFFSET_1_HOVER("link-offset-1-hover"),
+    OFFSET_2_HOVER("link-offset-2-hover"),
+    OFFSET_3_HOVER("link-offset-3-hover");
 
-    private final String cssClassName;
+    private final String cssClass;
 
-    BadgeType(String cssClassName) {
-        this.cssClassName = cssClassName;
+    LinkOffset(final String cssClass) {
+        this.cssClass = cssClass;
     }
 
     @Override
     public String getCssName() {
-        return cssClassName;
-    }
-
-    public static BadgeType fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, BadgeType.class, DEFAULT);
+        return cssClass;
     }
 }

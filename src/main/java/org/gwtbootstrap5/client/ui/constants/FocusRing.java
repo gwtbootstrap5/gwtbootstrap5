@@ -21,31 +21,30 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 import com.google.gwt.dom.client.Style;
-import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
-public enum BadgeType implements Style.HasCssName, Type {
-    DEFAULT(""),
-    PRIMARY("text-bg-primary"),
-    SECONDARY("text-bg-secondary"),
-    SUCCESS("text-bg-success"),
-    DANGER("text-bg-danger"),
-    WARNING("text-bg-warning"),
-    INFO("text-bg-info"),
-    LIGHT("text-bg-light"),
-    DARK("text-bg-dark");
+/**
+ * Color of the focus ring that {@code Styles.FOCUS_RING} draws ({@code focus-ring-*}).
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/helpers/focus-ring/">Bootstrap 5 documentation</a>
+ */
+public enum FocusRing implements Style.HasCssName {
+    PRIMARY("focus-ring-primary"),
+    SECONDARY("focus-ring-secondary"),
+    SUCCESS("focus-ring-success"),
+    DANGER("focus-ring-danger"),
+    WARNING("focus-ring-warning"),
+    INFO("focus-ring-info"),
+    LIGHT("focus-ring-light"),
+    DARK("focus-ring-dark");
 
-    private final String cssClassName;
+    private final String cssClass;
 
-    BadgeType(String cssClassName) {
-        this.cssClassName = cssClassName;
+    FocusRing(final String cssClass) {
+        this.cssClass = cssClass;
     }
 
     @Override
     public String getCssName() {
-        return cssClassName;
-    }
-
-    public static BadgeType fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, BadgeType.class, DEFAULT);
+        return cssClass;
     }
 }

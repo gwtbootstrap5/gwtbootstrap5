@@ -22,6 +22,7 @@ package org.gwtbootstrap5.client.ui;
 
 import org.gwtbootstrap5.client.ui.base.ComplexWidget;
 import org.gwtbootstrap5.client.ui.base.HasType;
+import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap5.client.ui.constants.BadgeType;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Text;
@@ -78,7 +79,7 @@ public class Badge extends ComplexWidget implements HasWidgets, HasText, HasType
 
     @Override
     public void setType(BadgeType type) {
-        addStyleName(type.getCssName());
+        StyleHelper.addUniqueEnumStyleName(this, BadgeType.class, type);
     }
 
     @Override

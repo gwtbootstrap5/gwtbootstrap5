@@ -1,4 +1,4 @@
-package org.gwtbootstrap5.client.ui.constants;
+package org.gwtbootstrap5.client.ui;
 
 /*-
  * ==========================LICENSE_START===============================
@@ -20,32 +20,22 @@ package org.gwtbootstrap5.client.ui.constants;
  * ==========================LICENSE_END=================================
  */
 
-import com.google.gwt.dom.client.Style;
-import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
+import org.gwtbootstrap5.client.ui.base.AbstractStack;
+import org.gwtbootstrap5.client.ui.constants.Styles;
 
-public enum BadgeType implements Style.HasCssName, Type {
-    DEFAULT(""),
-    PRIMARY("text-bg-primary"),
-    SECONDARY("text-bg-secondary"),
-    SUCCESS("text-bg-success"),
-    DANGER("text-bg-danger"),
-    WARNING("text-bg-warning"),
-    INFO("text-bg-info"),
-    LIGHT("text-bg-light"),
-    DARK("text-bg-dark");
+/**
+ * Horizontal stack ({@code hstack}): children in a row, vertically centered. Space them with {@link #setGap(int)}.
+ * <p/>
+ * <h3>UiBinder example</h3>
+ * <pre>{@code
+ *     <b:HStack gap="3">...</b:HStack>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/helpers/stacks/">Bootstrap 5 documentation</a>
+ */
+public class HStack extends AbstractStack {
 
-    private final String cssClassName;
-
-    BadgeType(String cssClassName) {
-        this.cssClassName = cssClassName;
-    }
-
-    @Override
-    public String getCssName() {
-        return cssClassName;
-    }
-
-    public static BadgeType fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, BadgeType.class, DEFAULT);
+    public HStack() {
+        super(Styles.HSTACK);
     }
 }

@@ -21,31 +21,26 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 import com.google.gwt.dom.client.Style;
-import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
-public enum BadgeType implements Style.HasCssName, Type {
-    DEFAULT(""),
-    PRIMARY("text-bg-primary"),
-    SECONDARY("text-bg-secondary"),
-    SUCCESS("text-bg-success"),
-    DANGER("text-bg-danger"),
-    WARNING("text-bg-warning"),
-    INFO("text-bg-info"),
-    LIGHT("text-bg-light"),
-    DARK("text-bg-dark");
+/**
+ * Aspect ratio of a {@code Ratio}.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/helpers/ratio/">Bootstrap 5 documentation</a>
+ */
+public enum RatioType implements Style.HasCssName {
+    R1X1("ratio-1x1"),
+    R4X3("ratio-4x3"),
+    R16X9("ratio-16x9"),
+    R21X9("ratio-21x9");
 
-    private final String cssClassName;
+    private final String cssClass;
 
-    BadgeType(String cssClassName) {
-        this.cssClassName = cssClassName;
+    RatioType(final String cssClass) {
+        this.cssClass = cssClass;
     }
 
     @Override
     public String getCssName() {
-        return cssClassName;
-    }
-
-    public static BadgeType fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, BadgeType.class, DEFAULT);
+        return cssClass;
     }
 }

@@ -20,32 +20,39 @@ package org.gwtbootstrap5.client.ui.constants;
  * ==========================LICENSE_END=================================
  */
 
-import com.google.gwt.dom.client.Style;
-import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
+/**
+ * Bootstrap 5.3 color mode, written as {@code data-bs-theme} on the page or on a widget.
+ *
+ * @see org.gwtbootstrap5.client.ui.base.helper.ColorModeHelper
+ * @see <a href="https://getbootstrap.com/docs/5.3/customize/color-modes/">Bootstrap 5 documentation</a>
+ */
+public enum ColorMode implements Type {
+    LIGHT("light"),
+    DARK("dark");
 
-public enum BadgeType implements Style.HasCssName, Type {
-    DEFAULT(""),
-    PRIMARY("text-bg-primary"),
-    SECONDARY("text-bg-secondary"),
-    SUCCESS("text-bg-success"),
-    DANGER("text-bg-danger"),
-    WARNING("text-bg-warning"),
-    INFO("text-bg-info"),
-    LIGHT("text-bg-light"),
-    DARK("text-bg-dark");
+    private final String theme;
 
-    private final String cssClassName;
-
-    BadgeType(String cssClassName) {
-        this.cssClassName = cssClassName;
+    ColorMode(final String theme) {
+        this.theme = theme;
     }
 
-    @Override
-    public String getCssName() {
-        return cssClassName;
+    /**
+     * @return the {@code data-bs-theme} value
+     */
+    public String getTheme() {
+        return theme;
     }
 
-    public static BadgeType fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, BadgeType.class, DEFAULT);
+    /**
+     * @param theme a {@code data-bs-theme} value
+     * @return the matching mode, or {@code null}
+     */
+    public static ColorMode fromTheme(final String theme) {
+        for (final ColorMode mode : values()) {
+            if (mode.theme.equals(theme)) {
+                return mode;
+            }
+        }
+        return null;
     }
 }

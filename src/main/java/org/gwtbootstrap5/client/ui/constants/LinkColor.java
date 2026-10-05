@@ -21,31 +21,31 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 import com.google.gwt.dom.client.Style;
-import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
-public enum BadgeType implements Style.HasCssName, Type {
-    DEFAULT(""),
-    PRIMARY("text-bg-primary"),
-    SECONDARY("text-bg-secondary"),
-    SUCCESS("text-bg-success"),
-    DANGER("text-bg-danger"),
-    WARNING("text-bg-warning"),
-    INFO("text-bg-info"),
-    LIGHT("text-bg-light"),
-    DARK("text-bg-dark");
+/**
+ * Color of a link, including its hover and focus states ({@code link-*}).
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/helpers/colored-links/">Bootstrap 5 documentation</a>
+ */
+public enum LinkColor implements Style.HasCssName {
+    PRIMARY("link-primary"),
+    SECONDARY("link-secondary"),
+    SUCCESS("link-success"),
+    DANGER("link-danger"),
+    WARNING("link-warning"),
+    INFO("link-info"),
+    LIGHT("link-light"),
+    DARK("link-dark"),
+    BODY_EMPHASIS("link-body-emphasis");
 
-    private final String cssClassName;
+    private final String cssClass;
 
-    BadgeType(String cssClassName) {
-        this.cssClassName = cssClassName;
+    LinkColor(final String cssClass) {
+        this.cssClass = cssClass;
     }
 
     @Override
     public String getCssName() {
-        return cssClassName;
-    }
-
-    public static BadgeType fromStyleName(final String styleName) {
-        return EnumHelper.fromStyleName(styleName, BadgeType.class, DEFAULT);
+        return cssClass;
     }
 }
