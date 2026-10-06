@@ -38,6 +38,7 @@ public class GwtTestSuite extends TestCase {
         suite.addTestSuite(ComponentFixesGwt.class);
         suite.addTestSuite(NewComponentsGwt.class);
         suite.addTestSuite(ComponentOptionsGwt.class);
+        suite.addTestSuite(ColorModeGwt.class);
         return suite;
     }
 
