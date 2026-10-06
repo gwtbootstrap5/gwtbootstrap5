@@ -23,8 +23,19 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
 
+/**
+ * Container that stacks {@link Toast}s ({@code div.toast-container}). Position it with utility
+ * classes, such as {@code position-fixed bottom-0 end-0 p-3}.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:ToastContainer ui:field="container" addStyleNames="position-fixed bottom-0 end-0 p-3"/>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/toasts/#placement">Bootstrap 5 documentation</a>
+ */
 public class ToastContainer extends Div {
 
+    /** Creates an empty toast container. */
     public ToastContainer() {
         super();
 

@@ -31,15 +31,26 @@ import org.gwtbootstrap5.client.ui.html.UnorderedList;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * Nav container and base class for navigations.
+ * Nav ({@code ul.nav}): navigation links, each an {@link AnchorListItem} or a
+ * {@link ListDropDown}. {@link NavTabs}, {@link NavPills} and {@link NavUnderline} style it.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Nav>
+ *         <b:AnchorListItem text="Active" active="true"/>
+ *         <b:AnchorListItem text="Link" targetHistoryToken="link"/>
+ *         <b:AnchorListItem text="Disabled" enabled="false"/>
+ *     </b:Nav>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @see NavTabs
  * @see NavPills
  * @see Affix
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navs-tabs/">Bootstrap 5 documentation</a>
  */
 public class Nav extends UnorderedList implements HasJustified, HasRole {
 
+    /** Creates an empty nav ({@code ul.nav}). */
     public Nav() {
         super();
 
@@ -60,6 +71,11 @@ public class Nav extends UnorderedList implements HasJustified, HasRole {
         return StyleHelper.containsStyle(getStyleName(), Styles.NAV_JUSTIFIED);
     }
 
+    /**
+     * Stacks the links vertically ({@code flex-column}).
+     *
+     * @param vertical {@code true} for a vertical nav
+     */
     public void setVertical(final boolean vertical) {
         if (vertical) {
             addStyleName(Styles.FLEX_COLUMN);
@@ -68,6 +84,11 @@ public class Nav extends UnorderedList implements HasJustified, HasRole {
         }
     }
 
+    /**
+     * Returns whether the links are stacked vertically.
+     *
+     * @return {@code true} if it has {@code flex-column}
+     */
     public boolean isVertical() {
         return StyleHelper.containsStyle(getStyleName(), Styles.FLEX_COLUMN);
     }
@@ -75,6 +96,8 @@ public class Nav extends UnorderedList implements HasJustified, HasRole {
     /**
      * Makes the items fill the nav's width, each as wide as its content ({@code nav-fill}). Use
      * {@link #setJustified} for items of equal width.
+     *
+     * @param fill {@code true} to fill the width
      */
     public void setFill(final boolean fill) {
         if (fill) {
@@ -84,6 +107,11 @@ public class Nav extends UnorderedList implements HasJustified, HasRole {
         }
     }
 
+    /**
+     * Returns whether the items fill the width.
+     *
+     * @return {@code true} if it has {@code nav-fill}
+     */
     public boolean isFill() {
         return StyleHelper.containsStyle(getStyleName(), Styles.NAV_FILL);
     }

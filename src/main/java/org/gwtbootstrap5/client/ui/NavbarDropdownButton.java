@@ -25,14 +25,17 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.constants.Toggle;
 
 /**
- * Special button to toggle collapsible area of {@link Navbar}.
+ * Toggle of a {@link NavbarDropdown}: a button with {@code nav-link dropdown-toggle} that opens its
+ * menu.
  *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see NavbarCollapse
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navbar/#nav">Bootstrap 5 documentation</a>
  */
 public class NavbarDropdownButton extends Button {
 
+    /** Creates a toggle for a {@link NavbarDropdown}: a button with {@code nav-link dropdown-toggle}. */
     public NavbarDropdownButton() {
         super();
 
@@ -41,6 +44,12 @@ public class NavbarDropdownButton extends Button {
         setDataToggle(Toggle.DROPDOWN);
     }
 
+    /**
+     * Sets whether the menu is open ({@code aria-expanded}). Bootstrap updates it when the menu
+     * opens and closes.
+     *
+     * @param ariaExpanded {@code "true"} or {@code "false"}, or {@code null} to remove it
+     */
     public void setAriaExpanded(final String ariaExpanded) {
         if (ariaExpanded != null) {
             getElement().setAttribute(Attributes.ARIA_EXPANDED, ariaExpanded);
@@ -49,10 +58,20 @@ public class NavbarDropdownButton extends Button {
         }
     }
 
+    /**
+     * Returns whether the menu is open.
+     *
+     * @return the {@code aria-expanded} attribute
+     */
     public String getAriaExpanded() {
         return getElement().getAttribute(Attributes.ARIA_EXPANDED);
     }
 
+    /**
+     * Sets the label of the button for screen readers ({@code aria-label}).
+     *
+     * @param ariaLabel the label, or {@code null} to remove it
+     */
     public void setAriaLabel(final String ariaLabel) {
         if (ariaLabel != null) {
             getElement().setAttribute(Attributes.ARIA_LABEL, ariaLabel);
@@ -61,6 +80,11 @@ public class NavbarDropdownButton extends Button {
         }
     }
 
+    /**
+     * Returns the label of the button for screen readers.
+     *
+     * @return the {@code aria-label} attribute
+     */
     public String getAriaLabel() {
         return getElement().getAttribute(Attributes.ARIA_LABEL);
     }

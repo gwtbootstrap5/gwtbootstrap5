@@ -27,13 +27,19 @@ import org.gwtbootstrap5.client.ui.constants.ElementTags;
 import com.google.gwt.dom.client.Document;
 
 /**
- * Simple {@code <code>} block for inline code emphasis.
+ * Inline code ({@code code}). For a block of code, see {@link Pre}.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b.html:Paragraph>Wrap inline snippets in <b:Code>&lt;code&gt;</b:Code>.</b.html:Paragraph>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @see Pre
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/reboot/#code">Bootstrap 5 documentation</a>
  */
 public class Code extends AbstractTextWidget {
 
+    /** Creates an empty {@code code} element. */
     public Code() {
         super(Document.get().createElement(ElementTags.CODE));
     }

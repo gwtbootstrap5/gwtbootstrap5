@@ -29,13 +29,16 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * Divider used within {@link DropDownMenu} between {@link AnchorListItem} elements.
+ * Divider of a {@link DropDownMenu}: a {@code li} with {@code dropdown-divider}, a line between
+ * groups of items.
  *
  * @author Sven Jacobs
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/dropdowns/#dividers">Bootstrap 5 documentation</a>
  */
 public class Divider extends Widget implements HasResponsiveness {
 
+    /** Creates a divider ({@code li} with {@code dropdown-divider}). */
     public Divider() {
         super();
 

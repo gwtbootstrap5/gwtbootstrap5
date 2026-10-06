@@ -34,11 +34,20 @@ import com.google.gwt.event.dom.client.DomEvent;
 import org.gwtbootstrap5.client.ui.util.IconUtil;
 
 /**
- * Help block. Call {@link #setError(String)} to set the error state of this
- * {@link HelpBlock}.
- * 
+ * Help text of a form control ({@code span.form-text}). When the control fails validation its
+ * error handler turns it into the error message ({@code invalid-feedback}), and back into the help
+ * text once the error clears; {@link #setError(String)} does the same by hand.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:FormGroup>
+ *         <b:TextBox b:id="password"/>
+ *         <b:HelpBlock text="Eight characters or more."/>
+ *     </b:FormGroup>
+ * }</pre>
+ *
  * @author Joshua Godi
  * @author Steven Jardine
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/form-control/#form-text">Bootstrap 5 documentation</a>
  */
 public class HelpBlock extends AbstractTextWidget {
 
@@ -85,6 +94,8 @@ public class HelpBlock extends AbstractTextWidget {
     }
 
     /**
+     * Creates the icon shown before the error message.
+     *
      * @return a new icon element. We only create this when {@link #iconElement}
      *         is null or the {@link #iconType} has changed.
      */
@@ -96,6 +107,8 @@ public class HelpBlock extends AbstractTextWidget {
     }
 
     /**
+     * Returns the icon shown before the error message.
+     *
      * @return the icon type
      */
     public IconType getIconType() {
@@ -120,6 +133,8 @@ public class HelpBlock extends AbstractTextWidget {
     /**
      * Shows an error message in place of the help text, styled as Bootstrap's
      * {@code invalid-feedback}.
+     *
+     * @param message the error message
      */
     public void setError(String message) {
         if (!error) {
@@ -160,6 +175,11 @@ public class HelpBlock extends AbstractTextWidget {
         }
     }
 
+    /**
+     * Sets the icon shown before the error message, by name.
+     *
+     * @param icon the name of an {@link IconType} constant
+     */
     public void setIcon(String icon) {
         setIconType(IconUtil.getInstance().fromIconType(icon));
     }

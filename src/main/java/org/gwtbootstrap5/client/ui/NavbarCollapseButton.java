@@ -26,14 +26,20 @@ import org.gwtbootstrap5.client.ui.constants.Toggle;
 import org.gwtbootstrap5.client.ui.html.Span;
 
 /**
- * Special button to toggle collapsible area of {@link Navbar}.
+ * Toggler of a {@link Navbar} ({@code button.navbar-toggler}): shows and hides its
+ * {@link NavbarCollapse} on small screens.
  *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see NavbarCollapse
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navbar/#toggler">Bootstrap 5 documentation</a>
  */
 public class NavbarCollapseButton extends Button {
 
+    /**
+     * Creates a toggler ({@code button.navbar-toggler}) with Bootstrap's icon; set its
+     * {@code dataTarget} to the id of the {@link NavbarCollapse}.
+     */
     public NavbarCollapseButton() {
         super();
 
@@ -48,6 +54,11 @@ public class NavbarCollapseButton extends Button {
         add(navbarIcon);
     }
 
+    /**
+     * Sets the id of the content the button controls ({@code aria-controls}).
+     *
+     * @param ariaControls the id, or {@code null} for none
+     */
     public void setAriaControls(final String ariaControls) {
         if (ariaControls != null) {
             getElement().setAttribute(Attributes.ARIA_CONTROLS, ariaControls);
@@ -56,10 +67,21 @@ public class NavbarCollapseButton extends Button {
         }
     }
 
+    /**
+     * Returns the id of the content the button controls.
+     *
+     * @return the {@code aria-controls} attribute
+     */
     public String getAriaControls() {
         return getElement().getAttribute(Attributes.ARIA_CONTROLS);
     }
 
+    /**
+     * Sets whether the content is expanded ({@code aria-expanded}). Bootstrap updates it when the
+     * button is clicked.
+     *
+     * @param ariaExpanded {@code "true"} or {@code "false"}, or {@code null} to remove it
+     */
     public void setAriaExpanded(final String ariaExpanded) {
         if (ariaExpanded != null) {
             getElement().setAttribute(Attributes.ARIA_EXPANDED, ariaExpanded);
@@ -68,10 +90,21 @@ public class NavbarCollapseButton extends Button {
         }
     }
 
+    /**
+     * Returns whether the content is expanded.
+     *
+     * @return the {@code aria-expanded} attribute
+     */
     public String getAriaExpanded() {
         return getElement().getAttribute(Attributes.ARIA_EXPANDED);
     }
 
+    /**
+     * Sets the label of the button for screen readers ({@code aria-label}). The default is
+     * "Toggle navigation".
+     *
+     * @param ariaLabel the label, or {@code null} to remove it
+     */
     public void setAriaLabel(final String ariaLabel) {
         if (ariaLabel != null) {
             getElement().setAttribute(Attributes.ARIA_LABEL, ariaLabel);
@@ -80,6 +113,11 @@ public class NavbarCollapseButton extends Button {
         }
     }
 
+    /**
+     * Returns the label of the button for screen readers.
+     *
+     * @return the {@code aria-label} attribute
+     */
     public String getAriaLabel() {
         return getElement().getAttribute(Attributes.ARIA_LABEL);
     }

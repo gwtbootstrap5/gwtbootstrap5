@@ -44,6 +44,7 @@ public class AccordionHeader extends ComplexWidget {
     private final Element button;
     private Text text = null;
 
+    /** Creates a header without text. */
     public AccordionHeader() {
         setElement(Document.get().createHElement(2));
         setStyleName(Styles.ACCORDION_HEADER);
@@ -56,6 +57,11 @@ public class AccordionHeader extends ComplexWidget {
         getElement().appendChild(button);
     }
 
+    /**
+     * Creates a header.
+     *
+     * @param text the text of the button
+     */
     public AccordionHeader(final String text) {
         this();
         setText(text);
@@ -66,10 +72,20 @@ public class AccordionHeader extends ComplexWidget {
         add(child, button);
     }
 
+    /**
+     * Returns the text of the button.
+     *
+     * @return the text, or an empty string
+     */
     public String getText() {
         return text == null ? "" : text.getText();
     }
 
+    /**
+     * Sets the text of the button, before any child widgets.
+     *
+     * @param text the text
+     */
     public void setText(final String text) {
         if (this.text == null) {
             this.text = new Text(text);

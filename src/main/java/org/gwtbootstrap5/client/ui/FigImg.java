@@ -24,14 +24,16 @@ import com.google.gwt.user.client.ui.Image;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
- * A row of Bootstrap's fluid grid system.
+ * Image of a {@link Figure} ({@code img.figure-img}).
  *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see Column
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/figures/">Bootstrap 5 documentation</a>
  */
 public class FigImg extends Image {
 
+    /** Creates an image with {@code figure-img}. */
     public FigImg() {
         super();
 

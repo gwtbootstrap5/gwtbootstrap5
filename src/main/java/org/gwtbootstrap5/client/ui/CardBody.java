@@ -24,16 +24,26 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
 
 /**
+ * Body of a {@link Card} ({@code div.card-body}), where its title, text and other content go.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/card/#body">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class CardBody extends Div {
 
+    /** Creates an empty card body. */
     public CardBody() {
         super();
 
         setStyleName(Styles.CARD_BODY);
     }
 
+    /**
+     * Lays the body over the card's image instead of below it ({@code card-img-overlay}).
+     *
+     * @param overlay {@code true} to overlay the image
+     */
     public void setOverlay(boolean overlay) {
         if (overlay) {
             addStyleName(Styles.CARD_IMG_OVERLAY);

@@ -23,14 +23,16 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
- * A row of Bootstrap's fluid grid system.
+ * Caption of a {@link Figure} ({@code figcaption.figure-caption}).
  *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see Column
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/figures/">Bootstrap 5 documentation</a>
  */
 public class FigCaption extends org.gwtbootstrap5.client.ui.html.FigCaption {
 
+    /** Creates an empty caption ({@code figcaption.figure-caption}). */
     public FigCaption() {
         super();
 

@@ -23,14 +23,32 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Span;
 
+/**
+ * Text or icon next to the controls of an {@link InputGroup} ({@code span.input-group-text}).
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:InputGroup>
+ *         <b:InputGroupText>@</b:InputGroupText>
+ *         <b:TextBox placeholder="Username"/>
+ *     </b:InputGroup>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/input-group/">Bootstrap 5 documentation</a>
+ */
 public class InputGroupText extends Span {
 
+    /** Creates an empty text. */
     public InputGroupText() {
         super();
 
         setStyleName(Styles.INPUT_GROUP_TEXT);
     }
 
+    /**
+     * Creates a text.
+     *
+     * @param html the content, as HTML
+     */
     public InputGroupText(String html) {
         super(html);
 

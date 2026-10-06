@@ -24,10 +24,25 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
 
 /**
+ * Card: a flexible content container with an optional header, body, footer and images.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Card>
+ *         <b:CardHeader text="Featured"/>
+ *         <b:CardBody>
+ *             <b:CardTitle size="H5">Card title</b:CardTitle>
+ *             <b:CardText>Some quick example text.</b:CardText>
+ *         </b:CardBody>
+ *     </b:Card>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/card/">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class Card extends Div {
 
+    /** Creates an empty card ({@code div.card}). */
     public Card() {
         super();
 

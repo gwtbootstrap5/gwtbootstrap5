@@ -23,12 +23,14 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
- * Support for Bootstrap pagination (<a href="http://getbootstrap.com/components/#pagination">...</a>)
+ * Link of a {@link PaginationItem} ({@code a.page-link}).
  *
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/pagination/">Bootstrap 5 documentation</a>
  */
 public class PaginationLink extends Anchor {
 
+    /** Creates an empty link ({@code a.page-link}). */
     public PaginationLink() {
         super();
 

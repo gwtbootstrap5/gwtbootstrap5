@@ -34,6 +34,15 @@ import com.google.gwt.text.shared.testing.PassthroughRenderer;
 import com.google.gwt.uibinder.client.UiConstructor;
 
 /**
+ * Input ({@code input.form-control}) of any HTML type, set with {@code type}. Text boxes,
+ * number boxes and the other inputs of this package are inputs of a fixed type.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Input type="DATE" min="2026-01-01" max="2026-12-31"/>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/form-control/">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class Input extends ValueBoxBase<String> implements HasInputType {
@@ -42,25 +51,47 @@ public class Input extends ValueBoxBase<String> implements HasInputType {
 
     private static final String MAX = "max";
 
+    /** Creates a text input whose value is its text. */
     public Input() {
         this(PassthroughRenderer.instance(), PassthroughParser.instance());
     }
 
+    /**
+     * Creates a text input with a parser and a renderer of its own.
+     *
+     * @param renderer turns the value into the text of the input
+     * @param parser turns the text of the input into the value
+     */
     public Input(Renderer<String> renderer, Parser<String> parser) {
         super(Document.get().createElement(ElementTags.INPUT), renderer, parser);
         addStyleName(Styles.FORM_CONTROL);
     }
 
+    /**
+     * Creates an input of the given type.
+     *
+     * @param type the HTML type of the input
+     */
     @UiConstructor
     public Input(final InputType type) {
         this();
         setType(type);
     }
 
+    /**
+     * Sets the smallest value the input takes ({@code min} attribute).
+     *
+     * @param min the minimum, in the format of the input's type
+     */
     public void setMin(final String min) {
         getElement().setAttribute(MIN, min);
     }
 
+    /**
+     * Sets the largest value the input takes ({@code max} attribute).
+     *
+     * @param max the maximum, in the format of the input's type
+     */
     public void setMax(final String max) {
         getElement().setAttribute(MAX, max);
     }

@@ -63,11 +63,8 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
 /**
- * Wrapper for a {@link com.google.gwt.user.client.ui.SuggestBox}.<br/>
- * <br/>
- * The default style is inherited from the {@link Styles#DROPDOWN_MENU}. Styling of the suggestions items need
- * a bit of css in order to be pleasing to the eye.
- *
+ * GWT's {@code SuggestBox} with a Bootstrap text box, and its suggestions in a
+ * {@code dropdown-menu}. The suggestion items need a little CSS of your own:
  * <pre>
  * {@code
  * .dropdown-menu .item {
@@ -77,7 +74,6 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
  * .dropdown-menu .item-selected {
  *     background-color: #eee;
  * }
- *
  * }
  * </pre>
  *

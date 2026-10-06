@@ -34,6 +34,7 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
  */
 public class HStack extends AbstractStack {
 
+    /** Creates an empty horizontal stack ({@code div.hstack}). */
     public HStack() {
         super(Styles.HSTACK);
     }

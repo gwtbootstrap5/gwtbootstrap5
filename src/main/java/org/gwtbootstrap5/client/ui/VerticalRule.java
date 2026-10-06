@@ -30,6 +30,7 @@ import org.gwtbootstrap5.client.ui.html.Div;
  */
 public class VerticalRule extends Div {
 
+    /** Creates a vertical rule ({@code div.vr}). */
     public VerticalRule() {
         super();
 

@@ -37,36 +37,32 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * Drop down item within a list, e.g. {@link NavTabs}, {@link NavPills} or
- * {@link Navbar}.
+ * Dropdown item of a {@link Nav} ({@code li.dropdown}): a toggle and the {@link DropDownMenu} it
+ * opens.
  * <h2>UiBinder example</h2>
- * <pre>
- * {@code
+ * <pre>{@code
  *     <b:NavTabs>
- *         <b:AnchorListItem active="true">Item 1</b:AnchorListItem>
- *         <b:AnchorListItem>Item 2</b:AnchorListItem>
+ *         <b:AnchorListItem text="Active" active="true"/>
  *         <b:ListDropDown>
- *             <b:AnchorButton toggle="DROPDOWN">Dropdown</b:AnchorButton>
+ *             <b:AnchorButton dataToggle="DROPDOWN" text="Dropdown"/>
  *             <b:DropDownMenu>
- *                 <b:AnchorListItem>Dropdown 1</b:AnchorListItem>
- *                 <b:AnchorListItem>Dropdown 2</b:AnchorListItem>
- *                 <b:AnchorListItem>Dropdown 3</b:AnchorListItem>
+ *                 <b:AnchorListItem text="Action"/>
  *             </b:DropDownMenu>
  *         </b:ListDropDown>
- *         <b:AnchorListItem>Item 3</b:AnchorListItem>
  *     </b:NavTabs>
- * }
- * </pre>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @see NavTabs
  * @see NavPills
  * @see Navbar
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navs-tabs/#using-dropdowns">Bootstrap 5 documentation</a>
  */
 public class ListDropDown extends AbstractListItem implements HasDropDown {
 
     private final DropDownMixin<ListDropDown> dropDownMixin = new DropDownMixin<>(this, DropDownDirection.DOWN);
 
+    /** Creates an empty dropdown item ({@code li.dropdown}). */
     public ListDropDown() {
         super();
 

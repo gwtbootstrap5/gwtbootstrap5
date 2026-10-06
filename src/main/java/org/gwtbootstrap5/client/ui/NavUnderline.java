@@ -30,6 +30,7 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
  */
 public class NavUnderline extends Nav {
 
+    /** Creates an empty nav with underlined links. */
     public NavUnderline() {
         super();
 

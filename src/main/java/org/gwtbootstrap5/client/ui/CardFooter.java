@@ -24,10 +24,15 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
 
 /**
+ * Footer of a {@link Card} ({@code div.card-footer}).
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/card/#header-and-footer">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class CardFooter extends Div {
 
+    /** Creates an empty card footer. */
     public CardFooter() {
         super();
 

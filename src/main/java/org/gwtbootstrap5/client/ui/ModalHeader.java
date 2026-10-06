@@ -26,15 +26,29 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.gwt.FlowPanel;
 
 /**
+ * Header of a {@link Modal} ({@code div.modal-header}): a {@link ModalTitle} and a close button.
+ * A modal creates its own header; add one in UiBinder to put other widgets in it.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Modal>
+ *         <b:ModalHeader>
+ *             <b:Heading size="H4" text="Custom header"/>
+ *         </b:ModalHeader>
+ *         ...
+ *     </b:Modal>
+ * }</pre>
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see Modal
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/modal/">Bootstrap 5 documentation</a>
  */
 public class ModalHeader extends FlowPanel implements ModalComponent, IsClosable {
 
     private ModalTitle modalTitle;
     private ModalCloseButton modalCloseButton;
 
+    /** Creates a header with an empty title and a close button. */
     public ModalHeader() {
         super();
 

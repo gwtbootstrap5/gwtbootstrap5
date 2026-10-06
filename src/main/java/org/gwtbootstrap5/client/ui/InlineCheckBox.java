@@ -29,10 +29,16 @@ import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.DOM;
 
 /**
- * An inline checkbox widget.
+ * Checkbox laid out inline with the ones next to it ({@code div.form-check.form-check-inline}).
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:InlineCheckBox text="1"/>
+ *     <b:InlineCheckBox text="2"/>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @see org.gwtbootstrap5.client.ui.CheckBox
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/checks-radios/#inline">Bootstrap 5 documentation</a>
  */
 public class InlineCheckBox extends CheckBox {
 
@@ -135,6 +141,7 @@ public class InlineCheckBox extends CheckBox {
         }
     }
 
+    /** Creates an inline checkbox without text ({@code div.form-check.form-check-inline}). */
     public InlineCheckBox() {
         super(DOM.createDiv(), Document.get().createCheckInputElement());
         setStyleName(Styles.FORM_CHECK);

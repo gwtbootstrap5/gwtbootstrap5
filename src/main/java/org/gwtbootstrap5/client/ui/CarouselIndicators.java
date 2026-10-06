@@ -26,10 +26,15 @@ import org.gwtbootstrap5.client.ui.html.Div;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
+ * The {@link CarouselIndicator}s of a {@link Carousel} ({@code div.carousel-indicators}).
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/carousel/#indicators">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class CarouselIndicators extends Div {
 
+    /** Creates an empty set of indicators. */
     public CarouselIndicators() {
         super();
 

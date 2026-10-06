@@ -63,7 +63,7 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     private static final String HIDE = "hide";
     private static final String DESTROY = "dispose";
 
-    // Defaults from http://getbootstrap.com/javascript/#tooltips
+    // Defaults from https://getbootstrap.com/docs/5.3/components/tooltips/
     private boolean isAnimated = true;
     private boolean isHTML = false;
     private Placement placement = Placement.TOP;

@@ -32,7 +32,7 @@ import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
 
 /**
- * Represents a list item with text contents
+ * List item ({@code li}) with text or widgets.
  *
  * @author Sven Jacobs
  * @see DropDownMenu

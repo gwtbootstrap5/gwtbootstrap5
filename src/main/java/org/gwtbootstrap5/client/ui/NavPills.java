@@ -23,11 +23,23 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
+ * Nav with pills ({@code ul.nav.nav-pills}): the active item is a filled button.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:NavPills>
+ *         <b:AnchorListItem text="Active" active="true"/>
+ *         <b:AnchorListItem text="Link"/>
+ *     </b:NavPills>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navs-tabs/#pills">Bootstrap 5 documentation</a>
+ *
  * @author Sven Jacobs
  * @see AnchorListItem
  */
 public class NavPills extends Nav {
 
+    /** Creates an empty nav with pills. */
     public NavPills() {
         super();
 

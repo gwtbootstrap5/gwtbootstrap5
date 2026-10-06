@@ -21,8 +21,7 @@ package org.gwtbootstrap5.client.ui;
  */
 
 /**
- * Marker interface for {@link Modal}
- * components.
+ * Marker of the widgets that make up a {@link Modal}: its header, body and footer.
  *
  * @author Sven Jacobs
  * @see ModalHeader

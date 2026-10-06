@@ -25,17 +25,30 @@ import org.gwtbootstrap5.client.ui.base.AbstractTextWidget;
 import com.google.gwt.dom.client.Document;
 
 /**
- * Legend to be used within {@link Form}
+ * Legend of a {@link FieldSet} ({@code legend}).
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:FieldSet>
+ *         <b:Legend text="Shipping address"/>
+ *         ...
+ *     </b:FieldSet>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @see Form
  */
 public class Legend extends AbstractTextWidget {
 
+    /** Creates an empty legend. */
     public Legend() {
         super(Document.get().createLegendElement());
     }
 
+    /**
+     * Creates a legend.
+     *
+     * @param text the text of the legend
+     */
     public Legend(final String text) {
         this();
         setText(text);

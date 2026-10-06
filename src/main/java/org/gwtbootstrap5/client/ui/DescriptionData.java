@@ -27,10 +27,14 @@ import org.gwtbootstrap5.client.ui.constants.ElementTags;
 import com.google.gwt.dom.client.Document;
 
 /**
+ * Description ({@code dd}) of the term before it in a {@link Description}.
+ *
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/typography/#description-list-alignment">Bootstrap 5 documentation</a>
  */
 public class DescriptionData extends AbstractTextWidget implements DescriptionComponent {
 
+    /** Creates an empty description. */
     public DescriptionData() {
         super(Document.get().createElement(ElementTags.DD));
     }

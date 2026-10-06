@@ -23,10 +23,14 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
+ * Brand of a {@link Navbar}: a link with {@code navbar-brand}, holding the name or logo of the
+ * site.
+ *
  * @author Sven Jacobs
  */
 public class NavbarBrand extends Anchor {
 
+    /** Creates an empty brand. */
     public NavbarBrand() {
         super();
 

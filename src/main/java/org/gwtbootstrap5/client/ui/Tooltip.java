@@ -29,20 +29,16 @@ import com.google.gwt.user.client.ui.Widget;
 import jsinterop.base.JsPropertyMap;
 
 /**
- * Basic implementation for the Bootstrap tooltip
- * <p>
- * <a href="http://getbootstrap.com/javascript/#tooltips">Bootstrap Documentation</a>
+ * Tooltip: a small text that shows next to its widget on hover and focus.
  * <h2>UiBinder example</h2>
- * 
- * <pre>
- * {@code
- * <b:Tooltip text="...">
- *    ...
- * </b:Tooltip>
- * }
- * </pre>
+ * <pre>{@code
+ *     <b:Tooltip title="Tooltip on top" placement="TOP">
+ *         <b:Button type="SECONDARY" text="Hover me"/>
+ *     </b:Tooltip>
+ * }</pre>
  *
  * @author Steven Jardine
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/tooltips/">Bootstrap 5 documentation</a>
  */
 public class Tooltip extends AbstractTooltip {
 

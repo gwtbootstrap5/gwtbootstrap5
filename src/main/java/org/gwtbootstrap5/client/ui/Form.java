@@ -23,16 +23,29 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.base.form.AbstractForm;
 
 /**
- * A form.
+ * Form ({@code form}) that can be submitted to a URL, or only validated with
+ * {@link #validate()}: it validates the controls in it that have validators.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Form>
+ *         <b:FormGroup addStyleNames="mb-3">
+ *             <b:FormLabel for="email" text="Email"/>
+ *             <b:TextBox b:id="email"/>
+ *         </b:FormGroup>
+ *         <b:SubmitButton type="PRIMARY" text="Submit"/>
+ *     </b:Form>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @see FormGroup
  * @see FormLabel
  * @see FormControlStatic
  * @see Legend
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/overview/">Bootstrap 5 documentation</a>
  */
 public class Form extends AbstractForm {
 
+    /** Creates an empty form. */
     public Form() {
         super();
     }

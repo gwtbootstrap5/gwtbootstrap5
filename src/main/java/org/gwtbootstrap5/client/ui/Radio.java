@@ -35,20 +35,22 @@ import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
 
 /**
- * A mutually-exclusive selection radio button widget. Fires
- * {@link com.google.gwt.event.dom.client.ClickEvent ClickEvents} when the radio
- * button is clicked, and {@link ValueChangeEvent ValueChangeEvents} when the
- * button becomes checked. Note, however, that browser limitations prevent
- * ValueChangeEvents from being sent when the radio button is cleared as a side
- * effect of another in the group being clicked.
- * 
+ * Radio with its label ({@code div.form-check}): radios with the same {@code name} form a group in
+ * which only one is checked. Fires {@link com.google.gwt.event.dom.client.ClickEvent ClickEvents}
+ * when the radio is clicked, and {@link ValueChangeEvent ValueChangeEvents} when it becomes checked;
+ * browsers don't send an event when it is cleared because another one of the group was clicked.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Radio name="plan" text="Free"/>
+ *     <b:Radio name="plan" text="Pro" value="true"/>
+ * }</pre>
  * <h2>Built-in Bidi Text Support</h2>
- * This widget is capable of automatically adjusting its direction according to
- * its content. This feature is controlled by {@link #setDirectionEstimator} or
- * passing a DirectionEstimator parameter to the constructor, and is off by
- * default.
+ * This widget is capable of automatically adjusting its direction according to its content. This
+ * feature is controlled by {@link #setDirectionEstimator} or passing a DirectionEstimator parameter
+ * to the constructor, and is off by default.
  *
  * @author Sven Jacobs
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/checks-radios/#radios">Bootstrap 5 documentation</a>
  */
 public class Radio extends CheckBox {
 
@@ -71,6 +73,8 @@ public class Radio extends CheckBox {
     }
 
     /**
+     * Creates a radio in a group, with an HTML label and a text direction.
+     *
      * @see #Radio(String, SafeHtml)
      * 
      * @param name
@@ -88,6 +92,8 @@ public class Radio extends CheckBox {
     }
 
     /**
+     * Creates a radio in a group, with an HTML label and a direction estimator.
+     *
      * @see #Radio(String, SafeHtml)
      * 
      * @param name
@@ -122,6 +128,8 @@ public class Radio extends CheckBox {
     }
 
     /**
+     * Creates a radio in a group, with a label and a text direction.
+     *
      * @see #Radio(String, SafeHtml)
      * 
      * @param name
@@ -139,6 +147,8 @@ public class Radio extends CheckBox {
     }
 
     /**
+     * Creates a radio in a group, with a label and a direction estimator.
+     *
      * @see #Radio(String, SafeHtml)
      * 
      * @param name
@@ -201,6 +211,12 @@ public class Radio extends CheckBox {
         getElement().appendChild(labelElem);
     }
 
+    /**
+     * Creates a radio in the given elements, for subclasses that lay them out differently.
+     *
+     * @param elem the root element of the widget
+     * @param inputElement the radio input
+     */
     protected Radio(Element elem, InputElement inputElement) {
         super(elem, inputElement);
     }

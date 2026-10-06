@@ -42,6 +42,20 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
 
 /**
+ * Collapse: content that is shown and hidden, with an animation, by a button with
+ * {@code dataToggle="COLLAPSE"} that targets its id, or from Java with {@link #show()},
+ * {@link #hide()} and {@link #toggle()}. It is shown when first attached unless
+ * {@code toggle="false"}.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Button dataToggle="COLLAPSE" dataTarget="#details" text="Details"/>
+ *     <b:Collapse b:id="details" toggle="false">
+ *         <b:Card><b:CardBody>...</b:CardBody></b:Card>
+ *     </b:Collapse>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/collapse/">Bootstrap 5 documentation</a>
+ *
  * @author Grant Slender
  */
 public class Collapse extends Div {
@@ -51,6 +65,7 @@ public class Collapse extends Div {
     // Default shown
     private boolean toggle = true;
 
+    /** Creates an empty collapse, shown when first attached. */
     public Collapse() {
         super();
 
@@ -101,6 +116,12 @@ public class Collapse extends Div {
         }
     }
 
+    /**
+     * Collapses the width instead of the height ({@code collapse-horizontal}). The content needs a
+     * width of its own.
+     *
+     * @param horizontal {@code true} to collapse horizontally
+     */
     public void setHorizontal(final boolean horizontal) {
         if (horizontal) {
             addStyleName(Styles.COLLAPSE_HORIZONTAL);
@@ -130,30 +151,69 @@ public class Collapse extends Div {
         fireMethod(getElement(), CollapseParam.HIDE);
     }
 
+    /**
+     * Returns whether the content is shown.
+     *
+     * @return {@code true} if it has {@code show}
+     */
     public boolean isShown() {
         return StyleHelper.containsStyle(getStyleName(), Styles.SHOW);
     }
 
+    /**
+     * Returns whether the content is hidden.
+     *
+     * @return {@code true} if it doesn't have {@code show}
+     */
     public boolean isHidden() {
         return !isShown();
     }
 
+    /**
+     * Returns whether the content is being shown or hidden.
+     *
+     * @return {@code true} during the animation ({@code collapsing})
+     */
     public boolean isCollapsing() {
         return StyleHelper.containsStyle(getStyleName(), Styles.COLLAPSING);
     }
 
+    /**
+     * Adds a handler called when the content starts to show.
+     *
+     * @param showHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addShowHandler(final ShowHandler showHandler) {
         return addHandler(showHandler, ShowEvent.getType());
     }
 
+    /**
+     * Adds a handler called when the content is shown, after the animation.
+     *
+     * @param shownHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addShownHandler(final ShownHandler shownHandler) {
         return addHandler(shownHandler, ShownEvent.getType());
     }
 
+    /**
+     * Adds a handler called when the content starts to hide.
+     *
+     * @param hideHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addHideHandler(final HideHandler hideHandler) {
         return addHandler(hideHandler, HideEvent.getType());
     }
 
+    /**
+     * Adds a handler called when the content is hidden, after the animation.
+     *
+     * @param hiddenHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addHiddenHandler(final HiddenHandler hiddenHandler) {
         return addHandler(hiddenHandler, HiddenEvent.getType());
     }

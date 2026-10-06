@@ -28,16 +28,34 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
+ * Description list ({@code dl}) of {@link DescriptionTitle}s and {@link DescriptionData}. Made
+ * horizontal, it is a grid {@code row}: give the titles and data column classes.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Description horizontal="true">
+ *         <b:DescriptionTitle addStyleNames="col-sm-3">Name</b:DescriptionTitle>
+ *         <b:DescriptionData addStyleNames="col-sm-9">GwtBootstrap5</b:DescriptionData>
+ *     </b:Description>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/typography/#description-list-alignment">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class Description extends ComplexWidget {
 
+    /** Creates an empty description list. */
     public Description() {
         super();
 
         setElement(Document.get().createDLElement());
     }
 
+    /**
+     * Lays the list out as a grid row ({@code row}), with titles and data side by side.
+     *
+     * @param horizontal {@code true} for a horizontal list
+     */
     public void setHorizontal(final boolean horizontal) {
         setStyleName(Styles.ROW, horizontal);
     }

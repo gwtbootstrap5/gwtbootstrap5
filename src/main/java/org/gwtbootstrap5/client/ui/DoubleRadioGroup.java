@@ -26,8 +26,16 @@ import com.google.gwt.text.client.DoubleParser;
 import com.google.gwt.uibinder.client.UiConstructor;
 
 /**
- * A radio group that returns a double value.
- * 
+ * Group of {@link Radio}s whose value is a {@code Double}: the form value of the checked radio,
+ * parsed.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:DoubleRadioGroup name="rate">
+ *         <b:Radio formValue="0.5" text="Half"/>
+ *         <b:Radio formValue="1.0" text="Full"/>
+ *     </b:DoubleRadioGroup>
+ * }</pre>
+ *
  * @author Steven Jardine
  */
 public class DoubleRadioGroup extends RadioGroupBase<Double> {

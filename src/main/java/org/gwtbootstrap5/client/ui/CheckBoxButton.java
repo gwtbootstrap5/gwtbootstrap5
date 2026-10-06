@@ -43,12 +43,19 @@ import jsinterop.base.Js;
 import org.gwtbootstrap5.client.ui.util.IconUtil;
 
 /**
- * Button representing a checkbox used within a {@link ButtonGroup} that has
- * toggle set to {@code Toogle.BUTTONS}.
- * <p>
- * If you are looking for a classic checkbox see {@link CheckBox}.
+ * Checkbox drawn as a toggle button: a {@code label.btn} holding an {@code input.btn-check} and its
+ * text. The button is {@code active} while the checkbox is checked. For a plain checkbox, see
+ * {@link CheckBox}.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:ButtonGroup>
+ *         <b:CheckBoxButton type="PRIMARY_OUTLINE" text="Bold"/>
+ *         <b:CheckBoxButton type="PRIMARY_OUTLINE" text="Italic"/>
+ *     </b:ButtonGroup>
+ * }</pre>
  *
  * @author Sven Jacobs
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/checks-radios/#toggle-buttons">Bootstrap 5 documentation</a>
  */
 public class CheckBoxButton extends CheckBox implements HasActive,
         HasType<ButtonType>, HasSize<ButtonSize>, HasIcon, HasIconPosition {
@@ -157,10 +164,16 @@ public class CheckBoxButton extends CheckBox implements HasActive,
         }
     }
 
+    /** Creates a check button without text. */
     public CheckBoxButton() {
         this(Document.get().createCheckInputElement());
     }
 
+    /**
+     * Creates a check button around the given input, for subclasses.
+     *
+     * @param element the input, a checkbox or a radio
+     */
     protected CheckBoxButton(InputElement element) {
         super(DOM.createLabel(), element);
 

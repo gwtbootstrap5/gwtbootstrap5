@@ -51,14 +51,12 @@ import com.google.gwt.view.client.SimpleKeyProvider;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
 /**
- * Implementation of {@link HasConstrainedValue} based on a
- * {@link com.google.gwt.dom.client.SelectElement}.
- * <p>
- * A {@link Renderer Renderer&lt;T&gt;} is used to get user-presentable strings to
- * display in the select element.
+ * Select ({@code select.form-select}) of GWT's {@code ValueListBox}: it lists values of any type,
+ * shown with a renderer.
  *
  * @param <T>
  *            the value type
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/select/">Bootstrap 5 documentation</a>
  */
 public class ValueListBox<T> extends com.google.gwt.user.client.ui.ValueListBox<T> implements HasName, HasId,
         HasResponsiveness, HasPlaceholder, HasSize<InputSize>, HasEditorErrors<T>, HasErrorHandler, HasValidators<T>,
@@ -71,10 +69,21 @@ public class ValueListBox<T> extends com.google.gwt.user.client.ui.ValueListBox<
     private final BlankValidatorMixin<ValueListBox<T>, T> validatorMixin = new BlankValidatorMixin<>(
             this, errorHandlerMixin.getErrorHandler());
 
+    /**
+     * Creates a list box whose values are their own keys.
+     *
+     * @param renderer turns each value into the text of its option
+     */
     public ValueListBox(final Renderer<T> renderer) {
         this(renderer, new SimpleKeyProvider<>());
     }
 
+    /**
+     * Creates a list box.
+     *
+     * @param renderer turns each value into the text of its option
+     * @param keyProvider gives the key that identifies each value
+     */
     public ValueListBox(final Renderer<T> renderer, final ProvidesKey<T> keyProvider) {
         super(renderer, keyProvider);
     }

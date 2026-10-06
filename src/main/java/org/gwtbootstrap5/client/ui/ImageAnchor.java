@@ -26,7 +26,11 @@ import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap5.client.ui.constants.ImageType;
 
 /**
- * An anchor that contains an image as the click action, used in Media Objects
+ * Link ({@code a}) holding an image, which can be rounded, circled or a thumbnail.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:ImageAnchor href="#profile" url="avatar.jpg" alt="Profile" type="CIRCLE"/>
+ * }</pre>
  *
  * @author Joshua Godi
  */

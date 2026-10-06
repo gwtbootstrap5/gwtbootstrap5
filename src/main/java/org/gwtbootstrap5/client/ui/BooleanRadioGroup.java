@@ -26,8 +26,16 @@ import org.gwtbootstrap5.client.ui.form.validator.BooleanParser;
 import com.google.gwt.uibinder.client.UiConstructor;
 
 /**
- * A radio group that returns a boolean value.
- * 
+ * Group of {@link Radio}s whose value is a {@code Boolean}: the form value of the checked radio,
+ * {@code "true"} or {@code "false"}, parsed.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:BooleanRadioGroup name="subscribe">
+ *         <b:Radio formValue="true" text="Yes"/>
+ *         <b:Radio formValue="false" text="No"/>
+ *     </b:BooleanRadioGroup>
+ * }</pre>
+ *
  * @author Steven Jardine
  */
 public class BooleanRadioGroup extends RadioGroupBase<Boolean> {

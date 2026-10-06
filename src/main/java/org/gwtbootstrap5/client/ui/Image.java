@@ -33,6 +33,15 @@ import com.google.gwt.resources.client.ImageResource;
 import com.google.gwt.safehtml.shared.SafeUri;
 
 /**
+ * Image ({@code img}) with Bootstrap's image types: rounded, circle, thumbnail or responsive
+ * ({@code img-fluid}). Unlike GWT's image it has no style name of its own.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Image url="photo.jpg" type="THUMBNAIL" altText="A photo"/>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/images/">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class Image extends com.google.gwt.user.client.ui.Image implements HasType<ImageType>, HasResponsiveness,
@@ -40,31 +49,65 @@ public class Image extends com.google.gwt.user.client.ui.Image implements HasTyp
 
     private final FloatMixin<Image> floatMixin = new FloatMixin<>(this);
 
+    /** Creates an image without a URL. */
     public Image() {
         super();
         setStyleName("");
     }
 
+    /**
+     * Creates an image from a client bundle resource.
+     *
+     * @param resource the image resource
+     */
     public Image(final ImageResource resource) {
         super(resource);
         setStyleName("");
     }
 
+    /**
+     * Creates a clipped image: the part of the image at the given URL inside the given rectangle.
+     *
+     * @param url the URL of the whole image
+     * @param left the left edge of the visible rectangle, in pixels
+     * @param top the top edge of the visible rectangle, in pixels
+     * @param width the width of the visible rectangle, in pixels
+     * @param height the height of the visible rectangle, in pixels
+     */
     public Image(final SafeUri url, final int left, final int top, final int width, final int height) {
         super(url, left, top, width, height);
         setStyleName("");
     }
 
+    /**
+     * Creates an image.
+     *
+     * @param url the URL of the image
+     */
     public Image(final SafeUri url) {
         super(url);
         setStyleName("");
     }
 
+    /**
+     * Creates a clipped image: the part of the image at the given URL inside the given rectangle.
+     *
+     * @param url the URL of the whole image
+     * @param left the left edge of the visible rectangle, in pixels
+     * @param top the top edge of the visible rectangle, in pixels
+     * @param width the width of the visible rectangle, in pixels
+     * @param height the height of the visible rectangle, in pixels
+     */
     public Image(final String url, final int left, final int top, final int width, final int height) {
         super(url, left, top, width, height);
         setStyleName("");
     }
 
+    /**
+     * Creates an image.
+     *
+     * @param url the URL of the image
+     */
     public Image(final String url) {
         super(url);
         setStyleName("");

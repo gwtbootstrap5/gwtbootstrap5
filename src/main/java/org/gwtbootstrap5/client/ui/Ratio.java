@@ -39,6 +39,7 @@ import org.gwtbootstrap5.client.ui.html.Div;
  */
 public class Ratio extends Div {
 
+    /** Creates an empty 16:9 box ({@code div.ratio.ratio-16x9}). */
     public Ratio() {
         super();
 
@@ -47,12 +48,19 @@ public class Ratio extends Div {
     }
 
     /**
+     * Sets the aspect ratio of the box ({@code ratio-1x1} to {@code ratio-21x9}).
+     *
      * @param type the ratio; {@code null} restores 16:9
      */
     public void setType(final RatioType type) {
         StyleHelper.addUniqueEnumStyleName(this, RatioType.class, type != null ? type : RatioType.R16X9);
     }
 
+    /**
+     * Returns the aspect ratio of the box.
+     *
+     * @return the ratio
+     */
     public RatioType getType() {
         for (final RatioType type : RatioType.values()) {
             if (StyleHelper.containsStyle(getStyleName(), type.getCssName())) {

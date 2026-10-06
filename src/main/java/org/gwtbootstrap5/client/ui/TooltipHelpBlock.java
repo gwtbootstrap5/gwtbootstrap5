@@ -29,8 +29,9 @@ import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.DomEvent;
 
 /**
- * Tooltip help block. Tooltips can be styled by specifiying the tooltip-danger class in your css.
- * 
+ * {@link Tooltip} on the right of a form control that shows its validation error, with the class
+ * {@code tooltip-danger} to style it in your CSS.
+ *
  * @author Steven Jardine
  */
 public class TooltipHelpBlock extends Tooltip {

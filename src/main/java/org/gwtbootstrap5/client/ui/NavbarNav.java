@@ -29,15 +29,18 @@ import org.gwtbootstrap5.client.ui.html.UnorderedList;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * Container for {@link AnchorListItem} or {@link ListDropDown} within {@link Navbar}.
+ * Links of a {@link Navbar} ({@code ul.nav.navbar-nav}): {@link AnchorListItem}s and
+ * {@link NavbarDropdown}s.
  *
  * @author Sven Jacobs
  * @see Navbar
  * @see AnchorListItem
  * @see ListDropDown
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navbar/#nav">Bootstrap 5 documentation</a>
  */
 public class NavbarNav extends UnorderedList implements HasRole {
 
+    /** Creates an empty list of navbar links ({@code ul.nav.navbar-nav}). */
     public NavbarNav() {
         super();
 
@@ -55,10 +58,20 @@ public class NavbarNav extends UnorderedList implements HasRole {
         return RoleHelper.getRole(getElement());
     }
 
+    /**
+     * Sets the label of the list for screen readers ({@code aria-label}).
+     *
+     * @param ariaLabel the label
+     */
     public void setAriaLabel(final String ariaLabel) {
         getElement().setAttribute(Attributes.ARIA_LABEL, ariaLabel);
     }
 
+    /**
+     * Returns the label of the list for screen readers.
+     *
+     * @return the {@code aria-label} attribute
+     */
     public String getAriaLabel() {
         return getElement().getAttribute(Attributes.ARIA_LABEL);
     }

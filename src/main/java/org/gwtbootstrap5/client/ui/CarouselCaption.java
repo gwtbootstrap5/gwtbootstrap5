@@ -24,10 +24,16 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
 
 /**
+ * Caption of a {@link CarouselSlide} ({@code div.carousel-caption}), laid over the slide. Hide it
+ * on small screens with {@code d-none d-md-block}.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/carousel/#captions">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class CarouselCaption extends Div {
 
+    /** Creates an empty caption. */
     public CarouselCaption() {
         super();
 

@@ -20,16 +20,18 @@ package org.gwtbootstrap5.client.ui;
  * ==========================LICENSE_END=================================
  */
 /**
- * Nav container and base class for navigations.
+ * Link of a {@link Nav} ({@code a.nav-link}) that can be marked active, to put in a {@link NavItem}.
  *
  * @author Sven Jacobs
  * @see Nav
  * @see NavTabs
  * @see NavPills
  * @see NavItem
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navs-tabs/">Bootstrap 5 documentation</a>
  */
 public class NavLink extends AnchorNavLink {
 
+    /** Creates an empty nav link. */
     public NavLink() {
         super();
     }

@@ -25,23 +25,26 @@ import org.gwtbootstrap5.client.ui.base.AbstractDropDown;
 import com.google.gwt.dom.client.Document;
 
 /**
- * Dropdown parent container.
+ * Dropdown ({@code div.dropdown}): a toggle with {@code dataToggle="DROPDOWN"} and the
+ * {@link DropDownMenu} it opens.
  * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <b:DropDown>
- *         <b:Anchor toggle="DROPDOWN">Click to toggle dropdown</b:Anchor>
+ *         <b:Button dataToggle="DROPDOWN" text="Dropdown button"/>
  *         <b:DropDownMenu>
- *             <b:AnchorListItem>Action 1</b:AnchorListItem>
- *             <b:AnchorListItem>Action 2</b:AnchorListItem>
+ *             <b:AnchorListItem text="Action 1"/>
+ *             <b:AnchorListItem text="Action 2"/>
  *         </b:DropDownMenu>
  *     </b:DropDown>
  * }</pre>
  *
  * @author Sven Jacobs
  * @see DropDownMenu
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/dropdowns/">Bootstrap 5 documentation</a>
  */
 public class DropDown extends AbstractDropDown {
 
+    /** Creates an empty dropdown ({@code div.dropdown}). */
     public DropDown() {
         super(Document.get().createDivElement());
     }

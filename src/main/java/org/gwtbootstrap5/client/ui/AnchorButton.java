@@ -35,11 +35,17 @@ import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.impl.HyperlinkImpl;
 
 /**
- * Button based on {@code <a>} element.
+ * Link ({@code a}) styled as a button ({@code btn btn-*}), for actions that navigate.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:AnchorButton type="PRIMARY" href="https://getbootstrap.com" text="Bootstrap"/>
+ *     <b:AnchorButton type="SECONDARY" targetHistoryToken="settings" text="Settings"/>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @see Button
  * @see org.gwtbootstrap5.client.ui.base.button.AbstractToggleButton
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/buttons/#button-tags">Bootstrap 5 documentation</a>
  */
 public class AnchorButton extends AbstractToggleButton implements HasHref, HasTargetHistoryToken {
 
@@ -47,6 +53,11 @@ public class AnchorButton extends AbstractToggleButton implements HasHref, HasTa
 
     private String targetHistoryToken;
 
+    /**
+     * Creates a link styled as a button of the given type.
+     *
+     * @param type the button type, which sets the {@code btn-*} class
+     */
     public AnchorButton(final ButtonType type) {
         super(type);
         setHref(EMPTY_HREF);
@@ -89,6 +100,7 @@ public class AnchorButton extends AbstractToggleButton implements HasHref, HasTa
         return targetHistoryToken;
     }
 
+    /** Creates a link styled as a light button ({@code btn-light}). */
     public AnchorButton() {
         this(ButtonType.LIGHT);
     }

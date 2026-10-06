@@ -30,10 +30,23 @@ import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap5.client.ui.constants.ValidationState;
 
 /**
+ * Group of a form control with its {@link FormLabel} and {@link HelpBlock}. Bootstrap 5 has no
+ * {@code form-group} class: the group is a plain {@code div}, with spacing classes as needed. Its
+ * validation state is what the controls' error handlers set when validation fails.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:FormGroup addStyleNames="mb-3">
+ *         <b:FormLabel for="email" text="Email"/>
+ *         <b:TextBox b:id="email"/>
+ *         <b:HelpBlock text="We'll never share your email."/>
+ *     </b:FormGroup>
+ * }</pre>
+ *
  * @author Sven Jacobs
  */
 public class FormGroup extends FormElementContainer implements HasSize<FormGroupSize>, HasValidationState {
 
+    /** Creates an empty group. */
     public FormGroup() {
         super();
 

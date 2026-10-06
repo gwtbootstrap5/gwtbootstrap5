@@ -29,19 +29,19 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
- * Button based on {@code <button>} element with different types and sizes.
+ * Button ({@code button.btn}) with a type, a size, an optional icon and badge. With
+ * {@code dataToggle} and {@code dataTarget} it opens Bootstrap components such as modals and
+ * collapses.
  * <h2>UiBinder example</h2>
- * <pre>
- * {@code
- *     <b:Button type="PRIMARY">Save</b:Button>
- *     <b:Button type="DANGER">Delete</b:Button>
- *     <b:Button type="INFO" block="true>I'm a block level button</b:Button>
- * }
- * </pre>
+ * <pre>{@code
+ *     <b:Button type="PRIMARY" text="Save"/>
+ *     <b:Button type="DANGER_OUTLINE" size="SMALL" icon="TRASH" text="Delete"/>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @see org.gwtbootstrap5.client.ui.base.button.AbstractToggleButton
  * @see SubmitButton
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/buttons/">Bootstrap 5 documentation</a>
  */
 public class Button extends AbstractToggleButton {
 
@@ -62,11 +62,24 @@ public class Button extends AbstractToggleButton {
         setText(text);
     }
 
+    /**
+     * Creates a button with a click handler.
+     *
+     * @param text the text of the button
+     * @param handler called when the button is clicked
+     */
     public Button(final String text, final ClickHandler handler) {
         this(text);
         super.addClickHandler(handler);
     }
 
+    /**
+     * Creates a button with an icon and a click handler.
+     *
+     * @param text the text of the button
+     * @param iconType the icon, shown before the text
+     * @param clickHandler called when the button is clicked
+     */
     public Button(final String text, final IconType iconType, final ClickHandler clickHandler) {
         this(text, clickHandler);
         setIcon(iconType);
@@ -77,6 +90,11 @@ public class Button extends AbstractToggleButton {
         return Document.get().createPushButtonElement().cast();
     }
 
+    /**
+     * Keeps the text of the button on one line ({@code text-nowrap}).
+     *
+     * @param noWrap {@code true} to keep the text from wrapping
+     */
     public void setNoWrap(boolean noWrap) {
         if (noWrap) {
             addStyleName(Styles.TEXT_NOWRAP);

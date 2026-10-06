@@ -42,6 +42,10 @@ public class Affix {
 
     private static final String STICKY_TOP = "sticky-top";
 
+    /** Creates an instance. Every method is static, so there is no need to. */
+    public Affix() {
+    }
+
     /**
      * Applys affix functionality to specified element.
      *

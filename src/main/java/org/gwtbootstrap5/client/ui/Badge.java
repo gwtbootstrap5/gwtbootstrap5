@@ -32,19 +32,19 @@ import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
 
 /**
- * Badge for highlighting new or unread items.
+ * Badge ({@code span.badge.rounded-pill}): a small count or label, colored by its {@code type}.
  * <h2>UiBinder example</h2>
- * <pre>
- * {@code
- *     <b:Badge>42</b:Badge>
- * }
- * </pre>
+ * <pre>{@code
+ *     <b:Badge type="PRIMARY" text="New"/>
+ * }</pre>
  *
  * @author Sven Jacobs
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/badge/">Bootstrap 5 documentation</a>
  */
 public class Badge extends ComplexWidget implements HasWidgets, HasText, HasType<BadgeType> {
     private final Text text = new Text();
 
+    /** Creates an empty badge ({@code span.badge.rounded-pill}). */
     public Badge() {
         super();
 
@@ -53,6 +53,11 @@ public class Badge extends ComplexWidget implements HasWidgets, HasText, HasType
         addStyleName(Styles.ROUNDED_PILL);
     }
 
+    /**
+     * Creates a badge.
+     *
+     * @param text the text of the badge
+     */
     public Badge(final String text) {
         this();
         setText(text);

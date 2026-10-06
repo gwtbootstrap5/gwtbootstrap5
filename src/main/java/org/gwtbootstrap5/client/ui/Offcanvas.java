@@ -67,6 +67,7 @@ public class Offcanvas extends Div {
     private final DomEventListeners listeners = new DomEventListeners();
     private OffcanvasResponsive responsive;
 
+    /** Creates an empty offcanvas ({@code div.offcanvas.offcanvas-start}), hidden until shown. */
     public Offcanvas() {
         super();
 
@@ -96,12 +97,19 @@ public class Offcanvas extends Div {
 
     /**
      * Sets the edge the panel slides in from; {@code null} restores {@link OffcanvasPlacement#START}.
+     *
+     * @param placement the edge, or {@code null} for {@code START}
      */
     public void setPlacement(final OffcanvasPlacement placement) {
         StyleHelper.addUniqueEnumStyleName(this, OffcanvasPlacement.class,
                 placement != null ? placement : OffcanvasPlacement.START);
     }
 
+    /**
+     * Returns the edge the panel slides in from.
+     *
+     * @return the placement
+     */
     public OffcanvasPlacement getPlacement() {
         for (final OffcanvasPlacement placement : OffcanvasPlacement.values()) {
             if (StyleHelper.containsStyle(getStyleName(), placement.getCssName())) {
@@ -114,6 +122,8 @@ public class Offcanvas extends Div {
     /**
      * Makes the panel responsive: below the breakpoint it behaves as an offcanvas, from the
      * breakpoint up its content shows in the page. {@code null} makes it an offcanvas at every width.
+     *
+     * @param responsive the breakpoint, or {@code null} to hide the content at every size
      */
     public void setResponsive(final OffcanvasResponsive responsive) {
         removeStyleName(responsive(this.responsive));
@@ -121,6 +131,11 @@ public class Offcanvas extends Div {
         addStyleName(responsive(responsive));
     }
 
+    /**
+     * Returns the breakpoint from which the content shows in the page.
+     *
+     * @return the breakpoint, or {@code null} if it is always an offcanvas
+     */
     public OffcanvasResponsive getResponsive() {
         return responsive;
     }
@@ -129,6 +144,12 @@ public class Offcanvas extends Div {
         return responsive != null ? responsive.getCssName() : Styles.OFFCANVAS;
     }
 
+    /**
+     * Sets the backdrop shown behind the panel ({@code data-bs-backdrop}).
+     *
+     * @param backdrop {@code TRUE} for a backdrop that closes the panel when clicked, {@code STATIC} for
+     *     one that doesn't, {@code FALSE} for none; {@code null} for Bootstrap's default
+     */
     public void setBackdrop(final OffcanvasBackdrop backdrop) {
         if (backdrop != null) {
             getElement().setAttribute(Attributes.DATA_BACKDROP, backdrop.getBackdrop());
@@ -140,6 +161,8 @@ public class Offcanvas extends Div {
 
     /**
      * Whether Escape closes the panel; {@code true} by default.
+     *
+     * @param keyboard {@code true} to close on Escape
      */
     public void setKeyboard(final boolean keyboard) {
         getElement().setAttribute(Attributes.DATA_KEYBOARD, Boolean.toString(keyboard));
@@ -148,6 +171,8 @@ public class Offcanvas extends Div {
 
     /**
      * Whether the page can scroll while the panel is open; {@code false} by default.
+     *
+     * @param scroll {@code true} to let the page scroll
      */
     public void setScroll(final boolean scroll) {
         getElement().setAttribute(Attributes.DATA_SCROLL, Boolean.toString(scroll));
@@ -164,10 +189,15 @@ public class Offcanvas extends Div {
         instance().show();
     }
 
+    /** Hides the panel. */
     public void hide() {
         instance().hide();
     }
 
+    /**
+     * Shows the panel if it is hidden, hides it otherwise, adding it to the page first if it isn't
+     * attached.
+     */
     public void toggle() {
         if (!isAttached()) {
             RootPanel.get().add(this);
@@ -176,6 +206,8 @@ public class Offcanvas extends Div {
     }
 
     /**
+     * Returns whether the panel is shown.
+     *
      * @return {@code true} if the panel is open, or opening
      */
     public boolean isShown() {
@@ -183,18 +215,42 @@ public class Offcanvas extends Div {
                 || StyleHelper.containsStyle(getStyleName(), Styles.SHOWING);
     }
 
+    /**
+     * Adds a handler called when the panel starts to show.
+     *
+     * @param handler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addShowHandler(final ShowHandler handler) {
         return addHandler(handler, ShowEvent.getType());
     }
 
+    /**
+     * Adds a handler called when the panel is shown, after the animation.
+     *
+     * @param handler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addShownHandler(final ShownHandler handler) {
         return addHandler(handler, ShownEvent.getType());
     }
 
+    /**
+     * Adds a handler called when the panel starts to hide.
+     *
+     * @param handler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addHideHandler(final HideHandler handler) {
         return addHandler(handler, HideEvent.getType());
     }
 
+    /**
+     * Adds a handler called when the panel is hidden, after the animation.
+     *
+     * @param handler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addHiddenHandler(final HiddenHandler handler) {
         return addHandler(handler, HiddenEvent.getType());
     }
@@ -202,6 +258,9 @@ public class Offcanvas extends Div {
     /**
      * The panel refused to close: a click on a {@link OffcanvasBackdrop#STATIC static} backdrop, or
      * Escape with {@link #setKeyboard(boolean) keyboard} off.
+     *
+     * @param handler the handler
+     * @return the registration that removes the handler
      */
     public HandlerRegistration addHidePreventedHandler(final HidePreventedHandler handler) {
         return addHandler(handler, HidePreventedEvent.getType());

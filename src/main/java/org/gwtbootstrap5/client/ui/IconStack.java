@@ -33,10 +33,21 @@ import com.google.gwt.user.client.ui.ComplexPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
+ * Stack of two {@link Icon}s drawn on top of each other ({@code span.fa-stack}): a large base
+ * ({@code stackBase}) and a small top ({@code stackTop}).
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:IconStack size="TIMES2">
+ *         <b:Icon icon="CIRCLE_FILL" stackBase="true"/>
+ *         <b:Icon icon="FLAG_FILL" stackTop="true" inverse="true"/>
+ *     </b:IconStack>
+ * }</pre>
+ *
  * @author Joshua Godi
  */
 public class IconStack extends ComplexPanel implements HasSize<IconSize>, HasResponsiveness {
 
+    /** Creates an empty stack. */
     public IconStack() {
         super();
 

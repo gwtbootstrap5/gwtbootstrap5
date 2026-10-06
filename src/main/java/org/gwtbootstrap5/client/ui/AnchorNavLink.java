@@ -26,10 +26,19 @@ import org.gwtbootstrap5.client.ui.base.helper.RoleHelper;
 import org.gwtbootstrap5.client.ui.base.mixin.ActiveMixin;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
+/**
+ * Anchor with Bootstrap's {@code nav-link} class that can be marked active: the link inside an
+ * {@link AnchorListItem}, returned by {@code getAnchor()}. The containers that are not navs replace
+ * {@code nav-link} with their own class ({@code dropdown-item}, {@code page-link}) or remove it
+ * (breadcrumbs).
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navs-tabs/">Bootstrap 5 documentation</a>
+ */
 public class AnchorNavLink extends Anchor implements HasActive, HasRole {
 
     private final ActiveMixin<AnchorNavLink> activeMixin = new ActiveMixin<>(this);
 
+    /** Creates an empty link. */
     public AnchorNavLink() {
         addStyleName(Styles.NAV_LINK);
     }

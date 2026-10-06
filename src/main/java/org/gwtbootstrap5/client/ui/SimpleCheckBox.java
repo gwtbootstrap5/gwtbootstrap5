@@ -43,7 +43,7 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.RootPanel;
 
 /**
- * A simple checkbox widget, with no label.
+ * Checkbox input without a label, for layouts of your own.
  */
 public class SimpleCheckBox extends com.google.gwt.user.client.ui.SimpleCheckBox implements HasResponsiveness, HasId,
         HasFloat, HasFormValue, HasChangeHandlers {
@@ -58,6 +58,7 @@ public class SimpleCheckBox extends com.google.gwt.user.client.ui.SimpleCheckBox
      * 
      * @param element
      *            the element to be wrapped
+     * @return the check box
      */
     public static SimpleCheckBox wrap(Element element) {
         // Assert that the element is attached.

@@ -28,17 +28,26 @@ import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
 
 /**
+ * Paragraph ({@code p}) of a {@link LinkedGroupItem}, under its text: give it Bootstrap's spacing
+ * classes, such as {@code mb-1}, as needed.
+ *
  * @author Joshua Godi
  */
 public class LinkedGroupItemText extends ComplexWidget implements HasWidgets, HasText {
     private final HTMLMixin<LinkedGroupItemText> htmlMixin = new HTMLMixin<>(this);
 
+    /** Creates an empty paragraph. */
     public LinkedGroupItemText() {
         super();
 
         setElement(Document.get().createPElement());
     }
 
+    /**
+     * Creates a paragraph.
+     *
+     * @param html the content, as HTML
+     */
     public LinkedGroupItemText(final String html) {
         this();
         setHTML(html);
@@ -51,10 +60,20 @@ public class LinkedGroupItemText extends ComplexWidget implements HasWidgets, Ha
         return htmlMixin.getText();
     }
 
+    /**
+     * Returns the content of the paragraph.
+     *
+     * @return the content, as HTML
+     */
     public String getHTML() {
         return htmlMixin.getHTML();
     }
 
+    /**
+     * Sets the content of the paragraph.
+     *
+     * @param html the content, as HTML
+     */
     public void setHTML(final String html) {
         htmlMixin.setHTML(html);
     }

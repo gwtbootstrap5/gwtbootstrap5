@@ -25,13 +25,14 @@ import com.google.gwt.dom.client.Style.Display;
 import com.google.gwt.dom.client.Style.Unit;
 
 /**
- * Display's a help block inline.
- * 
+ * {@link HelpBlock} shown inline, next to its control instead of under it.
+ *
  * @author Joshua Godi
  * @author Steven Jardine
  */
 public class InlineHelpBlock extends HelpBlock {
 
+    /** Creates an empty help text shown inline, next to its control. */
     public InlineHelpBlock() {
         super();
         Style style = getElement().getStyle();

@@ -32,11 +32,13 @@ import com.google.gwt.user.client.ui.Widget;
  * the {@code div.accordion-body} that holds the child widgets.
  *
  * @see Accordion
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/accordion/">Bootstrap 5 documentation</a>
  */
 public class AccordionBody extends ComplexWidget {
 
     private final Element body;
 
+    /** Creates an empty, closed body. */
     public AccordionBody() {
         setElement(Document.get().createDivElement());
         setStyleName(Styles.ACCORDION_COLLAPSE + " " + Styles.COLLAPSE);

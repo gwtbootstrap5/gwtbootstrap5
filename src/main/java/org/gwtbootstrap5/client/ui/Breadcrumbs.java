@@ -27,16 +27,37 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
+ * Breadcrumb: the location of the current page in a navigational hierarchy, as an
+ * {@code ol.breadcrumb} of items. Each child gets {@code breadcrumb-item}, and the last one is the
+ * current page: when the breadcrumb is first attached it gets {@code active} and
+ * {@code aria-current="page"}.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Breadcrumbs>
+ *         <b:AnchorListItem text="Home" targetHistoryToken="home"/>
+ *         <b:AnchorListItem text="Library" targetHistoryToken="library"/>
+ *         <b:AnchorListItem text="Data"/>
+ *     </b:Breadcrumbs>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/breadcrumb/">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class Breadcrumbs extends OrderedList {
 
+    /** Creates an empty breadcrumb. */
     public Breadcrumbs() {
         super();
 
         setStyleName(Styles.BREADCRUMB);
     }
 
+    /**
+     * Creates a breadcrumb with the given items.
+     *
+     * @param widgets the items, the last one being the current page
+     */
     public Breadcrumbs(final Widget... widgets) {
         this();
 

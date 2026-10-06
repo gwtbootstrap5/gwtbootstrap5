@@ -44,7 +44,7 @@ import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.ui.RootPanel;
 
 /**
- * A simple radio button widget, with no label.
+ * Radio input without a label, for layouts of your own.
  */
 public class SimpleRadioButton extends com.google.gwt.user.client.ui.SimpleRadioButton implements HasResponsiveness,
         HasId, HasFloat, HasFormValue, HasChangeHandlers {
@@ -59,6 +59,7 @@ public class SimpleRadioButton extends com.google.gwt.user.client.ui.SimpleRadio
      * 
      * @param element
      *            the element to be wrapped
+     * @return the radio button
      */
     public static SimpleRadioButton wrap(Element element) {
         // Assert that the element is attached.

@@ -25,12 +25,17 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
 
 /**
+ * Container of the {@link CarouselSlide}s of a {@link Carousel} ({@code div.carousel-inner}).
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/carousel/">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class CarouselInner extends Div {
 
     private static final String LISTBOX = "listbox";
 
+    /** Creates an empty container of slides. */
     public CarouselInner() {
         super();
 

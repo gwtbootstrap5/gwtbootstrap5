@@ -26,8 +26,15 @@ import com.google.gwt.text.shared.testing.PassthroughParser;
 import com.google.gwt.uibinder.client.UiConstructor;
 
 /**
- * A radio group that returns a string value.
- * 
+ * Group of {@link Radio}s whose value is a {@code String}: the form value of the checked radio.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:StringRadioGroup name="size">
+ *         <b:Radio formValue="S" text="Small"/>
+ *         <b:Radio formValue="L" text="Large"/>
+ *     </b:StringRadioGroup>
+ * }</pre>
+ *
  * @author Steven Jardine
  */
 public class StringRadioGroup extends RadioGroupBase<String> {

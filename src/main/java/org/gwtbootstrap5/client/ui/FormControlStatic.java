@@ -26,15 +26,33 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import com.google.gwt.dom.client.Document;
 
 /**
+ * Read-only text styled as plain text in a form ({@code p.form-control-plaintext}), aligned with
+ * the form's labels and controls.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:FormGroup>
+ *         <b:FormLabel text="Email"/>
+ *         <b:FormControlStatic text="email@example.com"/>
+ *     </b:FormGroup>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/form-control/#readonly-plain-text">Bootstrap 5 documentation</a>
+ *
  * @author Sven Jacobs
  */
 public class FormControlStatic extends AbstractTextWidget {
 
+    /** Creates an empty static control. */
     public FormControlStatic() {
         super(Document.get().createPElement());
         setStyleName(Styles.FORM_CONTROL_PLAINTEXT);
     }
 
+    /**
+     * Creates a static control.
+     *
+     * @param text the text
+     */
     public FormControlStatic(final String text) {
         this();
         setText(text);

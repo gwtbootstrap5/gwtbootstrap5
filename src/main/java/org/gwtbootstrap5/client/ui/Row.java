@@ -27,32 +27,61 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
 
 /**
- * A row of Bootstrap's fluid grid system.
+ * Row of Bootstrap's grid ({@code div.row}), holding {@link Column}s.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Row>
+ *         <b:Column size="XS_6 MD_3">...</b:Column>
+ *         <b:Column size="XS_6 MD_9">...</b:Column>
+ *     </b:Row>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see Column
+ * @see <a href="https://getbootstrap.com/docs/5.3/layout/grid/">Bootstrap 5 documentation</a>
  */
 public class Row extends Div {
 
+    /** Creates an empty row ({@code div.row}). */
     public Row() {
         super();
 
         setStyleName(Styles.ROW);
     }
 
+    /**
+     * Aligns the columns vertically in the row ({@code align-items-*}).
+     *
+     * @param rowContentVerticalAlign the alignment
+     */
     public void setContentVerticalAlign(RowContentVerticalAlign rowContentVerticalAlign) {
         StyleHelper.addUniqueEnumStyleName(this, RowContentVerticalAlign.class, rowContentVerticalAlign);
     }
 
+    /**
+     * Returns how the columns are aligned vertically.
+     *
+     * @return the alignment
+     */
     public RowContentVerticalAlign getContentVerticalAlign() {
         return RowContentVerticalAlign.fromStyleName(getStyleName());
     }
 
+    /**
+     * Aligns the columns horizontally in the row ({@code justify-content-*}).
+     *
+     * @param rowContentJustifyAlign the alignment
+     */
     public void setContentJustifyAlign(RowContentJustifyAlign rowContentJustifyAlign) {
         StyleHelper.addUniqueEnumStyleName(this, RowContentJustifyAlign.class, rowContentJustifyAlign);
     }
 
+    /**
+     * Returns how the columns are aligned horizontally.
+     *
+     * @return the alignment
+     */
     public RowContentJustifyAlign getContentJustifyAlign() {
         return RowContentJustifyAlign.fromStyleName(getStyleName());
     }

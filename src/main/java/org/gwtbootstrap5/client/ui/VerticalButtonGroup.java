@@ -24,21 +24,19 @@ import org.gwtbootstrap5.client.ui.base.AbstractButtonGroup;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
- * Vertical button group
+ * Vertical button group ({@code div.btn-group-vertical}): buttons stacked on top of each other.
  * <h2>UiBinder example</h2>
- * <pre>
- * {@code
- * <b:VerticalButtonGroup>
- *    <b:Button>Button 1</b:Button>
- *    <b:Button>Button 2</b:Button>
- *    <b:Button>Button 3</b:Button>
- * </b:VerticalButtonGroup>
- * }
- * </pre>
+ * <pre>{@code
+ *     <b:VerticalButtonGroup>
+ *         <b:Button text="Top"/>
+ *         <b:Button text="Bottom"/>
+ *     </b:VerticalButtonGroup>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @see Button
  * @see ButtonGroup
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/button-group/#vertical-variation">Bootstrap 5 documentation</a>
  */
 public class VerticalButtonGroup extends AbstractButtonGroup {
 

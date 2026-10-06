@@ -26,8 +26,16 @@ import com.google.gwt.text.client.IntegerParser;
 import com.google.gwt.uibinder.client.UiConstructor;
 
 /**
- * A radio group that returns a integer value.
- * 
+ * Group of {@link Radio}s whose value is an {@code Integer}: the form value of the checked radio,
+ * parsed.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:IntegerRadioGroup name="stars">
+ *         <b:Radio formValue="1" text="One"/>
+ *         <b:Radio formValue="2" text="Two"/>
+ *     </b:IntegerRadioGroup>
+ * }</pre>
+ *
  * @author Steven Jardine
  */
 public class IntegerRadioGroup extends RadioGroupBase<Integer> {

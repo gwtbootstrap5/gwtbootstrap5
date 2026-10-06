@@ -33,25 +33,29 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import com.google.gwt.event.shared.HandlerRegistration;
 
 /**
- * Dropdown parent container.
+ * Dropdown item of a {@link NavbarNav} ({@code li.nav-item.dropdown}): a
+ * {@link NavbarDropdownButton} and the {@link DropDownMenu} it opens.
  * <h2>UiBinder example</h2>
  * <pre>{@code
- *     <b:DropDown>
- *         <b:Anchor toggle="DROPDOWN">Click to toggle dropdown</b:Anchor>
- *         <b:DropDownMenu>
- *             <b:AnchorListItem>Action 1</b:AnchorListItem>
- *             <b:AnchorListItem>Action 2</b:AnchorListItem>
- *         </b:DropDownMenu>
- *     </b:DropDown>
+ *     <b:NavbarNav>
+ *         <b:NavbarDropdown>
+ *             <b:NavbarDropdownButton text="Dropdown"/>
+ *             <b:DropDownMenu>
+ *                 <b:AnchorListItem text="Action"/>
+ *             </b:DropDownMenu>
+ *         </b:NavbarDropdown>
+ *     </b:NavbarNav>
  * }</pre>
  *
  * @author Sven Jacobs
  * @see DropDownMenu
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navbar/#nav">Bootstrap 5 documentation</a>
  */
 public class NavbarDropdown extends ListItem implements HasDropDown {
 
     private final DropDownMixin<NavbarDropdown> dropDownMixin = new DropDownMixin<>(this, DropDownDirection.DOWN);
 
+    /** Creates an empty dropdown item of a navbar ({@code li.nav-item.dropdown}). */
     public NavbarDropdown() {
         super();
 

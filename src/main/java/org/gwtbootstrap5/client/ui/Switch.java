@@ -37,6 +37,7 @@ public class Switch extends CheckBox {
 
     private static final String SWITCH = "switch";
 
+    /** Creates a switch without text. */
     public Switch() {
         super();
 
@@ -44,6 +45,11 @@ public class Switch extends CheckBox {
         inputElem.setAttribute(Attributes.ROLE, SWITCH);
     }
 
+    /**
+     * Creates a switch.
+     *
+     * @param label the text of the switch
+     */
     public Switch(final String label) {
         this();
         setText(label);

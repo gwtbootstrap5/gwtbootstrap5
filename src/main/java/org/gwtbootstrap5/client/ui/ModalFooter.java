@@ -24,12 +24,16 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.gwt.FlowPanel;
 
 /**
+ * Footer of a {@link Modal} ({@code div.modal-footer}), usually holding its buttons.
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see Modal
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/modal/">Bootstrap 5 documentation</a>
  */
 public class ModalFooter extends FlowPanel implements ModalComponent {
 
+    /** Creates an empty modal footer. */
     public ModalFooter() {
         super();
 

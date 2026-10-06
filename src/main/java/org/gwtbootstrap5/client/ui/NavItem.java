@@ -23,16 +23,19 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
- * Nav container and base class for navigations.
+ * Item of a {@link Nav} ({@code li.nav-item}) with text or widgets. For an item that is a link, use
+ * {@link AnchorListItem}.
  *
  * @author Sven Jacobs
  * @see Nav
  * @see NavTabs
  * @see NavPills
  * @see Affix
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navs-tabs/">Bootstrap 5 documentation</a>
  */
 public class NavItem extends ListItem {
 
+    /** Creates an empty nav item ({@code li.nav-item}). */
     public NavItem() {
         super();
 

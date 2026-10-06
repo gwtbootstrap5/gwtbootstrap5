@@ -37,22 +37,20 @@ import org.gwtbootstrap5.client.ui.constants.*;
 import java.util.List;
 
 /**
- * List item for the nav tabs, needs special toggle and JS to make it work properly
- * <p>
- * <a href="http://getbootstrap.com/javascript/#tabs">Bootstrap Documentation</a>
+ * Tab of a {@link NavTabs}: an item whose link shows the {@link TabPanel} its {@code dataTarget}
+ * points to, and hides the others of the {@link TabContent}.
  * <h2>UiBinder example</h2>
- * <pre>
- * {@code
- * <b:NavTabs>
- *    <b:NavTabItem/>
- *    <b:NavTabItem/>
- * </b:NavTabs>
- * }
- * </pre>
+ * <pre>{@code
+ *     <b:NavTabs>
+ *         <b:NavTabItem text="Home" dataTarget="#home" active="true"/>
+ *         <b:NavTabItem text="Profile" dataTarget="#profile"/>
+ *     </b:NavTabs>
+ * }</pre>
  *
  * @author Joshua Godi
  * @author Drew Spencer
  * @see org.gwtbootstrap5.client.ui.NavTabs
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navs-tabs/#javascript-behavior">Bootstrap 5 documentation</a>
  */
 public class NavTabItem extends AnchorListItem implements HasDataTarget {
 
@@ -80,6 +78,12 @@ public class NavTabItem extends AnchorListItem implements HasDataTarget {
         RoleHelper.setRole(anchor.getElement(), Roles.TAB);
     }
 
+    /**
+     * Creates a tab with an icon.
+     *
+     * @param text the text of the tab
+     * @param iconType the icon, before the text
+     */
     public NavTabItem(final String text, final IconType iconType) {
         this(text);
         setIcon(iconType);
@@ -87,6 +91,13 @@ public class NavTabItem extends AnchorListItem implements HasDataTarget {
         addStyleName(Styles.NAV_ITEM);
     }
 
+    /**
+     * Creates a tab with an icon of a given size.
+     *
+     * @param text the text of the tab
+     * @param iconType the icon, before the text
+     * @param iconSize the size of the icon
+     */
     public NavTabItem(final String text, final IconType iconType, final IconSize iconSize) {
         this(text, iconType);
         setIconSize(iconSize);
@@ -94,6 +105,12 @@ public class NavTabItem extends AnchorListItem implements HasDataTarget {
         addStyleName(Styles.NAV_ITEM);
     }
 
+    /**
+     * Creates a tab with a badge.
+     *
+     * @param text the text of the tab
+     * @param badgeText the text of the badge, after the text
+     */
     public NavTabItem(final String text, final String badgeText) {
         this(text);
         setBadgeText(badgeText);
@@ -205,6 +222,11 @@ public class NavTabItem extends AnchorListItem implements HasDataTarget {
         }
     }
 
+    /**
+     * Sets the id of the pane the tab controls ({@code aria-controls} of its link).
+     *
+     * @param ariaControls the id of the pane, or {@code null} for none
+     */
     public void setAriaControls(final String ariaControls) {
         if (ariaControls != null) {
             anchor.getElement().setAttribute(Attributes.ARIA_CONTROLS, ariaControls);
@@ -213,6 +235,11 @@ public class NavTabItem extends AnchorListItem implements HasDataTarget {
         }
     }
 
+    /**
+     * Returns the id of the pane the tab controls.
+     *
+     * @return the {@code aria-controls} of its link
+     */
     public String getAriaControls() {
         return anchor.getElement().getAttribute(Attributes.ARIA_CONTROLS);
     }
@@ -239,10 +266,20 @@ public class NavTabItem extends AnchorListItem implements HasDataTarget {
         unbindJavaScriptEvents(anchor.getElement());
     }
 
+    /**
+     * Returns the content of the tab's link, as HTML.
+     *
+     * @return the HTML
+     */
     public String getHTML() {
         return anchor.getHTML();
     }
 
+    /**
+     * Sets the content of the tab's link, as HTML.
+     *
+     * @param html the HTML
+     */
     public void setHTML(final String html) {
         anchor.setHTML(html);
     }

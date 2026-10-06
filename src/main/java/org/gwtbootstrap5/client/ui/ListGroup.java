@@ -29,10 +29,23 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
+ * List group ({@code ul.list-group}): a list of {@link ListGroupItem}s, which can be flush,
+ * numbered or horizontal.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:ListGroup flush="true">
+ *         <b:ListGroupItem text="An item"/>
+ *         <b:ListGroupItem text="A second item" type="PRIMARY"/>
+ *     </b:ListGroup>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/list-group/">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class ListGroup extends UnorderedList {
 
+    /** Creates an empty, vertical list group. */
     public ListGroup() {
         super();
 
@@ -48,6 +61,12 @@ public class ListGroup extends UnorderedList {
         add(child, (Element) getElement());
     }
 
+    /**
+     * Numbers the items ({@code list-group-numbered}). Use it on an ordered list for the numbers to
+     * be announced by screen readers.
+     *
+     * @param numbered {@code true} to number the items
+     */
     public void setNumbered(final boolean numbered) {
         if (numbered) {
             getElement().addClassName(Styles.LIST_GROUP_NUMBERED);
@@ -59,6 +78,8 @@ public class ListGroup extends UnorderedList {
     /**
      * Removes the outer borders and rounded corners, to render the list edge to edge with its
      * parent, e.g. inside a {@link Card} ({@code list-group-flush}).
+     *
+     * @param flush {@code true} to render the list flush
      */
     public void setFlush(final boolean flush) {
         if (flush) {
@@ -68,6 +89,11 @@ public class ListGroup extends UnorderedList {
         }
     }
 
+    /**
+     * Returns whether the list is flush.
+     *
+     * @return {@code true} if it has {@code list-group-flush}
+     */
     public boolean isFlush() {
         return StyleHelper.containsStyle(getStyleName(), Styles.LIST_GROUP_FLUSH);
     }
@@ -81,6 +107,11 @@ public class ListGroup extends UnorderedList {
         StyleHelper.addUniqueEnumStyleName(this, ListGroupHorizontal.class, horizontal);
     }
 
+    /**
+     * Returns how the items are laid out horizontally.
+     *
+     * @return the breakpoint from which the list is horizontal, or {@code null} if it is vertical
+     */
     public ListGroupHorizontal getHorizontal() {
         return ListGroupHorizontal.fromStyleName(getStyleName());
     }

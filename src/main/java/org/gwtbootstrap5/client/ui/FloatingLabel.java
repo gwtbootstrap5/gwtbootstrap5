@@ -53,6 +53,7 @@ public class FloatingLabel extends Div {
     // The placeholder this widget gave the control, replaced when the text changes
     private String generatedPlaceholder;
 
+    /** Creates a floating label without text. */
     public FloatingLabel() {
         super();
 
@@ -60,6 +61,11 @@ public class FloatingLabel extends Div {
         getElement().appendChild(label);
     }
 
+    /**
+     * Creates a floating label.
+     *
+     * @param text the text of the label
+     */
     public FloatingLabel(final String text) {
         this();
         setText(text);
@@ -79,12 +85,19 @@ public class FloatingLabel extends Div {
 
     /**
      * Sets the label's text.
+     *
+     * @param text the text of the label
      */
     public void setText(final String text) {
         label.setInnerText(text);
         link();
     }
 
+    /**
+     * Returns the text of the label.
+     *
+     * @return the text
+     */
     public String getText() {
         return label.getInnerText();
     }

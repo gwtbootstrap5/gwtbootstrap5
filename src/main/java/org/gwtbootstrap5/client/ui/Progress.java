@@ -24,13 +24,16 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
 
 /**
- * Container of {@link ProgressBar}s. Stripes and animation are set on each bar with
- * {@link ProgressBar#setStriped(boolean)} and {@link ProgressBar#setAnimated(boolean)}.
+ * Progress container ({@code div.progress}) of one or more {@link ProgressBar}s. Stripes and
+ * animation are set on each bar with {@link ProgressBar#setStriped(boolean)} and
+ * {@link ProgressBar#setAnimated(boolean)}.
  *
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/progress/">Bootstrap 5 documentation</a>
  */
 public class Progress extends Div {
 
+    /** Creates an empty progress container ({@code div.progress}). */
     public Progress() {
         super();
 

@@ -24,17 +24,17 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.gwt.FlowPanel;
 
 /**
- * Combines multiple button groups.
+ * Button toolbar ({@code div.btn-toolbar}): several {@link ButtonGroup}s on one line. Space the
+ * groups with margin classes such as {@code me-2}.
  * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <b:ButtonToolBar>
- *         <b:ButtonGroup>
- *             <b:Button>Button 1</b:Button>
- *             <b:Button>Button 2</b:Button>
+ *         <b:ButtonGroup addStyleNames="me-2">
+ *             <b:Button text="1"/>
+ *             <b:Button text="2"/>
  *         </b:ButtonGroup>
  *         <b:ButtonGroup>
- *             <b:Button>Button 3</b:Button>
- *             <b:Button>Button 4</b:Button>
+ *             <b:Button text="3"/>
  *         </b:ButtonGroup>
  *     </b:ButtonToolBar>
  * }</pre>
@@ -42,9 +42,11 @@ import org.gwtbootstrap5.client.ui.gwt.FlowPanel;
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see ButtonGroup
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/button-group/#button-toolbar">Bootstrap 5 documentation</a>
  */
 public class ButtonToolBar extends FlowPanel {
 
+    /** Creates an empty toolbar ({@code div.btn-toolbar}). */
     public ButtonToolBar() {
         super();
 

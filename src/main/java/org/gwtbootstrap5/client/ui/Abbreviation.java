@@ -27,12 +27,22 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.uibinder.client.UiConstructor;
 
 /**
- * Simple {@code <abbr>} block for abbreviating words.
+ * Abbreviation ({@code abbr}): a word whose full text shows on hover, from its {@code title}.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b.html:Paragraph><b:Abbreviation title="HyperText Markup Language">HTML</b:Abbreviation></b.html:Paragraph>
+ * }</pre>
  *
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/typography/#abbreviations">Bootstrap 5 documentation</a>
  */
 public class Abbreviation extends AbstractTextWidget {
 
+    /**
+     * Creates an abbreviation.
+     *
+     * @param title the full text, shown on hover ({@code title} attribute)
+     */
     @UiConstructor
     public Abbreviation(final String title) {
         super(Document.get().createElement(ElementTags.ABBR));

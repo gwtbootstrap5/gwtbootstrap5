@@ -21,10 +21,22 @@ package org.gwtbootstrap5.client.ui;
  */
 
 /**
+ * A widget that can show a button to close it, such as a {@link Modal}.
+ *
  * @author Sven Jacobs
  */
 public interface IsClosable {
+    /**
+     * Shows or hides the close button.
+     *
+     * @param closable {@code true} to show the close button
+     */
     void setClosable(boolean closable);
 
+    /**
+     * Returns whether the close button is shown.
+     *
+     * @return {@code true} if it is shown
+     */
     boolean isClosable();
 }

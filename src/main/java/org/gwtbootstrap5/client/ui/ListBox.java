@@ -25,10 +25,18 @@ import org.gwtbootstrap5.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
- * Convenience derivation from GWT's ListBox that can have an ID.
+ * Select ({@code select.form-select}) of GWT's {@code ListBox}, styled by Bootstrap and with an id.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:ListBox>
+ *         <b:item value="1">One</b:item>
+ *         <b:item value="2">Two</b:item>
+ *     </b:ListBox>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @see com.google.gwt.user.client.ui.ListBox
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/select/">Bootstrap 5 documentation</a>
  */
 public class ListBox extends com.google.gwt.user.client.ui.ListBox implements HasId {
 

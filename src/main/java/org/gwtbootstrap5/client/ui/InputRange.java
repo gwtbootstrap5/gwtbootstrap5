@@ -23,8 +23,19 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.constants.InputType;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
+/**
+ * Range input ({@code input.form-range}): a slider to pick a number between {@code min} and
+ * {@code max}.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:InputRange min="0" max="10"/>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/range/">Bootstrap 5 documentation</a>
+ */
 public class InputRange extends Input {
 
+    /** Creates a range input. */
     public InputRange() {
         super();
         setType(InputType.RANGE);

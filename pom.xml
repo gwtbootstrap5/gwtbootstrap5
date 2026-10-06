@@ -25,6 +25,11 @@
         <junit.version>4.13.2</junit.version>
         <!-- GWT tests (GwtTestSuite) are slow and run only with -P test; plain JVM tests always run -->
         <skipGwtTests>true</skipGwtTests>
+        <!--
+            Packages whose public API is fully documented: CI checks them with -P javadoc-check, so
+            they can't get gaps again. A package joins the list in the commit that documents it.
+        -->
+        <javadoc.documented.packages>org.gwtbootstrap5.client.ui</javadoc.documented.packages>
     </properties>
 
     <dependencies>

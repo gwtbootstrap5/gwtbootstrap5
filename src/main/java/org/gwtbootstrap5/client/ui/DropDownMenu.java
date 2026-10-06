@@ -32,16 +32,19 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * Container for drop down menu items.
- * <p>
- * <strong>Must</strong> be encapsulated in a {@link ButtonGroup} to build button dropdowns.
+ * Menu of a dropdown ({@code ul.dropdown-menu}), opened by the toggle before it in a
+ * {@link DropDown}, a {@link ButtonGroup}, a {@link ListDropDown} or a {@link NavbarDropdown}. Its
+ * items are {@link AnchorListItem}s or {@link DropDownItem}s, {@link DropDownHeader}s and
+ * {@link Divider}s.
  *
  * @author Sven Jacobs
  * @see ButtonGroup
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/dropdowns/">Bootstrap 5 documentation</a>
  */
 public class DropDownMenu extends UnorderedList {
     private static final String MENU = "menu";
 
+    /** Creates an empty menu ({@code ul.dropdown-menu}). */
     public DropDownMenu() {
         super();
 
@@ -80,6 +83,14 @@ public class DropDownMenu extends UnorderedList {
         return child;
     }
 
+    /**
+     * Aligns the menu with the start or the end of its toggle, at every screen size
+     * ({@code dropdown-menu-start} or {@code dropdown-menu-end}).
+     *
+     * @param alignment {@link DropDownMenuAlignment#START} or {@link DropDownMenuAlignment#END}, or
+     *     {@code null} for Bootstrap's default
+     * @throws IllegalArgumentException for a breakpoint alignment; use {@link #setBreakpointAlignment}
+     */
     public void setAlignment(final DropDownMenuAlignment alignment) {
         if (alignment != null && alignment.isResponsive()) {
             throw new IllegalArgumentException(alignment + " is a breakpoint alignment, use setBreakpointAlignment");
@@ -87,6 +98,11 @@ public class DropDownMenu extends UnorderedList {
         replaceAlignment(false, alignment);
     }
 
+    /**
+     * Returns the alignment set with {@link #setAlignment}.
+     *
+     * @return the alignment, or {@code null} if none
+     */
     public DropDownMenuAlignment getAlignment() {
         return findAlignment(false);
     }
@@ -106,6 +122,11 @@ public class DropDownMenu extends UnorderedList {
         replaceAlignment(true, alignment);
     }
 
+    /**
+     * Returns the alignment set with {@link #setBreakpointAlignment}.
+     *
+     * @return the alignment, or {@code null} if none
+     */
     public DropDownMenuAlignment getBreakpointAlignment() {
         return findAlignment(true);
     }
@@ -138,6 +159,12 @@ public class DropDownMenu extends UnorderedList {
         throw new UnsupportedOperationException("DropDownMenu.setFloat has no effect in Bootstrap 5, use setAlignment");
     }
 
+    /**
+     * Gives the menu a dark background ({@code dropdown-menu-dark}). Bootstrap 5.3 prefers a dark
+     * color mode on the dropdown, see {@code ColorModeHelper}.
+     *
+     * @param dark {@code true} for a dark menu
+     */
     public void setDark(final boolean dark) {
         if (dark) {
             getElement().addClassName(Styles.DROPDOWN_MENU_DARK);

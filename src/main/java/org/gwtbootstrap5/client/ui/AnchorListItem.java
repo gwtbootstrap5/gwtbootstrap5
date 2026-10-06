@@ -24,14 +24,32 @@ import com.google.gwt.uibinder.client.UiConstructor;
 import org.gwtbootstrap5.client.ui.base.AbstractAnchorListItem;
 
 /**
+ * List item ({@code <li>}) holding a link, the building block of {@link Nav}, {@link NavbarNav},
+ * {@link DropDownMenu}, {@link Pagination} and {@link Breadcrumbs}. Each of them gives the item and
+ * its link the classes it needs ({@code nav-item} and {@code nav-link}, {@code dropdown-item},
+ * {@code page-item} and {@code page-link}, {@code breadcrumb-item}).
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Nav>
+ *         <b:AnchorListItem text="Home" active="true"/>
+ *         <b:AnchorListItem text="Profile" targetHistoryToken="profile"/>
+ *     </b:Nav>
+ * }</pre>
+ *
  * @author Joshua Godi
  */
 public class AnchorListItem extends AbstractAnchorListItem implements com.google.gwt.user.client.ui.HasText {
 
+    /** Creates an item with an empty link. */
     public AnchorListItem() {
         super();
     }
 
+    /**
+     * Creates an item.
+     *
+     * @param text the text of the link
+     */
     @UiConstructor
     public AnchorListItem(final String text) {
         super();

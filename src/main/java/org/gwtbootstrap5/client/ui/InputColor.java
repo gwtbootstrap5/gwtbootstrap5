@@ -24,12 +24,19 @@ import org.gwtbootstrap5.client.ui.constants.InputType;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
- * Native color picker ({@code <input type="color">}) styled by Bootstrap 5. The value is a
- * lowercase hex color such as {@code #563d7c}; there is no alpha channel. For an inline panel or
- * alpha, use the extras {@code ColorPicker}.
+ * Native color picker ({@code input.form-control.form-control-color} of type {@code color}). The
+ * value is a lowercase hex color such as {@code #563d7c}; there is no alpha channel. For an inline
+ * panel or alpha, use the extras {@code ColorPicker}.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:InputColor value="#563d7c"/>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/form-control/#color">Bootstrap 5 documentation</a>
  */
 public class InputColor extends Input {
 
+    /** Creates a color input ({@code input.form-control.form-control-color}). */
     public InputColor() {
         super();
         setType(InputType.COLOR);

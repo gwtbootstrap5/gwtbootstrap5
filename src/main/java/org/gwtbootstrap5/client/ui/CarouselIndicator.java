@@ -33,6 +33,19 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
+ * Indicator of a {@link Carousel}: a button that shows which slide is active and goes to its slide
+ * when clicked. It needs {@code dataTarget}, the carousel's id, and {@code dataSlideTo}, the index
+ * of its slide.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:CarouselIndicators>
+ *         <b:CarouselIndicator dataTarget="#slides" dataSlideTo="0" active="true"/>
+ *         <b:CarouselIndicator dataTarget="#slides" dataSlideTo="1"/>
+ *     </b:CarouselIndicators>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/carousel/#indicators">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class CarouselIndicator extends ComplexWidget implements HasDataTarget, HasActive {
@@ -40,6 +53,7 @@ public class CarouselIndicator extends ComplexWidget implements HasDataTarget, H
     private final DataTargetMixin<CarouselIndicator> targetMixin = new DataTargetMixin<>(this);
     private final ActiveMixin<CarouselIndicator> activeMixin = new ActiveMixin<>(this);
 
+    /** Creates an indicator ({@code button}). */
     public CarouselIndicator() {
         super();
 
@@ -48,10 +62,20 @@ public class CarouselIndicator extends ComplexWidget implements HasDataTarget, H
         getElement().setAttribute(Attributes.TYPE, "button");
     }
 
+    /**
+     * Sets the slide the indicator goes to ({@code data-bs-slide-to}).
+     *
+     * @param dataSlideTo the index of the slide, from 0
+     */
     public void setDataSlideTo(final String dataSlideTo) {
         getElement().setAttribute(Attributes.DATA_SLIDE_TO, dataSlideTo);
     }
 
+    /**
+     * Returns the slide the indicator goes to.
+     *
+     * @return the index of the slide ({@code data-bs-slide-to})
+     */
     public String getDataSlideTo() {
         return getElement().getAttribute(Attributes.DATA_SLIDE_TO);
     }

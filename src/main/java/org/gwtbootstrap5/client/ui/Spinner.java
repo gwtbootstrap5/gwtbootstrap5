@@ -33,12 +33,33 @@ import org.gwtbootstrap5.client.ui.constants.SpinnerType;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
 
+/**
+ * Spinner: a loading indicator, a spinning border or a growing dot, with a text for screen
+ * readers.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Spinner spinnerType="BORDER" defaultText="Loading..." emphasis="PRIMARY"/>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/spinners/">Bootstrap 5 documentation</a>
+ */
 public class Spinner extends Div implements HasType<SpinnerType>, HasEmphasis {
 
+    /**
+     * Creates a spinner with the text "Loading..." for screen readers.
+     *
+     * @param spinnerType a spinning border or a growing dot
+     */
     public Spinner(SpinnerType spinnerType) {
         this(spinnerType, "Loading...");
     }
 
+    /**
+     * Creates a spinner ({@code div} with role {@code status}).
+     *
+     * @param spinnerType a spinning border or a growing dot
+     * @param defaultText the text for screen readers
+     */
     @UiConstructor
     public Spinner(SpinnerType spinnerType, String defaultText) {
         super();
@@ -73,6 +94,12 @@ public class Spinner extends Div implements HasType<SpinnerType>, HasEmphasis {
         return Emphasis.fromStyleName(getStyleName());
     }
 
+    /**
+     * Makes the spinner small ({@code spinner-border-sm} or {@code spinner-grow-sm}). Set the type
+     * first.
+     *
+     * @param isSmall {@code true} for a small spinner
+     */
     public void setSmall(boolean isSmall) {
         if (isSmall) {
             if (getType() == SpinnerType.BORDER) {

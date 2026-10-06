@@ -34,6 +34,7 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
  */
 public class VStack extends AbstractStack {
 
+    /** Creates an empty vertical stack ({@code div.vstack}). */
     public VStack() {
         super(Styles.VSTACK);
     }

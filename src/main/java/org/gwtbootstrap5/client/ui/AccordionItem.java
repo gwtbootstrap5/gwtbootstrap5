@@ -37,6 +37,7 @@ import jsinterop.base.JsPropertyMap;
  * generated for the body unless it has one.
  *
  * @see Accordion
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/accordion/">Bootstrap 5 documentation</a>
  */
 public class AccordionItem extends Div {
 
@@ -44,6 +45,7 @@ public class AccordionItem extends Div {
     // After the first attach the classes Bootstrap toggles are the state, not the open field
     private boolean initialized = false;
 
+    /** Creates an empty, closed item. */
     public AccordionItem() {
         super();
 
@@ -64,6 +66,8 @@ public class AccordionItem extends Div {
      * Opens or closes the body. Before the item is attached this sets its initial state; after, it
      * animates like a click on the header, closing the other items unless the accordion is
      * {@link Accordion#setAlwaysOpen always open}.
+     *
+     * @param open {@code true} to open the body
      */
     public void setOpen(final boolean open) {
         this.open = open;
@@ -82,6 +86,8 @@ public class AccordionItem extends Div {
     }
 
     /**
+     * Returns whether the body is open.
+     *
      * @return {@code true} if the body is open, or opening
      */
     public boolean isOpen() {

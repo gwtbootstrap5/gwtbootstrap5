@@ -25,15 +25,24 @@ import org.gwtbootstrap5.client.ui.constants.ContainerSize;
 import org.gwtbootstrap5.client.ui.html.Div;
 
 /**
- * Div element that automatically centers contents. Fixed-width.
+ * Container ({@code div.container}): centers and pads the content, with a fixed width at each
+ * breakpoint, or the full width with {@code size="FLUID"}, or the full width up to a breakpoint.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Container size="FLUID">
+ *         <b:Row>...</b:Row>
+ *     </b:Container>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see Row
  * @see Column
+ * @see <a href="https://getbootstrap.com/docs/5.3/layout/containers/">Bootstrap 5 documentation</a>
  */
 public class Container extends Div implements HasSize<ContainerSize> {
 
+    /** Creates a container ({@code div.container}): fixed width at each breakpoint. */
     public Container() {
         super();
 

@@ -23,8 +23,15 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.base.button.CloseButton;
 import org.gwtbootstrap5.client.ui.constants.ButtonDismiss;
 
+/**
+ * Close button ({@code button.btn-close}) that closes the {@link Modal} it is in
+ * ({@code data-bs-dismiss="modal"}).
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/modal/">Bootstrap 5 documentation</a>
+ */
 public class ModalCloseButton extends CloseButton {
 
+    /** Creates a close button. */
     public ModalCloseButton() {
         super();
 

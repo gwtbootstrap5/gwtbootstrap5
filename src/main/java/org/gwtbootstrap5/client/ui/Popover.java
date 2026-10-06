@@ -29,20 +29,16 @@ import com.google.gwt.user.client.ui.Widget;
 import jsinterop.base.JsPropertyMap;
 
 /**
- * Basic implementation for the Bootstrap Popover
- * <p>
- * <a href="http://getbootstrap.com/javascript/#popovers">Bootstrap Documentation</a>
+ * Popover: a box with a title and content that opens next to its widget, on click by default.
  * <h2>UiBinder example</h2>
- * 
- * <pre>
- * {@code
- * <b:Popover text="...">
- *    ...
- * </b:Popover>
- * }
- * </pre>
+ * <pre>{@code
+ *     <b:Popover title="Popover title" content="And here's some amazing content." placement="RIGHT">
+ *         <b:Button type="DANGER" text="Click to toggle popover"/>
+ *     </b:Popover>
+ * }</pre>
  *
  * @author Steven Jardine
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/popovers/">Bootstrap 5 documentation</a>
  */
 public class Popover extends AbstractTooltip {
 
@@ -72,6 +68,7 @@ public class Popover extends AbstractTooltip {
      * Creates the popover with given title and content. Remember to set the widget as well.
      *
      * @param title title for the popover
+     * @param content content of the popover
      */
     public Popover(final String title, String content) {
         this();
@@ -120,6 +117,8 @@ public class Popover extends AbstractTooltip {
     }
 
     /**
+     * Returns the content of the popover.
+     *
      * @return the content of the popover.
      */
     public String getContent() {
@@ -154,6 +153,8 @@ public class Popover extends AbstractTooltip {
     }
 
     /**
+     * Sets the content of the popover. An initialized popover shows the new content at once.
+     *
      * @param content the content of the popover to set
      */
     public void setContent(String content) {

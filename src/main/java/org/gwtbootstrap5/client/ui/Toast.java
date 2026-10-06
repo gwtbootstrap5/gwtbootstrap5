@@ -34,10 +34,23 @@ import org.gwtbootstrap5.client.ui.html.Div;
 import org.gwtbootstrap5.client.ui.html.Small;
 import org.gwtbootstrap5.client.ui.html.Strong;
 
+/**
+ * Toast: a short notification, with a title, a subtitle and a message, that hides itself after
+ * a delay. Put toasts in a {@link ToastContainer} to stack them, and call {@link #show()}.
+ * <h2>Example</h2>
+ * <pre>{@code
+ *     Toast toast = new Toast("Saved", "just now", "Your changes were saved.");
+ *     container.add(toast);
+ *     toast.show();
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/toasts/">Bootstrap 5 documentation</a>
+ */
 public class Toast extends Div {
 
     private final DomEventListeners listeners = new DomEventListeners();
 
+    /** How long a toast stays shown by default, in milliseconds. */
     public static final int DEFAULT_DELAY_MS = 5000;
 
     private ToastRole toastRole;
@@ -45,6 +58,14 @@ public class Toast extends Div {
     private Boolean hasAutohide;
     private Integer delayMs;
 
+    /**
+     * Creates a toast ({@code div.toast}) that announces itself politely, animates and hides
+     * itself after {@link #DEFAULT_DELAY_MS}.
+     *
+     * @param title the title, in the header
+     * @param subtitle the small text next to the title, such as the time
+     * @param msg the message, in the body
+     */
     public Toast(String title, String subtitle, String msg) {
         super();
 
@@ -72,14 +93,21 @@ public class Toast extends Div {
         unbindAllHandlers(getElement());
     }
 
+    /** Shows the toast. It must be attached. */
     public void show() {
         show(getElement());
     }
 
+    /** Hides the toast. */
     public void hide() {
         hide(getElement());
     }
 
+    /**
+     * Sets how screen readers announce the toast ({@code role} and {@code aria-live}).
+     *
+     * @param toastRole {@code STATUS} to announce it politely, {@code ALERT} at once
+     */
     public void setToastRole(final ToastRole toastRole) {
         this.toastRole = toastRole;
 
@@ -89,6 +117,11 @@ public class Toast extends Div {
         getElement().setAttribute(Attributes.ARIA_ATOMIC, "true");
     }
 
+    /**
+     * Sets whether the toast fades in and out ({@code data-bs-animation}).
+     *
+     * @param isAnimated {@code true} to fade, or {@code null} for Bootstrap's default
+     */
     public void setAnimation(final Boolean isAnimated) {
         this.isAnimated = isAnimated;
 
@@ -99,6 +132,11 @@ public class Toast extends Div {
         }
     }
 
+    /**
+     * Sets how long the toast stays shown when it hides itself ({@code data-bs-delay}).
+     *
+     * @param delayMs the delay in milliseconds, or {@code null} for Bootstrap's default
+     */
     public void setDelay(final Integer delayMs) {
         this.delayMs = delayMs;
 
@@ -109,6 +147,11 @@ public class Toast extends Div {
         }
     }
 
+    /**
+     * Sets whether the toast hides itself after its delay ({@code data-bs-autohide}).
+     *
+     * @param hasAutohide {@code true} to hide itself, or {@code null} for Bootstrap's default
+     */
     public void setAutohide(final Boolean hasAutohide) {
         this.hasAutohide = hasAutohide;
 
@@ -119,38 +162,87 @@ public class Toast extends Div {
         }
     }
 
+    /**
+     * Returns whether the toast is shown.
+     *
+     * @return {@code true} if it is shown
+     */
     public boolean isShown() {
         return isShown(getElement());
     }
 
+    /**
+     * Adds a handler called when the toast starts to show.
+     *
+     * @param showHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addShowHandler(final ShowHandler showHandler) {
         return addHandler(showHandler, ShowEvent.getType());
     }
 
+    /**
+     * Adds a handler called when the toast is shown, after the animation.
+     *
+     * @param shownHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addShownHandler(final ShownHandler shownHandler) {
         return addHandler(shownHandler, ShownEvent.getType());
     }
 
+    /**
+     * Adds a handler called when the toast starts to hide.
+     *
+     * @param hideHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addHideHandler(final HideHandler hideHandler) {
         return addHandler(hideHandler, HideEvent.getType());
     }
 
+    /**
+     * Adds a handler called when the toast is hidden, after the animation.
+     *
+     * @param hiddenHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addHiddenHandler(final HiddenHandler hiddenHandler) {
         return addHandler(hiddenHandler, HiddenEvent.getType());
     }
 
+    /**
+     * Returns how screen readers announce the toast.
+     *
+     * @return the role
+     */
     public ToastRole getToastRole() {
         return toastRole;
     }
 
+    /**
+     * Returns whether the toast fades in and out.
+     *
+     * @return the value set with {@link #setAnimation}
+     */
     public Boolean getAnimated() {
         return isAnimated;
     }
 
+    /**
+     * Returns whether the toast hides itself.
+     *
+     * @return the value set with {@link #setAutohide}
+     */
     public Boolean getHasAutohide() {
         return hasAutohide;
     }
 
+    /**
+     * Returns how long the toast stays shown.
+     *
+     * @return the value set with {@link #setDelay}, in milliseconds
+     */
     public Integer getDelayMs() {
         return delayMs;
     }

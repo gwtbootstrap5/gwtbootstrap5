@@ -25,9 +25,12 @@ import org.gwtbootstrap5.client.ui.constants.HeadingSize;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
+ * Title of a {@link Modal}: a heading with {@code modal-title}.
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see Modal
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/modal/">Bootstrap 5 documentation</a>
  */
 public class ModalTitle extends Heading implements ModalComponent {
 

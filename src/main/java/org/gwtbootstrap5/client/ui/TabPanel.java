@@ -29,21 +29,19 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
 
 /**
- * Container widget for the tab pane
- * <p>
- * <a href="http://getbootstrap.com/javascript/#tabs">Bootstrap Documentation</a>
+ * Pane of a {@link TabContent} ({@code div.tab-pane}), shown by the {@link NavTabItem} whose
+ * {@code dataTarget} is its id.
  * <h2>UiBinder example</h2>
- * <pre>
- * {@code
- * <b:TabContent>
- *    <b:TabPanel/>
- *    <b:TabPanel/>
- * </b:TabContent>
- * }
- * </pre>
+ * <pre>{@code
+ *     <b:TabContent>
+ *         <b:TabPanel b:id="home" active="true">...</b:TabPanel>
+ *         <b:TabPanel b:id="profile">...</b:TabPanel>
+ *     </b:TabContent>
+ * }</pre>
  *
  * @author Joshua Godi
  * @see org.gwtbootstrap5.client.ui.TabContent
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navs-tabs/#javascript-behavior">Bootstrap 5 documentation</a>
  */
 public class TabPanel extends Div implements HasActive {
 

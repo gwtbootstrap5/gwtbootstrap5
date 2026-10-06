@@ -23,24 +23,16 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.base.AbstractButtonGroup;
 
 /**
- * Button group containing multiple buttons.
+ * Button group ({@code div.btn-group}): buttons side by side, joined together. A button with
+ * {@code dataToggle="DROPDOWN"} and a {@link DropDownMenu} in it make a dropdown button.
  * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <b:ButtonGroup>
- *         <b:Button>Button 1</b:Button>
- *         <b:Button>Button 2</b:Button>
- *         <b:Button>Button 3</b:Button>
- *     </b:ButtonGroup>
- * }</pre>
- * <p>
- * Is also a container for dropdown buttons:
- * <pre>{@code
- *     <b:ButtonGroup>
- *         <b:Button toggle="DROPDOWN">Dropdown</b:Button>
+ *         <b:Button text="Left"/>
+ *         <b:Button text="Middle"/>
+ *         <b:Button dataToggle="DROPDOWN" text="More"/>
  *         <b:DropDownMenu>
- *             <b:AnchorListItem>ListItem 1</b:AnchorListItem>
- *             <b:AnchorListItem>ListItem 2</b:AnchorListItem>
- *             <b:AnchorListItem>ListItem 3</b:AnchorListItem>
+ *             <b:AnchorListItem text="Action"/>
  *         </b:DropDownMenu>
  *     </b:ButtonGroup>
  * }</pre>
@@ -48,9 +40,11 @@ import org.gwtbootstrap5.client.ui.base.AbstractButtonGroup;
  * @author Sven Jacobs
  * @see Button
  * @see VerticalButtonGroup
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/button-group/">Bootstrap 5 documentation</a>
  */
 public class ButtonGroup extends AbstractButtonGroup {
 
+    /** Creates an empty, horizontal button group ({@code div.btn-group}). */
     public ButtonGroup() {
         super();
     }

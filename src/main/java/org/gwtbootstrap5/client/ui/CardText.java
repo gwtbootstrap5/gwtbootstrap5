@@ -24,14 +24,22 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Paragraph;
 
 /**
- * The text of a card: a {@code <p class="card-text">}.
+ * Text of a {@link Card}: a paragraph with {@code card-text}.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/card/#titles-text-and-links">Bootstrap 5 documentation</a>
  */
 public class CardText extends Paragraph {
 
+    /** Creates an empty card text. */
     public CardText() {
         addStyleName(Styles.CARD_TEXT);
     }
 
+    /**
+     * Creates a card text.
+     *
+     * @param html the content, as HTML
+     */
     public CardText(final String html) {
         super(html);
         addStyleName(Styles.CARD_TEXT);

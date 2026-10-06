@@ -34,6 +34,16 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.HasText;
 
 /**
+ * Previous or next control of a {@link Carousel}: a link to the carousel's id, with an icon and
+ * a visually hidden text for screen readers. Set either {@code prev} or {@code next}.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:CarouselControl prev="true" href="#slides" text="Previous"/>
+ *     <b:CarouselControl next="true" href="#slides" text="Next"/>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/carousel/#with-controls">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class CarouselControl extends ComplexWidget implements HasHref, HasText {
@@ -44,6 +54,7 @@ public class CarouselControl extends ComplexWidget implements HasHref, HasText {
     private final Icon icon;
     private final Span span;
 
+    /** Creates a control; set {@code prev} or {@code next} to choose which. */
     public CarouselControl() {
         super();
 
@@ -62,10 +73,21 @@ public class CarouselControl extends ComplexWidget implements HasHref, HasText {
         add(span);
     }
 
+    /**
+     * Replaces the icon of the control, which by default is Bootstrap's arrow.
+     *
+     * @param iconType the icon
+     */
     public void setIconType(final IconType iconType) {
         icon.setType(iconType);
     }
 
+    /**
+     * Makes the control go to the previous slide ({@code data-bs-slide="prev"},
+     * {@code carousel-control-prev}).
+     *
+     * @param prev {@code true} for a previous control
+     */
     public void setPrev(final boolean prev) {
         getElement().removeAttribute(Attributes.DATA_SLIDE);
         getElement().setAttribute(Attributes.DATA_SLIDE, Carousel.PREV);
@@ -73,6 +95,12 @@ public class CarouselControl extends ComplexWidget implements HasHref, HasText {
         icon.addStyleName(Styles.CAROUSEL_CONTROL_PREV_ICON);
     }
 
+    /**
+     * Makes the control go to the next slide ({@code data-bs-slide="next"},
+     * {@code carousel-control-next}).
+     *
+     * @param next {@code true} for a next control
+     */
     public void setNext(final boolean next) {
         getElement().removeAttribute(Attributes.DATA_SLIDE);
         getElement().setAttribute(Attributes.DATA_SLIDE, Carousel.NEXT);

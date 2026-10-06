@@ -29,6 +29,15 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.TextAreaElement;
 import com.google.gwt.user.client.ui.RootPanel;
 
+/**
+ * Multi-line text input ({@code textarea.form-control}).
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:TextArea visibleLines="3" placeholder="Your message"/>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/form-control/">Bootstrap 5 documentation</a>
+ */
 public class TextArea extends TextBoxBase {
 
     /**

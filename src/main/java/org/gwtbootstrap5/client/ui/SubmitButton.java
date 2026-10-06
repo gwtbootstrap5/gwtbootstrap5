@@ -31,6 +31,10 @@ import com.google.gwt.dom.client.Element;
  */
 public class SubmitButton extends Button {
 
+    /** Creates a submit button ({@code button type="submit"}). */
+    public SubmitButton() {
+    }
+
     @Override
     protected Element createElement() {
         return Document.get().createSubmitButtonElement().cast();

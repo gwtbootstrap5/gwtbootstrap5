@@ -38,6 +38,11 @@ import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
+ * Header of a {@link Card} ({@code div.card-header}), with text or widgets. Its
+ * {@code data-bs-*} attributes let it toggle a collapsible part of the card.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/card/#header-and-footer">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class CardHeader extends Div implements HasWidgets, HasText, HasDataToggle, HasDataTarget, HasDataParent {
@@ -46,6 +51,7 @@ public class CardHeader extends Div implements HasWidgets, HasText, HasDataToggl
     private final DataToggleMixin<CardHeader> toggleMixin = new DataToggleMixin<>(this);
     private final Text text = new Text();
 
+    /** Creates an empty card header. */
     public CardHeader() {
         super();
 

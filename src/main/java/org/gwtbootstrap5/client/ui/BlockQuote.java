@@ -26,10 +26,21 @@ import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
+ * Block quotation: a {@code blockquote.blockquote} for quoting content from another source.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:BlockQuote>
+ *         <b.html:Paragraph>A well-known quote, contained in a blockquote element.</b.html:Paragraph>
+ *     </b:BlockQuote>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/typography/#blockquotes">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class BlockQuote extends ComplexWidget {
 
+    /** Creates an empty block quotation. */
     public BlockQuote() {
         super();
 

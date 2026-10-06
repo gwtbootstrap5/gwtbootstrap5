@@ -22,8 +22,14 @@ package org.gwtbootstrap5.client.ui;
 
 import org.gwtbootstrap5.client.ui.constants.InputType;
 
+/**
+ * File input ({@code input.form-control} of type {@code file}).
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/form-control/#file-input">Bootstrap 5 documentation</a>
+ */
 public class InputFile extends Input {
 
+    /** Creates a file input. */
     public InputFile() {
         super();
         // Bootstrap 5 styles file inputs with form-control alone, which Input already adds

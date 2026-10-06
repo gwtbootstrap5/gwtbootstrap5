@@ -23,11 +23,14 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.base.form.AbstractForm;
 
 /**
+ * Form inside a {@link Navbar}. Give it {@code d-flex} to lay its controls out on one line.
+ *
  * @author Sven Jacobs
  * @see Navbar
  */
 public class NavbarForm extends AbstractForm {
 
+    /** Creates an empty navbar form. */
     public NavbarForm() {
         super();
     }

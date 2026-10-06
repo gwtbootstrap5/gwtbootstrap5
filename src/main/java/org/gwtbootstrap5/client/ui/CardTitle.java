@@ -24,8 +24,18 @@ import com.google.gwt.uibinder.client.UiConstructor;
 import org.gwtbootstrap5.client.ui.constants.HeadingSize;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
+/**
+ * Title of a {@link Card}: a heading with {@code card-title}.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/card/#titles-text-and-links">Bootstrap 5 documentation</a>
+ */
 public class CardTitle extends Heading {
 
+    /**
+     * Creates a card title.
+     *
+     * @param size the heading level, {@code H1} to {@code H6}
+     */
     @UiConstructor
     public CardTitle(HeadingSize size) {
         super(size);

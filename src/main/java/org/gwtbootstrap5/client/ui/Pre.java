@@ -33,6 +33,7 @@ import com.google.gwt.dom.client.Document;
  */
 public class Pre extends AbstractTextWidget {
 
+    /** Creates an empty {@code pre} element. */
     public Pre() {
         super(Document.get().createPreElement());
     }

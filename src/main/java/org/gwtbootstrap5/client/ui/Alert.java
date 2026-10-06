@@ -43,14 +43,19 @@ import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
 /**
- * Alert block.
- * <p>
- * Use {@link #setDismissable(boolean)} to add a close ("x") button.
+ * Alert: a contextual message ({@code div.alert}), warning by default, that can be closed with a
+ * button when {@link #setDismissable(boolean) dismissable}.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Alert type="SUCCESS" text="Your changes were saved."/>
+ *     <b:Alert type="DANGER" dismissable="true" fade="true" text="Change a few things up and try again."/>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see org.gwtbootstrap5.client.shared.event.AlertCloseEvent
  * @see org.gwtbootstrap5.client.shared.event.AlertClosedEvent
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/alerts/">Bootstrap 5 documentation</a>
  */
 public class Alert extends Div implements HasWidgets, HasText, HasType<AlertType>, HasResponsiveness {
     private static final String CLOSE = "close";

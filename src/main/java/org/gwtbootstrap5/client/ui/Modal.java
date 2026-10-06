@@ -51,20 +51,22 @@ import elemental2.dom.NodeList;
 import jsinterop.base.Js;
 
 /**
- * Modal dialog.
+ * Modal dialog, shown over the page with a backdrop. A button with {@code dataToggle="MODAL"}
+ * targeting its id opens it, or {@link #show()} from Java; a button with
+ * {@code dataDismiss="MODAL"} inside closes it.
  * <h2>UiBinder example</h2>
  * <pre>
  * {@code
- *     <b:Modal title="Important information" b:id="modal1">
+ *     <b:Button type="PRIMARY" dataToggle="MODAL" dataTarget="#modal1" text="Show modal"/>
+ *     <b:Modal b:id="modal1" title="Important information" closable="true" fade="true">
  *         <b:ModalBody>
- *             <g:HTML>Lorem ipsum...</g:HTML>
+ *             <b.html:Paragraph>Lorem ipsum...</b.html:Paragraph>
  *         </b:ModalBody>
  *         <b:ModalFooter>
- *             <b:Button type="PRIMARY">Do something</b:Button>
- *             <b:Button type="DANGER" dismiss="MODAL">Close</b:Button>
+ *             <b:Button type="SECONDARY" dataDismiss="MODAL" text="Close"/>
+ *             <b:Button type="PRIMARY" text="Save changes"/>
  *         </b:ModalFooter>
  *     </b:Modal>
- *     <b:Button target="#modal1" toggle="MODAL">Show modal</b:Button>
  * }
  * </pre>
  * <p>
@@ -108,6 +110,10 @@ public class Modal extends Div implements IsClosable {
 
     private boolean hideOtherModals = false;
 
+    /**
+     * Creates an empty modal ({@code div.modal}) with a header, holding its title and close
+     * button.
+     */
     public Modal() {
         super();
 
@@ -142,6 +148,11 @@ public class Modal extends Div implements IsClosable {
         dialog.setScrollable(scrollable);
     }
 
+    /**
+     * Sets the width of the modal dialog ({@code modal-sm}, {@code modal-lg} or {@code modal-xl}).
+     *
+     * @param size the size
+     */
     public void setSize(ModalSize size) {
         StyleHelper.addUniqueEnumStyleName(dialog, ModalSize.class, size);
     }
@@ -156,6 +167,11 @@ public class Modal extends Div implements IsClosable {
         StyleHelper.addUniqueEnumStyleName(dialog, ModalFullscreen.class, fullscreen);
     }
 
+    /**
+     * Returns when the modal covers the viewport.
+     *
+     * @return the breakpoint below which it is fullscreen, {@code ALWAYS}, or {@code null} if never
+     */
     public ModalFullscreen getFullscreen() {
         return ModalFullscreen.fromStyleName(dialog.getStyleName());
     }
@@ -256,6 +272,11 @@ public class Modal extends Div implements IsClosable {
         }
     }
 
+    /**
+     * Sets whether the Escape key closes the modal ({@code data-bs-keyboard}).
+     *
+     * @param keyboard {@code true} to close on Escape
+     */
     public void setDataKeyboard(final boolean keyboard) {
         getElement().setAttribute(Attributes.DATA_KEYBOARD, Boolean.toString(keyboard));
 
@@ -265,31 +286,58 @@ public class Modal extends Div implements IsClosable {
         }
     }
 
+    /** Shows the modal if it is hidden, hides it otherwise. */
     public void toggle() {
         modal(getElement(), TOGGLE);
     }
 
+    /** Shows the modal, adding it to the page first if it isn't attached. */
     public void show() {
         checkIsAttached();
         modal(getElement(), SHOW);
     }
 
+    /** Hides the modal. */
     public void hide() {
         modal(getElement(), HIDE);
     }
 
+    /**
+     * Adds a handler called when the modal starts to show.
+     *
+     * @param modalShowHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addShowHandler(final ModalShowHandler modalShowHandler) {
         return addHandler(modalShowHandler, ModalShowEvent.getType());
     }
 
+    /**
+     * Adds a handler called when the modal is shown, after the animation.
+     *
+     * @param modalShownHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addShownHandler(final ModalShownHandler modalShownHandler) {
         return addHandler(modalShownHandler, ModalShownEvent.getType());
     }
 
+    /**
+     * Adds a handler called when the modal starts to hide.
+     *
+     * @param modalHideHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addHideHandler(final ModalHideHandler modalHideHandler) {
         return addHandler(modalHideHandler, ModalHideEvent.getType());
     }
 
+    /**
+     * Adds a handler called when the modal is hidden, after the animation.
+     *
+     * @param modalHiddenHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addHiddenHandler(final ModalHiddenHandler modalHiddenHandler) {
         return addHandler(modalHiddenHandler, ModalHiddenEvent.getType());
     }

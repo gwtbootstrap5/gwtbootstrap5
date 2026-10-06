@@ -23,12 +23,15 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
- * Support for Bootstrap pagination (<a href="http://getbootstrap.com/components/#pagination">...</a>)
+ * Item of a {@link Pagination} ({@code li.page-item}). {@link AnchorListItem} works too, since the
+ * pagination gives it the same classes.
  *
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/pagination/">Bootstrap 5 documentation</a>
  */
 public class PaginationItem extends ListItem {
 
+    /** Creates an empty item ({@code li.page-item}). */
     public PaginationItem() {
         super();
 

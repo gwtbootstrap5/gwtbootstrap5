@@ -30,10 +30,16 @@ import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.user.client.DOM;
 
 /**
- * An inline radio button widget.
+ * Radio laid out inline with the ones next to it ({@code div.form-check.form-check-inline}).
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:InlineRadio name="size" text="S"/>
+ *     <b:InlineRadio name="size" text="M" value="true"/>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @see org.gwtbootstrap5.client.ui.Radio
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/checks-radios/#inline">Bootstrap 5 documentation</a>
  */
 public class InlineRadio extends Radio {
 
@@ -54,6 +60,8 @@ public class InlineRadio extends Radio {
     }
 
     /**
+     * Creates an inline radio in a group, with an HTML label and a text direction.
+     *
      * @see #InlineRadio(String, SafeHtml)
      * 
      * @param name
@@ -71,6 +79,8 @@ public class InlineRadio extends Radio {
     }
 
     /**
+     * Creates an inline radio in a group, with an HTML label and a direction estimator.
+     *
      * @see #InlineRadio(String, SafeHtml)
      * 
      * @param name
@@ -106,6 +116,8 @@ public class InlineRadio extends Radio {
     }
 
     /**
+     * Creates an inline radio in a group, with a label and a text direction.
+     *
      * @see #InlineRadio(String, SafeHtml)
      * 
      * @param name
@@ -123,6 +135,8 @@ public class InlineRadio extends Radio {
     }
 
     /**
+     * Creates an inline radio in a group, with a label and a direction estimator.
+     *
      * @see #InlineRadio(String, SafeHtml)
      * 
      * @param name

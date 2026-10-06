@@ -24,12 +24,14 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
 
 /**
- * Scrolling content of an {@link Offcanvas} ({@code offcanvas-body}).
+ * Scrolling content of an {@link Offcanvas} ({@code div.offcanvas-body}).
  *
  * @see Offcanvas
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/offcanvas/">Bootstrap 5 documentation</a>
  */
 public class OffcanvasBody extends Div {
 
+    /** Creates an empty offcanvas body. */
     public OffcanvasBody() {
         super();
 

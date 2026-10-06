@@ -60,12 +60,19 @@ import org.gwtbootstrap5.client.ui.constants.*;
 import java.util.List;
 
 /**
- * Anchor {@code <a>} element with text and optional icon.
+ * Link ({@code a}) with text and an optional icon, that can also go to a GWT history token or
+ * toggle Bootstrap components through its {@code data-bs-*} attributes.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Anchor href="https://getbootstrap.com" text="Bootstrap"/>
+ *     <b:Anchor targetHistoryToken="settings" icon="GEAR_FILL" text="Settings"/>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @author Grant Slender
  * @author Drew Spencer
+ * @see <a href="https://getbootstrap.com/docs/5.3/helpers/icon-link/">Bootstrap 5 documentation</a>
  */
 public class Anchor extends ComplexWidget implements HasEnabled, HasClickHandlers, HasDoubleClickHandlers, HasHref, HasDataToggle, HasDataParent,
         HasTargetHistoryToken, HasHTML, HasIcon, HasIconPosition, Focusable, HasDataTarget, HasTarget, HasFloat, HasBadge {

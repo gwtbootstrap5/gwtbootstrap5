@@ -32,12 +32,14 @@ import com.google.gwt.user.client.ui.Widget;
  * close button unless {@link #setClosable(boolean) closable} is {@code false}.
  *
  * @see Offcanvas
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/offcanvas/">Bootstrap 5 documentation</a>
  */
 public class OffcanvasHeader extends Div {
 
     private OffcanvasTitle title;
     private final CloseButton closeButton = new CloseButton();
 
+    /** Creates a header with a close button and no title. */
     public OffcanvasHeader() {
         super();
 
@@ -86,6 +88,8 @@ public class OffcanvasHeader extends Div {
     /**
      * Shows or removes the close button ({@code btn-close} with {@code data-bs-dismiss="offcanvas"}).
      * Closable by default.
+     *
+     * @param closable {@code true} to show the close button
      */
     public void setClosable(final boolean closable) {
         if (closable && closeButton.getParent() != this) {
@@ -95,6 +99,11 @@ public class OffcanvasHeader extends Div {
         }
     }
 
+    /**
+     * Returns whether the close button is shown.
+     *
+     * @return {@code true} if it is shown
+     */
     public boolean isClosable() {
         return closeButton.getParent() == this;
     }

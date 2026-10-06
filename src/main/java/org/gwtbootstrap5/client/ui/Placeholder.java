@@ -44,6 +44,10 @@ import com.google.gwt.dom.client.Document;
  */
 public class Placeholder extends Widget {
 
+    /**
+     * Creates a placeholder ({@code span.placeholder}); give it a width with
+     * {@link #setColumnSize}.
+     */
     public Placeholder() {
         setElement(Document.get().createSpanElement());
         setStyleName(Styles.PLACEHOLDER);
@@ -51,17 +55,26 @@ public class Placeholder extends Widget {
 
     /**
      * Sets the width as a fraction of the container ({@code col-*}).
+     *
+     * @param columnSize the width, as a column size such as {@code XS_6}
      */
     public void setColumnSize(final ColumnSize columnSize) {
         StyleHelper.addUniqueEnumStyleName(this, ColumnSize.class, columnSize);
     }
 
+    /**
+     * Sets the height of the placeholder ({@code placeholder-xs}, {@code -sm} or {@code -lg}).
+     *
+     * @param size the size, or {@code null} for the default height
+     */
     public void setSize(final PlaceholderSize size) {
         StyleHelper.addUniqueEnumStyleName(this, PlaceholderSize.class, size);
     }
 
     /**
      * Sets the color; {@code null} or {@link ContextualBackground#DEFAULT} for the current text color.
+     *
+     * @param color the background, such as {@code PRIMARY}
      */
     public void setColor(final ContextualBackground color) {
         StyleHelper.addUniqueEnumStyleName(this, ContextualBackground.class, color);

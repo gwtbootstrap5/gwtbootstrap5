@@ -26,21 +26,18 @@ import org.gwtbootstrap5.client.ui.html.Div;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * Container widget for the tab content
- * <p>
- * <a href="http://getbootstrap.com/javascript/#tabs">Bootstrap Documentation</a>
+ * Container of the {@link TabPanel}s that {@link NavTabItem}s show ({@code div.tab-content}).
  * <h2>UiBinder example</h2>
- * <pre>
- * {@code
- * <b:TabContent>
- *    <b:TabPane/>
- *    <b:TabPane/>
- * </b:TabContent>
- * }
- * </pre>
+ * <pre>{@code
+ *     <b:TabContent>
+ *         <b:TabPanel b:id="home" active="true">...</b:TabPanel>
+ *         <b:TabPanel b:id="profile">...</b:TabPanel>
+ *     </b:TabContent>
+ * }</pre>
  *
  * @author Joshua Godi
  * @see TabPanel
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navs-tabs/#javascript-behavior">Bootstrap 5 documentation</a>
  */
 public class TabContent extends Div {
 

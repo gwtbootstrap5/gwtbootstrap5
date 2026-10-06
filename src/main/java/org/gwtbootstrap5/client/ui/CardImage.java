@@ -23,8 +23,26 @@ package org.gwtbootstrap5.client.ui;
 import com.google.gwt.uibinder.client.UiConstructor;
 import org.gwtbootstrap5.client.ui.constants.CardImagePosition;
 
+/**
+ * Image of a {@link Card}. The position says where it goes: at the top or bottom edge of the
+ * card, or anywhere ({@code card-img}), for example under a body laid over it.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Card>
+ *         <b:CardImage cardImagePosition="TOP" url="photo.jpg"/>
+ *         <b:CardBody>...</b:CardBody>
+ *     </b:Card>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/card/#images">Bootstrap 5 documentation</a>
+ */
 public class CardImage extends Image {
 
+    /**
+     * Creates a card image.
+     *
+     * @param cardImagePosition where the image goes in the card
+     */
     @UiConstructor
     public CardImage(CardImagePosition cardImagePosition) {
         super();
@@ -32,6 +50,12 @@ public class CardImage extends Image {
         setStyleName(cardImagePosition.getCssName());
     }
 
+    /**
+     * Sets where the image goes in the card, replacing any other style name of the image.
+     *
+     * @param cardImagePosition the position, which sets {@code card-img}, {@code card-img-top} or
+     *     {@code card-img-bottom}
+     */
     public void setImagePosition(CardImagePosition cardImagePosition) {
         setStyleName(cardImagePosition.getCssName());
     }

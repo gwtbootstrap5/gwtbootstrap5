@@ -25,14 +25,22 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
  * Title of an {@link OffcanvasHeader}: an {@code h5.offcanvas-title}.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/offcanvas/">Bootstrap 5 documentation</a>
  */
 public class OffcanvasTitle extends Heading {
 
+    /** Creates an empty title. */
     public OffcanvasTitle() {
         super(HeadingSize.H5);
         setStyleName(Styles.OFFCANVAS_TITLE);
     }
 
+    /**
+     * Creates a title.
+     *
+     * @param text the text of the title
+     */
     public OffcanvasTitle(final String text) {
         this();
         setText(text);

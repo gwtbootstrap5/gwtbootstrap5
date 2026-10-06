@@ -42,11 +42,13 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.gwt.FlowPanel;
 
 /**
- * Container for collapsible items within a {@link Navbar}.
+ * Collapsible part of a {@link Navbar} ({@code div.collapse.navbar-collapse}): its links and forms,
+ * hidden behind the {@link NavbarCollapseButton} below the breakpoint where the navbar expands.
  *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see NavbarCollapseButton
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navbar/#responsive-behaviors">Bootstrap 5 documentation</a>
  */
 public class NavbarCollapse extends FlowPanel {
 
@@ -55,6 +57,7 @@ public class NavbarCollapse extends FlowPanel {
     // Default hidden
     private final boolean toggle = false;
 
+    /** Creates an empty, hidden collapse ({@code div.collapse.navbar-collapse}). */
     public NavbarCollapse() {
         super();
 
@@ -117,30 +120,69 @@ public class NavbarCollapse extends FlowPanel {
         fireMethod(getElement(), CollapseParam.HIDE);
     }
 
+    /**
+     * Returns whether the content is shown.
+     *
+     * @return {@code true} if it has {@code show}
+     */
     public boolean isShown() {
         return StyleHelper.containsStyle(getStyleName(), Styles.SHOW);
     }
 
+    /**
+     * Returns whether the content is hidden.
+     *
+     * @return {@code true} if it doesn't have {@code show}
+     */
     public boolean isHidden() {
         return !isShown();
     }
 
+    /**
+     * Returns whether the content is being shown or hidden.
+     *
+     * @return {@code true} during the animation ({@code collapsing})
+     */
     public boolean isCollapsing() {
         return StyleHelper.containsStyle(getStyleName(), Styles.COLLAPSING);
     }
 
+    /**
+     * Adds a handler called when the content starts to show.
+     *
+     * @param showHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addShowHandler(final ShowHandler showHandler) {
         return addHandler(showHandler, ShowEvent.getType());
     }
 
+    /**
+     * Adds a handler called when the content is shown, after the animation.
+     *
+     * @param shownHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addShownHandler(final ShownHandler shownHandler) {
         return addHandler(shownHandler, ShownEvent.getType());
     }
 
+    /**
+     * Adds a handler called when the content starts to hide.
+     *
+     * @param hideHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addHideHandler(final HideHandler hideHandler) {
         return addHandler(hideHandler, HideEvent.getType());
     }
 
+    /**
+     * Adds a handler called when the content is hidden, after the animation.
+     *
+     * @param hiddenHandler the handler
+     * @return the registration that removes the handler
+     */
     public HandlerRegistration addHiddenHandler(final HiddenHandler hiddenHandler) {
         return addHandler(hiddenHandler, HiddenEvent.getType());
     }

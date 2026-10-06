@@ -30,11 +30,17 @@ import org.gwtbootstrap5.client.ui.html.Span;
 import com.google.gwt.dom.client.Document;
 
 /**
+ * Item of a {@link ListGroup} ({@code li.list-group-item}), with text or HTML and widgets after
+ * it.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/list-group/">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class ListGroupItem extends ComplexWidget implements HasType<ListGroupItemType> {
     private final Span span = new Span();
 
+    /** Creates an empty item. */
     public ListGroupItem() {
         super();
 
@@ -44,18 +50,38 @@ public class ListGroupItem extends ComplexWidget implements HasType<ListGroupIte
         add(span);
     }
 
+    /**
+     * Returns the text of the item.
+     *
+     * @return the text
+     */
     public String getText() {
         return span.getText();
     }
 
+    /**
+     * Sets the text of the item.
+     *
+     * @param text the text
+     */
     public void setText(final String text) {
         span.setText(text);
     }
 
+    /**
+     * Returns the content of the item, as HTML.
+     *
+     * @return the HTML
+     */
     public String getHTML() {
         return span.getHTML();
     }
 
+    /**
+     * Sets the content of the item, as HTML.
+     *
+     * @param html the HTML
+     */
     public void setHTML(String html) {
         span.setHTML(html);
     }

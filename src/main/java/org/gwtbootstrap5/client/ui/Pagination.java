@@ -33,18 +33,35 @@ import com.google.gwt.user.cellview.client.SimplePager;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * Support for Bootstrap pagination (<a href="http://getbootstrap.com/components/#pagination">...</a>)
+ * Pagination ({@code ul.pagination}): links to the pages of a long list. The items get
+ * {@code page-item} and their links {@code page-link}; it can also follow a GWT
+ * {@code SimplePager}.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Pagination>
+ *         <b:AnchorListItem text="1" active="true"/>
+ *         <b:AnchorListItem text="2"/>
+ *         <b:AnchorListItem text="3"/>
+ *     </b:Pagination>
+ * }</pre>
  *
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/pagination/">Bootstrap 5 documentation</a>
  */
 public class Pagination extends UnorderedList implements HasResponsiveness, HasPaginationSize {
 
+    /** Creates an empty pagination ({@code ul.pagination}). */
     public Pagination() {
         super();
 
         setStyleName(Styles.PAGINATION);
     }
 
+    /**
+     * Creates an empty pagination of the given size.
+     *
+     * @param paginationSize the size ({@code pagination-sm} or {@code pagination-lg})
+     */
     public Pagination(final PaginationSize paginationSize) {
         this();
         setPaginationSize(paginationSize);
@@ -86,6 +103,11 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
         return child;
     }
 
+    /**
+     * Adds a link to the previous page at the start: an item with a double chevron pointing left.
+     *
+     * @return the item, to add its click handler
+     */
     public AnchorListItem addPreviousLink() {
         final AnchorListItem listItem = new AnchorListItem();
         listItem.setIcon(IconTypeBI.CHEVRON_DOUBLE_LEFT);
@@ -93,6 +115,11 @@ public class Pagination extends UnorderedList implements HasResponsiveness, HasP
         return listItem;
     }
 
+    /**
+     * Adds a link to the next page at the end: an item with a double chevron pointing right.
+     *
+     * @return the item, to add its click handler
+     */
     public AnchorListItem addNextLink() {
         final AnchorListItem listItem = new AnchorListItem();
         listItem.setIcon(IconTypeBI.CHEVRON_DOUBLE_RIGHT);

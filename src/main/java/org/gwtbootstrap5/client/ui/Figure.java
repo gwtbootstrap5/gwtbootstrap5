@@ -23,14 +23,23 @@ package org.gwtbootstrap5.client.ui;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
- * A row of Bootstrap's fluid grid system.
+ * Figure ({@code figure.figure}): an image with its caption.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Figure>
+ *         <b:FigImg url="photo.jpg" addStyleNames="img-fluid rounded" altText="A photo"/>
+ *         <b:FigCaption><b.html:Text text="A caption for the image above."/></b:FigCaption>
+ *     </b:Figure>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see Column
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/figures/">Bootstrap 5 documentation</a>
  */
 public class Figure extends org.gwtbootstrap5.client.ui.html.Figure {
 
+    /** Creates an empty figure ({@code figure.figure}). */
     public Figure() {
         super();
 

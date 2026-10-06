@@ -31,6 +31,7 @@ import org.gwtbootstrap5.client.ui.html.Div;
  */
 public class CardGroup extends Div {
 
+    /** Creates an empty card group ({@code div.card-group}). */
     public CardGroup() {
         super();
 

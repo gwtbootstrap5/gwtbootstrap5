@@ -44,12 +44,18 @@ import jsinterop.base.Js;
 import org.gwtbootstrap5.client.ui.util.IconUtil;
 
 /**
- * Button representing a radio button used within a {@link ButtonGroup} that has
- * toggle set to {@code Toogle.BUTTONS}.
- * <p>
- * If you are looking for a classic radio button see {@link RadioButton}.
+ * Radio drawn as a toggle button: a {@code label.btn} holding an {@code input.btn-check} and its
+ * text. The checked button of the group is {@code active}. For a plain radio, see {@link Radio}.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:ButtonGroup>
+ *         <b:RadioButton name="align" type="PRIMARY_OUTLINE" text="Left" value="true"/>
+ *         <b:RadioButton name="align" type="PRIMARY_OUTLINE" text="Center"/>
+ *     </b:ButtonGroup>
+ * }</pre>
  *
  * @author Sven Jacobs
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/checks-radios/#toggle-buttons">Bootstrap 5 documentation</a>
  */
 public class RadioButton extends Radio implements HasActive,
         HasType<ButtonType>, HasSize<ButtonSize>, HasIcon, HasIconPosition {
@@ -77,6 +83,8 @@ public class RadioButton extends Radio implements HasActive,
     }
 
     /**
+     * Creates a radio button in a group, with an HTML label and a text direction.
+     *
      * @see #RadioButton(String, SafeHtml)
      *
      * @param name
@@ -94,6 +102,8 @@ public class RadioButton extends Radio implements HasActive,
     }
 
     /**
+     * Creates a radio button in a group, with an HTML label and a direction estimator.
+     *
      * @see #RadioButton(String, SafeHtml)
      *
      * @param name
@@ -128,6 +138,8 @@ public class RadioButton extends Radio implements HasActive,
     }
 
     /**
+     * Creates a radio button in a group, with a label and a text direction.
+     *
      * @see #RadioButton(String, SafeHtml)
      *
      * @param name
@@ -145,6 +157,8 @@ public class RadioButton extends Radio implements HasActive,
     }
 
     /**
+     * Creates a radio button in a group, with a label and a direction estimator.
+     *
      * @see #RadioButton(String, SafeHtml)
      *
      * @param name
@@ -185,11 +199,21 @@ public class RadioButton extends Radio implements HasActive,
         }
     }
 
+    /**
+     * Creates a radio button without text.
+     *
+     * @param name the group name, shared by the radio buttons of which only one can be checked
+     */
     @UiConstructor
     public RadioButton(String name) {
         this(Document.get().createRadioInputElement(name));
     }
 
+    /**
+     * Creates a radio button around the given input, for subclasses.
+     *
+     * @param element the radio input
+     */
     protected RadioButton(InputElement element) {
         super(DOM.createLabel(), element);
 

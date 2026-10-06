@@ -27,10 +27,14 @@ import org.gwtbootstrap5.client.ui.constants.ElementTags;
 import com.google.gwt.dom.client.Document;
 
 /**
+ * Term ({@code dt}) of a {@link Description}, described by the {@link DescriptionData} after it.
+ *
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/typography/#description-list-alignment">Bootstrap 5 documentation</a>
  */
 public class DescriptionTitle extends AbstractTextWidget implements DescriptionComponent {
 
+    /** Creates an empty term. */
     public DescriptionTitle() {
         super(Document.get().createElement(ElementTags.DT));
     }

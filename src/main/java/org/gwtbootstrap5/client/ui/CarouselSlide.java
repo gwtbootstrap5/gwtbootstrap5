@@ -26,11 +26,17 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.html.Div;
 
 /**
+ * Slide of a {@link Carousel} ({@code div.carousel-item}). One slide must be active when the
+ * carousel is shown.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/carousel/">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class CarouselSlide extends Div implements HasActive {
     private final ActiveMixin<CarouselSlide> activeMixin = new ActiveMixin<>(this);
 
+    /** Creates an empty, inactive slide. */
     public CarouselSlide() {
         super();
 

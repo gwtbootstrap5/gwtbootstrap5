@@ -24,12 +24,16 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import org.gwtbootstrap5.client.ui.gwt.FlowPanel;
 
 /**
+ * Body of a {@link Modal} ({@code div.modal-body}), where its content goes.
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see Modal
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/modal/">Bootstrap 5 documentation</a>
  */
 public class ModalBody extends FlowPanel implements ModalComponent {
 
+    /** Creates an empty modal body. */
     public ModalBody() {
         super();
 

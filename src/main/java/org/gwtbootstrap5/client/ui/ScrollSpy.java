@@ -45,7 +45,7 @@ import jsinterop.base.JsPropertyMap;
  * }}</pre>
  * <p>
  * See Bootstrap's <a
- * href="http://getbootstrap.com/javascript/#scrollspy">documentation</a>.
+ * href="https://getbootstrap.com/docs/5.3/components/scrollspy/">documentation</a>.
  *
  * @author Sven Jacobs
  */

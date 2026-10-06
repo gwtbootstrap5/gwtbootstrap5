@@ -43,6 +43,11 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.History;
 
 /**
+ * Item of a {@link LinkedGroup}: a link with {@code list-group-item list-group-item-action}, which
+ * highlights on hover. Its content is text, or a {@link LinkedGroupItemText} and other widgets.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/list-group/#links-and-buttons">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class LinkedGroupItem extends ComplexWidget implements HasClickHandlers, HasDoubleClickHandlers, HasHref,
@@ -54,6 +59,11 @@ public class LinkedGroupItem extends ComplexWidget implements HasClickHandlers, 
 
     private String targetHistoryToken;
 
+    /**
+     * Creates an item linking to a URL.
+     *
+     * @param href the URL of the link
+     */
     public LinkedGroupItem(final String href) {
         super();
 
@@ -64,11 +74,18 @@ public class LinkedGroupItem extends ComplexWidget implements HasClickHandlers, 
         add(span);
     }
 
+    /**
+     * Creates an item.
+     *
+     * @param text the text of the item
+     * @param href the URL of the link
+     */
     public LinkedGroupItem(final String text, final String href) {
         this(href);
         setText(text);
     }
 
+    /** Creates an item with an empty link. */
     public LinkedGroupItem() {
         this(EMPTY_HREF);
     }
@@ -83,10 +100,20 @@ public class LinkedGroupItem extends ComplexWidget implements HasClickHandlers, 
         return addDomHandler(handler, DoubleClickEvent.getType());
     }
 
+    /**
+     * Sets the text of the item.
+     *
+     * @param text the text
+     */
     public void setText(final String text) {
         span.setText(text);
     }
 
+    /**
+     * Returns the text of the item.
+     *
+     * @return the text
+     */
     public String getText() {
         return span.getText();
     }
@@ -133,6 +160,12 @@ public class LinkedGroupItem extends ComplexWidget implements HasClickHandlers, 
         return ListGroupItemType.fromStyleName(getStyleName());
     }
 
+    /**
+     * Adds {@code list-group-flush} to the item. Bootstrap applies it to the group, see
+     * {@link ListGroup#setFlush}.
+     *
+     * @param flush {@code true} to add the class
+     */
     public void setFlush(boolean flush) {
         if (flush) {
             addStyleName(Styles.LIST_GROUP_FLUSH);

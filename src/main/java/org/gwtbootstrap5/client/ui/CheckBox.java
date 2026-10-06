@@ -56,21 +56,27 @@ import com.google.gwt.user.client.ui.HasWordWrap;
 import com.google.gwt.user.client.ui.UIObject;
 
 /**
- * A standard checkbox widget.
- * This class also serves as a base class for {@link Radio}.
- * 
+ * Checkbox with its label ({@code div.form-check}, holding {@code input.form-check-input} and
+ * {@code label.form-check-label}). It also serves as the base class of {@link Radio}.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:CheckBox text="Remember me" value="true"/>
+ * }</pre>
  * <h2>Built-in Bidi Text Support</h2>
- * This widget is capable of automatically adjusting its direction according to
- * its content. This feature is controlled by {@link #setDirectionEstimator} or
- * passing a DirectionEstimator parameter to the constructor, and is off by
- * default.
+ * This widget is capable of automatically adjusting its direction according to its content. This
+ * feature is controlled by {@link #setDirectionEstimator} or passing a DirectionEstimator parameter
+ * to the constructor, and is off by default.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/checks-radios/">Bootstrap 5 documentation</a>
  */
 public class CheckBox extends ButtonBase implements HasName, HasValue<Boolean>, HasWordWrap, HasDirectionalSafeHtml,
         HasDirectionEstimator, IsEditor<LeafValueEditor<Boolean>>, HasFormValue, HasChangeHandlers {
 
     private static final CheckBoxImpl impl = GWT.create(CheckBoxImpl.class);
 
+    /** The label next to the input, holding the text. */
     protected final LabelElement labelElem;
+    /** The checkbox input. */
     protected final InputElement inputElem;
 
     private final DirectionalTextHelper directionalTextHelper;
@@ -177,6 +183,7 @@ public class CheckBox extends ButtonBase implements HasName, HasValue<Boolean>, 
         }
     }
 
+    /** Creates a checkbox without text ({@code div.form-check} holding the input and its label). */
     public CheckBox() {
         this(DOM.createDiv(), Document.get().createCheckInputElement());
         setStyleName(Styles.FORM_CHECK);
@@ -188,6 +195,12 @@ public class CheckBox extends ButtonBase implements HasName, HasValue<Boolean>, 
         getElement().appendChild(labelElem);
     }
 
+    /**
+     * Creates a checkbox in the given elements, for subclasses that lay them out differently.
+     *
+     * @param element the root element of the widget
+     * @param inputElement the input, a checkbox or a radio
+     */
     protected CheckBox(Element element, InputElement inputElement) {
         super(element);
 
@@ -208,6 +221,11 @@ public class CheckBox extends ButtonBase implements HasName, HasValue<Boolean>, 
         setTabIndex(0);
     }
 
+    /**
+     * Puts the checkbox on the right of its label ({@code form-check-reverse}).
+     *
+     * @param reverse {@code true} to reverse the layout
+     */
     public void setReverse(boolean reverse) {
         if (reverse) {
             getElement().addClassName(Styles.FORM_CHECK_REVERSE);
@@ -475,6 +493,7 @@ public class CheckBox extends ButtonBase implements HasName, HasValue<Boolean>, 
         }
     }
 
+    /** Makes the input fire the widget's value change events. Called when the first handler is added. */
     protected void ensureDomEventHandlers() {
         impl.ensureDomEventHandlers(this);
     }

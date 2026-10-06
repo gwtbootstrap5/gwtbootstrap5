@@ -31,6 +31,14 @@ import com.google.gwt.text.shared.testing.PassthroughParser;
 import com.google.gwt.text.shared.testing.PassthroughRenderer;
 
 /**
+ * Text input ({@code input.form-control} of type {@code text}).
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:TextBox placeholder="Email address"/>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/form-control/">Bootstrap 5 documentation</a>
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @author Pontus Enmark
@@ -38,23 +46,38 @@ import com.google.gwt.text.shared.testing.PassthroughRenderer;
  */
 public class TextBox extends TextBoxBase {
 
+    /** Creates an empty text box. */
     public TextBox() {
         this(Document.get().createTextInputElement());
     }
 
+    /**
+     * Creates a text box in the given input element.
+     *
+     * @param element the input element
+     */
     public TextBox(final Element element) {
         this(element, PassthroughRenderer.instance(), PassthroughParser.instance());
     }
 
+    /**
+     * Creates a text box in the given input element, with a parser and a renderer of its own.
+     *
+     * @param element the input element
+     * @param renderer turns the value into the text of the box
+     * @param parser turns the text of the box into the value
+     */
     public TextBox(Element element, Renderer<String> renderer, Parser<String> parser) {
         super(element, renderer, parser);
         setStyleName(Styles.FORM_CONTROL);
     }
 
+    /** Empties the text box, without firing value change events. */
     public void clear() {
         super.setValue(null);
     }
 
+    /** Cuts the text with an ellipsis when it doesn't fit ({@code text-truncate}). */
     public void setTruncated() {
         addStyleName(Styles.TEXT_TRUNCATE);
     }

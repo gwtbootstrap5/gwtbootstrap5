@@ -31,12 +31,15 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
+ * Text in a {@link Navbar} ({@code p.navbar-text}), vertically centered with its links.
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see NavLink
  */
 public class NavbarText extends ComplexWidget implements HasResponsiveness {
 
+    /** Creates an empty navbar text. */
     public NavbarText() {
         super();
 

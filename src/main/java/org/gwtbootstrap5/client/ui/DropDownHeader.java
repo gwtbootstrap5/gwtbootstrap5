@@ -30,26 +30,23 @@ import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
- * Header element within {@link DropDownMenu}
+ * Header of a {@link DropDownMenu} ({@code li.dropdown-header}): a title for the items after it.
  * <h2>UiBinder example</h2>
- * <pre>
- * {@code
+ * <pre>{@code
  *     <b:DropDownMenu>
- *         <b:DropDownHeader>Header 1</b:DropDownHeader>
- *         <b:AnchorListItem>Action 1</b:AnchorListItem>
- *         <b:AnchorListItem>Action 2</b:AnchorListItem>
- *         <b:DropDownHeader>Header 2</b:DropDownHeader>
- *         <b:AnchorListItem>Action 3</b:AnchorListItem>
- *         <b:AnchorListItem>Action 4</b:AnchorListItem>
+ *         <b:DropDownHeader text="Actions"/>
+ *         <b:AnchorListItem text="Action 1"/>
+ *         <b:AnchorListItem text="Action 2"/>
  *     </b:DropDownMenu>
- * }
- * </pre>
+ * }</pre>
  *
  * @author Sven Jacobs
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/dropdowns/#headers">Bootstrap 5 documentation</a>
  */
 public class DropDownHeader extends Widget implements HasText, HasResponsiveness {
 
+    /** Creates an empty header ({@code li.dropdown-header}). */
     public DropDownHeader() {
         super();
 
@@ -57,6 +54,11 @@ public class DropDownHeader extends Widget implements HasText, HasResponsiveness
         setStyleName(Styles.DROPDOWN_HEADER);
     }
 
+    /**
+     * Creates a header.
+     *
+     * @param text the text of the header
+     */
     public DropDownHeader(final String text) {
         this();
         setText(text);

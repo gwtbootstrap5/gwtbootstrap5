@@ -29,12 +29,24 @@ import com.google.gwt.text.client.IntegerRenderer;
 import com.google.gwt.text.shared.Parser;
 import com.google.gwt.text.shared.Renderer;
 
+/**
+ * Text box for an {@code Integer}, with Bootstrap's {@code form-control} class.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/form-control/">Bootstrap 5 documentation</a>
+ */
 public class IntegerBox extends ValueBoxBase<Integer> {
 
+    /** Creates an empty box that parses and renders the number with GWT's default format. */
     public IntegerBox() {
         this(IntegerRenderer.instance(), IntegerParser.instance());
     }
 
+    /**
+     * Creates an empty box with a parser and a renderer of its own.
+     *
+     * @param renderer turns the value into the text of the box
+     * @param parser turns the text of the box into the value
+     */
     public IntegerBox(Renderer<Integer> renderer, Parser<Integer> parser) {
         super(Document.get().createTextInputElement(), renderer, parser);
         addStyleName(Styles.FORM_CONTROL);

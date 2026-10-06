@@ -28,6 +28,27 @@ import org.gwtbootstrap5.client.ui.constants.*;
 import com.google.gwt.dom.client.Document;
 
 /**
+ * Navbar ({@code nav.navbar}): the responsive header of a site, with a brand, navigation links
+ * and forms, that collapses behind a toggler on small screens. It expands from {@code LG} up by
+ * default, and its color mode is set with {@code type}.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Navbar addStyleNames="bg-body-tertiary">
+ *         <b:Container size="FLUID">
+ *             <b:NavbarBrand href="#" text="Brand"/>
+ *             <b:NavbarCollapseButton dataTarget="#main-nav" ariaControls="main-nav"/>
+ *             <b:NavbarCollapse b:id="main-nav">
+ *                 <b:NavbarNav>
+ *                     <b:AnchorListItem text="Home" active="true"/>
+ *                     <b:AnchorListItem text="Link"/>
+ *                 </b:NavbarNav>
+ *             </b:NavbarCollapse>
+ *         </b:Container>
+ *     </b:Navbar>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navbar/">Bootstrap 5 documentation</a>
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see NavbarBrand
@@ -38,6 +59,7 @@ import com.google.gwt.dom.client.Document;
 public class Navbar extends ComplexWidget implements HasType<ColorMode> {
     private static final String NAVIGATION = "navigation";
 
+    /** Creates an empty navbar that expands from {@code LG} up. */
     public Navbar() {
         super();
 
@@ -70,18 +92,39 @@ public class Navbar extends ComplexWidget implements HasType<ColorMode> {
         return ColorMode.fromTheme(getElement().getAttribute(Attributes.DATA_BS_THEME));
     }
 
+    /**
+     * Sets the breakpoint from which the navbar is expanded instead of collapsed
+     * ({@code navbar-expand-*}).
+     *
+     * @param expand the breakpoint; {@code XS} keeps it always expanded
+     */
     public void setExpand(NavbarExpand expand) {
         StyleHelper.addUniqueEnumStyleName(this, NavbarExpand.class, expand);
     }
 
+    /**
+     * Returns the breakpoint from which the navbar is expanded.
+     *
+     * @return the breakpoint
+     */
     public NavbarExpand getExpand() {
         return NavbarExpand.fromStyleName(getStyleName());
     }
 
+    /**
+     * Fixes the navbar to the top or bottom of the viewport, or makes it sticky.
+     *
+     * @param type the position ({@code fixed-*} or {@code sticky-*}), {@code DEFAULT} for none
+     */
     public void setPosition(final NavbarPosition type) {
         StyleHelper.addUniqueEnumStyleName(this, NavbarPosition.class, type);
     }
 
+    /**
+     * Returns the position of the navbar.
+     *
+     * @return the position, {@code DEFAULT} if it isn't fixed or sticky
+     */
     public NavbarPosition getPosition() {
         return NavbarPosition.fromStyleName(getStyleName());
     }

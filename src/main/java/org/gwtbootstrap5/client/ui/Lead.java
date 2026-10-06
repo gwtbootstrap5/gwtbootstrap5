@@ -29,11 +29,20 @@ import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
 
 /**
+ * Lead paragraph ({@code p.lead}): larger text that makes a paragraph stand out.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Lead>This is a lead paragraph.</b:Lead>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/typography/#lead">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class Lead extends ComplexWidget implements HasWidgets, HasText {
     private final Text text = new Text();
 
+    /** Creates an empty lead paragraph. */
     public Lead() {
         super();
 

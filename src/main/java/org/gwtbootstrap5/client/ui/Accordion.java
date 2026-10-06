@@ -49,6 +49,7 @@ public class Accordion extends Div {
 
     private boolean alwaysOpen = false;
 
+    /** Creates an empty accordion ({@code div.accordion}). */
     public Accordion() {
         super();
 
@@ -58,6 +59,8 @@ public class Accordion extends Div {
     /**
      * Removes the outer borders and rounded corners, to render the accordion edge to edge with its
      * parent ({@code accordion-flush}).
+     *
+     * @param flush {@code true} to render the accordion flush
      */
     public void setFlush(final boolean flush) {
         if (flush) {
@@ -67,6 +70,11 @@ public class Accordion extends Div {
         }
     }
 
+    /**
+     * Returns whether the accordion is flush.
+     *
+     * @return {@code true} if it has {@code accordion-flush}
+     */
     public boolean isFlush() {
         return StyleHelper.containsStyle(getStyleName(), Styles.ACCORDION_FLUSH);
     }
@@ -74,6 +82,8 @@ public class Accordion extends Div {
     /**
      * When {@code true}, opening an item leaves the others open. By default opening one closes the
      * others: each body gets {@code data-bs-parent} pointing to the accordion.
+     *
+     * @param alwaysOpen {@code true} to let several items be open at once
      */
     public void setAlwaysOpen(final boolean alwaysOpen) {
         this.alwaysOpen = alwaysOpen;
@@ -84,6 +94,11 @@ public class Accordion extends Div {
         }
     }
 
+    /**
+     * Returns whether opening an item leaves the others open.
+     *
+     * @return {@code true} if the items open independently
+     */
     public boolean isAlwaysOpen() {
         return alwaysOpen;
     }

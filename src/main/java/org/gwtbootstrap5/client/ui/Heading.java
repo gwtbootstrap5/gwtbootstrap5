@@ -34,40 +34,25 @@ import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HasWidgets;
 
 /**
- * Represents a Heading tag, has an optional subtext.
- * <h2>Bootstrap's Documentation</h2>
- * <a href="http://getbootstrap.com/css/#type">Typography</a>
- * <h2>Usage in UiBinder</h2>
- * <pre>
- * {@code
- * <b:Heading size="H1">
- *     <b:Text text="Heading"/>
- *     <b:Small text=" subtext"/>
- * </b:Heading>
- *
- * <b:Heading size="H1" text="Heading Text" subText="Subtext Text"/>
- * <b:Heading size="H1" subText="Subtext Text" text="Heading Text"/>
- *
- * <b:Heading size="H1">
- *     <b:Icon type="..."/>
- *     <b:Text text="Heading with icon"/>
- * </b:Heading>
- *
- * <b:Heading size="H1">
- *     <b:Icon type="..."/>
- *     <b:Text text="Heading with icon"/>
- *     <b:Small text=" subtext"/>
- * </b:Heading>
- * }
- * </pre>
+ * Heading ({@code h1} to {@code h6}) with an optional muted sub text, icon and badge.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Heading size="H1" text="Heading Text" subText="Subtext Text"/>
+ *     <b:Heading size="H3" text="Example heading" badgeText="New"/>
+ *     <b:Heading size="H1">
+ *         <b:Icon icon="STAR_FILL"/>
+ *         <b.html:Text text=" Heading with icon"/>
+ *     </b:Heading>
+ * }</pre>
  * <h2>Usage in Java</h2>
  * <pre>
- * Heading h1 = new Heading(1, "Heading Text");
+ * Heading h1 = new Heading(HeadingSize.H1, "Heading Text");
  * h1.setSubText("Subtext Text"); // optional
  * </pre>
  *
  * @author Sven Jacobs
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/typography/#headings">Bootstrap 5 documentation</a>
  */
 public class Heading extends ComplexWidget implements HasWidgets, HasText, HasEmphasis, HasAlignment, HasSubText, HasIcon, HasIconPosition, HasBadge {
 
@@ -201,10 +186,21 @@ public class Heading extends ComplexWidget implements HasWidgets, HasText, HasEm
         }
     }
 
+    /**
+     * Makes the heading a display heading, larger and lighter ({@code display-1} to
+     * {@code display-6}).
+     *
+     * @param displaySize the size
+     */
     public void setDisplaySize(DisplaySize displaySize) {
         addStyleName(displaySize.getCssName());
     }
 
+    /**
+     * Returns the display size of the heading.
+     *
+     * @return the size, or {@code DEFAULT} if it isn't a display heading
+     */
     public DisplaySize getDisplaySize() {
         return DisplaySize.fromStyleName(getStyleName());
     }

@@ -24,10 +24,14 @@ import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap5.client.ui.base.form.FormElementContainer;
 
 /**
+ * Plain {@code div} for form controls laid out on one line. Bootstrap 5 has no {@code form-row}
+ * class: give it grid classes such as {@code row g-3}, and put the controls in columns.
+ *
  * @author Sven Jacobs
  */
 public class FormRow extends FormElementContainer {
 
+    /** Creates an empty row. */
     public FormRow() {
         super();
 

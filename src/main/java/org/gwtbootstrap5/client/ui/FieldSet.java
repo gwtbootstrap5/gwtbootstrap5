@@ -26,6 +26,18 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.ui.HasEnabled;
 
 /**
+ * Field set ({@code fieldset}): groups form controls, and disables all of them at once with
+ * {@link #setEnabled}.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:FieldSet enabled="false">
+ *         <b:Legend>Disabled fields</b:Legend>
+ *         <b:TextBox placeholder="Disabled input"/>
+ *     </b:FieldSet>
+ * }</pre>
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/overview/#disabled-forms">Bootstrap 5 documentation</a>
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
  * @see Form
@@ -33,6 +45,7 @@ import com.google.gwt.user.client.ui.HasEnabled;
 public class FieldSet extends ComplexWidget implements HasEnabled {
     private static final String DISABLED = "disabled";
 
+    /** Creates an empty, enabled field set. */
     public FieldSet() {
         super();
 
