@@ -55,8 +55,6 @@ public class OrderedList extends ComplexWidget {
     }
 
     public void setInline(final boolean inline) {
-        if (inline) {
-            addStyleName(Styles.LIST_INLINE);
-        }
+        setStyleName(Styles.LIST_INLINE, inline);
     }
 }

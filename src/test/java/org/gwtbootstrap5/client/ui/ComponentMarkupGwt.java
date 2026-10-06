@@ -24,6 +24,7 @@ import org.gwtbootstrap5.client.ui.base.helper.RoleHelper;
 import org.gwtbootstrap5.client.ui.constants.BadgePosition;
 import org.gwtbootstrap5.client.ui.constants.IconTypeBI;
 import org.gwtbootstrap5.client.ui.constants.Styles;
+import org.gwtbootstrap5.client.ui.html.OrderedList;
 import org.gwtbootstrap5.client.ui.html.UnorderedList;
 
 import com.google.gwt.core.client.Scheduler;
@@ -186,6 +187,14 @@ public class ComponentMarkupGwt extends BaseGwt {
         list.setInline(true);
         assertTrue(list.isUnstyled());
         assertTrue(list.isInline());
+    }
+
+    public void testOrderedListInlineCanBeTurnedOff() {
+        final OrderedList list = new OrderedList();
+        list.setInline(true);
+        assertTrue(list.getElement().hasClassName(Styles.LIST_INLINE));
+        list.setInline(false);
+        assertFalse(list.getElement().hasClassName(Styles.LIST_INLINE));
     }
 
     public void testRoleHelperHasRole() {
