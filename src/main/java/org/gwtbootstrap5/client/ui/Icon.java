@@ -77,7 +77,7 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasSize<Ic
     }
 
     public boolean isBorder() {
-        return StyleHelper.containsStyle(Styles.ICON_BORDER, getStyleName());
+        return StyleHelper.containsStyle(getStyleName(), Styles.ICON_BORDER);
     }
 
     public void setStackBase(final boolean stackBase) {
@@ -85,7 +85,7 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasSize<Ic
     }
 
     public boolean isStackBase() {
-        return StyleHelper.containsStyle(Styles.ICON_STACK_BASE, getStyleName());
+        return StyleHelper.containsStyle(getStyleName(), Styles.ICON_STACK_BASE);
     }
 
     public void setFixedWidth(final boolean fixedWidth) {
@@ -93,7 +93,7 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasSize<Ic
     }
 
     public boolean isFixedWidth() {
-        return StyleHelper.containsStyle(Styles.ICON_FIXED_WIDTH, getStyleName());
+        return StyleHelper.containsStyle(getStyleName(), Styles.ICON_FIXED_WIDTH);
     }
 
     public void setStackTop(final boolean stackTop) {
@@ -101,7 +101,7 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasSize<Ic
     }
 
     public boolean isStackTop() {
-        return StyleHelper.containsStyle(Styles.ICON_STACK_TOP, getStyleName());
+        return StyleHelper.containsStyle(getStyleName(), Styles.ICON_STACK_TOP);
     }
 
     public void setInverse(final boolean inverse) {
@@ -109,7 +109,7 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasSize<Ic
     }
 
     public boolean isInverse() {
-        return StyleHelper.containsStyle(Styles.ICON_INVERSE, getStyleName());
+        return StyleHelper.containsStyle(getStyleName(), Styles.ICON_INVERSE);
     }
 
     public void setSpin(final boolean spin) {
@@ -117,7 +117,7 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasSize<Ic
     }
 
     public boolean isSpin() {
-        return StyleHelper.containsStyle(Styles.ICON_SPIN, getStyleName());
+        return StyleHelper.containsStyle(getStyleName(), Styles.ICON_SPIN);
     }
 
     public void setPulse(final boolean pulse) {
@@ -125,7 +125,7 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasSize<Ic
     }
 
     public boolean isPulse() {
-        return StyleHelper.containsStyle(Styles.ICON_PULSE, getStyleName());
+        return StyleHelper.containsStyle(getStyleName(), Styles.ICON_PULSE);
     }
 
     public void setRotate(final IconRotate iconRotate) {

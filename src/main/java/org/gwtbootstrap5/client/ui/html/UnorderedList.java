@@ -81,7 +81,7 @@ public class UnorderedList extends ComplexWidget {
      * @return true/false for unstyled or not
      */
     public boolean isUnstyled() {
-        return StyleHelper.containsStyle(Styles.LIST_UNSTYLED, getStyleName());
+        return StyleHelper.containsStyle(getStyleName(), Styles.LIST_UNSTYLED);
     }
 
     /**
@@ -99,6 +99,6 @@ public class UnorderedList extends ComplexWidget {
      * @return true/false for inline or not
      */
     public boolean isInline() {
-        return StyleHelper.containsStyle(Styles.LIST_INLINE, getStyleName());
+        return StyleHelper.containsStyle(getStyleName(), Styles.LIST_INLINE);
     }
 }

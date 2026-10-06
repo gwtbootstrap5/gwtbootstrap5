@@ -21,7 +21,9 @@ package org.gwtbootstrap5.client.ui;
  */
 
 import org.gwtbootstrap5.client.ui.constants.BadgePosition;
+import org.gwtbootstrap5.client.ui.constants.IconTypeBI;
 import org.gwtbootstrap5.client.ui.constants.Styles;
+import org.gwtbootstrap5.client.ui.html.UnorderedList;
 
 import com.google.gwt.core.client.Scheduler;
 import com.google.gwt.dom.client.Document;
@@ -161,5 +163,27 @@ public class ComponentMarkupGwt extends BaseGwt {
             found |= styles.getItem(i).getInnerText().contains(".bi.fa-spin");
         }
         assertTrue(found);
+    }
+
+    public void testIconAndListOptionGettersReadTheClasses() {
+        // Next to the icon's own classes, so the getters must look for theirs among others
+        final Icon icon = new Icon();
+        icon.setType(IconTypeBI.STAR_FILL);
+        icon.setSpin(true);
+        icon.setBorder(true);
+        icon.setFixedWidth(true);
+        assertTrue(icon.isSpin());
+        assertTrue(icon.isBorder());
+        assertTrue(icon.isFixedWidth());
+        assertFalse(icon.isPulse());
+        icon.setSpin(false);
+        assertFalse(icon.isSpin());
+
+        final UnorderedList list = new UnorderedList();
+        list.addStyleName("my-list");
+        list.setUnstyled(true);
+        list.setInline(true);
+        assertTrue(list.isUnstyled());
+        assertTrue(list.isInline());
     }
 }
