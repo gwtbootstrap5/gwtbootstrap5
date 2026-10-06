@@ -103,7 +103,9 @@ public class TabPanel extends Div implements HasActive {
     }
 
     /**
-     * {@inheritDoc}
+     * Sets the {@code aria-labelledby} attribute, or removes it when {@code null}.
+     *
+     * @param ariaLabelledBy id of the element that labels this panel
      */
     public void setAriaLabelledBy(final String ariaLabelledBy) {
         if (ariaLabelledBy != null) {
@@ -114,7 +116,9 @@ public class TabPanel extends Div implements HasActive {
     }
 
     /**
-     * {@inheritDoc}
+     * Returns the {@code aria-labelledby} attribute.
+     *
+     * @return id of the element that labels this panel, or an empty string
      */
     public String getAriaLabelledBy() {
         return getElement().getAttribute(Attributes.ARIA_LABELLEDBY);

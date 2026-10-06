@@ -134,7 +134,7 @@ public class ValidationChangedEvent extends GwtEvent<ValidationChangedEvent.Vali
     @Override
     public int hashCode() {
         int hashCode = 23;
-        hashCode = (hashCode * 37) + new Boolean(valid).hashCode();
+        hashCode = (hashCode * 37) + Boolean.hashCode(valid);
         return hashCode;
     }
 

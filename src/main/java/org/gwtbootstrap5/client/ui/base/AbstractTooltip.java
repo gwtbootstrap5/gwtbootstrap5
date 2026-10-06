@@ -550,6 +550,7 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
      * 
      * @deprecated will be removed after the next release.
      */
+    @Deprecated
     public void reconfigure() {
         // Do nothing. No longer necessary.
     }
@@ -707,6 +708,7 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
      * @param text String display string.
      * @deprecated use {@link #setTitle(String)}.
      */
+    @Deprecated
     public void setText(String text) {
         setTitle(text);
     }
