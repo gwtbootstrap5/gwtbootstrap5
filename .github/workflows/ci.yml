@@ -1,0 +1,14 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    # Builds this commit together with the master of the other repositories
+    uses: gwtbootstrap5/gwtbootstrap5-parent/.github/workflows/build.yml@master
