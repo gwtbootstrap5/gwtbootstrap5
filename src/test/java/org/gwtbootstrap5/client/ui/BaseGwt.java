@@ -24,6 +24,7 @@ import org.gwtbootstrap5.client.ui.base.HasActive;
 import org.gwtbootstrap5.client.ui.base.HasFormValue;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
+import com.google.gwt.core.client.ScriptInjector;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.junit.client.GWTTestCase;
 import com.google.gwt.user.client.ui.HasEnabled;
@@ -42,6 +43,38 @@ public abstract class BaseGwt extends GWTTestCase {
     @Override
     public String getModuleName() {
         return "org.gwtbootstrap5.GwtBootstrap5";
+    }
+
+    /**
+     * HtmlUnit can't run Bootstrap's JavaScript, so its components get a stand-in that only keeps
+     * one do-nothing instance per element. The tests check the markup GwtBootstrap5 writes; the
+     * browser check of the demo runs the real thing.
+     */
+    private static final String FAKE_BOOTSTRAP = "if (!window.bootstrap) { window.bootstrap = {}; }"
+            + "['Alert', 'Carousel', 'Collapse', 'Dropdown', 'Modal', 'Offcanvas', 'Popover', 'ScrollSpy',"
+            + " 'Tab', 'Toast', 'Tooltip'].forEach(function (name) {"
+            + "  if (window.bootstrap[name]) { return; }"
+            + "  var key = '__fake' + name;"
+            + "  var noop = function () {};"
+            + "  window.bootstrap[name] = {"
+            + "    getInstance: function (e) { return e[key] || null; },"
+            + "    getOrCreateInstance: function (e) {"
+            + "      if (!e[key]) {"
+            + "        e[key] = { show: noop, hide: noop, toggle: noop, close: noop, update: noop, enable: noop,"
+            + "          disable: noop, toggleEnabled: noop, setContent: noop, handleUpdate: noop, cycle: noop,"
+            + "          pause: noop, prev: noop, next: noop, nextWhenVisible: noop, to: noop, refresh: noop,"
+            + "          isShown: function () { return false; },"
+            + "          dispose: function () { delete e[key]; } };"
+            + "      }"
+            + "      return e[key];"
+            + "    }"
+            + "  };"
+            + "});";
+
+    @Override
+    protected void gwtSetUp() throws Exception {
+        super.gwtSetUp();
+        ScriptInjector.fromString(FAKE_BOOTSTRAP).setWindow(ScriptInjector.TOP_WINDOW).inject();
     }
 
     public <T extends UIObject & HasActive> void checkActive(T button) {

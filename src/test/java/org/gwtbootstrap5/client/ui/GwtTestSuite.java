@@ -35,6 +35,7 @@ public class GwtTestSuite extends TestCase {
         suite.addTestSuite(RadioButtonGwt.class);
         suite.addTestSuite(ComponentMarkupGwt.class);
         suite.addTestSuite(ValidatorsGwt.class);
+        suite.addTestSuite(ComponentFixesGwt.class);
         return suite;
     }
 
