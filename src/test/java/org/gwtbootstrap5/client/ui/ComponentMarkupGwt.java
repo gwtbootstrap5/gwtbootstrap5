@@ -24,8 +24,10 @@ import org.gwtbootstrap5.client.ui.constants.BadgePosition;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 import com.google.gwt.core.client.Scheduler;
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.NodeList;
+import com.google.gwt.dom.client.StyleInjector;
 import com.google.gwt.user.client.ui.RootPanel;
 
 /**
@@ -148,5 +150,16 @@ public class ComponentMarkupGwt extends BaseGwt {
             assertTrue(badge.hasClassName("text-bg-secondary"));
             finishTest();
         });
+    }
+
+    public void testIconOptionsHaveCssForBootstrapIcons() {
+        new Icon();
+        StyleInjector.flush();
+        final NodeList<Element> styles = Document.get().getElementsByTagName("style");
+        boolean found = false;
+        for (int i = 0; i < styles.getLength(); i++) {
+            found |= styles.getItem(i).getInnerText().contains(".bi.fa-spin");
+        }
+        assertTrue(found);
     }
 }

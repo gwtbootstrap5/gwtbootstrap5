@@ -49,6 +49,7 @@ public class Icon extends ComplexWidget implements HasType<IconType>, HasSize<Ic
         super();
 
         setElement(Document.get().createElement(ElementTags.I));
+        IconStyles.ensureInjected();
     }
 
     public void setIcon(final String icon) {
