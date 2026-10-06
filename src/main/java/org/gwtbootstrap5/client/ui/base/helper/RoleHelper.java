@@ -39,7 +39,8 @@ public class RoleHelper {
     }
 
     public static boolean hasRole(Element element) {
-        return element.getAttribute(Attributes.ROLE) != null;
+        // GWT returns an empty string, not null, for a missing attribute
+        return !element.getAttribute(Attributes.ROLE).isEmpty();
     }
 
 }

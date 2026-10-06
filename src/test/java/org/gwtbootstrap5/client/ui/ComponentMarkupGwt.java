@@ -20,6 +20,7 @@ package org.gwtbootstrap5.client.ui;
  * ==========================LICENSE_END=================================
  */
 
+import org.gwtbootstrap5.client.ui.base.helper.RoleHelper;
 import org.gwtbootstrap5.client.ui.constants.BadgePosition;
 import org.gwtbootstrap5.client.ui.constants.IconTypeBI;
 import org.gwtbootstrap5.client.ui.constants.Styles;
@@ -185,5 +186,14 @@ public class ComponentMarkupGwt extends BaseGwt {
         list.setInline(true);
         assertTrue(list.isUnstyled());
         assertTrue(list.isInline());
+    }
+
+    public void testRoleHelperHasRole() {
+        final Element element = Document.get().createDivElement();
+        assertFalse(RoleHelper.hasRole(element));
+        RoleHelper.setRole(element, "tab");
+        assertTrue(RoleHelper.hasRole(element));
+        RoleHelper.removeRole(element);
+        assertFalse(RoleHelper.hasRole(element));
     }
 }
