@@ -36,6 +36,7 @@ public class GwtTestSuite extends TestCase {
         suite.addTestSuite(ComponentMarkupGwt.class);
         suite.addTestSuite(ValidatorsGwt.class);
         suite.addTestSuite(ComponentFixesGwt.class);
+        suite.addTestSuite(NewComponentsGwt.class);
         return suite;
     }
 
