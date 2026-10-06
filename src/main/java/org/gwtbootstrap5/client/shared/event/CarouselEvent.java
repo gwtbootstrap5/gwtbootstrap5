@@ -25,10 +25,23 @@ import org.gwtbootstrap5.client.ui.Carousel;
 import com.google.gwt.user.client.Event;
 
 /**
+ * An event of a {@link org.gwtbootstrap5.client.ui.Carousel}: the carousel and the native
+ * Bootstrap event.
+ *
  * @author Joshua Godi
  */
 public interface CarouselEvent {
+    /**
+     * Returns the carousel that fired the event.
+     *
+     * @return the carousel
+     */
     Carousel getCarousel();
 
+    /**
+     * Returns the Bootstrap event this event comes from.
+     *
+     * @return the native event
+     */
     Event getNativeEvent();
 }

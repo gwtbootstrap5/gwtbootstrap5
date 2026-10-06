@@ -23,8 +23,15 @@ package org.gwtbootstrap5.client.shared.event;
 import com.google.gwt.event.shared.EventHandler;
 
 /**
+ * Handler of {@link TooltipShownEvent}, fired when a tooltip is shown.
+ *
  * @author Pontus Enmark
  */
 public interface TooltipShownHandler extends EventHandler {
+    /**
+     * Called when a tooltip is shown.
+     *
+     * @param evt the event
+     */
     void onShown(final TooltipShownEvent evt);
 }

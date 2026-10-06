@@ -26,6 +26,9 @@ import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.Event;
 
 /**
+ * Fired when a {@link org.gwtbootstrap5.client.ui.Modal} is hidden, after its animation:
+ * Bootstrap's {@code hidden.bs.modal}.
+ *
  * @author Sven Jacobs
  */
 public class ModalHiddenEvent extends GwtEvent<ModalHiddenHandler> implements ModalEvent {
@@ -35,10 +38,21 @@ public class ModalHiddenEvent extends GwtEvent<ModalHiddenHandler> implements Mo
     private final Modal modal;
     private final Event nativeEvent;
 
+    /**
+     * Returns the type of the event, to register its handlers.
+     *
+     * @return the type
+     */
     public static Type<ModalHiddenHandler> getType() {
         return TYPE;
     }
 
+    /**
+     * Creates the event.
+     *
+     * @param modal the modal that fired it
+     * @param nativeEvent the Bootstrap event it comes from
+     */
     public ModalHiddenEvent(final Modal modal, final Event nativeEvent) {
         this.modal = modal;
         this.nativeEvent = nativeEvent;

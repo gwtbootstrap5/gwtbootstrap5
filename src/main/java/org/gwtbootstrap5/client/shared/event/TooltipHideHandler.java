@@ -23,8 +23,15 @@ package org.gwtbootstrap5.client.shared.event;
 import com.google.gwt.event.shared.EventHandler;
 
 /**
+ * Handler of {@link TooltipHideEvent}, fired when a tooltip starts to hide.
+ *
  * @author Pontus Enmark
  */
 public interface TooltipHideHandler extends EventHandler {
+    /**
+     * Called when a tooltip starts to hide.
+     *
+     * @param evt the event
+     */
     void onHide(final TooltipHideEvent evt);
 }

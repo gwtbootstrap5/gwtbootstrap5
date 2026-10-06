@@ -31,19 +31,32 @@ public class HidePreventedEvent extends GwtEvent<HidePreventedHandler> {
     private static final Type<HidePreventedHandler> TYPE = new Type<>();
     private final NativeEvent nativeEvent;
 
+    /**
+     * Returns the type of the event, to register its handlers.
+     *
+     * @return the type
+     */
     public static Type<HidePreventedHandler> getType() {
         return TYPE;
     }
 
+    /** Creates the event without a native event, when it is fired from code. */
     public HidePreventedEvent() {
         this(null);
     }
 
+    /**
+     * Creates the event.
+     *
+     * @param nativeEvent the Bootstrap event it comes from
+     */
     public HidePreventedEvent(final NativeEvent nativeEvent) {
         this.nativeEvent = nativeEvent;
     }
 
     /**
+     * Fired when a component refuses to hide: by {@link org.gwtbootstrap5.client.ui.Offcanvas}.
+     *
      * @return the native event, or {@code null}
      */
     public NativeEvent getNativeEvent() {

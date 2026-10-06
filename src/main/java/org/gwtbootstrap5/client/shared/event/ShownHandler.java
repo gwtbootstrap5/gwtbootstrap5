@@ -23,8 +23,15 @@ package org.gwtbootstrap5.client.shared.event;
 import com.google.gwt.event.shared.EventHandler;
 
 /**
+ * Handler of {@link ShownEvent}, fired when a component is shown, after its animation.
+ *
  * @author Joshua Godi
  */
 public interface ShownHandler extends EventHandler {
+    /**
+     * Called when a component is shown, after its animation.
+     *
+     * @param event the event
+     */
     void onShown(ShownEvent event);
 }

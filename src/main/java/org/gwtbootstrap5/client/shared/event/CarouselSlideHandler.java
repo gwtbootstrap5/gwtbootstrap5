@@ -23,8 +23,16 @@ package org.gwtbootstrap5.client.shared.event;
 import com.google.gwt.event.shared.EventHandler;
 
 /**
+ * Handler of {@link CarouselSlideEvent}, fired when a {@link org.gwtbootstrap5.client.ui.Carousel}
+ * starts moving to another slide.
+ *
  * @author Joshua Godi
  */
 public interface CarouselSlideHandler extends EventHandler {
+    /**
+     * Called when a {@link org.gwtbootstrap5.client.ui.Carousel} starts moving to another slide.
+     *
+     * @param carouselSlideEvent the event
+     */
     void onSlide(CarouselSlideEvent carouselSlideEvent);
 }

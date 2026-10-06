@@ -23,8 +23,16 @@ package org.gwtbootstrap5.client.shared.event;
 import com.google.gwt.event.shared.EventHandler;
 
 /**
+ * Handler of {@link ModalHiddenEvent}, fired when a {@link org.gwtbootstrap5.client.ui.Modal} is
+ * hidden, after its animation.
+ *
  * @author Sven Jacobs
  */
 public interface ModalHiddenHandler extends EventHandler {
+    /**
+     * Called when a {@link org.gwtbootstrap5.client.ui.Modal} is hidden, after its animation.
+     *
+     * @param evt the event
+     */
     void onHidden(final ModalHiddenEvent evt);
 }

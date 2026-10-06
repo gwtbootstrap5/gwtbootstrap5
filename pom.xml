@@ -29,7 +29,7 @@
             Packages whose public API is fully documented: CI checks them with -P javadoc-check, so
             they can't get gaps again. A package joins the list in the commit that documents it.
         -->
-        <javadoc.documented.packages>org.gwtbootstrap5.client.ui,org.gwtbootstrap5.client.ui.base,org.gwtbootstrap5.client.ui.base.button,org.gwtbootstrap5.client.ui.base.form,org.gwtbootstrap5.client.ui.base.helper,org.gwtbootstrap5.client.ui.base.mixin,org.gwtbootstrap5.client.ui.base.modal</javadoc.documented.packages>
+        <javadoc.documented.packages>org.gwtbootstrap5.client.ui,org.gwtbootstrap5.client.ui.base,org.gwtbootstrap5.client.ui.base.button,org.gwtbootstrap5.client.ui.base.form,org.gwtbootstrap5.client.ui.base.helper,org.gwtbootstrap5.client.ui.base.mixin,org.gwtbootstrap5.client.ui.base.modal,org.gwtbootstrap5.client.shared.event</javadoc.documented.packages>
     </properties>
 
     <dependencies>

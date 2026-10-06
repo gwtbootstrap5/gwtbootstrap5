@@ -25,10 +25,23 @@ import org.gwtbootstrap5.client.ui.Modal;
 import com.google.gwt.user.client.Event;
 
 /**
+ * An event of a {@link org.gwtbootstrap5.client.ui.Modal}: the modal and the native Bootstrap
+ * event.
+ *
  * @author Sven Jacobs
  */
 public interface ModalEvent {
+    /**
+     * Returns the modal that fired the event.
+     *
+     * @return the modal
+     */
     Modal getModal();
 
+    /**
+     * Returns the Bootstrap event this event comes from.
+     *
+     * @return the native event
+     */
     Event getNativeEvent();
 }

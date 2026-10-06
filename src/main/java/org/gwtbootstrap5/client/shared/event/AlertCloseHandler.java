@@ -23,8 +23,16 @@ package org.gwtbootstrap5.client.shared.event;
 import com.google.gwt.event.shared.EventHandler;
 
 /**
+ * Handler of {@link AlertCloseEvent}, fired when an {@link org.gwtbootstrap5.client.ui.Alert}
+ * starts to close.
+ *
  * @author Sven Jacobs
  */
 public interface AlertCloseHandler extends EventHandler {
+    /**
+     * Called when an {@link org.gwtbootstrap5.client.ui.Alert} starts to close.
+     *
+     * @param evt the event
+     */
     void onClose(final AlertCloseEvent evt);
 }

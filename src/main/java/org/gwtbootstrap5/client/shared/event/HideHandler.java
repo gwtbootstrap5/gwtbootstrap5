@@ -23,8 +23,15 @@ package org.gwtbootstrap5.client.shared.event;
 import com.google.gwt.event.shared.EventHandler;
 
 /**
+ * Handler of {@link HideEvent}, fired when a component starts to hide.
+ *
  * @author Joshua Godi
  */
 public interface HideHandler extends EventHandler {
+    /**
+     * Called when a component starts to hide.
+     *
+     * @param hideEvent the event
+     */
     void onHide(HideEvent hideEvent);
 }

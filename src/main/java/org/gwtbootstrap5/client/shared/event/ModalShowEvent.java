@@ -26,6 +26,10 @@ import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.Event;
 
 /**
+ * Fired when a {@link org.gwtbootstrap5.client.ui.Modal} starts to show: Bootstrap's
+ * {@code show.bs.modal}.
+ * Calling {@code preventDefault()} on the native event cancels it.
+ *
  * @author Sven Jacobs
  */
 public class ModalShowEvent extends GwtEvent<ModalShowHandler> implements ModalEvent {
@@ -35,10 +39,21 @@ public class ModalShowEvent extends GwtEvent<ModalShowHandler> implements ModalE
     private final Modal modal;
     private final Event nativeEvent;
 
+    /**
+     * Returns the type of the event, to register its handlers.
+     *
+     * @return the type
+     */
     public static Type<ModalShowHandler> getType() {
         return TYPE;
     }
 
+    /**
+     * Creates the event.
+     *
+     * @param modal the modal that fired it
+     * @param nativeEvent the Bootstrap event it comes from
+     */
     public ModalShowEvent(final Modal modal, final Event nativeEvent) {
         this.modal = modal;
         this.nativeEvent = nativeEvent;

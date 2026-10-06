@@ -26,5 +26,10 @@ import com.google.gwt.event.shared.EventHandler;
  * Handler for {@link HidePreventedEvent}.
  */
 public interface HidePreventedHandler extends EventHandler {
+    /**
+     * Called when a component refuses to hide.
+     *
+     * @param event the event
+     */
     void onHidePrevented(HidePreventedEvent event);
 }

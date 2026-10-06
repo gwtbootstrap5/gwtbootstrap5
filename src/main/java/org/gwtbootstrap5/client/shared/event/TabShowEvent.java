@@ -26,6 +26,10 @@ import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.Event;
 
 /**
+ * Fired when a {@link org.gwtbootstrap5.client.ui.NavTabItem} starts to show its pane: Bootstrap's
+ * {@code show.bs.tab}.
+ * Calling {@code preventDefault()} on the native event cancels it.
+ *
  * @author Joshua Godi
  */
 public class TabShowEvent extends GwtEvent<TabShowHandler> implements TabEvent {
@@ -35,10 +39,21 @@ public class TabShowEvent extends GwtEvent<TabShowHandler> implements TabEvent {
     private final NavTabItem tab;
     private final Event nativeEvent;
 
+    /**
+     * Returns the type of the event, to register its handlers.
+     *
+     * @return the type
+     */
     public static Type<TabShowHandler> getType() {
         return TYPE;
     }
 
+    /**
+     * Creates the event.
+     *
+     * @param tab the tab that fired it
+     * @param nativeEvent the Bootstrap event it comes from
+     */
     public TabShowEvent(final NavTabItem tab, final Event nativeEvent) {
         this.tab = tab;
         this.nativeEvent = nativeEvent;

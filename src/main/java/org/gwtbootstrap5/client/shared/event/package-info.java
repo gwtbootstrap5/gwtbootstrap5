@@ -1,3 +1,4 @@
+/** Events fired by the widgets, most of them when Bootstrap fires its own JavaScript events. */
 package org.gwtbootstrap5.client.shared.event;
 
 /*-

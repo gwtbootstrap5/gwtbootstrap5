@@ -23,8 +23,16 @@ package org.gwtbootstrap5.client.shared.event;
 import com.google.gwt.event.shared.EventHandler;
 
 /**
+ * Handler of {@link TabShownEvent}, fired when a {@link org.gwtbootstrap5.client.ui.NavTabItem}
+ * has shown its pane.
+ *
  * @author Joshua Godi
  */
 public interface TabShownHandler extends EventHandler {
+    /**
+     * Called when a {@link org.gwtbootstrap5.client.ui.NavTabItem} has shown its pane.
+     *
+     * @param event the event
+     */
     void onShown(final TabShownEvent event);
 }

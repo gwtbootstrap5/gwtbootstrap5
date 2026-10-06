@@ -25,10 +25,23 @@ import org.gwtbootstrap5.client.ui.Tooltip;
 import com.google.gwt.user.client.Event;
 
 /**
+ * An event of a {@link org.gwtbootstrap5.client.ui.Tooltip}: the tooltip and the native Bootstrap
+ * event.
+ *
  * @author Pontus Enmark
  */
 public interface TooltipEvent {
+    /**
+     * Returns the tooltip that fired the event.
+     *
+     * @return the tooltip
+     */
     Tooltip getTooltip();
 
+    /**
+     * Returns the Bootstrap event this event comes from.
+     *
+     * @return the native event
+     */
     Event getNativeEvent();
 }

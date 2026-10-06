@@ -24,20 +24,37 @@ import com.google.gwt.dom.client.NativeEvent;
 import com.google.gwt.event.shared.GwtEvent;
 
 /**
+ * Fired when a component starts to hide. {@link org.gwtbootstrap5.client.ui.Collapse},
+ * {@link org.gwtbootstrap5.client.ui.NavbarCollapse}, {@link org.gwtbootstrap5.client.ui.Offcanvas},
+ * {@link org.gwtbootstrap5.client.ui.Toast}, the dropdowns, tooltips and popovers fire it, and so do
+ * the date pickers of the extras.
+ * {@link #preventDefault()} cancels it.
+ *
  * @author Joshua Godi
  */
 public class HideEvent extends GwtEvent<HideHandler> {
     private static final Type<HideHandler> TYPE = new Type<>();
     private final NativeEvent nativeEvent;
 
+    /**
+     * Returns the type of the event, to register its handlers.
+     *
+     * @return the type
+     */
     public static Type<HideHandler> getType() {
         return TYPE;
     }
 
+    /** Creates the event without a native event, when it is fired from code. */
     public HideEvent() {
         this(null);
     }
 
+    /**
+     * Creates the event.
+     *
+     * @param nativeEvent the Bootstrap event it comes from
+     */
     public HideEvent(final NativeEvent nativeEvent) {
         this.nativeEvent = nativeEvent;
     }
@@ -52,11 +69,19 @@ public class HideEvent extends GwtEvent<HideHandler> {
         handler.onHide(this);
     }
 
+    /**
+     * Cancels the action: Bootstrap doesn't show or hide the component. Only works on the events
+     * fired before the action, and does nothing when the event has no native event.
+     */
     public final void preventDefault() {
         if (nativeEvent == null) return;
         nativeEvent.preventDefault();
     }
 
+    /**
+     * Stops the native event from reaching the ancestors of the element. Does nothing when the
+     * event has no native event.
+     */
     public final void stopPropagation() {
         if (nativeEvent == null) return;
         nativeEvent.stopPropagation();

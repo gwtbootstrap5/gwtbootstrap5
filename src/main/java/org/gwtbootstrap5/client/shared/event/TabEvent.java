@@ -25,10 +25,23 @@ import org.gwtbootstrap5.client.ui.NavTabItem;
 import com.google.gwt.user.client.Event;
 
 /**
+ * An event of a {@link org.gwtbootstrap5.client.ui.NavTabItem}: the tab and the native Bootstrap
+ * event.
+ *
  * @author Joshua Godi
  */
 public interface TabEvent {
+    /**
+     * Returns the tab that fired the event.
+     *
+     * @return the tab
+     */
     NavTabItem getTab();
 
+    /**
+     * Returns the Bootstrap event this event comes from.
+     *
+     * @return the native event
+     */
     Event getNativeEvent();
 }

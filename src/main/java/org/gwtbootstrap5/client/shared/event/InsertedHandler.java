@@ -23,8 +23,16 @@ package org.gwtbootstrap5.client.shared.event;
 import com.google.gwt.event.shared.EventHandler;
 
 /**
+ * Handler of {@link InsertedEvent}, fired when the element of a tooltip or popover is added to the
+ * page, before it shows.
+ *
  * @author Steven Jardine
  */
 public interface InsertedHandler extends EventHandler {
+    /**
+     * Called when the element of a tooltip or popover is added to the page, before it shows.
+     *
+     * @param event the event
+     */
     void onInserted(InsertedEvent event);
 }

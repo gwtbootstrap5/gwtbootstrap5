@@ -26,6 +26,9 @@ import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.Event;
 
 /**
+ * Fired when a {@link org.gwtbootstrap5.client.ui.Carousel} has moved to another slide:
+ * Bootstrap's {@code slid.bs.carousel}.
+ *
  * @author Joshua Godi
  */
 public class CarouselSlidEvent extends GwtEvent<CarouselSlidHandler> implements CarouselEvent {
@@ -35,10 +38,21 @@ public class CarouselSlidEvent extends GwtEvent<CarouselSlidHandler> implements 
     private final Carousel carousel;
     private final Event nativeEvent;
 
+    /**
+     * Returns the type of the event, to register its handlers.
+     *
+     * @return the type
+     */
     public static Type<CarouselSlidHandler> getType() {
         return TYPE;
     }
 
+    /**
+     * Creates the event.
+     *
+     * @param carousel the carousel that fired it
+     * @param nativeEvent the Bootstrap event it comes from
+     */
     public CarouselSlidEvent(final Carousel carousel, final Event nativeEvent) {
         this.carousel = carousel;
         this.nativeEvent = nativeEvent;

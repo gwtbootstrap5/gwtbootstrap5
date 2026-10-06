@@ -26,6 +26,9 @@ import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.Event;
 
 /**
+ * Event of a tooltip, when a tooltip is hidden. GwtBootstrap5 doesn't fire it: tooltips fire
+ * {@link HiddenEvent} on their widget.
+ *
  * @author Pontus Enmark
  */
 public class TooltipHiddenEvent extends GwtEvent<TooltipHiddenHandler> implements TooltipEvent {
@@ -35,10 +38,21 @@ public class TooltipHiddenEvent extends GwtEvent<TooltipHiddenHandler> implement
     private final Tooltip tooltip;
     private final Event nativeEvent;
 
+    /**
+     * Returns the type of the event, to register its handlers.
+     *
+     * @return the type
+     */
     public static Type<TooltipHiddenHandler> getType() {
         return TYPE;
     }
 
+    /**
+     * Creates the event.
+     *
+     * @param tooltip the tooltip that fired it
+     * @param nativeEvent the Bootstrap event it comes from
+     */
     public TooltipHiddenEvent(final Tooltip tooltip, final Event nativeEvent) {
         this.tooltip = tooltip;
         this.nativeEvent = nativeEvent;

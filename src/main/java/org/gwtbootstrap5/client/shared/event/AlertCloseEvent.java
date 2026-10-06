@@ -24,6 +24,10 @@ import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.Event;
 
 /**
+ * Fired when an {@link org.gwtbootstrap5.client.ui.Alert} starts to close: Bootstrap's
+ * {@code close.bs.alert}.
+ * Calling {@code preventDefault()} on the native event cancels it.
+ *
  * @author Sven Jacobs
  */
 public class AlertCloseEvent extends GwtEvent<AlertCloseHandler> {
@@ -32,14 +36,29 @@ public class AlertCloseEvent extends GwtEvent<AlertCloseHandler> {
 
     private final Event nativeEvent;
 
+    /**
+     * Returns the type of the event, to register its handlers.
+     *
+     * @return the type
+     */
     public static Type<AlertCloseHandler> getType() {
         return TYPE;
     }
 
+    /**
+     * Creates the event.
+     *
+     * @param nativeEvent the Bootstrap event it comes from
+     */
     public AlertCloseEvent(final Event nativeEvent) {
         this.nativeEvent = nativeEvent;
     }
 
+    /**
+     * Returns the Bootstrap event this event comes from.
+     *
+     * @return the native event
+     */
     public Event getNativeEvent() {
         return nativeEvent;
     }

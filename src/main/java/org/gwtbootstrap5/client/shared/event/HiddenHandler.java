@@ -23,8 +23,15 @@ package org.gwtbootstrap5.client.shared.event;
 import com.google.gwt.event.shared.EventHandler;
 
 /**
+ * Handler of {@link HiddenEvent}, fired when a component is hidden, after its animation.
+ *
  * @author Joshua Godi
  */
 public interface HiddenHandler extends EventHandler {
+    /**
+     * Called when a component is hidden, after its animation.
+     *
+     * @param event the event
+     */
     void onHidden(HiddenEvent event);
 }

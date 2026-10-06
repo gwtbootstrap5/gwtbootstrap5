@@ -23,8 +23,16 @@ package org.gwtbootstrap5.client.shared.event;
 import com.google.gwt.event.shared.EventHandler;
 
 /**
+ * Handler of {@link ModalShownEvent}, fired when a {@link org.gwtbootstrap5.client.ui.Modal} is
+ * shown, after its animation.
+ *
  * @author Sven Jacobs
  */
 public interface ModalShownHandler extends EventHandler {
+    /**
+     * Called when a {@link org.gwtbootstrap5.client.ui.Modal} is shown, after its animation.
+     *
+     * @param evt the event
+     */
     void onShown(final ModalShownEvent evt);
 }
