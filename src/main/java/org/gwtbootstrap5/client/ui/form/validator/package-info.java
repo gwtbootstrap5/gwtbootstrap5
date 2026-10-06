@@ -1,3 +1,4 @@
+/** Validators of form controls, and the messages they show. */
 package org.gwtbootstrap5.client.ui.form.validator;
 
 /*-

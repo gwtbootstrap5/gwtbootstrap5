@@ -22,10 +22,23 @@ package org.gwtbootstrap5.client.ui.util;
 
 import com.google.gwt.core.client.GWT;
 
+/**
+ * Gives the {@link IIconUtil} of the icon set in use, chosen by GWT deferred binding: the extras'
+ * Font Awesome module replaces {@link IconUtilBI}.
+ */
 public class IconUtil {
+
+    /** Creates an instance. Every method is static, so there is no need to. */
+    public IconUtil() {
+    }
 
     private static IIconUtil instance;
 
+    /**
+     * Returns the icon utility of the icon set in use.
+     *
+     * @return the utility
+     */
     public static IIconUtil getInstance() {
         if (instance == null) {
             instance = GWT.create(IconUtilBI.class);

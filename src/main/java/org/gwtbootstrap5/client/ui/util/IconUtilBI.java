@@ -30,7 +30,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/** {@link IIconUtil} of Bootstrap Icons ({@code IconTypeBI}). */
 public class IconUtilBI implements IIconUtil {
+
+    /** Creates the utility; {@link IconUtil#getInstance()} gets it with {@code GWT.create}. */
+    public IconUtilBI() {
+    }
 
     public List<IconType> getValues() {
         return new ArrayList<>(Arrays.asList(IconTypeBI.values()));

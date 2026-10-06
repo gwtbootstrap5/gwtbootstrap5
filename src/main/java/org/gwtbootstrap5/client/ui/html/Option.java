@@ -43,6 +43,7 @@ public class Option extends AbstractTextWidget implements HasName, TakesValue<St
     private static final String NAME = "name";
     private static final String VALUE = "value";
 
+    /** Creates an empty option. */
     public Option() {
         super(Document.get().createOptionElement());
     }
@@ -68,7 +69,7 @@ public class Option extends AbstractTextWidget implements HasName, TakesValue<St
     /**
      * Selects/deselects the option.
      *
-     * @param selected e
+     * @param selected {@code true} to select the option
      */
     public void setSelected(boolean selected) {
         getSelectElement().setSelected(selected);

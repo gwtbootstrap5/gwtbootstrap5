@@ -26,12 +26,28 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.user.client.Event;
 
+/** Makes a radio fire value change events when its input changes. */
 public class RadioImpl {
 
+    /** Creates the implementation; the radio gets it with {@code GWT.create}. */
+    public RadioImpl() {
+    }
+
+    /**
+     * Fires the radio's value change events on the change events of its input.
+     *
+     * @param radio the radio
+     */
     public void ensureDomEventHandlers(final Radio radio) {
         radio.addChangeHandler(event -> ValueChangeEvent.fire(radio, radio.getValue()));
     }
 
+    /**
+     * Sinks events on the input of the radio rather than on the widget.
+     *
+     * @param eventBitsToAdd the events to sink
+     * @param inputElem the input of the radio
+     */
     public void sinkEvents(int eventBitsToAdd, Element inputElem) {
         Event.sinkEvents(inputElem,
                 eventBitsToAdd | Event.getEventsSunk(inputElem));

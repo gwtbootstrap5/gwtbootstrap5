@@ -36,11 +36,20 @@ import jsinterop.base.Js;
  */
 public final class DomEventListeners {
 
+    /** Creates an empty set of listeners. */
+    public DomEventListeners() {
+    }
+
     /**
      * Handler receiving the native event as a GWT {@link Event}.
      */
     @FunctionalInterface
     public interface Handler {
+        /**
+         * Called with the event.
+         *
+         * @param event the native event
+         */
         void onEvent(Event event);
     }
 

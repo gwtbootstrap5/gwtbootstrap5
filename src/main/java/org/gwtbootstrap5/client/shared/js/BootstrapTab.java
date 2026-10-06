@@ -33,6 +33,10 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true, namespace = "bootstrap", name = "Tab")
 public class BootstrapTab {
 
+    /** Don't call it: get the instance of an element with {@code getOrCreateInstance}. */
+    public BootstrapTab() {
+    }
+
     /**
      * Returns the instance bound to the element, creating it if needed.
      *

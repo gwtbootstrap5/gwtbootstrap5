@@ -33,6 +33,10 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true, namespace = "bootstrap", name = "Toast")
 public class BootstrapToast {
 
+    /** Don't call it: get the instance of an element with {@code getOrCreateInstance}. */
+    public BootstrapToast() {
+    }
+
     /**
      * Returns the instance bound to the element, creating it with the given config if needed.
      * The config is ignored when an instance already exists.
@@ -57,7 +61,11 @@ public class BootstrapToast {
     /** Hides the toast. */
     public native void hide();
 
-    /** Returns whether the toast is shown. */
+    /**
+     * Returns whether the toast is shown.
+     *
+     * @return {@code true} if the toast is shown
+     */
     public native boolean isShown();
 
     /** Destroys the instance and removes its stored data. */

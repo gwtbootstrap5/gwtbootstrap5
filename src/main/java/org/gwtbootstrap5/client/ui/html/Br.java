@@ -25,10 +25,13 @@ import org.gwtbootstrap5.client.ui.base.ComplexWidget;
 import com.google.gwt.dom.client.Document;
 
 /**
+ * Line break ({@code br}).
+ *
  * @author Joshua Godi
  */
 public class Br extends ComplexWidget {
 
+    /** Creates a line break. */
     public Br() {
         setElement(Document.get().createBRElement());
     }

@@ -23,8 +23,18 @@ package org.gwtbootstrap5.client.ui.util;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.LinkElement;
 
+/** Adds style sheets to the page. */
 public class StyleInjector {
 
+    /** Creates an instance. Every method is static, so there is no need to. */
+    public StyleInjector() {
+    }
+
+    /**
+     * Adds a style sheet to the page, as a {@code link} in its head.
+     *
+     * @param cssURL the URL of the style sheet
+     */
     public static void injectCSS(String cssURL) {
         LinkElement link = Document.get().createLinkElement();
         link.setRel("stylesheet");

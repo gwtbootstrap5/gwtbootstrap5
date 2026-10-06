@@ -26,6 +26,8 @@ import org.gwtbootstrap5.client.ui.gwt.HTMLPanel;
 import com.google.gwt.dom.client.SpanElement;
 
 /**
+ * Inline container ({@code span}) with text or HTML and widgets.
+ *
  * @author Sven Jacobs
  * @author Grant Slender
  */
@@ -33,27 +35,53 @@ public class Span extends HTMLPanel {
 
     private final HTMLMixin<Span> textMixin = new HTMLMixin<>(this);
 
+    /** Creates an empty span. */
     public Span() {
         super(SpanElement.TAG, "");
     }
 
+    /**
+     * Creates a span.
+     *
+     * @param html the content, as HTML
+     */
     public Span(final String html) {
         this();
         setHTML(html);
     }
 
+    /**
+     * Sets the text of the span, replacing its content.
+     *
+     * @param text the text
+     */
     public void setText(final String text) {
         textMixin.setText(text);
     }
 
+    /**
+     * Returns the text of the span.
+     *
+     * @return the text
+     */
     public String getText() {
         return textMixin.getText();
     }
 
+    /**
+     * Returns the content of the span, as HTML.
+     *
+     * @return the HTML
+     */
     public String getHTML() {
         return textMixin.getHTML();
     }
 
+    /**
+     * Sets the content of the span, as HTML.
+     *
+     * @param html the HTML
+     */
     public void setHTML(final String html) {
         textMixin.setHTML(html);
     }

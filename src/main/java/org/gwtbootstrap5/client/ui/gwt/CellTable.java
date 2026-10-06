@@ -32,6 +32,11 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.gwt.view.client.ProvidesKey;
 
 /**
+ * GWT's {@code CellTable} styled as a Bootstrap table ({@code table.table}), with its options:
+ * striped, bordered, borderless, condensed, hover and dark.
+ *
+ * @param <T> the type of the rows
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/tables/">Bootstrap 5 documentation</a>
  * @author Joshua Godi
  */
 public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<T> implements HasResponsiveness {
@@ -148,6 +153,11 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
     }
 
 
+    /**
+     * Stripes the rows ({@code table-striped}).
+     *
+     * @param striped {@code true} for stripes
+     */
     public void setStriped(final boolean striped) {
         if (striped) {
             StyleHelper.addEnumStyleName(this, TableType.STRIPED);
@@ -156,6 +166,11 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
         }
     }
 
+    /**
+     * Draws borders around every cell ({@code table-bordered}).
+     *
+     * @param bordered {@code true} for borders
+     */
     public void setBordered(final boolean bordered) {
         if (bordered) {
             StyleHelper.addEnumStyleName(this, TableType.BORDERED);
@@ -164,6 +179,11 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
         }
     }
 
+    /**
+     * Removes all borders ({@code table-borderless}).
+     *
+     * @param borderless {@code true} for no borders
+     */
     public void setBorderless(final boolean borderless) {
         if (borderless) {
             StyleHelper.addEnumStyleName(this, TableType.BORDERLESS);
@@ -172,6 +192,11 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
         }
     }
 
+    /**
+     * Halves the padding of the cells ({@code table-sm}).
+     *
+     * @param condensed {@code true} for a compact table
+     */
     public void setCondensed(final boolean condensed) {
         if (condensed) {
             StyleHelper.addEnumStyleName(this, TableType.CONDENSED);
@@ -180,6 +205,11 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
         }
     }
 
+    /**
+     * Highlights the row under the mouse ({@code table-hover}).
+     *
+     * @param hover {@code true} to highlight rows
+     */
     public void setHover(final boolean hover) {
         if (hover) {
             StyleHelper.addEnumStyleName(this, TableType.HOVER);
@@ -188,6 +218,11 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
         }
     }
 
+    /**
+     * Same as {@link #setDark(boolean)}, the name it had in Bootstrap 3.
+     *
+     * @param inverse {@code true} for a dark table
+     */
     public void setInverse(final boolean inverse) {
         if (inverse) {
             StyleHelper.addEnumStyleName(this, TableType.DARK);
@@ -196,6 +231,11 @@ public class CellTable<T> extends com.google.gwt.user.cellview.client.CellTable<
         }
     }
 
+    /**
+     * Makes the table dark ({@code table-dark}).
+     *
+     * @param dark {@code true} for a dark table
+     */
     public void setDark(final boolean dark) {
         if (dark) {
             StyleHelper.addEnumStyleName(this, TableType.DARK);

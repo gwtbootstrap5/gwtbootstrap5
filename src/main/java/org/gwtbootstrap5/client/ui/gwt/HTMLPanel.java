@@ -41,6 +41,9 @@ import com.google.gwt.safehtml.shared.SafeHtml;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
+ * GWT's {@code HTMLPanel} with an id, the {@code data-bs-spy} and {@code data-bs-target}
+ * attributes, inline style setters, a contextual background and the responsive visibility classes.
+ *
  * @author Sven Jacobs
  * @author Grant Slender
  * @author David Buhler
@@ -51,14 +54,30 @@ public class HTMLPanel extends com.google.gwt.user.client.ui.HTMLPanel implement
     private final DataTargetMixin<HTMLPanel> targetMixin = new DataTargetMixin<>(this);
     private final IdMixin<HTMLPanel> idMixin = new IdMixin<>(this);
 
+    /**
+     * Creates a {@code div} holding the given HTML.
+     *
+     * @param html the HTML
+     */
     public HTMLPanel(final String html) {
         super(html);
     }
 
+    /**
+     * Creates a {@code div} holding the given HTML.
+     *
+     * @param safeHtml the HTML
+     */
     public HTMLPanel(final SafeHtml safeHtml) {
         super(safeHtml);
     }
 
+    /**
+     * Creates an element of the given tag holding the given HTML.
+     *
+     * @param tag the tag, such as {@code "span"}
+     * @param html the HTML
+     */
     public HTMLPanel(final String tag, final String html) {
         super(tag, html);
     }

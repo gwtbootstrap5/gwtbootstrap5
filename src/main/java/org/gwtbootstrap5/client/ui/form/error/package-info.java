@@ -1,3 +1,4 @@
+/** Error handlers, which show the validation errors of form controls. */
 package org.gwtbootstrap5.client.ui.form.error;
 
 /*-

@@ -1,3 +1,4 @@
+/** Implementations that the check and radio widgets delegate to. */
 package org.gwtbootstrap5.client.ui.impl;
 
 /*-

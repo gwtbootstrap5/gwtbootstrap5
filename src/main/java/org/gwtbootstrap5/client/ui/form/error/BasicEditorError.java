@@ -28,12 +28,16 @@ import com.google.gwt.editor.client.EditorError;
  */
 public class BasicEditorError implements EditorError {
 
+    /** Whether the error has been consumed, see {@link #setConsumed(boolean)}. */
     protected boolean consumed = false;
 
+    /** The editor the error belongs to. */
     protected Editor<?> editor;
 
+    /** The message of the error. */
     protected String message;
 
+    /** The value that failed validation. */
     protected Object value;
 
     /**

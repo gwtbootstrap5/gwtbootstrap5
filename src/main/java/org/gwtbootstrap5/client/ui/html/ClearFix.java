@@ -23,10 +23,15 @@ package org.gwtbootstrap5.client.ui.html;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 /**
+ * {@code div.clearfix}: clears the floats inside it.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/helpers/clearfix/">Bootstrap 5 documentation</a>
+ *
  * @author Joshua Godi
  */
 public class ClearFix extends Div {
 
+    /** Creates an empty clearfix. */
     public ClearFix() {
         addStyleName(Styles.CLEARFIX);
     }

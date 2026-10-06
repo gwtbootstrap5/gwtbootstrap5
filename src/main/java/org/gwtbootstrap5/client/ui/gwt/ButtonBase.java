@@ -32,12 +32,18 @@ import org.gwtbootstrap5.client.ui.constants.FloatCSS;
 
 import com.google.gwt.dom.client.Element;
 
+/** GWT's {@code ButtonBase} with an id, a float and the responsive visibility classes. */
 public abstract class ButtonBase extends com.google.gwt.user.client.ui.ButtonBase implements HasResponsiveness, HasId, HasFloat {
 
     private final IdMixin<ButtonBase> idMixin = new IdMixin<>(this);
     private final FloatMixin<ButtonBase> floatMixin = new FloatMixin<>(this);
     private final EnabledMixin<ButtonBase> enabledMixin = new EnabledMixin<>(this);
 
+    /**
+     * Creates a button in the given element.
+     *
+     * @param elem the element
+     */
     protected ButtonBase(Element elem) {
         super(elem);
     }

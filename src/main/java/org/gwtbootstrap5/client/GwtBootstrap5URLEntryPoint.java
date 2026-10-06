@@ -34,6 +34,10 @@ import org.gwtbootstrap5.client.ui.util.StyleInjector;
  */
 public class GwtBootstrap5URLEntryPoint implements EntryPoint {
 
+    /** Creates the entry point; GWT calls it when the module loads. */
+    public GwtBootstrap5URLEntryPoint() {
+    }
+
     /** {@inheritDoc} */
     @Override
     public void onModuleLoad() {

@@ -33,6 +33,10 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true, namespace = "bootstrap", name = "Alert")
 public class BootstrapAlert {
 
+    /** Don't call it: get the instance of an element with {@code getOrCreateInstance}. */
+    public BootstrapAlert() {
+    }
+
     /**
      * Returns the instance bound to the element, creating it if needed.
      *

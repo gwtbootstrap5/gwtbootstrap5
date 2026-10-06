@@ -24,8 +24,18 @@ import org.gwtbootstrap5.client.ui.CheckBox;
 
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 
+/** Makes a checkbox fire value change events when its input changes. */
 public class CheckBoxImpl {
 
+    /** Creates the implementation; the checkbox gets it with {@code GWT.create}. */
+    public CheckBoxImpl() {
+    }
+
+    /**
+     * Fires the checkbox's value change events on the change events of its input.
+     *
+     * @param checkBox the checkbox
+     */
     public void ensureDomEventHandlers(final CheckBox checkBox) {
         checkBox.addChangeHandler(event -> ValueChangeEvent.fire(checkBox, checkBox.getValue()));
     }

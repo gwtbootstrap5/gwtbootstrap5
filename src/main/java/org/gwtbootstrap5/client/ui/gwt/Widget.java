@@ -29,7 +29,12 @@ import org.gwtbootstrap5.client.ui.base.mixin.FloatMixin;
 import org.gwtbootstrap5.client.ui.constants.DeviceSize;
 import org.gwtbootstrap5.client.ui.constants.FloatCSS;
 
+/** GWT's {@code Widget} with an id, a float and the responsive visibility classes. */
 public class Widget extends com.google.gwt.user.client.ui.Widget implements HasResponsiveness, HasId, HasFloat {
+
+    /** Creates a widget; subclasses set its element. */
+    public Widget() {
+    }
 
     private final IdMixin<Widget> idMixin = new IdMixin<>(this);
     private final FloatMixin<Widget> floatMixin = new FloatMixin<>(this);

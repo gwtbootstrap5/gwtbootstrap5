@@ -38,6 +38,10 @@ public interface Validator<T> {
      */
     class Priority {
 
+        /** Creates an instance. The priorities are constants, so there is no need to. */
+        public Priority() {
+        }
+
         /** HIGHEST priority */
         public static final int HIGHEST = 0;
 

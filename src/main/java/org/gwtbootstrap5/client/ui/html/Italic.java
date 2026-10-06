@@ -32,10 +32,16 @@ import com.google.gwt.dom.client.Document;
  */
 public class Italic extends AbstractTextWidget {
 
+    /** Creates an empty emphasis ({@code em}). */
     public Italic() {
         super(Document.get().createElement(ElementTags.EM));
     }
 
+    /**
+     * Creates an emphasis.
+     *
+     * @param text the content, as HTML
+     */
     public Italic(final String text) {
         this();
         setHTML(text);

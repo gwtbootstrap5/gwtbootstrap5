@@ -33,27 +33,42 @@ import com.google.gwt.i18n.client.LocalizableResource.DefaultLocale;
 @DefaultLocale()
 public interface ValidationMessages extends ConstantsWithLookup {
 
+    /** Keys of the messages, to override them in a properties file of your own. */
     class Keys {
 
+        /** Creates an instance. The keys are constants, so there is no need to. */
+        public Keys() {
+        }
+
+        /** Key of the message of {@link BlankValidator}. */
         public static final String BLANK = "org.gwtbootstrap5.validation.Blank.message";
 
+        /** Key of the message of {@link DecimalMaxValidator}. */
         public static final String DECIMAL_MAX = "org.gwtbootstrap5.validation.DecimalMax.message";
 
+        /** Key of the message of {@link DecimalMinValidator}. */
         public static final String DECIMAL_MIN = "org.gwtbootstrap5.validation.DecimalMin.message";
 
+        /** Key of the message of {@link FieldMatchValidator}. */
         public static final String FIELD_MATCH = "org.gwtbootstrap5.validation.FieldMatch.message";
 
+        /** Key of the message of {@link FutureValidator}. */
         public static final String FUTURE = "org.gwtbootstrap5.validation.Future.message";
 
+        /** Key of the message of {@link PastValidator}. */
         public static final String PAST = "org.gwtbootstrap5.validation.Past.message";
 
+        /** Key of the message of {@link RegExValidator}. */
         public static final String REGEX = "org.gwtbootstrap5.validation.RegEx.message";
 
+        /** Key of the message of {@link SizeValidator}. */
         public static final String SIZE = "org.gwtbootstrap5.validation.Size.message";
 
     }
 
     /**
+     * Returns the message of {@link BlankValidator}.
+     *
      * @return the blank validation message.
      */
     @Key(Keys.BLANK)
@@ -61,6 +76,8 @@ public interface ValidationMessages extends ConstantsWithLookup {
     String org_gwtbootstrap5_validation_Blank_message();
 
     /**
+     * Returns the message of {@link DecimalMaxValidator}.
+     *
      * @return the decimal max validation message.
      */
     @Key(Keys.DECIMAL_MAX)
@@ -68,6 +85,8 @@ public interface ValidationMessages extends ConstantsWithLookup {
     String org_gwtbootstrap5_validation_DecimalMax_message();
 
     /**
+     * Returns the message of {@link DecimalMinValidator}.
+     *
      * @return the decimal min validation message.
      */
     @Key(Keys.DECIMAL_MIN)
@@ -75,6 +94,8 @@ public interface ValidationMessages extends ConstantsWithLookup {
     String org_gwtbootstrap5_validation_DecimalMin_message();
 
     /**
+     * Returns the message of {@link FieldMatchValidator}.
+     *
      * @return the field match validation message.
      */
     @Key(Keys.FIELD_MATCH)
@@ -82,6 +103,8 @@ public interface ValidationMessages extends ConstantsWithLookup {
     String org_gwtbootstrap5_validation_FieldMatch_message();
 
     /**
+     * Returns the message of {@link FutureValidator}.
+     *
      * @return the future validation message.
      */
     @Key(Keys.FUTURE)
@@ -89,6 +112,8 @@ public interface ValidationMessages extends ConstantsWithLookup {
     String org_gwtbootstrap5_validation_Future_message();
 
     /**
+     * Returns the message of {@link PastValidator}.
+     *
      * @return the past validation message.
      */
     @Key(Keys.PAST)
@@ -96,6 +121,8 @@ public interface ValidationMessages extends ConstantsWithLookup {
     String org_gwtbootstrap5_validation_Past_message();
 
     /**
+     * Returns the message of {@link RegExValidator}.
+     *
      * @return the regular expression validation message.
      */
     @Key(Keys.REGEX)
@@ -103,6 +130,8 @@ public interface ValidationMessages extends ConstantsWithLookup {
     String org_gwtbootstrap5_validation_RegEx_message();
 
     /**
+     * Returns the message of {@link SizeValidator}.
+     *
      * @return the size validation message.
      */
     @Key(Keys.SIZE)

@@ -30,6 +30,7 @@ import org.gwtbootstrap5.client.ui.base.ComplexWidget;
  */
 public class FigCaption extends ComplexWidget {
 
+    /** Creates an empty {@code figcaption}. */
     public FigCaption() {
         setElement(Document.get().createElement("figcaption"));
     }

@@ -25,10 +25,13 @@ import org.gwtbootstrap5.client.ui.base.ComplexWidget;
 import com.google.gwt.dom.client.Document;
 
 /**
+ * Horizontal rule ({@code hr}).
+ *
  * @author Joshua Godi
  */
 public class Hr extends ComplexWidget {
 
+    /** Creates a horizontal rule. */
     public Hr() {
         setElement(Document.get().createHRElement());
     }

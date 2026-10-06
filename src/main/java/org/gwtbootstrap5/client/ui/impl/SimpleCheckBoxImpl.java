@@ -26,8 +26,21 @@ import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 
+/**
+ * Makes a {@link org.gwtbootstrap5.client.ui.SimpleCheckBox} fire value change events when it
+ * changes.
+ */
 public class SimpleCheckBoxImpl {
 
+    /** Creates the implementation; the checkbox gets it with {@code GWT.create}. */
+    public SimpleCheckBoxImpl() {
+    }
+
+    /**
+     * Fires the checkbox's value change events on its change events.
+     *
+     * @param simpleCheckBox the checkbox
+     */
     public void ensureDomEventHandlers(final SimpleCheckBox simpleCheckBox) {
         simpleCheckBox.addChangeHandler(event -> ValueChangeEvent.fire(simpleCheckBox, simpleCheckBox.getValue()));
     }

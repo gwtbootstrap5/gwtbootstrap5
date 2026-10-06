@@ -29,11 +29,15 @@ package org.gwtbootstrap5.client.ui.form.validator;
 public interface HasBlankValidator<T> {
 
     /**
+     * Returns whether the widget may be left blank.
+     *
      * @return the allow blank
      */
     boolean getAllowBlank();
 
     /**
+     * Sets whether the widget may be left blank. When it may not, a {@link BlankValidator} is added.
+     *
      * @param allowBlank the new allow blank
      */
     void setAllowBlank(boolean allowBlank);

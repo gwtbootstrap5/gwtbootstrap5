@@ -27,6 +27,10 @@ import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.text.shared.SimpleSafeHtmlRenderer;
 import com.google.gwt.user.client.ui.HasEnabled;
 
+/**
+ * Cell of a {@link CellTable} or a {@link DataGrid} drawn as a Bootstrap button, with a type, a
+ * size and an optional icon.
+ */
 public class ButtonCell extends com.google.gwt.cell.client.ButtonCell implements HasEnabled {
 
     private IconType icon;
@@ -37,43 +41,84 @@ public class ButtonCell extends com.google.gwt.cell.client.ButtonCell implements
 
     private boolean enabled = true;
 
+    /** Creates a light button cell. */
     public ButtonCell() {
         super(SimpleSafeHtmlRenderer.getInstance());
     }
 
+    /**
+     * Creates a button cell of a type.
+     *
+     * @param type the button type
+     */
     public ButtonCell(ButtonType type) {
         this();
         this.type = type;
     }
 
+    /**
+     * Creates a light button cell with an icon.
+     *
+     * @param icon the icon, before the text
+     */
     public ButtonCell(IconType icon) {
         this();
         this.icon = icon;
     }
 
+    /**
+     * Creates a light button cell of a size.
+     *
+     * @param size the button size
+     */
     public ButtonCell(ButtonSize size) {
         this();
         this.size = size;
     }
 
+    /**
+     * Creates a button cell of a type, with an icon.
+     *
+     * @param type the button type
+     * @param icon the icon, before the text
+     */
     public ButtonCell(ButtonType type, IconType icon) {
         this();
         this.type = type;
         this.icon = icon;
     }
 
+    /**
+     * Creates a button cell of a type and a size.
+     *
+     * @param type the button type
+     * @param size the button size
+     */
     public ButtonCell(ButtonType type, ButtonSize size) {
         this();
         this.type = type;
         this.size = size;
     }
 
+    /**
+     * Creates a light button cell of a size, with an icon.
+     *
+     * @param icon the icon, before the text
+     * @param size the button size
+     */
     public ButtonCell(IconType icon, ButtonSize size) {
         this();
         this.icon = icon;
         this.size = size;
     }
 
+    /**
+     * Creates a button cell of a type and a size, with an icon.
+     *
+     * @param icon the icon, before the text
+     * @param type the button type
+     * @param size the button size
+     */
     public ButtonCell(IconType icon, ButtonType type, ButtonSize size) {
         this();
         this.icon = icon;

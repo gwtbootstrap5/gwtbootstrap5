@@ -41,6 +41,11 @@ import com.google.gwt.core.client.GWT;
  */
 public class DefaultValidatorMessageMixin implements ValidatorMessageMixin {
 
+    /** Creates the mixin, with the messages of {@link ValidationMessages}. */
+    public DefaultValidatorMessageMixin() {
+    }
+
+    /** The default messages, in the language of the module. */
     protected ValidationMessages messages = GWT.create(ValidationMessages.class);
 
     /** {@inheritDoc} */

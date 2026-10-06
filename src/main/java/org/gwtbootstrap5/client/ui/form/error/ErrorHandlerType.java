@@ -25,7 +25,12 @@ package org.gwtbootstrap5.client.ui.form.error;
  */
 public enum ErrorHandlerType {
 
+    /** No error handler: errors are not shown. */
     NONE,
+    /**
+     * The {@link DefaultErrorHandler}, which marks the control and shows the message in its help
+     * block.
+     */
     DEFAULT,
 
 }

@@ -45,6 +45,7 @@ public class OptGroup extends ComplexWidget implements HasEnabled {
 
     private static final String LABEL = "label";
 
+    /** Creates an empty option group. */
     public OptGroup() {
         setElement(Document.get().createOptGroupElement());
     }
@@ -102,6 +103,11 @@ public class OptGroup extends ComplexWidget implements HasEnabled {
         return removed;
     }
 
+    /**
+     * Returns the options of the group, by their element.
+     *
+     * @return the options
+     */
     public Map<OptionElement, Option> getItemMap() {
         return itemMap;
     }

@@ -33,11 +33,22 @@ public class RegExValidator extends AbstractValidator<String> {
 
     private final RegExp regex;
 
+    /**
+     * Creates a validator with the default message.
+     *
+     * @param pattern the regular expression the whole value must match
+     */
     public RegExValidator(String pattern) {
         super(Keys.REGEX, new Object[0]);
         regex = RegExp.compile(pattern);
     }
 
+    /**
+     * Creates a validator with a message of its own.
+     *
+     * @param pattern the regular expression the whole value must match
+     * @param invalidMessageOverride the message shown when the value doesn't match
+     */
     public RegExValidator(String pattern, String invalidMessageOverride) {
         super(invalidMessageOverride);
         regex = RegExp.compile(pattern);

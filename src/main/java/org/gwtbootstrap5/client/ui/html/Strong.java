@@ -32,10 +32,16 @@ import com.google.gwt.dom.client.Document;
  */
 public class Strong extends AbstractTextWidget {
 
+    /** Creates an empty {@code strong} element. */
     public Strong() {
         super(Document.get().createElement(ElementTags.STRONG));
     }
 
+    /**
+     * Creates a {@code strong} element.
+     *
+     * @param text the content, as HTML
+     */
     public Strong(final String text) {
         this();
         setHTML(text);

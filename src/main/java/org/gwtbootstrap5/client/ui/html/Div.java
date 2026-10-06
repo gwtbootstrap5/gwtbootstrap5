@@ -31,6 +31,7 @@ import com.google.gwt.dom.client.Document;
  */
 public class Div extends ComplexWidget {
 
+    /** Creates an empty {@code div}. */
     public Div() {
         setElement(Document.get().createDivElement());
     }

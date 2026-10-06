@@ -39,12 +39,25 @@ public class SizeValidator<T> extends AbstractValidator<T> {
 
     private Integer minValue;
 
+    /**
+     * Creates a validator with the default message.
+     *
+     * @param min the smallest length or size allowed
+     * @param max the largest length or size allowed
+     */
     public SizeValidator(Integer min, Integer max) {
         super(Keys.SIZE, new Object[] { min, max });
         setMin(min);
         setMax(max);
     }
 
+    /**
+     * Creates a validator with a message of its own.
+     *
+     * @param min the smallest length or size allowed
+     * @param max the largest length or size allowed
+     * @param invalidMessageOverride the message shown when the length is out of range
+     */
     public SizeValidator(Integer min, Integer max, String invalidMessageOverride) {
         super(invalidMessageOverride);
         setMin(min);
@@ -74,6 +87,8 @@ public class SizeValidator<T> extends AbstractValidator<T> {
     }
 
     /**
+     * Sets the largest length or size allowed.
+     *
      * @param max the max to set
      */
     public void setMax(Integer max) {
@@ -82,6 +97,8 @@ public class SizeValidator<T> extends AbstractValidator<T> {
     }
 
     /**
+     * Sets the smallest length or size allowed; {@code null} or a negative number means 0.
+     *
      * @param min the min to set
      */
     public void setMin(Integer min) {

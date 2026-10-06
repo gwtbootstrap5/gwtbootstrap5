@@ -31,10 +31,16 @@ import org.gwtbootstrap5.client.ui.form.validator.ValidationMessages.Keys;
  */
 public class PastValidator extends AbstractValidator<Date> {
 
+    /** Creates a validator with the default message. */
     public PastValidator() {
         super(Keys.PAST, new Object[0]);
     }
 
+    /**
+     * Creates a validator with a message of its own.
+     *
+     * @param invalidMessageOverride the message shown when the date isn't in the past
+     */
     public PastValidator(String invalidMessageOverride) {
         super(invalidMessageOverride);
     }

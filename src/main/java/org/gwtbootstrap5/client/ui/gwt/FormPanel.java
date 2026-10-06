@@ -27,25 +27,48 @@ import org.gwtbootstrap5.client.ui.constants.DeviceSize;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.ui.NamedFrame;
 
+/** GWT's {@code FormPanel} with an id and the responsive visibility classes. */
 public class FormPanel extends com.google.gwt.user.client.ui.FormPanel
         implements HasResponsiveness {
 
+    /** Creates an empty form that submits into a hidden frame. */
     public FormPanel() {
         super();
     }
 
+    /**
+     * Creates a form in the given {@code form} element.
+     *
+     * @param element the form element
+     * @param createIFrame {@code true} to submit into a hidden frame
+     */
     public FormPanel(Element element, boolean createIFrame) {
         super(element, createIFrame);
     }
 
+    /**
+     * Creates a form in the given {@code form} element, submitting into a hidden frame.
+     *
+     * @param element the form element
+     */
     public FormPanel(Element element) {
         super(element);
     }
 
+    /**
+     * Creates a form that submits into the given frame.
+     *
+     * @param frameTarget the frame
+     */
     public FormPanel(NamedFrame frameTarget) {
         super(frameTarget);
     }
 
+    /**
+     * Creates a form that submits into the window or frame with the given name.
+     *
+     * @param target the name of the window or frame
+     */
     public FormPanel(String target) {
         super(target);
     }

@@ -36,9 +36,16 @@ import org.gwtbootstrap5.client.ui.constants.Spy;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
+ * GWT's {@code FlowPanel} (a {@code div}) with an id, the {@code data-bs-spy} and
+ * {@code data-bs-target} attributes, and the responsive visibility classes.
+ *
  * @author Sven Jacobs
  */
 public class FlowPanel extends com.google.gwt.user.client.ui.FlowPanel implements HasDataSpy, HasId, HasDataTarget, HasResponsiveness {
+
+    /** Creates an empty panel. */
+    public FlowPanel() {
+    }
 
     private final DataSpyMixin<FlowPanel> spyMixin = new DataSpyMixin<>(this);
     private final IdMixin<FlowPanel> idMixin = new IdMixin<>(this);

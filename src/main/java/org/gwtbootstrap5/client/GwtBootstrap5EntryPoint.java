@@ -33,6 +33,10 @@ import jsinterop.base.Js;
  */
 public class GwtBootstrap5EntryPoint implements EntryPoint {
 
+    /** Creates the entry point; GWT calls it when the module loads. */
+    public GwtBootstrap5EntryPoint() {
+    }
+
     /**
      * Check to see if Bootstrap is loaded already.
      * 

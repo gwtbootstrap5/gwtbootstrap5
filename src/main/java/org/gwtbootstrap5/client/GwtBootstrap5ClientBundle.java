@@ -25,15 +25,29 @@ import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.resources.client.TextResource;
 
 /**
+ * The JavaScript of Bootstrap and Popper, bundled with the module and injected by
+ * {@link GwtBootstrap5EntryPoint} unless the page loads them already.
+ *
  * @author Sven Jacobs
  */
 public interface GwtBootstrap5ClientBundle extends ClientBundle {
 
+    /** The bundle. */
     GwtBootstrap5ClientBundle INSTANCE = GWT.create(GwtBootstrap5ClientBundle.class);
 
+    /**
+     * Popper, which positions Bootstrap's dropdowns, tooltips and popovers.
+     *
+     * @return the script
+     */
     @Source("resource/js/popper-2.11.8.min.cache.js")
     TextResource popper();
 
+    /**
+     * Bootstrap's JavaScript, without Popper.
+     *
+     * @return the script
+     */
     @Source("resource/js/bootstrap-5.3.8.min.cache.js")
     TextResource bootstrap();
 }

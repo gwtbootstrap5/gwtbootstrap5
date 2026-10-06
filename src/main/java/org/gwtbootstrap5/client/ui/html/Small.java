@@ -32,10 +32,16 @@ import com.google.gwt.dom.client.Document;
  */
 public class Small extends AbstractTextWidget {
 
+    /** Creates an empty {@code small} element. */
     public Small() {
         super(Document.get().createElement(ElementTags.SMALL));
     }
 
+    /**
+     * Creates a {@code small} element.
+     *
+     * @param text the content, as HTML
+     */
     public Small(final String text) {
         this();
         setHTML(text);

@@ -30,6 +30,7 @@ import org.gwtbootstrap5.client.ui.base.ComplexWidget;
  */
 public class Figure extends ComplexWidget {
 
+    /** Creates an empty {@code figure}. */
     public Figure() {
         setElement(Document.get().createElement("figure"));
     }

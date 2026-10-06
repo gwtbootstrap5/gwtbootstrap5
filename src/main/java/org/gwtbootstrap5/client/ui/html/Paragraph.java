@@ -31,33 +31,61 @@ import org.gwtbootstrap5.client.ui.gwt.HTMLPanel;
 import com.google.gwt.dom.client.ParagraphElement;
 
 /**
+ * Paragraph ({@code p}) with text or HTML and widgets, an alignment and an emphasis color.
+ *
  * @author Sven Jacobs
  */
 public class Paragraph extends HTMLPanel implements HasAlignment, HasEmphasis {
 
     private final HTMLMixin<Paragraph> textMixin = new HTMLMixin<>(this);
 
+    /** Creates an empty paragraph. */
     public Paragraph() {
         this("");
     }
 
+    /**
+     * Creates a paragraph.
+     *
+     * @param html the content, as HTML
+     */
     public Paragraph(final String html) {
         super(ParagraphElement.TAG, html);
         setHTML(html);
     }
 
+    /**
+     * Sets the text of the paragraph, replacing its content.
+     *
+     * @param text the text
+     */
     public void setText(final String text) {
         textMixin.setText(text);
     }
 
+    /**
+     * Returns the text of the paragraph.
+     *
+     * @return the text
+     */
     public String getText() {
         return textMixin.getText();
     }
 
+    /**
+     * Returns the content of the paragraph, as HTML.
+     *
+     * @return the HTML
+     */
     public String getHTML() {
         return textMixin.getHTML();
     }
 
+    /**
+     * Sets the content of the paragraph, as HTML.
+     *
+     * @param html the HTML
+     */
     public void setHTML(final String html) {
         textMixin.setHTML(html);
     }

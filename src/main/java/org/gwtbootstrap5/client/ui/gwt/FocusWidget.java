@@ -32,12 +32,18 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 
 import com.google.gwt.dom.client.Element;
 
+/** GWT's {@code FocusWidget} with an id, a float and the responsive visibility classes. */
 public abstract class FocusWidget extends com.google.gwt.user.client.ui.FocusWidget implements HasResponsiveness,
         HasId, HasFloat {
 
     private final IdMixin<FocusWidget> idMixin = new IdMixin<>(this);
     private final FloatMixin<FocusWidget> floatMixin = new FloatMixin<>(this);
 
+    /**
+     * Creates a widget in the given element.
+     *
+     * @param elem the element
+     */
     protected FocusWidget(Element elem) {
         super(elem);
     }

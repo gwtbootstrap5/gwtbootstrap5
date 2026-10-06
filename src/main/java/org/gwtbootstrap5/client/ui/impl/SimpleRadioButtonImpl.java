@@ -26,8 +26,21 @@ import com.google.gwt.event.dom.client.ChangeEvent;
 import com.google.gwt.event.dom.client.ChangeHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 
+/**
+ * Makes a {@link org.gwtbootstrap5.client.ui.SimpleRadioButton} fire value change events when it
+ * changes.
+ */
 public class SimpleRadioButtonImpl {
 
+    /** Creates the implementation; the radio gets it with {@code GWT.create}. */
+    public SimpleRadioButtonImpl() {
+    }
+
+    /**
+     * Fires the radio's value change events on its change events.
+     *
+     * @param simpleRadioButton the radio
+     */
     public void ensureDomEventHandlers(final SimpleRadioButton simpleRadioButton) {
         simpleRadioButton.addChangeHandler(event -> ValueChangeEvent.fire(simpleRadioButton,
                 simpleRadioButton.getValue()));

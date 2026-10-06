@@ -34,6 +34,8 @@ public class BooleanParser implements Parser<Boolean> {
     private static BooleanParser instance;
 
     /**
+     * Returns the shared instance.
+     *
      * @return the instance of the {@link BooleanParser}.
      */
     public static Parser<Boolean> instance() {

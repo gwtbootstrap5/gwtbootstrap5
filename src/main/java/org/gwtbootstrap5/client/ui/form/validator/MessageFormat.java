@@ -27,6 +27,10 @@ package org.gwtbootstrap5.client.ui.form.validator;
  */
 public class MessageFormat {
 
+    /** Creates an instance. Every method is static, so there is no need to. */
+    public MessageFormat() {
+    }
+
     /**
      * Format the message using the pattern and the arguments.
      * 

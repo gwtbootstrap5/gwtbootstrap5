@@ -34,6 +34,10 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true, namespace = "bootstrap", name = "Dropdown")
 public class BootstrapDropdown {
 
+    /** Don't call it: get the instance of a toggle with {@code getOrCreateInstance}. */
+    public BootstrapDropdown() {
+    }
+
     /**
      * Returns the instance bound to the toggle, creating it with the given config if needed.
      * The config is ignored when an instance already exists.

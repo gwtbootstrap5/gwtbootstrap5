@@ -33,6 +33,10 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true, namespace = "bootstrap", name = "Carousel")
 public class BootstrapCarousel {
 
+    /** Don't call it: get the instance of an element with {@code getOrCreateInstance}. */
+    public BootstrapCarousel() {
+    }
+
     /**
      * Returns the instance bound to the element, creating it with the given config if needed.
      * The config is ignored when an instance already exists.
@@ -63,7 +67,11 @@ public class BootstrapCarousel {
     /** Goes to the next item. */
     public native void next();
 
-    /** Goes to the item at the given 0-based index. */
+    /**
+     * Goes to the item at the given 0-based index.
+     *
+     * @param index the index of the slide, from 0
+     */
     public native void to(int index);
 
     /** Destroys the instance and removes its stored data. */

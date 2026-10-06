@@ -1,3 +1,7 @@
+/**
+ * Entry points of GwtBootstrap5, which load Bootstrap's JavaScript and CSS, and the bundle that
+ * holds them.
+ */
 package org.gwtbootstrap5.client;
 
 /*-

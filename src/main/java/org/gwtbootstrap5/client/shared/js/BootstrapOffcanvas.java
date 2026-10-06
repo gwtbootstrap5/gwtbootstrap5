@@ -33,6 +33,10 @@ import jsinterop.annotations.JsType;
 @JsType(isNative = true, namespace = "bootstrap", name = "Offcanvas")
 public class BootstrapOffcanvas {
 
+    /** Don't call it: get the instance of an element with {@code getOrCreateInstance}. */
+    public BootstrapOffcanvas() {
+    }
+
     /**
      * Returns the instance bound to the element, creating it with the given config if needed.
      * The config is ignored when an instance already exists.

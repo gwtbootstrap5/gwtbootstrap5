@@ -27,6 +27,8 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import com.google.gwt.dom.client.Document;
 
 /**
+ * Ordered list ({@code ol}), which can be unstyled or inline.
+ *
  * @author Joshua Godi
  */
 public class OrderedList extends ComplexWidget {
@@ -50,10 +52,20 @@ public class OrderedList extends ComplexWidget {
         }
     }
 
+    /**
+     * Removes the list's bullets and left margin ({@code list-unstyled}).
+     *
+     * @param unstyled {@code true} for an unstyled list
+     */
     public void setUnstyled(final boolean unstyled) {
         setStyleName(Styles.LIST_UNSTYLED, unstyled);
     }
 
+    /**
+     * Lays the items out on one line ({@code list-inline}); give them {@code list-inline-item}.
+     *
+     * @param inline {@code true} for an inline list
+     */
     public void setInline(final boolean inline) {
         setStyleName(Styles.LIST_INLINE, inline);
     }
