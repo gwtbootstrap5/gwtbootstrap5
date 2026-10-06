@@ -21,6 +21,8 @@ package org.gwtbootstrap5.client.ui.base;
  */
 
 /**
+ * A widget that can be marked active, with Bootstrap's {@code active} class.
+ *
  * @author Sven Jacobs
  */
 public interface HasActive {

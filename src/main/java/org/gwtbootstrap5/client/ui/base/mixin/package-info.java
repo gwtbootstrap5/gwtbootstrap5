@@ -1,3 +1,4 @@
+/** Mixins: shared implementations of widget interfaces that widgets delegate to. */
 package org.gwtbootstrap5.client.ui.base.mixin;
 
 /*-

@@ -43,6 +43,10 @@ import com.google.gwt.user.client.ui.Widget;
  */
 public abstract class FormElementContainer extends ComplexPanel implements HasResponsiveness {
 
+    /** Creates an empty container; subclasses set its element. */
+    public FormElementContainer() {
+    }
+
     /** {@inheritDoc} */
     @Override
     public void add(final Widget w) {

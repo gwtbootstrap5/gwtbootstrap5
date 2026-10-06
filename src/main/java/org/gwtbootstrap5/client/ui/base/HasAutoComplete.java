@@ -20,10 +20,17 @@ package org.gwtbootstrap5.client.ui.base;
  * ==========================LICENSE_END=================================
  */
 
+/**
+ * A form control whose browser autocompletion can be turned off ({@code autocomplete}
+ * attribute).
+ */
 public interface HasAutoComplete {
 
+    /** Name of the attribute. */
     String AUTO_COMPLETE = "autocomplete";
+    /** Value that lets the browser autocomplete. */
     String ON = "on";
+    /** Value that stops the browser autocompleting. */
     String OFF = "off";
 
     /**

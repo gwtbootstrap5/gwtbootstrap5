@@ -55,6 +55,7 @@ import com.google.web.bindery.event.shared.SimpleEventBus;
  */
 public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V> implements HasValidators<V> {
 
+    /** The error handler that shows the validation errors. */
     protected ErrorHandler errorHandler;
 
     private final EventBus eventBus;
@@ -65,6 +66,7 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
 
     private boolean validateOnBlur;
 
+    /** The validators, in the order of their priority. */
     protected Set<ValidatorWrapper<V>> validators = new TreeSet<>();
 
     /**
@@ -82,10 +84,20 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
         setupValueChangeValidation();
     }
 
+    /**
+     * Validates the widget when it loses focus, if {@link #setValidateOnBlur(boolean)} is set.
+     *
+     * @return the registration of the blur handler
+     */
     protected HandlerRegistration setupBlurValidation() {
         return inputWidget.addDomHandler(event -> validate(validateOnBlur), BlurEvent.getType());
     }
 
+    /**
+     * Validates the widget, without showing the errors, when its value changes.
+     *
+     * @return the registration of the value change handler
+     */
     protected HandlerRegistration setupValueChangeValidation() {
         return inputWidget.addHandler((ValueChangeHandler<V>) event -> validate(false), ValueChangeEvent.getType());
     }
@@ -107,6 +119,8 @@ public class DefaultValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V
     }
 
     /**
+     * Returns the widget that is validated.
+     *
      * @return the inputWidget
      */
     public W getInputWidget() {

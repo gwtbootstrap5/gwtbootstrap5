@@ -21,12 +21,25 @@ package org.gwtbootstrap5.client.ui.base;
  */
 
 /**
+ * A form control with a placeholder: a hint shown while it is empty.
+ *
  * @author Pontus Enmark
  */
 public interface HasPlaceholder {
+    /** Name of the attribute. */
     String PLACEHOLDER = "placeholder";
 
+    /**
+     * Sets the placeholder.
+     *
+     * @param placeholder the hint
+     */
     void setPlaceholder(String placeholder);
 
+    /**
+     * Returns the placeholder.
+     *
+     * @return the hint
+     */
     String getPlaceholder();
 }

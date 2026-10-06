@@ -1,3 +1,4 @@
+/** Base classes of the buttons, and the close button. */
 package org.gwtbootstrap5.client.ui.base.button;
 
 /*-

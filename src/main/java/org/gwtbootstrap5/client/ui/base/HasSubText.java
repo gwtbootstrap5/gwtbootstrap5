@@ -26,7 +26,17 @@ package org.gwtbootstrap5.client.ui.base;
  * @author Sven Jacobs
  */
 public interface HasSubText {
+    /**
+     * Sets the sub text, shown muted after the text.
+     *
+     * @param subText the sub text
+     */
     void setSubText(final String subText);
 
+    /**
+     * Returns the sub text.
+     *
+     * @return the sub text
+     */
     String getSubText();
 }

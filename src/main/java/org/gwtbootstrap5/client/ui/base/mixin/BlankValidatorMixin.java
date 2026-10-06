@@ -71,6 +71,8 @@ public class BlankValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V> 
     }
 
     /**
+     * Returns whether the widget may be left blank.
+     *
      * @return the allow blank
      */
     public boolean getAllowBlank() {
@@ -78,6 +80,8 @@ public class BlankValidatorMixin<W extends Widget & HasValue<V> & Editor<V>, V> 
     }
 
     /**
+     * Sets whether the widget may be left blank, adding or removing the blank validator.
+     *
      * @param allowBlank the new allow blank
      */
     public void setAllowBlank(boolean allowBlank) {

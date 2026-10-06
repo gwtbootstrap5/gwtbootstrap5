@@ -21,10 +21,22 @@ package org.gwtbootstrap5.client.ui.base;
  */
 
 /**
+ * A nav whose items can share its width equally ({@code nav-justified}).
+ *
  * @author Sven Jacobs
  */
 public interface HasJustified {
+    /**
+     * Makes the items share the width equally.
+     *
+     * @param justified {@code true} to justify the items
+     */
     void setJustified(boolean justified);
 
+    /**
+     * Returns whether the items share the width equally.
+     *
+     * @return {@code true} if they are justified
+     */
     boolean isJustified();
 }

@@ -23,6 +23,8 @@ package org.gwtbootstrap5.client.ui.base;
 import org.gwtbootstrap5.client.ui.constants.Spy;
 
 /**
+ * A widget with a {@code data-bs-spy} attribute, which makes Bootstrap's scrollspy track it.
+ *
  * @author Sven Jacobs
  */
 public interface HasDataSpy {

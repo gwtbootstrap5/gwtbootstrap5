@@ -27,10 +27,18 @@ import org.gwtbootstrap5.client.ui.constants.Toggle;
 import com.google.gwt.user.client.ui.UIObject;
 
 /**
+ * Implementation of {@link HasDataToggle} that a widget delegates to.
+ *
+ * @param <T> the type of the widget
  * @author Sven Jacobs
  */
 public class DataToggleMixin<T extends UIObject & HasDataToggle> extends AbstractMixin implements HasDataToggle {
 
+    /**
+     * Creates the mixin of a widget.
+     *
+     * @param uiObject the widget
+     */
     public DataToggleMixin(final T uiObject) {
         super(uiObject);
     }

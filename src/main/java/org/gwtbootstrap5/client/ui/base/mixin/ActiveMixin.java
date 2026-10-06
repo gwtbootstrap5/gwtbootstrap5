@@ -27,10 +27,18 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import com.google.gwt.user.client.ui.UIObject;
 
 /**
+ * Implementation of {@link HasActive} that a widget delegates to: the {@code active} class.
+ *
+ * @param <T> the type of the widget
  * @author Sven Jacobs
  */
 public class ActiveMixin<T extends UIObject & HasActive> extends AbstractMixin implements HasActive {
 
+    /**
+     * Creates the mixin of a widget.
+     *
+     * @param uiObject the widget
+     */
     public ActiveMixin(final T uiObject) {
         super(uiObject);
     }

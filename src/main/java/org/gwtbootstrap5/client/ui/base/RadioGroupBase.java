@@ -140,6 +140,8 @@ public class RadioGroupBase<T> extends FlowPanel implements HasName, HasValue<T>
     }
 
     /**
+     * Returns the radios of the group.
+     *
      * @return the radio children
      */
     public Set<Radio> getRadioChildren() {

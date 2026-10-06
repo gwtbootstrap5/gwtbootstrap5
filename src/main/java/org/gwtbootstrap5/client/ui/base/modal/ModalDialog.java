@@ -25,11 +25,15 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import com.google.gwt.user.client.ui.FlowPanel;
 
 /**
+ * Dialog of a modal ({@code div.modal-dialog}): the box whose size, centering and scrolling the
+ * modal's options set.
+ *
  * @author Sven Jacobs
  * @see org.gwtbootstrap5.client.ui.Modal
  */
 public class ModalDialog extends FlowPanel {
 
+    /** Creates an empty modal dialog. */
     public ModalDialog() {
         setStyleName(Styles.MODAL_DIALOG);
     }

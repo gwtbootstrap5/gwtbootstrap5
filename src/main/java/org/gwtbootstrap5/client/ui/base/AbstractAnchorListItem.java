@@ -41,6 +41,7 @@ import com.google.gwt.user.client.ui.Focusable;
 public abstract class AbstractAnchorListItem extends AbstractListItem implements HasHref, HasTargetHistoryToken, HasActive,
         HasClickHandlers, Focusable, HasDataToggle, HasIcon, HasIconPosition, HasBadge, HasTarget {
 
+    /** The link of the item. */
     protected final AnchorNavLink anchor;
 
     /**
@@ -316,14 +317,30 @@ public abstract class AbstractAnchorListItem extends AbstractListItem implements
         return anchor.isActive();
     }
 
+    /**
+     * Sets the id of the item's link, rather than of the item.
+     *
+     * @param id the id
+     */
     public void setAnchorId(String id) {
         anchor.setId(id);
     }
 
+    /**
+     * Returns the id of the item's link.
+     *
+     * @return the id
+     */
     public String getAnchorId() {
         return anchor.getId();
     }
 
+    /**
+     * Shows the link as disabled ({@code disabled} on the link), without disabling its handlers;
+     * see {@link #setEnabled(boolean)} to disable it.
+     *
+     * @param disabled {@code true} to show it as disabled
+     */
     public void setDisabled(boolean disabled) {
         if (disabled) {
             anchor.addStyleName(Styles.DISABLED);
@@ -332,10 +349,20 @@ public abstract class AbstractAnchorListItem extends AbstractListItem implements
         }
     }
 
+    /**
+     * Returns whether the link is shown as disabled.
+     *
+     * @return {@code true} if the link has {@code disabled}
+     */
     public boolean isDisabled() {
         return anchor.getStyleName().contains(Styles.DISABLED);
     }
 
+    /**
+     * Returns the link of the item.
+     *
+     * @return the link
+     */
     public AnchorNavLink getAnchor() {
         return anchor;
     }

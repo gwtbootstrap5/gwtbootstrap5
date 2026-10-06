@@ -21,11 +21,15 @@ package org.gwtbootstrap5.client.ui.base;
  */
 
 /**
+ * A widget that links to a URL ({@code href} attribute).
+ *
  * @author Sven Jacobs
  */
 public interface HasHref {
     // Empty HREF to avoid issues when clicking!
+    /** The {@code href} of a link that goes nowhere. */
     String EMPTY_HREF = "javascript:;";
+    /** Name of the attribute. */
     String HREF = "href";
 
     /**

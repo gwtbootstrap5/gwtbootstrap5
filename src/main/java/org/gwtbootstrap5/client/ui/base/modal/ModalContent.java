@@ -25,11 +25,15 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
 import com.google.gwt.user.client.ui.FlowPanel;
 
 /**
+ * Content of a modal ({@code div.modal-content}), inside its dialog: the header, body and
+ * footer.
+ *
  * @author Sven Jacobs
  * @see org.gwtbootstrap5.client.ui.Modal
  */
 public class ModalContent extends FlowPanel {
 
+    /** Creates an empty modal content. */
     public ModalContent() {
         setStyleName(Styles.MODAL_CONTENT);
     }

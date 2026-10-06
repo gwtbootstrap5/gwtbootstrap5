@@ -33,6 +33,7 @@ import com.google.gwt.dom.client.Element;
  */
 public class CloseButton extends AbstractButton {
 
+    /** Creates a close button ({@code button.btn-close}). */
     public CloseButton() {
         setStyleName(Styles.CLOSE);
     }
@@ -42,6 +43,12 @@ public class CloseButton extends AbstractButton {
         return Document.get().createPushButtonElement().cast();
     }
 
+    /**
+     * Makes the button white, for dark backgrounds ({@code btn-close-white}). Bootstrap 5.3 prefers
+     * a dark color mode on the button or its parent, see {@code ColorModeHelper}.
+     *
+     * @param white {@code true} for a white button
+     */
     public void setWhite(final boolean white) {
         if (white) {
             getElement().addClassName(Styles.CLOSE_WHITE);

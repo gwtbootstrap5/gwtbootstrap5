@@ -26,12 +26,25 @@ import com.google.gwt.user.client.ui.Widget;
 
 
 /**
+ * A widget with a {@code data-bs-target} attribute: the element its toggle opens, such as a
+ * modal, a collapse or a tab pane.
+ *
  * @author Sven Jacobs
  */
 public interface HasDataTarget {
 
+    /**
+     * Targets a widget, giving it an id if it has none.
+     *
+     * @param widget the target
+     */
     void setDataTargetWidget(Widget widget);
 
+    /**
+     * Targets several widgets, through a class generated and added to each of them.
+     *
+     * @param widget the targets
+     */
     void setDataTargetWidgets(List<Widget> widget);
 
     /**

@@ -26,10 +26,18 @@ import org.gwtbootstrap5.client.ui.constants.Attributes;
 import com.google.gwt.user.client.ui.UIObject;
 
 /**
+ * Implementation of {@link HasDataParent} that a widget delegates to.
+ *
+ * @param <T> the type of the widget
  * @author Grant Slender
  */
 public class DataParentMixin<T extends UIObject & HasDataParent> extends AbstractMixin implements HasDataParent {
 
+    /**
+     * Creates the mixin of a widget.
+     *
+     * @param uiObject the widget
+     */
     public DataParentMixin(final T uiObject) {
         super(uiObject);
     }

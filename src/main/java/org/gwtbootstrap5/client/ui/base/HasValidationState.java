@@ -23,6 +23,8 @@ package org.gwtbootstrap5.client.ui.base;
 import org.gwtbootstrap5.client.ui.constants.ValidationState;
 
 /**
+ * A container that shows the validation state of the form controls in it ({@code is-invalid}).
+ *
  * @author Sven Jacobs
  */
 public interface HasValidationState {

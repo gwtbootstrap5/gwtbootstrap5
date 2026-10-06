@@ -25,8 +25,18 @@ package org.gwtbootstrap5.client.ui.base;
  */
 public interface HasRole {
 
+    /**
+     * Sets the ARIA role of the widget ({@code role} attribute).
+     *
+     * @param role the role, such as {@code "tab"}
+     */
     void setRole(String role);
 
+    /**
+     * Returns the ARIA role of the widget.
+     *
+     * @return the {@code role} attribute
+     */
     String getRole();
 
 }

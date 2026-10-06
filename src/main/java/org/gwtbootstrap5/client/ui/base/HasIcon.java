@@ -30,46 +30,151 @@ import org.gwtbootstrap5.client.ui.constants.*;
  */
 public interface HasIcon {
 
+    /**
+     * Sets the icon by name.
+     *
+     * @param icon the name of an {@link IconType} constant
+     */
     void setIcon(String icon);
 
+    /**
+     * Sets the icon.
+     *
+     * @param iconType the icon
+     */
     void setIcon(IconType iconType);
 
+    /**
+     * Returns the icon.
+     *
+     * @return the icon, or {@code null} if none
+     */
     IconType getIcon();
 
+    /**
+     * Sets the size of the icon.
+     *
+     * @param iconSize the size
+     */
     void setIconSize(IconSize iconSize);
 
+    /**
+     * Returns the size of the icon.
+     *
+     * @return the size
+     */
     IconSize getIconSize();
 
+    /**
+     * Flips the icon.
+     *
+     * @param iconFlip the flip
+     */
     void setIconFlip(IconFlip iconFlip);
 
+    /**
+     * Returns the flip of the icon.
+     *
+     * @return the flip
+     */
     IconFlip getIconFlip();
 
+    /**
+     * Rotates the icon.
+     *
+     * @param iconRotate the rotation
+     */
     void setIconRotate(IconRotate iconRotate);
 
+    /**
+     * Returns the rotation of the icon.
+     *
+     * @return the rotation
+     */
     IconRotate getIconRotate();
 
+    /**
+     * Draws a border around the icon.
+     *
+     * @param iconBordered {@code true} for a border
+     */
     void setIconBordered(boolean iconBordered);
 
+    /**
+     * Returns whether the icon has a border.
+     *
+     * @return {@code true} if it has a border
+     */
     boolean isIconBordered();
 
+    /**
+     * Draws the icon in white.
+     *
+     * @param iconInverse {@code true} for a white icon
+     */
     void setIconInverse(boolean iconInverse);
 
+    /**
+     * Returns whether the icon is white.
+     *
+     * @return {@code true} if it is white
+     */
     boolean isIconInverse();
 
+    /**
+     * Spins the icon continuously.
+     *
+     * @param iconSpin {@code true} to spin
+     */
     void setIconSpin(boolean iconSpin);
 
+    /**
+     * Returns whether the icon spins.
+     *
+     * @return {@code true} if it spins
+     */
     boolean isIconSpin();
 
+    /**
+     * Spins the icon in eight steps.
+     *
+     * @param iconPulse {@code true} to pulse
+     */
     void setIconPulse(boolean iconPulse);
 
+    /**
+     * Returns whether the icon pulses.
+     *
+     * @return {@code true} if it pulses
+     */
     boolean isIconPulse();
 
+    /**
+     * Gives the icon a fixed width.
+     *
+     * @param iconFixedWidth {@code true} for a fixed width
+     */
     void setIconFixedWidth(boolean iconFixedWidth);
 
+    /**
+     * Returns whether the icon has a fixed width.
+     *
+     * @return {@code true} if it has a fixed width
+     */
     boolean isIconFixedWidth();
 
+    /**
+     * Sets the color of the icon.
+     *
+     * @param iconColor a CSS color
+     */
     void setIconColor(String iconColor);
 
+    /**
+     * Returns the color of the icon.
+     *
+     * @return the CSS color, or {@code null} if none
+     */
     String getIconColor();
 
 }

@@ -42,10 +42,16 @@ public abstract class AbstractToggleButton extends AbstractIconButton implements
     private final DataToggleMixin<AbstractToggleButton> toggleMixin = new DataToggleMixin<>(this);
     private final Text separator = new Text(" ");
 
+    /** Creates a light button ({@code btn-light}). */
     protected AbstractToggleButton() {
         this(ButtonType.LIGHT);
     }
 
+    /**
+     * Creates a button of the given type.
+     *
+     * @param type the button type
+     */
     protected AbstractToggleButton(final ButtonType type) {
         setType(type);
         iconTextMixin.addTextWidgetToParent();

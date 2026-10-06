@@ -82,14 +82,18 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     private static final String DEFAULT_TEMPLATE = "<div class=\"{0}\" role=\"{0}\"><div class=\"{1}\"></div><div class=\"{2}\"></div></div>";
     private String alternateTemplate = null;
 
+    /** The widget the tooltip or popover belongs to. */
     protected Widget widget;
     private String id;
     private final String dataTarget;
+    /** Whether the Bootstrap instance has been created, when the widget was attached. */
     protected boolean initialized = false;
     private boolean showing = false;
 
     /**
      * Creates the empty Tooltip
+     *
+     * @param dataTarget the Bootstrap event namespace, {@code bs.tooltip} or {@code bs.popover}
      */
     protected AbstractTooltip(String dataTarget) {
         this.dataTarget = dataTarget;
@@ -98,6 +102,7 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     /**
      * Creates the tooltip with given title. Remember to set the widget as well
      *
+     * @param dataTarget the Bootstrap event namespace, {@code bs.tooltip} or {@code bs.popover}
      * @param title title for the tooltip
      */
     protected AbstractTooltip(String dataTarget, final String title) {
@@ -108,6 +113,7 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     /**
      * Creates the tooltip around this widget
      *
+     * @param dataTarget the Bootstrap event namespace, {@code bs.tooltip} or {@code bs.popover}
      * @param w widget for the tooltip
      */
     protected AbstractTooltip(String dataTarget, final Widget w) {
@@ -118,6 +124,7 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     /**
      * Creates the tooltip around this widget with given title
      *
+     * @param dataTarget the Bootstrap event namespace, {@code bs.tooltip} or {@code bs.popover}
      * @param w     widget for the tooltip
      * @param title title for the tooltip
      */
@@ -214,6 +221,11 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     }
 
     // @formatter:off
+    /**
+     * Listens to the Bootstrap events of the element, to fire them on the widget.
+     *
+     * @param e the element of the widget
+     */
     protected void bindJavaScriptEvents(final Element e) {
         listeners.removeAll();
         listeners.add(e, "show." + dataTarget, this::onShow);
@@ -243,6 +255,11 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
         }
     }
     
+    /**
+     * Calls a method of the Bootstrap instance, such as {@code show} or {@code dispose}.
+     *
+     * @param arg the name of the method
+     */
     protected abstract void call(final String arg);
 
     /**
@@ -260,6 +277,16 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
 
     /**
      * Create the options for the tooltip.
+     *
+     * @param e the element of the widget
+     * @param animation whether the tip fades in and out
+     * @param html whether the title is HTML
+     * @param selector the selector of the descendants that get the tip, or {@code null}
+     * @param trigger how the tip is opened, such as {@code "hover focus"}
+     * @param showDelay the delay before showing, in milliseconds
+     * @param hideDelay the delay before hiding, in milliseconds
+     * @param container where the tip is appended, or {@code null} for the body
+     * @param template the HTML template of the tip
      */
     protected void createOptions(Element e, boolean animation, boolean html, String selector,
             String trigger, int showDelay, int hideDelay, String container, String template) {
@@ -390,6 +417,8 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     }
 
     /**
+     * Returns the selector set with {@link #setViewportSelector(String)}.
+     *
      * @return the viewportSelector
      */
     public String getViewportSelector() {
@@ -427,6 +456,8 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     }
 
     /**
+     * Returns whether the Bootstrap instance has been created.
+     *
      * @return the initialized
      */
     public boolean isInitialized() {
@@ -533,6 +564,12 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
         widget.fireEvent(new ShownEvent(evt));
     }
 
+    /**
+     * Returns the HTML template of the tip: the alternate template if one is set, or the default
+     * one with the class names added with {@link #addTooltipClassName(String)} and the like.
+     *
+     * @return the template
+     */
     protected String prepareTemplate() {
         String template;
         if (alternateTemplate == null) {
@@ -604,6 +641,9 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     }
 
     /**
+     * Sets whether the Bootstrap instance has been created. Used by {@link #init()} and
+     * {@link #destroy()}.
+     *
      * @param initialized the initialized to set
      */
     public void setInitialized(boolean initialized) {
@@ -716,6 +756,9 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     }
 
     /**
+     * Sets the selector of the descendants of the widget that get the tip
+     * ({@code data-bs-selector}), for tips on elements added later.
+     *
      * @param viewportSelector the viewportSelector to set
      */
     public void setViewportSelector(String viewportSelector) {

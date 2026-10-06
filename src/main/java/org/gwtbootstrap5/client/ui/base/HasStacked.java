@@ -21,10 +21,22 @@ package org.gwtbootstrap5.client.ui.base;
  */
 
 /**
+ * A widget whose items can be stacked vertically.
+ *
  * @author Sven Jacobs
  */
 public interface HasStacked {
+    /**
+     * Stacks the items vertically.
+     *
+     * @param stacked {@code true} to stack them
+     */
     void setStacked(boolean stacked);
 
+    /**
+     * Returns whether the items are stacked.
+     *
+     * @return {@code true} if they are stacked
+     */
     boolean isStacked();
 }

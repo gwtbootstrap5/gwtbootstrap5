@@ -23,6 +23,10 @@ package org.gwtbootstrap5.client.ui.base;
 import org.gwtbootstrap5.client.ui.constants.Type;
 
 /**
+ * A widget with a type: the contextual color or variant of a Bootstrap component, such as
+ * {@code btn-primary} or {@code alert-danger}.
+ *
+ * @param <T> the enum of types
  * @author Sven Jacobs
  */
 public interface HasType<T extends Type> {

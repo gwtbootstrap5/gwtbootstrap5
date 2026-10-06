@@ -45,11 +45,14 @@ public abstract class AbstractButtonGroup extends FlowPanel implements HasName, 
     private final DataToggleMixin<AbstractButtonGroup> toggleMixin = new DataToggleMixin<>(this);
     private String name;
 
+    /** Creates an empty group with {@code btn-group}. */
     protected AbstractButtonGroup() {
         setStyleName(Styles.BTN_GROUP);
     }
 
     /**
+     * Creates an empty group with another base class, for {@code btn-group-vertical}.
+     *
      * @param styleName the group's base class, used instead of {@code btn-group}
      */
     protected AbstractButtonGroup(final String styleName) {

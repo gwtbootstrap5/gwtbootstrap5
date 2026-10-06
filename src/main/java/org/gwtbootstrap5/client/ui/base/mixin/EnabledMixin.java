@@ -26,11 +26,20 @@ import com.google.gwt.user.client.ui.HasEnabled;
 import com.google.gwt.user.client.ui.UIObject;
 
 /**
+ * Implementation of {@link com.google.gwt.user.client.ui.HasEnabled} that a widget delegates to:
+ * the {@code disabled} attribute and class.
+ *
+ * @param <T> the type of the widget
  * @author Joshua Godi
  */
 public class EnabledMixin<T extends UIObject & HasEnabled> extends AbstractMixin implements HasEnabled {
     private static final String DISABLED = "disabled";
 
+    /**
+     * Creates the mixin of a widget.
+     *
+     * @param uiObject the widget
+     */
     public EnabledMixin(final T uiObject) {
         super(uiObject);
     }

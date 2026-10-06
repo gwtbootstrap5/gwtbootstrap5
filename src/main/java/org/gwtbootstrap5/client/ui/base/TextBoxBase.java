@@ -26,12 +26,25 @@ import com.google.gwt.text.shared.Renderer;
 import com.google.gwt.text.shared.testing.PassthroughParser;
 import com.google.gwt.text.shared.testing.PassthroughRenderer;
 
+/** Base class of the text inputs: a {@link ValueBoxBase} whose value is its text. */
 public class TextBoxBase extends ValueBoxBase<String> {
 
+    /**
+     * Creates a text input in the given element.
+     *
+     * @param elem the input or textarea element
+     */
     protected TextBoxBase(final Element elem) {
         this(elem, PassthroughRenderer.instance(), PassthroughParser.instance());
     }
 
+    /**
+     * Creates a text input in the given element, with a parser and a renderer of its own.
+     *
+     * @param elem the input or textarea element
+     * @param renderer turns the value into the text of the input
+     * @param parser turns the text of the input into the value
+     */
     protected TextBoxBase(final Element elem, Renderer<String> renderer, Parser<String> parser) {
         super(elem, renderer, parser);
     }

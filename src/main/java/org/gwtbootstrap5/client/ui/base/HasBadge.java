@@ -25,13 +25,34 @@ package org.gwtbootstrap5.client.ui.base;
  */
 import org.gwtbootstrap5.client.ui.constants.BadgePosition;
 
+/** A widget that shows a {@link org.gwtbootstrap5.client.ui.Badge} next to its text. */
 public interface HasBadge {
 
+    /**
+     * Sets the text of the badge, creating it.
+     *
+     * @param badgeText the text, or {@code null} to remove the badge
+     */
     void setBadgeText(String badgeText);
 
+    /**
+     * Returns the text of the badge.
+     *
+     * @return the text, or {@code null} if there is no badge
+     */
     String getBadgeText();
 
+    /**
+     * Sets on which side of the text the badge goes.
+     *
+     * @param badgePosition the side
+     */
     void setBadgePosition(BadgePosition badgePosition);
 
+    /**
+     * Returns on which side of the text the badge goes.
+     *
+     * @return the side
+     */
     BadgePosition getBadgePosition();
 }

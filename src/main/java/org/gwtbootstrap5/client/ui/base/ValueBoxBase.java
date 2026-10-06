@@ -43,6 +43,13 @@ import com.google.gwt.text.shared.Parser;
 import com.google.gwt.text.shared.Renderer;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
+/**
+ * Base class of the form controls that hold a typed value in an input or a textarea: GWT's
+ * {@code ValueBoxBase} with an id, a placeholder, a size, read-only state, validators and the error
+ * handler that shows their messages.
+ *
+ * @param <T> the type of the value
+ */
 public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<T> implements HasId, HasReadOnly,
         HasResponsiveness, HasPlaceholder, HasAutoComplete, HasSize<InputSize>, HasEditorErrors<T>,
         HasErrorHandler, HasValidators<T>, HasBlankValidator<T> {
@@ -60,11 +67,18 @@ public class ValueBoxBase<T> extends com.google.gwt.user.client.ui.ValueBoxBase<
      * Creates a value box that wraps the given browser element handle. This is only used by subclasses.
      *
      * @param elem the browser element to wrap
+     * @param renderer turns the value into the text of the box
+     * @param parser turns the text of the box into the value
      */
     protected ValueBoxBase(final Element elem, final Renderer<T> renderer, final Parser<T> parser) {
         super(elem, renderer, parser);
     }
 
+    /**
+     * Sets the maximum number of characters ({@code maxlength} attribute).
+     *
+     * @param maxLength the maximum
+     */
     public void setMaxLength(final int maxLength) {
         getElement().setAttribute(MAX_LENGTH, Integer.toString(maxLength));
     }

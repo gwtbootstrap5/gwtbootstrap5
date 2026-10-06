@@ -27,10 +27,18 @@ import org.gwtbootstrap5.client.ui.constants.FloatCSS;
 import com.google.gwt.user.client.ui.UIObject;
 
 /**
+ * Implementation of {@link HasFloat} that a widget delegates to.
+ *
+ * @param <T> the type of the widget
  * @author Sven Jacobs
  */
 public class FloatMixin<T extends UIObject & HasFloat> extends AbstractMixin implements HasFloat {
 
+    /**
+     * Creates the mixin of a widget.
+     *
+     * @param uiObject the widget
+     */
     public FloatMixin(final T uiObject) {
         super(uiObject);
     }

@@ -27,10 +27,18 @@ import org.gwtbootstrap5.client.ui.constants.Spy;
 import com.google.gwt.user.client.ui.UIObject;
 
 /**
+ * Implementation of {@link HasDataSpy} that a widget delegates to.
+ *
+ * @param <T> the type of the widget
  * @author Sven Jacobs
  */
 public class DataSpyMixin<T extends UIObject & HasDataSpy> extends AbstractMixin implements HasDataSpy {
 
+    /**
+     * Creates the mixin of a widget.
+     *
+     * @param uiObject the widget
+     */
     public DataSpyMixin(final T uiObject) {
         super(uiObject);
     }

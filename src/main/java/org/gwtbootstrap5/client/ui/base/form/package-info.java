@@ -1,3 +1,4 @@
+/** Base classes of the forms and their containers. */
 package org.gwtbootstrap5.client.ui.base.form;
 
 /*-

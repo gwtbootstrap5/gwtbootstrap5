@@ -23,12 +23,25 @@ package org.gwtbootstrap5.client.ui.base;
 import org.gwtbootstrap5.client.ui.constants.InputType;
 
 /**
+ * An input whose HTML type can be set.
+ *
  * @author Joshua Godi
  */
 public interface HasInputType {
+    /** Name of the attribute. */
     public static final String TYPE = "type";
 
+    /**
+     * Sets the type of the input.
+     *
+     * @param inputType the type
+     */
     void setType(InputType inputType);
 
+    /**
+     * Returns the type of the input.
+     *
+     * @return the type
+     */
     InputType getType();
 }

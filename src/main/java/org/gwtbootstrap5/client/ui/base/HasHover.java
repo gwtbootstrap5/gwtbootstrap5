@@ -24,6 +24,9 @@ import org.gwtbootstrap5.client.ui.constants.Placement;
 import org.gwtbootstrap5.client.ui.constants.Trigger;
 
 /**
+ * A widget shown on hover, a tooltip or a popover, with Bootstrap's options for it: animation,
+ * HTML content, placement, trigger and delays.
+ *
  * @author Joshua Godi
  */
 public interface HasHover {

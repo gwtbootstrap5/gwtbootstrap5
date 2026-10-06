@@ -31,6 +31,9 @@ import com.google.gwt.user.client.ui.UIObject;
 import com.google.gwt.user.client.ui.Widget;
 
 /**
+ * Implementation of {@link HasDataTarget} that a widget delegates to.
+ *
+ * @param <T> the type of the widget
  * @author Sven Jacobs
  */
 public class DataTargetMixin<T extends UIObject & HasDataTarget> extends AbstractMixin implements HasDataTarget {
@@ -48,6 +51,11 @@ public class DataTargetMixin<T extends UIObject & HasDataTarget> extends Abstrac
         }
     }
 
+    /**
+     * Creates the mixin of a widget.
+     *
+     * @param uiObject the widget
+     */
     public DataTargetMixin(final T uiObject) {
         super(uiObject);
     }

@@ -21,6 +21,8 @@ package org.gwtbootstrap5.client.ui.base;
  */
 
 /**
+ * A link that goes to a GWT history token instead of a URL.
+ *
  * @author Sven Jacobs
  */
 public interface HasTargetHistoryToken {

@@ -23,10 +23,18 @@ package org.gwtbootstrap5.client.ui.base.mixin;
 import com.google.gwt.user.client.ui.UIObject;
 
 /**
+ * Reads and writes the attributes of a widget's element.
+ *
+ * @param <T> the type of the widget
  * @author Joshua Godi
  */
 public class AttributeMixin<T extends UIObject> extends AbstractMixin {
 
+    /**
+     * Creates the mixin of a widget.
+     *
+     * @param uiObject the widget
+     */
     public AttributeMixin(final T uiObject) {
         super(uiObject);
     }

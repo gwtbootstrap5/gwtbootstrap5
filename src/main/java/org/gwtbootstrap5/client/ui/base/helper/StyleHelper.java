@@ -39,6 +39,11 @@ public final class StyleHelper {
     /**
      * Convenience method for first removing all enum style constants and then adding the single one.
      *
+     * @param <E> the enum of the style
+     * @param <F> the enum whose style names are removed
+     * @param uiObject the widget
+     * @param enumClass the enum whose style names are removed
+     * @param style the style name to add
      * @see #removeEnumStyleNames(com.google.gwt.user.client.ui.UIObject, Class)
      * @see #addEnumStyleName(com.google.gwt.user.client.ui.UIObject, com.google.gwt.dom.client.Style.HasCssName)
      */
@@ -52,9 +57,9 @@ public final class StyleHelper {
     /**
      * Removes all CSS style names specified by an enum that implements {@link Style.HasCssName} from an UIObject.
      *
+     * @param <E>       Enum type implementing {@link Style.HasCssName}
      * @param uiObject  Object to remove CSS class names from
      * @param enumClass Enum representing CSS class names
-     * @param <E>       Enum type implementing {@link Style.HasCssName}
      */
     public static <E extends Enum<? extends Style.HasCssName>> void removeEnumStyleNames(final UIObject uiObject,
                                                                                          final Class<E> enumClass) {
@@ -71,6 +76,7 @@ public final class StyleHelper {
     /**
      * Adds enum value style name to UIObject unless style is {@code null}.
      *
+     * @param <E> the enum of the style
      * @param uiObject Object to add style to
      * @param style    Style name
      */
@@ -85,6 +91,7 @@ public final class StyleHelper {
     /**
      * Removes enum value style name from UIObject unless style is {@code null}.
      *
+     * @param <E> the enum of the style
      * @param uiObject Object to remove style from
      * @param style    Style name
      */

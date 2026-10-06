@@ -387,7 +387,7 @@ public class CheckBox extends ButtonBase implements HasName, HasValue<Boolean>, 
      * Don't confuse this with {@link #setValue}, which actually checks and
      * unchecks the box.
      * 
-     * @param value e
+     * @param value the form value of the checkbox
      */
     @Override
     public void setFormValue(String value) {

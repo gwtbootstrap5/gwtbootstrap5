@@ -84,6 +84,11 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
         this(ButtonType.LIGHT);
     }
 
+    /**
+     * Creates a button of the given type ({@code btn btn-*}).
+     *
+     * @param type the button type
+     */
     protected AbstractButton(final ButtonType type) {
         setElement(createElement());
         setStyleName(Styles.BTN);
@@ -237,11 +242,17 @@ public abstract class AbstractButton extends ComplexWidget implements HasEnabled
     }
 
 
+    /** Clicks the button from code, firing its click handlers. */
     public void click() {
         final NativeEvent event = Document.get().createClickEvent(0, 0, 0, 0, 0, false, false, false, false);
         DomEvent.fireNativeEvent(event, this);
     }
 
+    /**
+     * Creates the element of the button, such as a {@code button} or an {@code a}.
+     *
+     * @return the element
+     */
     protected abstract Element createElement();
 
     // @formatter:off

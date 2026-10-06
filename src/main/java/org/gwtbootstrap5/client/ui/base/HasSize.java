@@ -23,6 +23,9 @@ package org.gwtbootstrap5.client.ui.base;
 import org.gwtbootstrap5.client.ui.constants.Size;
 
 /**
+ * A widget with a size, such as the {@code -sm} and {@code -lg} classes of Bootstrap.
+ *
+ * @param <T> the enum of sizes
  * @author Sven Jacobs
  */
 public interface HasSize<T extends Size> {

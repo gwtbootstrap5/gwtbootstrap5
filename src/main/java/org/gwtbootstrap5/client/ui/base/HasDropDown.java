@@ -44,19 +44,64 @@ public interface HasDropDown {
     /** Shows or hides the menu. The widget must be attached. */
     void toggle();
 
+    /**
+     * Sets the direction the menu opens in ({@code dropup}, {@code dropend}, {@code dropstart} and
+     * the centered variants).
+     *
+     * @param direction the direction, or {@code null} for down
+     */
     void setDirection(DropDownDirection direction);
 
+    /**
+     * Returns the direction the menu opens in.
+     *
+     * @return the direction
+     */
     DropDownDirection getDirection();
 
+    /**
+     * Sets when the menu closes ({@code data-bs-auto-close} of the toggle).
+     *
+     * @param autoClose on clicks inside, outside, both or neither
+     */
     void setAutoClose(DropDownAutoClose autoClose);
 
+    /**
+     * Returns when the menu closes.
+     *
+     * @return the value of {@code data-bs-auto-close}
+     */
     DropDownAutoClose getAutoClose();
 
+    /**
+     * Adds a handler called when the menu starts to open.
+     *
+     * @param handler the handler
+     * @return the registration that removes the handler
+     */
     HandlerRegistration addShowHandler(ShowHandler handler);
 
+    /**
+     * Adds a handler called when the menu is open.
+     *
+     * @param handler the handler
+     * @return the registration that removes the handler
+     */
     HandlerRegistration addShownHandler(ShownHandler handler);
 
+    /**
+     * Adds a handler called when the menu starts to close.
+     *
+     * @param handler the handler
+     * @return the registration that removes the handler
+     */
     HandlerRegistration addHideHandler(HideHandler handler);
 
+    /**
+     * Adds a handler called when the menu is closed.
+     *
+     * @param handler the handler
+     * @return the registration that removes the handler
+     */
     HandlerRegistration addHiddenHandler(HiddenHandler handler);
 }

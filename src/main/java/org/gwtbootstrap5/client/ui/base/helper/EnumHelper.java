@@ -23,18 +23,21 @@ package org.gwtbootstrap5.client.ui.base.helper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Finds the enum constant of a name or of a style name, for the {@code fromStyleName} methods of
+ * the constants.
+ *
  * @author Sven Jacobs
  */
 public final class EnumHelper {
 
     /**
-     * Returns first enum constant found in at space-separated list of style names.
+     * Returns the enum constant with the given name.
      *
-     * @param enumName    Space-separated list of styles
-     * @param enumClass    Type of enum
-     * @param defaultValue Default value of no match was found
-     * @param <E> e
-     * @return First enum constant found or default value
+     * @param <E> the enum type
+     * @param enumName the name of the constant, such as {@code "PRIMARY"}
+     * @param enumClass the enum
+     * @param defaultValue returned when no constant has that name
+     * @return the constant, or the default value
      */
     @SuppressWarnings("unchecked")
     public static <E extends Enum<?>> E fromEnumName(final String enumName,
@@ -54,12 +57,12 @@ public final class EnumHelper {
     }
 
     /**
-     * Returns first enum constant found in at space-separated list of style names.
+     * Returns the first enum constant whose CSS class is in a space-separated list of style names.
      *
+     * @param <E> the enum type
      * @param styleName    Space-separated list of styles
      * @param enumClass    Type of enum
      * @param defaultValue Default value of no match was found
-     * @param <E> e
      * @return First enum constant found or default value
      */
     @SuppressWarnings("unchecked")

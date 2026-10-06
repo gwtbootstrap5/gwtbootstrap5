@@ -26,6 +26,9 @@ import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.safehtml.shared.SafeHtmlUtils;
 
 /**
+ * Turns source code into HTML for a {@link org.gwtbootstrap5.client.ui.Pre} or a
+ * {@link org.gwtbootstrap5.client.ui.Code}.
+ *
  * @author Sven Jacobs
  */
 public final class SourceCodeHelper {

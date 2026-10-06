@@ -49,6 +49,10 @@ import com.google.gwt.user.client.ui.impl.FormPanelImpl;
 import com.google.gwt.user.client.ui.impl.FormPanelImplHost;
 
 /**
+ * Base class of the forms: a {@code form} that submits to a URL into a hidden frame, fires
+ * {@link SubmitEvent} and {@link SubmitCompleteEvent}, and validates the controls in it that have
+ * validators.
+ *
  * @author Sven Jacobs
  * @author Steven Jardine
  */
@@ -126,6 +130,10 @@ public abstract class AbstractForm extends FormElementContainer implements FormP
      * Fired when the form is submitted.
      */
     public static class SubmitEvent extends GwtEvent<SubmitHandler> {
+
+        /** Creates a submit event. */
+        public SubmitEvent() {
+        }
 
         /**
          * The event type.
@@ -212,10 +220,16 @@ public abstract class AbstractForm extends FormElementContainer implements FormP
 
     private Element synthesizedFrame;
 
+    /** Creates a form with a hidden frame to submit into. */
     protected AbstractForm() {
         this(true);
     }
 
+    /**
+     * Creates a form.
+     *
+     * @param createIFrame {@code true} to submit into a hidden frame, so the page stays
+     */
     protected AbstractForm(boolean createIFrame) {
         this(Document.get().createFormElement(), createIFrame);
         getElement().setAttribute(Attributes.ROLE, FORM);
@@ -469,6 +483,8 @@ public abstract class AbstractForm extends FormElementContainer implements FormP
     }
 
     /**
+     * Validates the controls of the form that have validators, and shows their errors.
+     *
      * @return true if the child input elements are all valid.
      */
     public boolean validate() {
@@ -476,6 +492,9 @@ public abstract class AbstractForm extends FormElementContainer implements FormP
     }
 
     /**
+     * Validates the controls of the form that have validators.
+     *
+     * @param show {@code true} to show the errors next to the controls
      * @return true if the child input elements are all valid.
      */
     public boolean validate(boolean show) {
@@ -512,6 +531,11 @@ public abstract class AbstractForm extends FormElementContainer implements FormP
 
     private HandlerRegistration submitOnEnterRegistration = null;
 
+    /**
+     * Submits the form when Enter is pressed in it and its controls are valid.
+     *
+     * @param submitOnEnter {@code true} to submit on Enter
+     */
     public void setSubmitOnEnter(boolean submitOnEnter) {
         if (submitOnEnter) {
             if (submitOnEnterRegistration == null)
@@ -526,6 +550,11 @@ public abstract class AbstractForm extends FormElementContainer implements FormP
         }
     }
 
+    /**
+     * Returns whether the form is submitted when Enter is pressed in it.
+     *
+     * @return {@code true} if it is
+     */
     public boolean isSubmitOnEnter() {
         return submitOnEnterRegistration != null;
     }

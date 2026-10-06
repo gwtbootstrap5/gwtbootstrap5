@@ -28,12 +28,20 @@ import com.google.gwt.user.client.ui.Focusable;
 import com.google.gwt.user.client.ui.UIObject;
 
 /**
+ * Implementation of {@link com.google.gwt.user.client.ui.Focusable} that a widget delegates to.
+ *
+ * @param <T> the type of the widget
  * @author Sven Jacobs
  */
 public class FocusableMixin<T extends UIObject & Focusable> implements Focusable {
 
     private final T uiObject;
 
+    /**
+     * Creates the mixin of a widget.
+     *
+     * @param uiObject the widget
+     */
     public FocusableMixin(final T uiObject) {
         this.uiObject = uiObject;
     }

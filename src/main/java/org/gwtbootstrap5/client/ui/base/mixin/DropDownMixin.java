@@ -49,6 +49,8 @@ import com.google.gwt.user.client.ui.Widget;
  * <p>
  * Bootstrap binds the {@code bootstrap.Dropdown} instance to the toggle and fires its events there;
  * they bubble to the container, where this mixin listens, ignoring those of nested dropdowns.
+ *
+ * @param <T> the type of the dropdown container
  */
 public class DropDownMixin<T extends Widget & HasDropDown> extends AbstractMixin implements HasDropDown {
 
@@ -58,6 +60,8 @@ public class DropDownMixin<T extends Widget & HasDropDown> extends AbstractMixin
     private DropDownAutoClose autoClose;
 
     /**
+     * Creates the mixin of a dropdown container.
+     *
      * @param widget the dropdown container
      * @param defaultDirection the direction its constructor sets, or {@code null} when it sets none
      */
@@ -71,6 +75,10 @@ public class DropDownMixin<T extends Widget & HasDropDown> extends AbstractMixin
         return (Widget) uiObject;
     }
 
+    /**
+     * Listens to the dropdown events and applies the auto close option. Called from the container's
+     * {@code onLoad}.
+     */
     public void onLoad() {
         final Element e = uiObject.getElement();
         listeners.add(e, "show.bs.dropdown", evt -> fire(evt, new ShowEvent(evt)));
@@ -80,6 +88,10 @@ public class DropDownMixin<T extends Widget & HasDropDown> extends AbstractMixin
         applyAutoClose();
     }
 
+    /**
+     * Stops listening and disposes the Bootstrap instance. Called from the container's
+     * {@code onUnload}.
+     */
     public void onUnload() {
         listeners.removeAll();
         disposeInstance();

@@ -23,6 +23,9 @@ package org.gwtbootstrap5.client.ui.base;
 import org.gwtbootstrap5.client.ui.constants.Toggle;
 
 /**
+ * A widget with a {@code data-bs-toggle} attribute: the Bootstrap component it opens or
+ * toggles, such as a modal, a collapse or a dropdown.
+ *
  * @author Sven Jacobs
  */
 public interface HasDataToggle {

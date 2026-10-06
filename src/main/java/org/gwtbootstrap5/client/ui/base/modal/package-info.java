@@ -1,3 +1,4 @@
+/** Inner parts of the {@link org.gwtbootstrap5.client.ui.Modal}. */
 package org.gwtbootstrap5.client.ui.base.modal;
 
 /*-

@@ -23,10 +23,22 @@ package org.gwtbootstrap5.client.ui.base;
 import org.gwtbootstrap5.client.ui.constants.PaginationSize;
 
 /**
+ * A pagination with a size.
+ *
  * @author Joshua Godi
  */
 public interface HasPaginationSize {
+    /**
+     * Sets the size of the pagination.
+     *
+     * @param paginationSize the size ({@code pagination-sm} or {@code pagination-lg})
+     */
     void setPaginationSize(PaginationSize paginationSize);
 
+    /**
+     * Returns the size of the pagination.
+     *
+     * @return the size
+     */
     PaginationSize getPaginationSize();
 }

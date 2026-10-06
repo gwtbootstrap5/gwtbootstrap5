@@ -25,10 +25,18 @@ import org.gwtbootstrap5.client.ui.base.HasId;
 import com.google.gwt.user.client.ui.UIObject;
 
 /**
+ * Implementation of {@link HasId} that a widget delegates to.
+ *
+ * @param <T> the type of the widget
  * @author Sven Jacobs
  */
 public class IdMixin<T extends UIObject & HasId> extends AbstractMixin implements HasId {
 
+    /**
+     * Creates the mixin of a widget.
+     *
+     * @param uiObject the widget
+     */
     public IdMixin(final T uiObject) {
         super(uiObject);
     }

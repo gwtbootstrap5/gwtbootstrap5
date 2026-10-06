@@ -23,10 +23,22 @@ package org.gwtbootstrap5.client.ui.base;
 import org.gwtbootstrap5.client.ui.constants.Placement;
 
 /**
+ * A widget with a placement relative to another, such as a tooltip.
+ *
  * @author Pontus Enmark
  */
 public interface HasPlacement {
+    /**
+     * Sets the placement.
+     *
+     * @param placement the placement
+     */
     void setPlacement(Placement placement);
 
+    /**
+     * Returns the placement.
+     *
+     * @return the placement
+     */
     Placement getPlacement();
 }

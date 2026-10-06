@@ -30,7 +30,17 @@ package org.gwtbootstrap5.client.ui.base;
  */
 public interface HasFormValue {
 
+    /**
+     * Returns the form value of the widget.
+     *
+     * @return the {@code value} attribute of its input
+     */
     String getFormValue();
 
+    /**
+     * Sets the form value of the widget.
+     *
+     * @param value the {@code value} attribute of its input, sent with the form
+     */
     void setFormValue(final String value);
 }

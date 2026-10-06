@@ -21,10 +21,23 @@ package org.gwtbootstrap5.client.ui.base;
  */
 
 /**
+ * A widget with a {@code data-bs-parent} attribute: the accordion whose other items close when
+ * this collapsible opens.
+ *
  * @author Grant Slender
  */
 public interface HasDataParent {
+    /**
+     * Sets the parent ({@code data-bs-parent}).
+     *
+     * @param dataParent a selector of the parent, such as {@code "#accordion"}
+     */
     void setDataParent(String dataParent);
 
+    /**
+     * Returns the parent.
+     *
+     * @return the {@code data-bs-parent} attribute
+     */
     String getDataParent();
 }

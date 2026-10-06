@@ -33,6 +33,10 @@ import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.shared.HandlerRegistration;
 
 /**
+ * Base class of the dropdown containers ({@code dropdown} class): a toggle and the
+ * {@link org.gwtbootstrap5.client.ui.DropDownMenu} it opens, controlled from Java with
+ * {@link #show()}, {@link #hide()} and {@link #toggle()}.
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
  */
@@ -40,6 +44,11 @@ public class AbstractDropDown extends ComplexWidget implements HasDropDown {
 
     private final DropDownMixin<AbstractDropDown> dropDownMixin = new DropDownMixin<>(this, DropDownDirection.DOWN);
 
+    /**
+     * Creates a dropdown in the given element.
+     *
+     * @param element the element of the container, such as a {@code div} or an {@code li}
+     */
     public AbstractDropDown(final Element element) {
         setElement(element);
         setStyleName(Styles.DROPDOWN);

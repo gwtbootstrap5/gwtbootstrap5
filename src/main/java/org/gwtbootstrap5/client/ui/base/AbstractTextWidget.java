@@ -45,6 +45,11 @@ public abstract class AbstractTextWidget extends Widget implements HasId, HasHTM
     private final IdMixin<AbstractTextWidget> idMixin = new IdMixin<>(this);
     private LeafValueEditor<String> editor;
 
+    /**
+     * Creates a text widget in the given element.
+     *
+     * @param element the element, such as a {@code code} or a {@code label}
+     */
     protected AbstractTextWidget(final Element element) {
         setElement(element);
     }

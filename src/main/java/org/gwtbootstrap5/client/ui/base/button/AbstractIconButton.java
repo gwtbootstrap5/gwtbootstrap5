@@ -38,8 +38,14 @@ public abstract class AbstractIconButton extends AbstractButton implements HasTe
 
     IconTextMixin<AbstractIconButton> iconTextMixin = new IconTextMixin<>(this);
 
+    /** Creates a button without a type. */
     protected AbstractIconButton() { }
 
+    /**
+     * Creates a button of the given type.
+     *
+     * @param type the button type
+     */
     protected AbstractIconButton(final ButtonType type) {
         super(type);
     }

@@ -23,10 +23,22 @@ package org.gwtbootstrap5.client.ui.base;
 import org.gwtbootstrap5.client.ui.constants.IconPosition;
 
 /**
+ * A widget with an icon before or after its text.
+ *
  * @author Sven Jacobs
  */
 public interface HasIconPosition {
+    /**
+     * Sets on which side of the text the icon goes.
+     *
+     * @param iconPosition the side
+     */
     void setIconPosition(IconPosition iconPosition);
 
+    /**
+     * Returns on which side of the text the icon goes.
+     *
+     * @return the side
+     */
     IconPosition getIconPosition();
 }

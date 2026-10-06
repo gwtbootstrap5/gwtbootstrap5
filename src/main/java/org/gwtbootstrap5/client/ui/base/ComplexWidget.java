@@ -39,6 +39,10 @@ import com.google.gwt.user.client.ui.Widget;
  * @author Sven Jacobs
  */
 public class ComplexWidget extends ComplexPanel implements HasId, HasResponsiveness, HasInlineStyle, HasFloat {
+    /** Creates an empty widget; subclasses set its element. */
+    public ComplexWidget() {
+    }
+
     private final IdMixin<ComplexWidget> idMixin = new IdMixin<>(this);
     private final FloatMixin<ComplexWidget> floatMixin = new FloatMixin<>(this);
 
@@ -231,6 +235,11 @@ public class ComplexWidget extends ComplexPanel implements HasId, HasResponsiven
         getElement().getStyle().setColor(color);
     }
 
+    /**
+     * Returns the text color of the element, from its inline style.
+     *
+     * @return the color, or an empty string if none
+     */
     public String getColor() {
         return getElement().getStyle().getColor();
     }

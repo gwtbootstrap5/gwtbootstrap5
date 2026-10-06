@@ -36,6 +36,7 @@ import org.gwtbootstrap5.client.ui.util.IconUtil;
 /**
  * Mixin for Widgets that have text, an optional icon, and an optional badge
  *
+ * @param <T> the type of the widget
  * @author Sven Jacobs
  * @author Drew Spencer
  */
@@ -61,12 +62,18 @@ public class IconTextMixin<T extends ComplexWidget & HasText & HasIcon & HasIcon
     private BadgePosition badgePosition = BadgePosition.RIGHT;
     private String iconColor;
 
+    /**
+     * Creates the mixin of a widget. The badge is secondary until its type is set.
+     *
+     * @param widget the widget
+     */
     public IconTextMixin(final T widget) {
         this.widget = widget;
         // Without a color the badge is white text on a transparent background, invisible on light buttons
         badge.setType(BadgeType.SECONDARY);
     }
 
+    /** Adds the text to the widget. Called once by the widget's constructor. */
     public void addTextWidgetToParent() {
         widget.add(text);
     }

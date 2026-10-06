@@ -47,6 +47,7 @@ public abstract class AbstractListItem extends ComplexWidget implements HasEnabl
     private final IdMixin<AbstractListItem> idMixin = new IdMixin<>(this);
     private final EnabledMixin<AbstractListItem> enabledMixin = new EnabledMixin<>(this);
 
+    /** Creates an empty list item ({@code li}). */
     protected AbstractListItem() {
         setElement(Document.get().createLIElement());
     }

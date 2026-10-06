@@ -56,6 +56,8 @@ public final class ColorModeHelper {
     }
 
     /**
+     * Returns the color mode of the page.
+     *
      * @return the page's color mode, or {@code null} if none is set
      */
     public static ColorMode getPageColorMode() {
@@ -65,6 +67,7 @@ public final class ColorModeHelper {
     /**
      * Sets the color mode of a widget and its descendants.
      *
+     * @param uiObject the widget
      * @param mode the mode, or {@code null} to inherit the page's
      */
     public static void setColorMode(final UIObject uiObject, final ColorMode mode) {
@@ -72,6 +75,9 @@ public final class ColorModeHelper {
     }
 
     /**
+     * Returns the color mode of a widget.
+     *
+     * @param uiObject the widget
      * @return the widget's own color mode, or {@code null} if it inherits it
      */
     public static ColorMode getColorMode(final UIObject uiObject) {

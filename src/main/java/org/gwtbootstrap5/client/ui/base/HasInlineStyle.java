@@ -21,24 +21,72 @@ package org.gwtbootstrap5.client.ui.base;
  */
 
 /**
+ * A widget with setters for some properties of its inline style, in pixels. Bootstrap's spacing
+ * and color utility classes are usually better.
+ *
  * @author Joshua Godi
  */
 public interface HasInlineStyle {
+    /**
+     * Sets the top margin.
+     *
+     * @param margin the margin, in pixels
+     */
     void setMarginTop(double margin);
 
+    /**
+     * Sets the left margin.
+     *
+     * @param margin the margin, in pixels
+     */
     void setMarginLeft(double margin);
 
+    /**
+     * Sets the right margin.
+     *
+     * @param margin the margin, in pixels
+     */
     void setMarginRight(double margin);
 
+    /**
+     * Sets the bottom margin.
+     *
+     * @param margin the margin, in pixels
+     */
     void setMarginBottom(double margin);
 
+    /**
+     * Sets the top padding.
+     *
+     * @param padding the padding, in pixels
+     */
     void setPaddingTop(double padding);
 
+    /**
+     * Sets the left padding.
+     *
+     * @param padding the padding, in pixels
+     */
     void setPaddingLeft(double padding);
 
+    /**
+     * Sets the right padding.
+     *
+     * @param padding the padding, in pixels
+     */
     void setPaddingRight(double padding);
 
+    /**
+     * Sets the bottom padding.
+     *
+     * @param padding the padding, in pixels
+     */
     void setPaddingBottom(double padding);
 
+    /**
+     * Sets the text color.
+     *
+     * @param color a CSS color
+     */
     void setColor(String color);
 }

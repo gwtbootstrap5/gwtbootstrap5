@@ -35,6 +35,11 @@ public abstract class AbstractStack extends Div {
 
     private int gap = -1;
 
+    /**
+     * Creates an empty stack.
+     *
+     * @param stackClass {@code hstack} or {@code vstack}
+     */
     protected AbstractStack(final String stackClass) {
         super();
 
@@ -44,6 +49,7 @@ public abstract class AbstractStack extends Div {
     /**
      * Sets the space between children, from 0 to 5 ({@code gap-0} to {@code gap-5}); -1 for none.
      *
+     * @param gap the gap, from 0 to 5, or -1 for none
      * @throws IllegalArgumentException outside -1 to 5
      */
     public void setGap(final int gap) {
@@ -59,6 +65,11 @@ public abstract class AbstractStack extends Div {
         }
     }
 
+    /**
+     * Returns the gap between the children.
+     *
+     * @return the gap, from 0 to 5, or -1 if none
+     */
     public int getGap() {
         return gap;
     }

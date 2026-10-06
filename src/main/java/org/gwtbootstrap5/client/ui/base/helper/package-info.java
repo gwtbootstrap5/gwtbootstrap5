@@ -1,3 +1,4 @@
+/** Helpers to read and write the classes and attributes of widgets. */
 package org.gwtbootstrap5.client.ui.base.helper;
 
 /*-

@@ -28,6 +28,7 @@ package org.gwtbootstrap5.client.ui.base;
  * @see org.gwtbootstrap5.client.ui.constants.Attributes
  */
 public interface HasTarget {
+    /** Target that opens the link in a new tab or window. */
     String BLANK = "_blank";
 
     /**

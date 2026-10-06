@@ -23,10 +23,22 @@ package org.gwtbootstrap5.client.ui.base;
 import org.gwtbootstrap5.client.ui.constants.FloatCSS;
 
 /**
+ * A widget that can be floated left or right ({@code float-*}).
+ *
  * @author Sven Jacobs
  */
 public interface HasFloat {
+    /**
+     * Floats the widget.
+     *
+     * @param aFloatCSS the float
+     */
     void setFloat(FloatCSS aFloatCSS);
 
+    /**
+     * Returns how the widget is floated.
+     *
+     * @return the float
+     */
     FloatCSS getFloat();
 }

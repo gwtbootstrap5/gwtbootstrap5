@@ -21,6 +21,8 @@ package org.gwtbootstrap5.client.ui.base;
  */
 
 /**
+ * A widget with an id.
+ *
  * @author Sven Jacobs
  */
 public interface HasId {

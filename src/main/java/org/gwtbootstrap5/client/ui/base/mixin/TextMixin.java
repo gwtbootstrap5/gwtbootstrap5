@@ -23,18 +23,36 @@ package org.gwtbootstrap5.client.ui.base.mixin;
 import com.google.gwt.user.client.ui.UIObject;
 
 /**
+ * Reads and writes the inner text of a widget's element.
+ *
+ * @param <T> the type of the widget
  * @author Grant Slender
  */
 public class TextMixin<T extends UIObject> extends AbstractMixin {
 
+    /**
+     * Creates the mixin of a widget.
+     *
+     * @param uiObject the widget
+     */
     public TextMixin(final T uiObject) {
         super(uiObject);
     }
 
+    /**
+     * Returns the inner text of the element.
+     *
+     * @return the text
+     */
     public String getText() {
         return uiObject.getElement().getInnerText();
     }
 
+    /**
+     * Sets the inner text of the element.
+     *
+     * @param text the text
+     */
     public void setText(final String text) {
         uiObject.getElement().setInnerText(text);
     }
