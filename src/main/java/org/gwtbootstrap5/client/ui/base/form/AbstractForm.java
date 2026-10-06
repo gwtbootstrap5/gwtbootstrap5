@@ -172,17 +172,6 @@ public abstract class AbstractForm extends FormElementContainer implements FormP
         protected void dispatch(AbstractForm.SubmitHandler handler) {
             handler.onSubmit(this);
         }
-
-        /**
-         * This method is used for legacy support and should be removed when
-         * {@link SubmitCompleteHandler} is removed.
-         *
-         * @deprecated Use {@link AbstractForm.SubmitEvent#cancel()} instead
-         */
-        @Deprecated
-        void setCanceled(boolean canceled) {
-            this.canceled = canceled;
-        }
     }
 
     /**

@@ -546,16 +546,6 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     }
 
     /**
-     * Reconfigures the tooltip.
-     * 
-     * @deprecated will be removed after the next release.
-     */
-    @Deprecated
-    public void reconfigure() {
-        // Do nothing. No longer necessary.
-    }
-
-    /**
      * Recreate the tooltip/popover with a default dealy of 300ms between the call to destroy and init.
      */
     public void recreate() {
@@ -700,17 +690,6 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
         if (initialized) {
             getWidget().getElement().setAttribute("data-bs-template", prepareTemplate());
         }
-    }
-
-    /**
-     * Convenience method. Sets the tooltip's display string.
-     * 
-     * @param text String display string.
-     * @deprecated use {@link #setTitle(String)}.
-     */
-    @Deprecated
-    public void setText(String text) {
-        setTitle(text);
     }
 
     /**

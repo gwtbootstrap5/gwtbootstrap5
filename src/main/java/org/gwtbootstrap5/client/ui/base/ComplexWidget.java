@@ -61,9 +61,7 @@ public class ComplexWidget extends ComplexPanel implements HasId, HasResponsiven
     }
 
     @Override
-    @Deprecated
-    protected void insert(Widget child, com.google.gwt.user.client.Element container,
-        int beforeIndex, boolean domInsert) {
+    protected void insert(Widget child, Element container, int beforeIndex, boolean domInsert) {
         // Validate index; adjust if the widget is already a child of this panel.
         beforeIndex = adjustIndex(child, beforeIndex);
 

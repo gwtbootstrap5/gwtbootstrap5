@@ -42,19 +42,6 @@ public class ListBox extends com.google.gwt.user.client.ui.ListBox implements Ha
         setStyleName(Styles.FORM_SELECT);
     }
 
-    /**
-     * Creates an empty list box.
-     *
-     * @param isMultipleSelect
-     *            specifies if multiple selection is enabled
-     * @deprecated use {@link #setMultipleSelect(boolean)} instead.
-     */
-    @Deprecated
-    public ListBox(final boolean isMultipleSelect) {
-        this();
-        setMultipleSelect(isMultipleSelect);
-    }
-
     @Override
     public void setId(final String id) {
         idMixin.setId(id);
