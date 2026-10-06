@@ -23,6 +23,12 @@ package org.gwtbootstrap5.client.ui.constants;
 import com.google.gwt.dom.client.Style;
 import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
+/**
+ * {@code display: none} from a breakpoint up ({@code d-none}, {@code d-md-none}, ...): hides the
+ * widget there.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/utilities/display/">Bootstrap 5 documentation</a>
+ */
 public enum ResponsivenessNone implements Type, Style.HasCssName {
     XS("d-none"),
     SM("d-sm-none"),
@@ -43,6 +49,12 @@ public enum ResponsivenessNone implements Type, Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code XS} if none
+     */
     public static ResponsivenessNone fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, ResponsivenessNone.class, XS);
     }

@@ -21,9 +21,16 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 /**
+ * Names of the HTML attributes the widgets write: Bootstrap's {@code data-bs-*} attributes, the
+ * ARIA attributes and a few standard ones.
+ *
  * @author Sven Jacobs
  */
 public class Attributes {
+
+    /** Creates an instance. The names are constants, so there is no need to. */
+    public Attributes() {
+    }
 
     public static final String DATA_AUTO_CLOSE = "data-bs-auto-close";
     public static final String DATA_BACKDROP = "data-bs-backdrop";

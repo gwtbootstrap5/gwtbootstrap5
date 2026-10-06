@@ -23,6 +23,11 @@ package org.gwtbootstrap5.client.ui.constants;
 import com.google.gwt.dom.client.Style;
 import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
+/**
+ * Vertical alignment of a single column in its row ({@code align-self-*}).
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/layout/columns/#alignment">Bootstrap 5 documentation</a>
+ */
 public enum ColumnVerticalAlign implements Style.HasCssName {
     DEFAULT(""),
     START("align-self-start"),
@@ -40,6 +45,12 @@ public enum ColumnVerticalAlign implements Style.HasCssName {
         return cssClassName;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code DEFAULT} if none
+     */
     public static ColumnVerticalAlign fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, ColumnVerticalAlign.class, DEFAULT);
     }

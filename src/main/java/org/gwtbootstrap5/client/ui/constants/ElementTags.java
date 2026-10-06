@@ -21,9 +21,15 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 /**
+ * Names of the HTML elements some widgets create.
+ *
  * @author Joshua Godi
  */
 public class ElementTags {
+    /** Creates an instance. The names are constants, so there is no need to. */
+    public ElementTags() {
+    }
+
     public static final String ABBR = "abbr";
     public static final String CODE = "code";
     public static final String DD = "dd";

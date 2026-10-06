@@ -23,6 +23,13 @@ package org.gwtbootstrap5.client.ui.constants;
 import com.google.gwt.dom.client.Style;
 import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
+/**
+ * Width of a {@link org.gwtbootstrap5.client.ui.Container}: fixed at each breakpoint
+ * ({@code container}), full width up to a breakpoint ({@code container-md}, ...) or always full
+ * width ({@code container-fluid}).
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/layout/containers/">Bootstrap 5 documentation</a>
+ */
 public enum ContainerSize implements Size, Style.HasCssName {
     DEFAULT("container"),
     XS("container"),
@@ -44,6 +51,12 @@ public enum ContainerSize implements Size, Style.HasCssName {
         return cssClassName;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code DEFAULT} if none
+     */
     public static ContainerSize fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, ContainerSize.class, DEFAULT);
     }

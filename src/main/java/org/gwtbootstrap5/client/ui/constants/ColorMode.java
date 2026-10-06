@@ -37,6 +37,8 @@ public enum ColorMode implements Type {
     }
 
     /**
+     * Returns the value of {@code data-bs-theme} of the mode.
+     *
      * @return the {@code data-bs-theme} value
      */
     public String getTheme() {
@@ -44,6 +46,8 @@ public enum ColorMode implements Type {
     }
 
     /**
+     * Returns the mode of a {@code data-bs-theme} value.
+     *
      * @param theme a {@code data-bs-theme} value
      * @return the matching mode, or {@code null}
      */

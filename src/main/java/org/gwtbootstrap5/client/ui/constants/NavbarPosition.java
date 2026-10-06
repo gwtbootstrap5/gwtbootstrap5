@@ -25,8 +25,12 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Position of a {@link org.gwtbootstrap5.client.ui.Navbar}: fixed to the top or bottom of the
+ * viewport, or sticky.
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navbar/#placement">Bootstrap 5 documentation</a>
  */
 public enum NavbarPosition implements Type, Style.HasCssName {
     DEFAULT(""),
@@ -46,6 +50,12 @@ public enum NavbarPosition implements Type, Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code DEFAULT} if none
+     */
     public static NavbarPosition fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, NavbarPosition.class, DEFAULT);
     }

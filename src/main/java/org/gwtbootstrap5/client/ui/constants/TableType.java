@@ -25,7 +25,10 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Option of a table: striped rows or columns, borders, no borders, hover, small cells or dark.
+ *
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/tables/">Bootstrap 5 documentation</a>
  */
 public enum TableType implements Type, Style.HasCssName {
     DEFAULT(""),
@@ -48,6 +51,12 @@ public enum TableType implements Type, Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code DEFAULT} if none
+     */
     public static TableType fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, TableType.class, DEFAULT);
     }

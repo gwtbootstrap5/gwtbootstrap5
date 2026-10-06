@@ -21,7 +21,7 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 /**
- * Represents values for the {@code type=""} HTML attribute.
+ * Values of the {@code type} attribute of buttons and inputs.
  *
  * @author Sven Jacobs
  */
@@ -38,6 +38,11 @@ public enum TypeAttrType implements Type {
         this.inputType = inputType;
     }
 
+    /**
+     * Returns the value of the {@code type} attribute.
+     *
+     * @return the value, such as {@code "submit"}
+     */
     public String getInputType() {
         return inputType;
     }

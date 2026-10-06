@@ -25,6 +25,8 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * How a tooltip or popover is opened ({@code data-bs-trigger}): on click, hover, focus, or by hand.
+ *
  * @author Joshua Godi
  */
 public enum Trigger implements Type, Style.HasCssName {
@@ -45,6 +47,12 @@ public enum Trigger implements Type, Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code DEFAULT} if none
+     */
     public static Trigger fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, Trigger.class, DEFAULT);
     }

@@ -25,6 +25,9 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Size of an {@link org.gwtbootstrap5.client.ui.Icon}: a third larger ({@code LARGE}), or two to
+ * five times the text size.
+ *
  * @author Joshua Godi
  */
 public enum IconSize implements Size, Style.HasCssName {
@@ -47,6 +50,12 @@ public enum IconSize implements Size, Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code NONE} if none
+     */
     public static IconSize fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, IconSize.class, NONE);
     }

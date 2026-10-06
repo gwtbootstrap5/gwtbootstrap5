@@ -21,6 +21,8 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 /**
+ * Side of the text on which a widget shows its badge.
+ *
  * @author Drew Spencer
  */
 public enum BadgePosition {

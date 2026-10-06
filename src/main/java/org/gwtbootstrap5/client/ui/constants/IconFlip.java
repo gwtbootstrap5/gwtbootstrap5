@@ -25,6 +25,8 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Flip of an {@link org.gwtbootstrap5.client.ui.Icon}: horizontal or vertical.
+ *
  * @author Joshua Godi
  */
 public enum IconFlip implements Style.HasCssName {
@@ -43,6 +45,12 @@ public enum IconFlip implements Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code NONE} if none
+     */
     public static IconFlip fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, IconFlip.class, NONE);
     }

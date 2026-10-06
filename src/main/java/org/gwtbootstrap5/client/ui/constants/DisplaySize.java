@@ -24,7 +24,11 @@ import com.google.gwt.dom.client.Style;
 import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
 /**
+ * Size of a display heading, larger and lighter than a normal one ({@code display-1} to
+ * {@code display-6}).
+ *
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/typography/#display-headings">Bootstrap 5 documentation</a>
  */
 public enum DisplaySize implements Style.HasCssName {
     DEFAULT(""),
@@ -46,6 +50,12 @@ public enum DisplaySize implements Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code DEFAULT} if none
+     */
     public static DisplaySize fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, DisplaySize.class, DEFAULT);
     }

@@ -55,6 +55,8 @@ public enum DropDownMenuAlignment implements Style.HasCssName {
     }
 
     /**
+     * Returns whether the alignment applies from a breakpoint up.
+     *
      * @return {@code true} for the alignments that apply from a breakpoint up
      */
     public boolean isResponsive() {

@@ -25,8 +25,11 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Validation state of a form control: {@code is-valid} or {@code is-invalid}.
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/validation/">Bootstrap 5 documentation</a>
  */
 public enum ValidationState implements Style.HasCssName {
     NONE(""),
@@ -44,6 +47,12 @@ public enum ValidationState implements Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code NONE} if none
+     */
     public static ValidationState fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, ValidationState.class, NONE);
     }

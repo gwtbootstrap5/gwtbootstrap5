@@ -20,7 +20,14 @@ package org.gwtbootstrap5.client.ui.constants;
  * ==========================LICENSE_END=================================
  */
 
+/**
+ * ARIA roles the widgets give their elements ({@code role} attribute).
+ */
 public final class Roles {
+
+    /** Creates an instance. The names are constants, so there is no need to. */
+    public Roles() {
+    }
 
     public static final String TABLIST = "tablist";
 

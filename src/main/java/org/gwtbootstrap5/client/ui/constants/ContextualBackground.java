@@ -25,7 +25,10 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Background color of a widget: {@code bg-primary} to {@code bg-dark}.
+ *
  * @author David Buhler
+ * @see <a href="https://getbootstrap.com/docs/5.3/utilities/background/">Bootstrap 5 documentation</a>
  */
 public enum ContextualBackground implements Style.HasCssName {
     DEFAULT(""),
@@ -46,6 +49,12 @@ public enum ContextualBackground implements Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code DEFAULT} if none
+     */
     public static ContextualBackground fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, ContextualBackground.class, DEFAULT);
     }

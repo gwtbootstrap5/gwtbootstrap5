@@ -42,6 +42,8 @@ public enum DropDownAutoClose {
     }
 
     /**
+     * Returns the value of {@code data-bs-auto-close}.
+     *
      * @return the {@code data-bs-auto-close} value
      */
     public String getValue() {

@@ -21,6 +21,9 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 /**
+ * HTML type of an {@link org.gwtbootstrap5.client.ui.Input}, such as {@code date} or
+ * {@code number}.
+ *
  * @author Joshua Godi
  */
 public enum InputType implements Type {
@@ -47,6 +50,11 @@ public enum InputType implements Type {
         this.type = type;
     }
 
+    /**
+     * Returns the HTML type.
+     *
+     * @return the value of the {@code type} attribute
+     */
     public String getType() {
         return type;
     }

@@ -22,10 +22,23 @@ package org.gwtbootstrap5.client.ui.constants;
 
 import com.google.gwt.dom.client.Style;
 
+/**
+ * An icon of an icon set: Bootstrap Icons ({@link IconTypeBI}) in core, Font Awesome in the extras.
+ */
 public interface IconType extends Type, Style.HasCssName {
 
+    /**
+     * Returns the position of the icon in its set.
+     *
+     * @return the position, as a string
+     */
     String getOrdinal();
 
+    /**
+     * Returns the name of the icon: the name of its constant.
+     *
+     * @return the name, such as {@code "STAR_FILL"}
+     */
     String getName();
 
 }

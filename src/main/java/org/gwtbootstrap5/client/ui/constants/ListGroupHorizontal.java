@@ -49,6 +49,9 @@ public enum ListGroupHorizontal implements Style.HasCssName {
     }
 
     /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
      * @return the constant whose class is in the style names, or {@code null}
      */
     public static ListGroupHorizontal fromStyleName(final String styleName) {

@@ -21,6 +21,9 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 /**
+ * Names of the Bootstrap 5 CSS classes the widgets write. A unit test checks that each one exists
+ * in Bootstrap's CSS.
+ *
  * @author Sven Jacobs
  */
 public final class Styles {

@@ -25,7 +25,11 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Contextual color of a list group item: {@code list-group-item-primary} to
+ * {@code list-group-item-dark}.
+ *
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/list-group/#variants">Bootstrap 5 documentation</a>
  */
 public enum ListGroupItemType implements Type, Style.HasCssName {
     DEFAULT(""),
@@ -49,6 +53,12 @@ public enum ListGroupItemType implements Type, Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code DEFAULT} if none
+     */
     public static ListGroupItemType fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, ListGroupItemType.class, DEFAULT);
     }

@@ -21,7 +21,10 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 /**
+ * Value of {@code data-bs-spy} that makes Bootstrap's scrollspy track an element.
+ *
  * @author Sven Jacobs
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/scrollspy/">Bootstrap 5 documentation</a>
  */
 public enum Spy {
     SCROLL("scroll");
@@ -32,6 +35,11 @@ public enum Spy {
         this.spy = spy;
     }
 
+    /**
+     * Returns the value of {@code data-bs-spy}.
+     *
+     * @return the value
+     */
     public String getSpy() {
         return spy;
     }

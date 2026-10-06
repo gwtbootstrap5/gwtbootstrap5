@@ -25,7 +25,11 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Size of a {@link org.gwtbootstrap5.client.ui.Pagination}: {@code pagination-sm} or
+ * {@code pagination-lg}.
+ *
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/pagination/#sizing">Bootstrap 5 documentation</a>
  */
 public enum PaginationSize implements Size, Style.HasCssName {
     NONE(""),
@@ -43,6 +47,12 @@ public enum PaginationSize implements Size, Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code NONE} if none
+     */
     public static PaginationSize fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, PaginationSize.class, NONE);
     }

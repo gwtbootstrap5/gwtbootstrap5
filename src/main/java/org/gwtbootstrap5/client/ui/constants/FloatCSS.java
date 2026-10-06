@@ -25,8 +25,12 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Float of a widget at a breakpoint: {@code float-start}, {@code float-end} or {@code float-none},
+ * with the breakpoint variants ({@code float-md-start}, ...).
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/utilities/float/">Bootstrap 5 documentation</a>
  */
 public enum FloatCSS implements Style.HasCssName {
     NONE_XS("float-none"),
@@ -59,6 +63,12 @@ public enum FloatCSS implements Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code NONE_XS} if none
+     */
     public static FloatCSS fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, FloatCSS.class, NONE_XS);
     }

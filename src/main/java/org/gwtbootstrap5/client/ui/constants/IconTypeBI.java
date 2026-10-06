@@ -20,6 +20,12 @@ package org.gwtbootstrap5.client.ui.constants;
  * ==========================LICENSE_END=================================
  */
 
+/**
+ * The icons of Bootstrap Icons 1.13, the icon set of core. The constant names are the icon names in
+ * upper case, with underscores for hyphens: {@code bi-star-fill} is {@code STAR_FILL}.
+ *
+ * @see <a href="https://icons.getbootstrap.com/">Bootstrap Icons</a>
+ */
 public enum IconTypeBI implements IconType {
     ACTIVITY("activity"),
     AIRPLANE("airplane"),

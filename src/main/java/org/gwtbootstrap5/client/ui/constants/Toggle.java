@@ -21,6 +21,9 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 /**
+ * Component a toggle opens or toggles ({@code data-bs-toggle}): a collapse, dropdown, modal,
+ * offcanvas, tab, pill or a button's active state.
+ *
  * @author Sven Jacobs
  */
 public enum Toggle {
@@ -38,6 +41,11 @@ public enum Toggle {
         this.toggle = toggle;
     }
 
+    /**
+     * Returns the value of {@code data-bs-toggle}.
+     *
+     * @return the value, such as {@code "collapse"}
+     */
     public String getToggle() {
         return toggle;
     }

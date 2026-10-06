@@ -21,6 +21,8 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 /**
+ * Side of the text on which a widget shows its icon.
+ *
  * @author Sven Jacobs
  */
 public enum IconPosition {

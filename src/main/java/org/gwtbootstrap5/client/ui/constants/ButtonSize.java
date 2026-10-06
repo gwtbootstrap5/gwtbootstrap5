@@ -25,8 +25,11 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Size of a button: {@code btn-sm} or {@code btn-lg}.
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/buttons/#sizes">Bootstrap 5 documentation</a>
  */
 public enum ButtonSize implements Size, Style.HasCssName {
     DEFAULT(""),
@@ -44,6 +47,12 @@ public enum ButtonSize implements Size, Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code DEFAULT} if none
+     */
     public static ButtonSize fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, ButtonSize.class, DEFAULT);
     }

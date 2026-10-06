@@ -25,6 +25,8 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Rotation of an {@link org.gwtbootstrap5.client.ui.Icon}: 90, 180 or 270 degrees.
+ *
  * @author Joshua Godi
  */
 public enum IconRotate implements Style.HasCssName {
@@ -44,6 +46,12 @@ public enum IconRotate implements Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code NONE} if none
+     */
     public static IconRotate fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, IconRotate.class, NONE);
     }

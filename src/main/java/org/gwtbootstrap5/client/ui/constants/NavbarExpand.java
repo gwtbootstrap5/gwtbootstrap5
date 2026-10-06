@@ -24,8 +24,12 @@ import com.google.gwt.dom.client.Style;
 import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
 /**
+ * Breakpoint from which a {@link org.gwtbootstrap5.client.ui.Navbar} is expanded instead of
+ * collapsed behind its toggler ({@code navbar-expand-*}); {@code XS} keeps it always expanded.
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/navbar/#responsive-behaviors">Bootstrap 5 documentation</a>
  */
 public enum NavbarExpand implements Style.HasCssName {
     XS("navbar-expand"),
@@ -46,6 +50,12 @@ public enum NavbarExpand implements Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code XS} if none
+     */
     public static NavbarExpand fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, NavbarExpand.class, XS);
     }

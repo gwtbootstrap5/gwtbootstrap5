@@ -25,7 +25,11 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Size of the controls of an {@link org.gwtbootstrap5.client.ui.InputGroup}:
+ * {@code input-group-sm} or {@code input-group-lg}.
+ *
  * @author Tercio Gaudencio Filho (terciofilho [at] gmail.com)
+ * @see <a href="https://getbootstrap.com/docs/5.3/forms/input-group/#sizing">Bootstrap 5 documentation</a>
  */
 public enum InputGroupSize implements Size, Style.HasCssName {
 
@@ -44,6 +48,12 @@ public enum InputGroupSize implements Size, Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code DEFAULT} if none
+     */
     public static InputGroupSize fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, InputGroupSize.class, DEFAULT);
     }

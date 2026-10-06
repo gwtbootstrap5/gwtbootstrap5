@@ -25,7 +25,11 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Width of a {@link org.gwtbootstrap5.client.ui.Modal}: {@code modal-sm}, the default,
+ * {@code modal-lg} or {@code modal-xl}.
+ *
  * @author Jay Hodgson
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/modal/#optional-sizes">Bootstrap 5 documentation</a>
  */
 public enum ModalSize implements Style.HasCssName {
     SMALL("modal-sm"),
@@ -44,6 +48,12 @@ public enum ModalSize implements Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code MEDIUM} if none
+     */
     public static ModalSize fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, ModalSize.class, MEDIUM);
     }

@@ -22,6 +22,8 @@ package org.gwtbootstrap5.client.ui.constants;
 
 
 /**
+ * Level of a heading, {@code h1} to {@code h6}.
+ *
  * @author Joshua Godi
  */
 public enum HeadingSize implements Size {
@@ -38,6 +40,11 @@ public enum HeadingSize implements Size {
         this.headingSize = headingSize;
     }
 
+    /**
+     * Returns the level of the heading.
+     *
+     * @return the level, 1 to 6
+     */
     public int getHeadingSize() {
         return headingSize;
     }

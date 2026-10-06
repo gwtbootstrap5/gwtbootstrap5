@@ -21,7 +21,11 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 /**
+ * Backdrop of a {@link org.gwtbootstrap5.client.ui.Modal} ({@code data-bs-backdrop}): one that
+ * closes the modal when clicked, one that doesn't ({@code STATIC}), or none.
+ *
  * @author Sven Jacobs
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/modal/#static-backdrop">Bootstrap 5 documentation</a>
  */
 public enum ModalBackdrop {
     /**
@@ -45,6 +49,11 @@ public enum ModalBackdrop {
         this.backdrop = backdrop;
     }
 
+    /**
+     * Returns the value of {@code data-bs-backdrop}.
+     *
+     * @return the value
+     */
     public String getBackdrop() {
         return backdrop;
     }

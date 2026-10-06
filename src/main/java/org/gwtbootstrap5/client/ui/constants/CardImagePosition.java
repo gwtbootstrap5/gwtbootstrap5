@@ -23,6 +23,12 @@ package org.gwtbootstrap5.client.ui.constants;
 import com.google.gwt.dom.client.Style;
 import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
+/**
+ * Position of a {@link org.gwtbootstrap5.client.ui.CardImage} in its card: at the top
+ * ({@code card-img-top}), at the bottom ({@code card-img-bottom}), or anywhere ({@code card-img}).
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/card/#images">Bootstrap 5 documentation</a>
+ */
 public enum CardImagePosition implements Type, Style.HasCssName {
     DEFAULT("card-img"),
     TOP("card-img-top"),
@@ -39,6 +45,12 @@ public enum CardImagePosition implements Type, Style.HasCssName {
         return cssClassName;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code DEFAULT} if none
+     */
     public static CardImagePosition fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, CardImagePosition.class, DEFAULT);
     }

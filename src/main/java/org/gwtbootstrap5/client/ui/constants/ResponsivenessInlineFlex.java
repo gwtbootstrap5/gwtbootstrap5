@@ -23,6 +23,12 @@ package org.gwtbootstrap5.client.ui.constants;
 import com.google.gwt.dom.client.Style;
 import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
+/**
+ * {@code display: inline-flex} from a breakpoint up ({@code d-inline-flex}, ...), for the
+ * responsive visibility of widgets.
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/utilities/display/">Bootstrap 5 documentation</a>
+ */
 public enum ResponsivenessInlineFlex implements Type, Style.HasCssName {
     XS("d-inline-flex"),
     SM("d-sm-inline-flex"),
@@ -43,6 +49,12 @@ public enum ResponsivenessInlineFlex implements Type, Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code XS} if none
+     */
     public static ResponsivenessInlineFlex fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, ResponsivenessInlineFlex.class, XS);
     }

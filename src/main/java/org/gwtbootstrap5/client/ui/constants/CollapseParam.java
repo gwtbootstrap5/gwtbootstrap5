@@ -21,11 +21,15 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 /**
- * Parameters for the collapse method
+ * Names of the methods of Bootstrap's collapse: {@code toggle}, {@code show} and {@code hide}.
  *
  * @author Michał Rybicki
  */
 public final class CollapseParam {
+    /** Creates an instance. The names are constants, so there is no need to. */
+    public CollapseParam() {
+    }
+
     public static final String TOGGLE = "toggle";
     public static final String SHOW = "show";
     public static final String HIDE = "hide";

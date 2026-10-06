@@ -37,6 +37,11 @@ public enum OffcanvasBackdrop {
         this.backdrop = backdrop;
     }
 
+    /**
+     * Returns the value of {@code data-bs-backdrop}.
+     *
+     * @return the value
+     */
     public String getBackdrop() {
         return backdrop;
     }

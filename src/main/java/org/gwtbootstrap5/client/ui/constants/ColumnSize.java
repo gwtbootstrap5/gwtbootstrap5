@@ -23,7 +23,12 @@ package org.gwtbootstrap5.client.ui.constants;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Size of a {@link org.gwtbootstrap5.client.ui.Column} at a breakpoint: how many of the twelve
+ * columns it spans ({@code col-*}, {@code col-md-*}, ...), an equal share ({@code col},
+ * {@code col-md}) or the width of its content ({@code col-auto}).
+ *
  * @author Sven Jacobs
+ * @see <a href="https://getbootstrap.com/docs/5.3/layout/columns/">Bootstrap 5 documentation</a>
  */
 public enum ColumnSize implements Size, Style.HasCssName {
     // Extra small devices (<576px)

@@ -21,9 +21,11 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 /**
- * Enum for the different type of device sizes that are supported.
+ * Breakpoints of Bootstrap 5, from phones ({@code XS}) to large desktops ({@code XXL}, 1400px and
+ * up), plus print, for the responsive visibility of widgets.
  *
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/layout/breakpoints/">Bootstrap 5 documentation</a>
  */
 public enum DeviceSize implements Size {
     PRINT, /* Print Devices */

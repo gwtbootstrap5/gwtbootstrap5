@@ -25,6 +25,8 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Where a tooltip or popover opens relative to its widget; {@code AUTO} lets Bootstrap choose.
+ *
  * @author Joshua Godi
  */
 public enum Placement implements Type, Style.HasCssName {
@@ -46,6 +48,12 @@ public enum Placement implements Type, Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code DEFAULT} if none
+     */
     public static Placement fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, Placement.class, DEFAULT);
     }

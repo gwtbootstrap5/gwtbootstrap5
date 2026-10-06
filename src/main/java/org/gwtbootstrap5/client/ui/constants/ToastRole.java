@@ -20,6 +20,12 @@ package org.gwtbootstrap5.client.ui.constants;
  * ==========================LICENSE_END=================================
  */
 
+/**
+ * How screen readers announce a {@link org.gwtbootstrap5.client.ui.Toast}: politely
+ * ({@code role="status"}) or at once ({@code role="alert"}).
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/toasts/#accessibility">Bootstrap 5 documentation</a>
+ */
 public enum ToastRole {
     ALERT("alert", "assertive"),
     STATUS("status", "polite");
@@ -32,10 +38,20 @@ public enum ToastRole {
         this.ariaLive = ariaLive;
     }
 
+    /**
+     * Returns the ARIA role.
+     *
+     * @return the value of the {@code role} attribute
+     */
     public String getRole() {
         return role;
     }
 
+    /**
+     * Returns how screen readers announce the toast.
+     *
+     * @return the value of {@code aria-live}
+     */
     public String getAriaLive() {
         return ariaLive;
     }

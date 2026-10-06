@@ -23,6 +23,12 @@ package org.gwtbootstrap5.client.ui.constants;
 import com.google.gwt.dom.client.Style;
 import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
+/**
+ * How many columns fit on a line of a {@link org.gwtbootstrap5.client.ui.RowCols} at a breakpoint
+ * ({@code row-cols-*}, {@code row-cols-md-*}, ..., and {@code row-cols-auto}).
+ *
+ * @see <a href="https://getbootstrap.com/docs/5.3/layout/grid/#row-columns">Bootstrap 5 documentation</a>
+ */
 public enum RowColSize implements Size, Style.HasCssName {
     DEFAULT(""),
 
@@ -79,6 +85,12 @@ public enum RowColSize implements Size, Style.HasCssName {
         return cssClassName;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code DEFAULT} if none
+     */
     public static RowColSize fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, RowColSize.class, DEFAULT);
     }

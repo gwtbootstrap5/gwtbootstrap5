@@ -25,8 +25,12 @@ import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Contextual color of an {@link org.gwtbootstrap5.client.ui.Alert}: {@code alert-primary} to
+ * {@code alert-dark}.
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/components/alerts/#examples">Bootstrap 5 documentation</a>
  */
 public enum AlertType implements Type, Style.HasCssName {
     DEFAULT(""),
@@ -50,6 +54,12 @@ public enum AlertType implements Type, Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code DEFAULT} if none
+     */
     public static AlertType fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, AlertType.class, DEFAULT);
     }

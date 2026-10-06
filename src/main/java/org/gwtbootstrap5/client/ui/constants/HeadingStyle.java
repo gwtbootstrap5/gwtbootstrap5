@@ -21,7 +21,11 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 /**
+ * Classes that make an element look like a heading of a level, {@code h1} to {@code h6}, whatever
+ * its tag.
+ *
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/content/typography/#headings">Bootstrap 5 documentation</a>
  */
 public enum HeadingStyle {
     H1("h1"),
@@ -37,6 +41,11 @@ public enum HeadingStyle {
         this.cssClass = cssClass;
     }
 
+    /**
+     * Returns the class that styles an element as a heading of the level.
+     *
+     * @return the class, such as {@code "h1"}
+     */
     public String getCssClass() {
         return cssClass;
     }

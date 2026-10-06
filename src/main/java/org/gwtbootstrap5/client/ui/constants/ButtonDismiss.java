@@ -21,6 +21,8 @@ package org.gwtbootstrap5.client.ui.constants;
  */
 
 /**
+ * Component a button closes ({@code data-bs-dismiss}): the modal, alert or offcanvas it is in.
+ *
  * @author Sven Jacobs
  */
 public enum ButtonDismiss {
@@ -34,6 +36,11 @@ public enum ButtonDismiss {
         this.dismiss = dismiss;
     }
 
+    /**
+     * Returns the value of {@code data-bs-dismiss}.
+     *
+     * @return the value, such as {@code "modal"}
+     */
     public String getDismiss() {
         return dismiss;
     }

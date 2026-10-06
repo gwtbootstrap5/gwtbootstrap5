@@ -23,7 +23,11 @@ package org.gwtbootstrap5.client.ui.constants;
 import com.google.gwt.dom.client.Style;
 
 /**
+ * Offset of a {@link org.gwtbootstrap5.client.ui.Column} at a breakpoint: how many of the twelve
+ * columns it skips ({@code offset-*}, {@code offset-md-*}, ...).
+ *
  * @author Sven Jacobs
+ * @see <a href="https://getbootstrap.com/docs/5.3/layout/columns/#offsetting-columns">Bootstrap 5 documentation</a>
  */
 public enum ColumnOffset implements Size, Style.HasCssName {
     // Extra small devices (<576px)

@@ -24,8 +24,12 @@ import com.google.gwt.dom.client.Style;
 import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 
 /**
+ * Text alignment at a breakpoint: {@code text-start}, {@code text-center} or {@code text-end}, with
+ * the breakpoint variants ({@code text-md-start}, ...).
+ *
  * @author Sven Jacobs
  * @author Joshua Godi
+ * @see <a href="https://getbootstrap.com/docs/5.3/utilities/text/#text-alignment">Bootstrap 5 documentation</a>
  */
 public enum TextAlignment implements Style.HasCssName {
     LEFT_XS("text-start"),
@@ -58,6 +62,12 @@ public enum TextAlignment implements Style.HasCssName {
         return cssClass;
     }
 
+    /**
+     * Returns the constant whose class is in a space-separated list of style names.
+     *
+     * @param styleName the style names, such as those of a widget
+     * @return the constant, or {@code LEFT_XS} if none
+     */
     public static TextAlignment fromStyleName(final String styleName) {
         return EnumHelper.fromStyleName(styleName, TextAlignment.class, LEFT_XS);
     }
