@@ -20,7 +20,10 @@ package org.gwtbootstrap5.client.ui.base;
  * ==========================LICENSE_END=================================
  */
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 
 import org.gwtbootstrap5.client.shared.event.HiddenEvent;
@@ -34,6 +37,7 @@ import org.gwtbootstrap5.client.shared.event.ShownEvent;
 import org.gwtbootstrap5.client.shared.event.ShownHandler;
 import org.gwtbootstrap5.client.shared.js.BootstrapTooltip;
 import org.gwtbootstrap5.client.shared.js.DomEventListeners;
+import org.gwtbootstrap5.client.ui.base.helper.EnumHelper;
 import org.gwtbootstrap5.client.ui.constants.Placement;
 import org.gwtbootstrap5.client.ui.constants.Trigger;
 
@@ -46,6 +50,8 @@ import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
+
+import jsinterop.base.JsPropertyMap;
 
 /**
  * Common implementation for the Bootstrap tooltip and popover.
@@ -73,7 +79,12 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
     private int showDelayMs = 0;
     private String container = "body";
     private String selector = null;
-    private String viewportSelector = "body";
+    private String offset = null;
+    private String fallbackPlacements = null;
+    private String boundary = null;
+    private String customClass = null;
+    private boolean sanitize = true;
+    private Map<String, List<String>> allowList = null;
 
     private String tooltipClassNames = "tooltip";
     private String tooltipArrowClassNames = "tooltip-arrow";
@@ -305,6 +316,140 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
         e.setAttribute("data-bs-template", template);
         e.setAttribute("data-bs-title", getTitle());
         e.setAttribute("data-bs-trigger", trigger);
+        setOptionalAttribute(e, "data-bs-offset", offset);
+        setOptionalAttribute(e, "data-bs-fallback-placements", fallbackPlacements);
+        setOptionalAttribute(e, "data-bs-boundary", boundary);
+        setOptionalAttribute(e, "data-bs-custom-class", customClass);
+    }
+
+    /**
+     * Returns the options that Bootstrap only reads from the JavaScript configuration, not from
+     * {@code data-bs-*} attributes: {@code sanitize} and {@code allowList}. Pass it to
+     * {@code getOrCreateInstance} when creating the tip.
+     *
+     * @return the configuration, or {@code null} when both keep Bootstrap's defaults
+     */
+    protected Object createConfig() {
+        if (sanitize && allowList == null) {
+            return null;
+        }
+        final JsPropertyMap<Object> config = JsPropertyMap.of();
+        config.set("sanitize", sanitize);
+        if (allowList != null) {
+            final JsPropertyMap<Object> list = JsPropertyMap.of();
+            for (final Map.Entry<String, List<String>> entry : allowList.entrySet()) {
+                list.set(entry.getKey(), entry.getValue().toArray(new String[0]));
+            }
+            config.set("allowList", list);
+        }
+        return config;
+    }
+
+    /**
+     * Moves the tip away from its widget ({@code offset}): along the widget and away from it.
+     * It applies when the tip is created, as the widget is attached.
+     *
+     * @param skidding the shift along the widget, in pixels
+     * @param distance the distance from the widget, in pixels; Bootstrap's default is 0 for
+     *                 tooltips and 8 for popovers
+     */
+    public void setOffset(final int skidding, final int distance) {
+        offset = skidding + "," + distance;
+        updateAttribute("data-bs-offset", offset);
+    }
+
+    /**
+     * Sets the placements to try when the tip doesn't fit where {@link #setPlacement(Placement)}
+     * puts it ({@code fallbackPlacements}). It applies when the tip is created.
+     *
+     * @param placements the placements in the order to try them; none for Bootstrap's default
+     */
+    public void setFallbackPlacements(final Placement... placements) {
+        final List<String> names = new ArrayList<>();
+        for (final Placement placement : placements) {
+            if (placement != null && !placement.getCssName().isEmpty()) {
+                names.add("\"" + placement.getCssName() + "\"");
+            }
+        }
+        fallbackPlacements = names.isEmpty() ? null : "[" + String.join(",", names) + "]";
+        updateAttribute("data-bs-fallback-placements", fallbackPlacements);
+    }
+
+    /**
+     * Sets the placements to try when the tip doesn't fit, as in UiBinder.
+     *
+     * @param placements {@link Placement} names separated by spaces or commas, e.g. {@code "BOTTOM RIGHT"}
+     */
+    public void setFallbackPlacements(final String placements) {
+        final List<Placement> list = new ArrayList<>();
+        for (final String name : placements.trim().split("[, ]+")) {
+            final Placement placement = EnumHelper.fromEnumName(name.toUpperCase(), Placement.class, null);
+            if (placement != null) {
+                list.add(placement);
+            }
+        }
+        setFallbackPlacements(list.toArray(new Placement[0]));
+    }
+
+    /**
+     * Sets the area the tip must stay inside ({@code boundary}): {@code "clippingParents"},
+     * Bootstrap's default, or {@code "viewport"}. It applies when the tip is created.
+     *
+     * @param boundary the boundary, or {@code null} for Bootstrap's default
+     */
+    public void setBoundary(final String boundary) {
+        this.boundary = boundary;
+        updateAttribute("data-bs-boundary", boundary);
+    }
+
+    /**
+     * Adds classes to the tip when it shows ({@code customClass}), for styling it. It applies
+     * when the tip is created.
+     *
+     * @param customClass the classes separated by spaces, or {@code null} for none
+     */
+    public void setCustomClass(final String customClass) {
+        this.customClass = customClass;
+        updateAttribute("data-bs-custom-class", customClass);
+    }
+
+    /**
+     * Sets whether Bootstrap sanitizes the HTML of the tip ({@code sanitize}), which is on by
+     * default. <strong>Turning it off lets any HTML of the title or content run, scripts
+     * included</strong>: only do it for content you fully control. It applies when the tip is
+     * created.
+     *
+     * @param sanitize {@code false} to show the HTML as it is
+     * @see <a href="https://getbootstrap.com/docs/5.3/getting-started/javascript/#sanitizer">Bootstrap's sanitizer</a>
+     */
+    public void setSanitize(final boolean sanitize) {
+        this.sanitize = sanitize;
+    }
+
+    /**
+     * Replaces the tags and attributes that the sanitizer keeps ({@code allowList}). Anything
+     * not listed is removed from the HTML of the tip; the key {@code "*"} lists the attributes
+     * allowed on every tag. It applies when the tip is created.
+     *
+     * @param allowList the allowed attributes of each tag, or {@code null} for Bootstrap's list
+     * @see <a href="https://getbootstrap.com/docs/5.3/getting-started/javascript/#sanitizer">Bootstrap's sanitizer</a>
+     */
+    public void setAllowList(final Map<String, List<String>> allowList) {
+        this.allowList = allowList;
+    }
+
+    private void updateAttribute(final String name, final String value) {
+        if (initialized && getWidget() != null) {
+            setOptionalAttribute(getWidget().getElement(), name, value);
+        }
+    }
+
+    private static void setOptionalAttribute(final Element e, final String name, final String value) {
+        if (value == null) {
+            e.removeAttribute(name);
+        } else {
+            e.setAttribute(name, value);
+        }
     }
     
     /**
@@ -416,14 +561,6 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
         return trigger;
     }
 
-    /**
-     * Returns the selector set with {@link #setViewportSelector(String)}.
-     *
-     * @return the viewportSelector
-     */
-    public String getViewportSelector() {
-        return viewportSelector;
-    }
 
     /** {@inheritDoc} */
     @Override
@@ -755,18 +892,6 @@ public abstract class AbstractTooltip implements IsWidget, HasWidgets, HasOneWid
         }
     }
 
-    /**
-     * Sets the selector of the descendants of the widget that get the tip
-     * ({@code data-bs-selector}), for tips on elements added later.
-     *
-     * @param viewportSelector the viewportSelector to set
-     */
-    public void setViewportSelector(String viewportSelector) {
-        this.viewportSelector = viewportSelector;
-        if (initialized) {
-            getWidget().getElement().setAttribute("data-bs-selector", viewportSelector);
-        }
-    }
 
     /**
      * Set the tooltip arrow div class names

@@ -38,6 +38,7 @@ public enum RowColSize implements Size, Style.HasCssName {
     XS_4("row-cols-4"),
     XS_5("row-cols-5"),
     XS_6("row-cols-6"),
+    XS_AUTO("row-cols-auto"),
 
     SM_1("row-cols-sm-1"),
     SM_2("row-cols-sm-2"),
@@ -45,6 +46,7 @@ public enum RowColSize implements Size, Style.HasCssName {
     SM_4("row-cols-sm-4"),
     SM_5("row-cols-sm-5"),
     SM_6("row-cols-sm-6"),
+    SM_AUTO("row-cols-sm-auto"),
 
     MD_1("row-cols-md-1"),
     MD_2("row-cols-md-2"),
@@ -52,6 +54,7 @@ public enum RowColSize implements Size, Style.HasCssName {
     MD_4("row-cols-md-4"),
     MD_5("row-cols-md-5"),
     MD_6("row-cols-md-6"),
+    MD_AUTO("row-cols-md-auto"),
 
     LG_1("row-cols-lg-1"),
     LG_2("row-cols-lg-2"),
@@ -59,6 +62,7 @@ public enum RowColSize implements Size, Style.HasCssName {
     LG_4("row-cols-lg-4"),
     LG_5("row-cols-lg-5"),
     LG_6("row-cols-lg-6"),
+    LG_AUTO("row-cols-lg-auto"),
 
     XL_1("row-cols-xl-1"),
     XL_2("row-cols-xl-2"),
@@ -66,13 +70,15 @@ public enum RowColSize implements Size, Style.HasCssName {
     XL_4("row-cols-xl-4"),
     XL_5("row-cols-xl-5"),
     XL_6("row-cols-xl-6"),
+    XL_AUTO("row-cols-xl-auto"),
 
     XXL_1("row-cols-xxl-1"),
     XXL_2("row-cols-xxl-2"),
     XXL_3("row-cols-xxl-3"),
     XXL_4("row-cols-xxl-4"),
     XXL_5("row-cols-xxl-5"),
-    XXL_6("row-cols-xxl-6");
+    XXL_6("row-cols-xxl-6"),
+    XXL_AUTO("row-cols-xxl-auto");
 
     private final String cssClassName;
 

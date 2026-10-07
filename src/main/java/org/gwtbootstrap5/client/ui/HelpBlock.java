@@ -36,7 +36,10 @@ import org.gwtbootstrap5.client.ui.util.IconUtil;
 /**
  * Help text of a form control ({@code span.form-text}). When the control fails validation its
  * error handler turns it into the error message ({@code invalid-feedback}), and back into the help
- * text once the error clears; {@link #setError(String)} does the same by hand.
+ * text once the error clears; {@link #setError(String)} does the same by hand. With
+ * {@link #setValidText(String)}, a control that passes validation shows that text instead
+ * ({@code valid-feedback}), and {@link #setFeedbackTooltip(boolean)} shows both messages as
+ * tooltips ({@code invalid-tooltip} / {@code valid-tooltip}).
  * <h2>UiBinder example</h2>
  * <pre>{@code
  *     <b:FormGroup>
@@ -52,6 +55,9 @@ import org.gwtbootstrap5.client.ui.util.IconUtil;
 public class HelpBlock extends AbstractTextWidget {
 
     private boolean error = false;
+    private boolean valid = false;
+    private boolean tooltip = false;
+    private String validText = "";
     // The help text to show again once the error is cleared
     private String helpText = "";
 
@@ -77,20 +83,98 @@ public class HelpBlock extends AbstractTextWidget {
     }
 
     /**
-     * Clear the error state of this help block.
-     */
-    /**
-     * Clears the error message and shows the help text again.
+     * Clears the error or valid message and shows the help text again.
      */
     public void clearError() {
-        if (!error) {
+        if (!error && !valid) {
             return;
         }
         error = false;
-        removeStyleName(Styles.INVALID_FEEDBACK);
+        valid = false;
+        removeFeedbackStyles();
         addStyleName(Styles.FORM_TEXT);
         getElement().getStyle().clearDisplay();
         setText(helpText);
+    }
+
+    /**
+     * Sets the message shown when the control passes validation, in place of the help text
+     * ({@code valid-feedback}). With a text, the error handler also marks the control as valid
+     * ({@code is-valid}).
+     *
+     * @param validText the message, or {@code null} / empty to keep showing the help text
+     */
+    public void setValidText(final String validText) {
+        this.validText = validText == null ? "" : validText;
+    }
+
+    /**
+     * Returns the message shown when the control passes validation.
+     *
+     * @return the message, empty if none
+     */
+    public String getValidText() {
+        return validText;
+    }
+
+    /**
+     * Shows the error and valid messages as tooltips ({@code invalid-tooltip} /
+     * {@code valid-tooltip}) instead of text under the control. The tooltip is positioned
+     * against the closest positioned parent: give the form group {@code position-relative}.
+     *
+     * @param tooltip {@code true} for tooltips
+     */
+    public void setFeedbackTooltip(final boolean tooltip) {
+        this.tooltip = tooltip;
+        if (error) {
+            setError(getText());
+        } else if (valid) {
+            setValid(getText());
+        }
+    }
+
+    /**
+     * Returns whether the messages show as tooltips.
+     *
+     * @return {@code true} for tooltips
+     */
+    public boolean isFeedbackTooltip() {
+        return tooltip;
+    }
+
+    /**
+     * Shows a message for a valid control in place of the help text, styled as Bootstrap's
+     * {@code valid-feedback} (or {@code valid-tooltip}).
+     *
+     * @param message the message
+     */
+    public void setValid(final String message) {
+        if (!error && !valid) {
+            helpText = getText();
+        }
+        error = false;
+        valid = true;
+        removeStyleName(Styles.FORM_TEXT);
+        removeFeedbackStyles();
+        addStyleName(tooltip ? Styles.VALID_TOOLTIP : Styles.VALID_FEEDBACK);
+        getElement().getStyle().setDisplay(Display.BLOCK);
+        setText(message);
+    }
+
+    /**
+     * Returns whether the block shows a valid message.
+     *
+     * @return {@code true} after {@link #setValid(String)}
+     */
+    public boolean isValid() {
+        return valid;
+    }
+
+    private void removeFeedbackStyles() {
+        removeStyleName(Styles.INVALID_FEEDBACK);
+        removeStyleName(Styles.INVALID_TOOLTIP);
+        removeStyleName(Styles.VALID_FEEDBACK);
+        removeStyleName(Styles.VALID_TOOLTIP);
     }
 
     /**
@@ -125,25 +209,21 @@ public class HelpBlock extends AbstractTextWidget {
     }
 
     /**
-     * Set this {@link HelpBlock}'s error state.
-     * 
-     * @param message
-     *            the error message.
-     */
-    /**
      * Shows an error message in place of the help text, styled as Bootstrap's
-     * {@code invalid-feedback}.
+     * {@code invalid-feedback} (or {@code invalid-tooltip}).
      *
      * @param message the error message
      */
     public void setError(String message) {
-        if (!error) {
+        if (!error && !valid) {
             helpText = getText();
         }
         error = true;
+        valid = false;
         removeStyleName(Styles.FORM_TEXT);
+        removeFeedbackStyles();
         // invalid-feedback is hidden unless it follows an .is-invalid control; show it wherever it is
-        addStyleName(Styles.INVALID_FEEDBACK);
+        addStyleName(tooltip ? Styles.INVALID_TOOLTIP : Styles.INVALID_FEEDBACK);
         getElement().getStyle().setDisplay(Display.BLOCK);
         setText(message);
     }

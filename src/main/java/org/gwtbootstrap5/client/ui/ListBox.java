@@ -20,9 +20,11 @@ package org.gwtbootstrap5.client.ui;
  * ==========================LICENSE_END=================================
  */
 
+import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap5.client.ui.base.HasId;
 import org.gwtbootstrap5.client.ui.base.mixin.IdMixin;
 import org.gwtbootstrap5.client.ui.constants.Styles;
+import org.gwtbootstrap5.client.ui.constants.InputSize;
 
 /**
  * Select ({@code select.form-select}) of GWT's {@code ListBox}, styled by Bootstrap and with an id.
@@ -58,5 +60,32 @@ public class ListBox extends com.google.gwt.user.client.ui.ListBox implements Ha
     @Override
     public String getId() {
         return idMixin.getId();
+    }
+
+    /**
+     * Makes the select larger or smaller ({@code form-select-lg} or {@code form-select-sm}).
+     *
+     * @param size {@code LARGE}, {@code SMALL}, or {@code DEFAULT} / {@code null} for the normal size
+     */
+    public void setSize(final InputSize size) {
+        removeStyleName(Styles.FORM_SELECT_LG);
+        removeStyleName(Styles.FORM_SELECT_SM);
+        if (size == InputSize.LARGE) {
+            addStyleName(Styles.FORM_SELECT_LG);
+        } else if (size == InputSize.SMALL) {
+            addStyleName(Styles.FORM_SELECT_SM);
+        }
+    }
+
+    /**
+     * Returns the size of the select.
+     *
+     * @return {@code LARGE}, {@code SMALL} or {@code DEFAULT}
+     */
+    public InputSize getSize() {
+        if (StyleHelper.containsStyle(getStyleName(), Styles.FORM_SELECT_LG)) {
+            return InputSize.LARGE;
+        }
+        return StyleHelper.containsStyle(getStyleName(), Styles.FORM_SELECT_SM) ? InputSize.SMALL : InputSize.DEFAULT;
     }
 }

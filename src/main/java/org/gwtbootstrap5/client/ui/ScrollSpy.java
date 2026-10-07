@@ -53,6 +53,9 @@ public class ScrollSpy {
 
     private final Element spyOn;
     private final String target;
+    private String rootMargin;
+    private Boolean smoothScroll;
+    private double[] threshold;
 
     /**
      * Attaches ScrollSpy to document {@code <body>} and with the specified
@@ -137,6 +140,58 @@ public class ScrollSpy {
      */
     public void refresh() {
         refresh(spyOn);
+    }
+
+    /**
+     * Sets how much of the viewport counts when deciding which section is in view
+     * ({@code rootMargin} of the IntersectionObserver Bootstrap uses), such as
+     * {@code "0px 0px -25%"}. Bootstrap's default is {@code "0px 0px -25%"}.
+     *
+     * @param rootMargin the margin in CSS units, or {@code null} for Bootstrap's default
+     */
+    public void setRootMargin(final String rootMargin) {
+        this.rootMargin = rootMargin;
+        reinit();
+    }
+
+    /**
+     * Scrolls smoothly to a section when one of its nav links is clicked ({@code smoothScroll}).
+     *
+     * @param smoothScroll {@code true} to scroll smoothly; Bootstrap's default is {@code false}
+     */
+    public void setSmoothScroll(final boolean smoothScroll) {
+        this.smoothScroll = smoothScroll;
+        reinit();
+    }
+
+    /**
+     * Sets how much of a section must be visible to count as in view ({@code threshold} of the
+     * IntersectionObserver), as one or more ratios from 0 to 1. Bootstrap's default is
+     * {@code 0.1, 0.5, 1}.
+     *
+     * @param threshold the ratios, or none for Bootstrap's default
+     */
+    public void setThreshold(final double... threshold) {
+        this.threshold = threshold.length == 0 ? null : threshold;
+        reinit();
+    }
+
+    private void reinit() {
+        final BootstrapScrollSpy instance = BootstrapScrollSpy.getInstance(spyOn);
+        if (instance != null) {
+            instance.dispose();
+        }
+        final JsPropertyMap<Object> config = JsPropertyMap.of("target", target);
+        if (rootMargin != null) {
+            config.set("rootMargin", rootMargin);
+        }
+        if (smoothScroll != null) {
+            config.set("smoothScroll", smoothScroll);
+        }
+        if (threshold != null) {
+            config.set("threshold", threshold);
+        }
+        BootstrapScrollSpy.getOrCreateInstance(spyOn, config);
     }
 
     private static void init(final Element e, final String target) {

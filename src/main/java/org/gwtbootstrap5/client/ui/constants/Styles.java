@@ -44,6 +44,7 @@ public final class Styles {
     public static final String ALERT_DISMISSIBLE = "alert-dismissible";
 
     public static final String BLOCKQUOTE = "blockquote";
+    public static final String BLOCKQUOTE_FOOTER = "blockquote-footer";
 
     public static final String BREADCRUMB = "breadcrumb";
     public static final String BREADCRUMB_ITEM = "breadcrumb-item";
@@ -79,6 +80,8 @@ public final class Styles {
     public static final String COLLAPSING = "collapsing";
 
     public static final String CONTROL_LABEL = "col-form-label";
+    public static final String COL_FORM_LABEL_LG = "col-form-label-lg";
+    public static final String COL_FORM_LABEL_SM = "col-form-label-sm";
 
     public static final String DISABLED = "disabled";
 
@@ -91,6 +94,8 @@ public final class Styles {
     public static final String DROPDOWN_TOGGLE = "dropdown-toggle";
     public static final String DROPDOWN_DIVIDER = "dropdown-divider";
     public static final String DROPDOWN_ITEM = "dropdown-item";
+    public static final String DROPDOWN_ITEM_TEXT = "dropdown-item-text";
+    public static final String DROPDOWN_TOGGLE_SPLIT = "dropdown-toggle-split";
 
     public static final String FADE = "fade";
 
@@ -104,6 +109,9 @@ public final class Styles {
 
     public static final String FORM_TEXT = "form-text";
     public static final String INVALID_FEEDBACK = "invalid-feedback";
+    public static final String INVALID_TOOLTIP = "invalid-tooltip";
+    public static final String VALID_FEEDBACK = "valid-feedback";
+    public static final String VALID_TOOLTIP = "valid-tooltip";
     public static final String FORM_LABEL = "form-label";
 
     public static final String FORM_CONTROL = "form-control";
@@ -120,6 +128,8 @@ public final class Styles {
     public static final String FORM_CHECK_INLINE = "form-check-inline";
 
     public static final String FORM_SELECT = "form-select";
+    public static final String FORM_SELECT_LG = "form-select-lg";
+    public static final String FORM_SELECT_SM = "form-select-sm";
 
 
     public static final String ICON_BORDER = "fa-border";
@@ -177,6 +187,7 @@ public final class Styles {
     public static final String NAVBAR_BRAND = "navbar-brand";
     public static final String NAVBAR_COLLAPSE = "navbar-collapse";
     public static final String NAVBAR_NAV = "navbar-nav";
+    public static final String NAVBAR_NAV_SCROLL = "navbar-nav-scroll";
     public static final String NAVBAR_TEXT = "navbar-text";
     public static final String NAVBAR_TOGGLER = "navbar-toggler";
     public static final String NAVBAR_TOGGLER_ICON = "navbar-toggler-icon";
@@ -190,6 +201,9 @@ public final class Styles {
     public static final String CARD_FOOTER = "card-footer";
     public static final String CARD_TEXT = "card-text";
     public static final String CARD_IMG_OVERLAY = "card-img-overlay";
+    public static final String CARD_HEADER_PILLS = "card-header-pills";
+    public static final String CARD_HEADER_TABS = "card-header-tabs";
+    public static final String CARD_LINK = "card-link";
 
     public static final String PAGINATION = "pagination";
     public static final String PAGINATION_ITEM = "page-item";
@@ -199,6 +213,7 @@ public final class Styles {
     public static final String PROGRESS_BAR = "progress-bar";
     public static final String PROGRESS_BAR_STRIPPED = "progress-bar-striped";
     public static final String PROGRESS_BAR_ANIMATED = "progress-bar-animated";
+    public static final String PROGRESS_STACKED = "progress-stacked";
 
 
     public static final String ROUNDED_PILL = "rounded-pill";
@@ -222,9 +237,13 @@ public final class Styles {
     public static final String TAB_PANEL = "tab-pane";
 
     public static final String TABLE = "table";
+    public static final String TABLE_GROUP_DIVIDER = "table-group-divider";
+    public static final String TABLE_RESPONSIVE = "table-responsive";
+    public static final String CAPTION_TOP = "caption-top";
 
     public static final String TEXT_NOWRAP = "text-nowrap";
     public static final String TEXT_TRUNCATE = "text-truncate";
+    public static final String INITIALISM = "initialism";
 
     public static final String TOAST = "toast";
     public static final String TOAST_CONTAINER = "toast-container";

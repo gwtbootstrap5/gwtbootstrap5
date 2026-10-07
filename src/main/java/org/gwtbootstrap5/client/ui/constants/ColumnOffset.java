@@ -85,7 +85,7 @@ public enum ColumnOffset implements Size, Style.HasCssName {
     LG_10("offset-lg-10"),
     LG_11("offset-lg-11"),
 
-    // Large devices (>=1200px)
+    // Extra large devices (>=1200px)
     XL_0("offset-xl-0"),
     XL_1("offset-xl-1"),
     XL_2("offset-xl-2"),
@@ -99,12 +99,13 @@ public enum ColumnOffset implements Size, Style.HasCssName {
     XL_10("offset-xl-10"),
     XL_11("offset-xl-11"),
 
-    // Large devices (>=1400px)
+    // Extra extra large devices (>=1400px)
     XXL_0("offset-xxl-0"),
     XXL_1("offset-xxl-1"),
     XXL_2("offset-xxl-2"),
     XXL_3("offset-xxl-3"),
     XXL_4("offset-xxl-4"),
+    XXL_5("offset-xxl-5"),
     XXL_6("offset-xxl-6"),
     XXL_7("offset-xxl-7"),
     XXL_8("offset-xxl-8"),

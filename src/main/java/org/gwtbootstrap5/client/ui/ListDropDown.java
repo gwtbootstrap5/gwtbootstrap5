@@ -30,6 +30,8 @@ import org.gwtbootstrap5.client.ui.base.button.AbstractToggleButton;
 import org.gwtbootstrap5.client.ui.base.mixin.DropDownMixin;
 import org.gwtbootstrap5.client.ui.constants.DropDownAutoClose;
 import org.gwtbootstrap5.client.ui.constants.DropDownDirection;
+import org.gwtbootstrap5.client.ui.constants.DropDownDisplay;
+import org.gwtbootstrap5.client.ui.constants.DropDownReference;
 import org.gwtbootstrap5.client.ui.constants.Styles;
 
 import com.google.gwt.dom.client.Element;
@@ -134,6 +136,26 @@ public class ListDropDown extends AbstractListItem implements HasDropDown {
     @Override
     public DropDownAutoClose getAutoClose() {
         return dropDownMixin.getAutoClose();
+    }
+
+    @Override
+    public void setOffset(final int skidding, final int distance) {
+        dropDownMixin.setOffset(skidding, distance);
+    }
+
+    @Override
+    public void setBoundary(final String boundary) {
+        dropDownMixin.setBoundary(boundary);
+    }
+
+    @Override
+    public void setReference(final DropDownReference reference) {
+        dropDownMixin.setReference(reference);
+    }
+
+    @Override
+    public void setDisplay(final DropDownDisplay display) {
+        dropDownMixin.setDisplay(display);
     }
 
     @Override

@@ -25,6 +25,8 @@ import org.gwtbootstrap5.client.shared.event.HideHandler;
 import org.gwtbootstrap5.client.shared.event.ShowHandler;
 import org.gwtbootstrap5.client.shared.event.ShownHandler;
 import org.gwtbootstrap5.client.ui.constants.DropDownAutoClose;
+import org.gwtbootstrap5.client.ui.constants.DropDownDisplay;
+import org.gwtbootstrap5.client.ui.constants.DropDownReference;
 import org.gwtbootstrap5.client.ui.constants.DropDownDirection;
 
 import com.google.gwt.event.shared.HandlerRegistration;
@@ -72,6 +74,36 @@ public interface HasDropDown {
      * @return the value of {@code data-bs-auto-close}
      */
     DropDownAutoClose getAutoClose();
+
+    /**
+     * Moves the menu away from its toggle ({@code data-bs-offset} of the toggle).
+     *
+     * @param skidding the shift along the toggle, in pixels
+     * @param distance the distance from the toggle, in pixels; Bootstrap's default is 2
+     */
+    void setOffset(int skidding, int distance);
+
+    /**
+     * Sets the area the menu must stay inside ({@code data-bs-boundary} of the toggle):
+     * {@code "clippingParents"}, Bootstrap's default, or {@code "viewport"}.
+     *
+     * @param boundary the boundary, or {@code null} for Bootstrap's default
+     */
+    void setBoundary(String boundary);
+
+    /**
+     * Sets what the menu is positioned against ({@code data-bs-reference} of the toggle).
+     *
+     * @param reference the toggle or its parent, or {@code null} for Bootstrap's default
+     */
+    void setReference(DropDownReference reference);
+
+    /**
+     * Sets how the menu is positioned ({@code data-bs-display} of the toggle).
+     *
+     * @param display dynamic, with Popper, or static, or {@code null} for Bootstrap's default
+     */
+    void setDisplay(DropDownDisplay display);
 
     /**
      * Adds a handler called when the menu starts to open.

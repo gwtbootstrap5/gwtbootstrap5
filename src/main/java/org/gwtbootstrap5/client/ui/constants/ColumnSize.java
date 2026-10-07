@@ -45,6 +45,7 @@ public enum ColumnSize implements Size, Style.HasCssName {
     XS_10("col-10"),
     XS_11("col-11"),
     XS_12("col-12"),
+    XS_AUTO("col-auto"),
 
     // Small devices (>=576px)
     SM_DEFAULT("col-sm"),
@@ -60,6 +61,7 @@ public enum ColumnSize implements Size, Style.HasCssName {
     SM_10("col-sm-10"),
     SM_11("col-sm-11"),
     SM_12("col-sm-12"),
+    SM_AUTO("col-sm-auto"),
 
     // Medium devices (>=768px)
     MD_DEFAULT("col-md"),
@@ -75,6 +77,7 @@ public enum ColumnSize implements Size, Style.HasCssName {
     MD_10("col-md-10"),
     MD_11("col-md-11"),
     MD_12("col-md-12"),
+    MD_AUTO("col-md-auto"),
 
     // Large devices (>=992px)
     LG_DEFAULT("col-lg"),
@@ -90,8 +93,9 @@ public enum ColumnSize implements Size, Style.HasCssName {
     LG_10("col-lg-10"),
     LG_11("col-lg-11"),
     LG_12("col-lg-12"),
+    LG_AUTO("col-lg-auto"),
 
-    // Large devices (>=1200px)
+    // Extra large devices (>=1200px)
     XL_DEFAULT("col-xl"),
     XL_1("col-xl-1"),
     XL_2("col-xl-2"),
@@ -105,8 +109,9 @@ public enum ColumnSize implements Size, Style.HasCssName {
     XL_10("col-xl-10"),
     XL_11("col-xl-11"),
     XL_12("col-xl-12"),
+    XL_AUTO("col-xl-auto"),
 
-    // Large devices (>=1400px)
+    // Extra extra large devices (>=1400px)
     XXL_DEFAULT("col-xxl"),
     XXL_1("col-xxl-1"),
     XXL_2("col-xxl-2"),
@@ -119,7 +124,8 @@ public enum ColumnSize implements Size, Style.HasCssName {
     XXL_9("col-xxl-9"),
     XXL_10("col-xxl-10"),
     XXL_11("col-xxl-11"),
-    XXL_12("col-xxl-12");
+    XXL_12("col-xxl-12"),
+    XXL_AUTO("col-xxl-auto");
 
     private final String cssClass;
 

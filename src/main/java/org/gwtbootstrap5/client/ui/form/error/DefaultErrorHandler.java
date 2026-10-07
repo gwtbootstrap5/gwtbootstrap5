@@ -78,6 +78,7 @@ public class DefaultErrorHandler implements ErrorHandler {
     @Override
     public void clearErrors() {
         inputWidget.removeStyleName(ValidationState.ERROR.getCssName());
+        inputWidget.removeStyleName(ValidationState.SUCCESS.getCssName());
         if (validationStateParent == null) { return; }
         validationStateParent.setValidationState(ValidationState.NONE);
         if (validationStateHelpBlock != null) { validationStateHelpBlock.clearError(); }
@@ -131,6 +132,10 @@ public class DefaultErrorHandler implements ErrorHandler {
         final boolean invalid = !errors.isEmpty();
         // Bootstrap 5 styles the control itself, not its form group
         inputWidget.setStyleName(ValidationState.ERROR.getCssName(), invalid);
+        // A help block with a valid text marks the control as valid too
+        final boolean showValid = !invalid && validationStateHelpBlock != null
+                && !validationStateHelpBlock.getValidText().isEmpty();
+        inputWidget.setStyleName(ValidationState.SUCCESS.getCssName(), showValid);
         if (validationStateParent != null) {
             validationStateParent.setValidationState(invalid ? ValidationState.ERROR : ValidationState.NONE);
         }
@@ -144,6 +149,8 @@ public class DefaultErrorHandler implements ErrorHandler {
                     message.append(error.getMessage());
                 }
                 validationStateHelpBlock.setError(message.toString());
+            } else if (showValid) {
+                validationStateHelpBlock.setValid(validationStateHelpBlock.getValidText());
             } else {
                 validationStateHelpBlock.clearError();
             }

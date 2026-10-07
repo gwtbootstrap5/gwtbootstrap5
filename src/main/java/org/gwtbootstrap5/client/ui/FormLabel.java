@@ -20,6 +20,7 @@ package org.gwtbootstrap5.client.ui;
  * ==========================LICENSE_END=================================
  */
 
+import org.gwtbootstrap5.client.ui.base.helper.StyleHelper;
 import org.gwtbootstrap5.client.ui.base.AbstractTextWidget;
 import org.gwtbootstrap5.client.ui.constants.*;
 
@@ -133,4 +134,30 @@ public class FormLabel extends AbstractTextWidget {
         DomEvent.fireNativeEvent(Document.get().createChangeEvent(), this);
     }
 
+    /**
+     * Makes the label, to match a large or small control, larger or smaller ({@code col-form-label-lg} or {@code col-form-label-sm}).
+     *
+     * @param size {@code LARGE}, {@code SMALL}, or {@code DEFAULT} / {@code null} for the normal size
+     */
+    public void setSize(final InputSize size) {
+        removeStyleName(Styles.COL_FORM_LABEL_LG);
+        removeStyleName(Styles.COL_FORM_LABEL_SM);
+        if (size == InputSize.LARGE) {
+            addStyleName(Styles.COL_FORM_LABEL_LG);
+        } else if (size == InputSize.SMALL) {
+            addStyleName(Styles.COL_FORM_LABEL_SM);
+        }
+    }
+
+    /**
+     * Returns the size of the label, to match a large or small control,.
+     *
+     * @return {@code LARGE}, {@code SMALL} or {@code DEFAULT}
+     */
+    public InputSize getSize() {
+        if (StyleHelper.containsStyle(getStyleName(), Styles.COL_FORM_LABEL_LG)) {
+            return InputSize.LARGE;
+        }
+        return StyleHelper.containsStyle(getStyleName(), Styles.COL_FORM_LABEL_SM) ? InputSize.SMALL : InputSize.DEFAULT;
+    }
 }

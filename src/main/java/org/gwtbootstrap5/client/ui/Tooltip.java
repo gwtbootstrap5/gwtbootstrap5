@@ -120,7 +120,7 @@ public class Tooltip extends AbstractTooltip {
     }
 
     private void tooltip(Element e) {
-        BootstrapTooltip.getOrCreateInstance(e, null);
+        BootstrapTooltip.getOrCreateInstance(e, createConfig());
     }
 
 }

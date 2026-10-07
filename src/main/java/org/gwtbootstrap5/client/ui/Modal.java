@@ -273,6 +273,16 @@ public class Modal extends Div implements IsClosable {
     }
 
     /**
+     * Sets whether the modal takes the focus when it opens ({@code data-bs-focus}, on by
+     * default). Read by Bootstrap when the modal is first shown.
+     *
+     * @param focus {@code false} to leave the focus where it is
+     */
+    public void setDataFocus(final boolean focus) {
+        getElement().setAttribute("data-bs-focus", Boolean.toString(focus));
+    }
+
+    /**
      * Sets whether the Escape key closes the modal ({@code data-bs-keyboard}).
      *
      * @param keyboard {@code true} to close on Escape

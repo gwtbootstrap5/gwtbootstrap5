@@ -34,6 +34,8 @@ import org.gwtbootstrap5.client.ui.base.HasDropDown;
 import org.gwtbootstrap5.client.ui.constants.Attributes;
 import org.gwtbootstrap5.client.ui.constants.DropDownAutoClose;
 import org.gwtbootstrap5.client.ui.constants.DropDownDirection;
+import org.gwtbootstrap5.client.ui.constants.DropDownDisplay;
+import org.gwtbootstrap5.client.ui.constants.DropDownReference;
 import org.gwtbootstrap5.client.ui.constants.Toggle;
 
 import com.google.gwt.dom.client.Element;
@@ -58,6 +60,10 @@ public class DropDownMixin<T extends Widget & HasDropDown> extends AbstractMixin
     private final DropDownDirection defaultDirection;
     private DropDownDirection direction;
     private DropDownAutoClose autoClose;
+    private String offset;
+    private String boundary;
+    private DropDownReference reference;
+    private DropDownDisplay display;
 
     /**
      * Creates the mixin of a dropdown container.
@@ -85,7 +91,7 @@ public class DropDownMixin<T extends Widget & HasDropDown> extends AbstractMixin
         listeners.add(e, "shown.bs.dropdown", evt -> fire(evt, new ShownEvent(evt)));
         listeners.add(e, "hide.bs.dropdown", evt -> fire(evt, new HideEvent(evt)));
         listeners.add(e, "hidden.bs.dropdown", evt -> fire(evt, new HiddenEvent(evt)));
-        applyAutoClose();
+        applyOptions();
     }
 
     /**
@@ -135,14 +141,42 @@ public class DropDownMixin<T extends Widget & HasDropDown> extends AbstractMixin
     @Override
     public void setAutoClose(final DropDownAutoClose autoClose) {
         this.autoClose = autoClose;
-        applyAutoClose();
-        // Bootstrap reads data-bs-auto-close when it creates the instance
-        disposeInstance();
+        optionsChanged();
     }
 
     @Override
     public DropDownAutoClose getAutoClose() {
         return autoClose;
+    }
+
+    @Override
+    public void setOffset(final int skidding, final int distance) {
+        offset = skidding + "," + distance;
+        optionsChanged();
+    }
+
+    @Override
+    public void setBoundary(final String boundary) {
+        this.boundary = boundary;
+        optionsChanged();
+    }
+
+    @Override
+    public void setReference(final DropDownReference reference) {
+        this.reference = reference;
+        optionsChanged();
+    }
+
+    @Override
+    public void setDisplay(final DropDownDisplay display) {
+        this.display = display;
+        optionsChanged();
+    }
+
+    private void optionsChanged() {
+        applyOptions();
+        // Bootstrap reads the data-bs-* options when it creates the instance
+        disposeInstance();
     }
 
     @Override
@@ -172,15 +206,23 @@ public class DropDownMixin<T extends Widget & HasDropDown> extends AbstractMixin
         }
     }
 
-    private void applyAutoClose() {
+    private void applyOptions() {
         final Element toggle = findToggle();
         if (toggle == null) {
             return;
         }
-        if (autoClose != null) {
-            toggle.setAttribute(Attributes.DATA_AUTO_CLOSE, autoClose.getValue());
+        setOption(toggle, Attributes.DATA_AUTO_CLOSE, autoClose != null ? autoClose.getValue() : null);
+        setOption(toggle, "data-bs-offset", offset);
+        setOption(toggle, "data-bs-boundary", boundary);
+        setOption(toggle, "data-bs-reference", reference != null ? reference.getValue() : null);
+        setOption(toggle, "data-bs-display", display != null ? display.getValue() : null);
+    }
+
+    private static void setOption(final Element toggle, final String name, final String value) {
+        if (value != null) {
+            toggle.setAttribute(name, value);
         } else {
-            toggle.removeAttribute(Attributes.DATA_AUTO_CLOSE);
+            toggle.removeAttribute(name);
         }
     }
 

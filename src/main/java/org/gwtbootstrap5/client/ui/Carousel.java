@@ -81,6 +81,8 @@ public class Carousel extends Div {
     private String pause = HOVER;
     private boolean wrap = true;
     private boolean autoplay = true;
+    private boolean keyboard = true;
+    private boolean touch = true;
 
     /** Creates an empty carousel ({@code div.carousel.slide}) that cycles on its own. */
     public Carousel() {
@@ -102,7 +104,7 @@ public class Carousel extends Div {
         bindJavaScriptEvents(getElement());
 
         // Configure the carousel
-        carousel(getElement(), interval, pause, wrap, autoplay);
+        carousel(getElement(), interval, pause, wrap, autoplay, keyboard, touch);
     }
 
     @Override
@@ -163,6 +165,26 @@ public class Carousel extends Div {
      */
     public boolean isAutoplay() {
         return autoplay;
+    }
+
+    /**
+     * Sets whether the arrow keys move between slides when the carousel has the focus
+     * ({@code keyboard}, on by default). Passed to Bootstrap when the carousel is attached.
+     *
+     * @param keyboard {@code false} to ignore the arrow keys
+     */
+    public void setKeyboard(final boolean keyboard) {
+        this.keyboard = keyboard;
+    }
+
+    /**
+     * Sets whether swiping left or right on a touch screen moves between slides ({@code touch},
+     * on by default). Passed to Bootstrap when the carousel is attached.
+     *
+     * @param touch {@code false} to ignore swipes
+     */
+    public void setTouch(final boolean touch) {
+        this.touch = touch;
     }
 
     /**
@@ -276,9 +298,12 @@ public class Carousel extends Div {
     }
 
     private static void carousel(final com.google.gwt.dom.client.Element e, final int interval, final String pause,
-                                 final boolean wrap, final boolean autoplay) {
+                                 final boolean wrap, final boolean autoplay, final boolean keyboard,
+                                 final boolean touch) {
         final JsPropertyMap<Object> config = JsPropertyMap.of("interval", interval, "pause", pause, "wrap", wrap);
         config.set("ride", autoplay ? CAROUSEL : false);
+        config.set("keyboard", keyboard);
+        config.set("touch", touch);
         BootstrapCarousel.getOrCreateInstance(e, config);
     }
 

@@ -149,7 +149,7 @@ public class Popover extends AbstractTooltip {
 
     private void popover(Element e, String content) {
         e.setAttribute("data-bs-content", content);
-        BootstrapPopover.getOrCreateInstance(e, null);
+        BootstrapPopover.getOrCreateInstance(e, createConfig());
     }
 
     /**
