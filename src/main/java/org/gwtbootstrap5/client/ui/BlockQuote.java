@@ -33,6 +33,8 @@ import org.gwtbootstrap5.client.ui.constants.Styles;
  *         <b.html:Paragraph>A well-known quote, contained in a blockquote element.</b.html:Paragraph>
  *     </b:BlockQuote>
  * }</pre>
+ * To name the source, put the quote and a {@link BlockQuoteFooter} in a
+ * {@link org.gwtbootstrap5.client.ui.html.Figure}.
  *
  * @see <a href="https://getbootstrap.com/docs/5.3/content/typography/#blockquotes">Bootstrap 5 documentation</a>
  *

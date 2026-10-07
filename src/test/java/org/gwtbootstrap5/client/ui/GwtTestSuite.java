@@ -40,6 +40,7 @@ public class GwtTestSuite extends TestCase {
         suite.addTestSuite(ComponentOptionsGwt.class);
         suite.addTestSuite(ColorModeGwt.class);
         suite.addTestSuite(StickyGwt.class);
+        suite.addTestSuite(Bootstrap53GapsGwt.class);
         return suite;
     }
 

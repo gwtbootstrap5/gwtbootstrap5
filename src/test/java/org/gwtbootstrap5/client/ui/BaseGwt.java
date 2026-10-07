@@ -47,8 +47,9 @@ public abstract class BaseGwt extends GWTTestCase {
 
     /**
      * HtmlUnit can't run Bootstrap's JavaScript, so its components get a stand-in that only keeps
-     * one do-nothing instance per element. The tests check the markup GwtBootstrap5 writes; the
-     * browser check of the demo runs the real thing.
+     * one do-nothing instance per element, with the configuration it was created with. The tests
+     * check the markup and the configuration GwtBootstrap5 writes; the browser check of the demo runs
+     * the real thing.
      */
     private static final String FAKE_BOOTSTRAP = "if (!window.bootstrap) { window.bootstrap = {}; }"
             + "['Alert', 'Carousel', 'Collapse', 'Dropdown', 'Modal', 'Offcanvas', 'Popover', 'ScrollSpy',"
@@ -58,9 +59,9 @@ public abstract class BaseGwt extends GWTTestCase {
             + "  var noop = function () {};"
             + "  window.bootstrap[name] = {"
             + "    getInstance: function (e) { return e[key] || null; },"
-            + "    getOrCreateInstance: function (e) {"
+            + "    getOrCreateInstance: function (e, config) {"
             + "      if (!e[key]) {"
-            + "        e[key] = { show: noop, hide: noop, toggle: noop, close: noop, update: noop, enable: noop,"
+            + "        e[key] = { config: config || null, show: noop, hide: noop, toggle: noop, close: noop, update: noop, enable: noop,"
             + "          disable: noop, toggleEnabled: noop, setContent: noop, handleUpdate: noop, cycle: noop,"
             + "          pause: noop, prev: noop, next: noop, nextWhenVisible: noop, to: noop, refresh: noop,"
             + "          isShown: function () { return false; },"

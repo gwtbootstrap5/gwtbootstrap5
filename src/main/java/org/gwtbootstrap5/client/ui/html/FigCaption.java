@@ -24,7 +24,7 @@ import com.google.gwt.dom.client.Document;
 import org.gwtbootstrap5.client.ui.base.ComplexWidget;
 
 /**
- * Simple {@code <div>} tag
+ * Simple {@code <figcaption>} tag
  *
  * @author Joshua Godi
  */

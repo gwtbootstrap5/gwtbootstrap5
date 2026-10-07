@@ -40,6 +40,21 @@ import com.google.gwt.user.client.ui.Widget;
 /**
  * Header of a {@link Card} ({@code div.card-header}), with text or widgets. Its
  * {@code data-bs-*} attributes let it toggle a collapsible part of the card.
+ * <p>
+ * A {@link NavTabs} or {@link NavPills} added to it gets {@code card-header-tabs} or
+ * {@code card-header-pills}, so its tabs or pills sit on the header's edge.
+ * <h2>UiBinder example</h2>
+ * <pre>{@code
+ *     <b:Card>
+ *         <b:CardHeader>
+ *             <b:NavTabs>
+ *                 <b:AnchorListItem text="Active" active="true"/>
+ *                 <b:AnchorListItem text="Link" targetHistoryToken="link"/>
+ *             </b:NavTabs>
+ *         </b:CardHeader>
+ *         <b:CardBody>...</b:CardBody>
+ *     </b:Card>
+ * }</pre>
  *
  * @see <a href="https://getbootstrap.com/docs/5.3/components/card/#header-and-footer">Bootstrap 5 documentation</a>
  *
@@ -73,6 +88,29 @@ public class CardHeader extends Div implements HasWidgets, HasText, HasDataToggl
     public void setText(final String text) {
         this.text.setText(text);
         insert(this.text, 0);
+    }
+
+    /**
+     * Adds a widget. A {@link NavTabs} gets {@code card-header-tabs} and a {@link NavPills}
+     * {@code card-header-pills}.
+     */
+    @Override
+    public void add(final Widget child) {
+        super.add(asHeaderNav(child));
+    }
+
+    @Override
+    public void insert(final Widget child, final int beforeIndex) {
+        super.insert(asHeaderNav(child), beforeIndex);
+    }
+
+    private static Widget asHeaderNav(final Widget child) {
+        if (child instanceof NavTabs) {
+            child.addStyleName(Styles.CARD_HEADER_TABS);
+        } else if (child instanceof NavPills) {
+            child.addStyleName(Styles.CARD_HEADER_PILLS);
+        }
+        return child;
     }
 
     @Override
