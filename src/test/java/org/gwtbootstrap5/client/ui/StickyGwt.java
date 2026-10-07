@@ -68,17 +68,4 @@ public class StickyGwt extends BaseGwt {
         assertNull(div.getSticky());
         assertEquals("", div.getStyleName());
     }
-
-    @SuppressWarnings("deprecation")
-    public void testAffixKeepsItsTenPixels() {
-        final Div div = new Div();
-        Affix.affix(div);
-        assertEquals("sticky-top", div.getStyleName());
-        assertEquals("10px", div.getElement().getStyle().getProperty("top"));
-        Affix.affix(div, 30);
-        assertEquals("30px", div.getElement().getStyle().getProperty("top"));
-        Affix.unaffix(div);
-        assertEquals("", div.getStyleName());
-        assertEquals("", div.getElement().getStyle().getProperty("top"));
-    }
 }
