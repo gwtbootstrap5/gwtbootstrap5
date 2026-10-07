@@ -45,7 +45,6 @@ import com.google.gwt.user.client.ui.Widget;
  * @author Sven Jacobs
  * @see NavTabs
  * @see NavPills
- * @see Affix
  * @see <a href="https://getbootstrap.com/docs/5.3/components/navs-tabs/">Bootstrap 5 documentation</a>
  */
 public class Nav extends UnorderedList implements HasJustified, HasRole {

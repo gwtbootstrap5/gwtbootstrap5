@@ -21,6 +21,8 @@ package org.gwtbootstrap5.client.ui.html;
  */
 
 import org.gwtbootstrap5.client.ui.base.ComplexWidget;
+import org.gwtbootstrap5.client.ui.base.helper.StickyHelper;
+import org.gwtbootstrap5.client.ui.constants.StickyPosition;
 
 import com.google.gwt.dom.client.Document;
 
@@ -34,5 +36,25 @@ public class Div extends ComplexWidget {
     /** Creates an empty {@code div}. */
     public Div() {
         setElement(Document.get().createDivElement());
+    }
+
+    /**
+     * Makes the div stick to the top or bottom of the viewport while the page scrolls, as
+     * {@code sticky="TOP"} in UiBinder. For an offset, use
+     * {@link StickyHelper#setSticky(com.google.gwt.user.client.ui.UIObject, StickyPosition, int)}.
+     *
+     * @param position where it sticks, or {@code null} to make it not sticky
+     */
+    public void setSticky(final StickyPosition position) {
+        StickyHelper.setSticky(this, position);
+    }
+
+    /**
+     * Returns where the div sticks.
+     *
+     * @return the position, or {@code null} if it isn't sticky
+     */
+    public StickyPosition getSticky() {
+        return StickyHelper.getSticky(this);
     }
 }
