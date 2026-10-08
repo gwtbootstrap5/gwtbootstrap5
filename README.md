@@ -7,14 +7,13 @@ Add GWTBootstrap5 to your project as a Maven dependency from Maven Central.
 <dependency>
   <groupId>io.github.gwtbootstrap5</groupId>
   <artifactId>gwtbootstrap5</artifactId>
-  <version>0.3.1</version>
+  <version>0.4.0</version>
 </dependency>
 ```
 
-### ToDo
-* Extract datepicker and select engines to separate jar
-
 ### Final Release
+* 0.4.0 - Released on 8 October 2026.
+  * Based on Bootstrap v5.3.8. Gutters, `TableResponsive`, `ProgressStacked`, validation success messages and the Bootstrap 5.3 options of tooltips, popovers, dropdowns, ScrollSpy, Carousel and Modal; `Affix` and `setViewportSelector` removed. See [UPGRADING.md](https://github.com/gwtbootstrap5/gwtbootstrap5-parent/blob/master/UPGRADING.md#upgrading-to-040).
 * 0.3.1 - Released on 7 October 2026.
   * Based on Bootstrap v5.3.8. `StickyHelper` and `StickyPosition` for the sticky positions; `Affix` is deprecated.
 * 0.3.0 - Released on 7 October 2026.
@@ -27,7 +26,7 @@ Add GWTBootstrap5 to your project as a Maven dependency from Maven Central.
 ### Links
 * [Demo](https://gwtbootstrap5.github.io/) - Every widget of GwtBootstrap5 and its extras running, next to the UiBinder code that creates it.
 * [Getting started](https://gwtbootstrap5.github.io/#setup) - Dependencies, the GWT module to inherit and the host page.
-* [Upgrading](https://github.com/gwtbootstrap5/gwtbootstrap5-parent/blob/master/UPGRADING.md) - Breaking changes from 0.2.x and 0.1.x and how to update your code.
+* [Upgrading](https://github.com/gwtbootstrap5/gwtbootstrap5-parent/blob/master/UPGRADING.md) - The breaking changes of each version and how to update your code.
 * [API Docs](https://javadoc.io/doc/io.github.gwtbootstrap5/gwtbootstrap5) - The GwtBootstrap5 Javadoc.
 * [Extras API Docs](https://javadoc.io/doc/io.github.gwtbootstrap5/gwtbootstrap5-extras) - The GwtBootstrap5 Extras Javadoc.
 * [Maven Central](https://central.sonatype.com/namespace/io.github.gwtbootstrap5) - The published artifacts.
